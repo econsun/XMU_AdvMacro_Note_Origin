@@ -1,13 +1,13 @@
 % !TeX root = Lec03_RBC_Basic.tex
 
 \ifdefined\AdvMacroMain
-  \chapter{Lecture 3: Real Business Cycle Model}
+  \chapter{Real Business Cycle Model}
   \let\ThisNoteEnd\relax
 \else
   \documentclass[12pt]{article}
   \newcommand{\ProjectRoot}{..}
   \input{\ProjectRoot/_config/config}
-  \title{Lecture 3: Real Business Cycle Model}
+  \title{Real Business Cycle Model}
   \author{Chengyuan HE}
   \date{March 2026}
   \begin{document}
@@ -15,7 +15,7 @@
   \def\ThisNoteEnd{\end{document}}
 \fi
 
-\subsection*{1. Basic RBC model: Social Planner's Problem}
+\section{Basic RBC model: Social Planner's Problem}
 
 \textbf{Preference:}
 \[
@@ -200,7 +200,7 @@ K_t
 
 Three variables, three equations: \quad \#(equation) = \#(variable)
 
-\subsection*{2. What is the economic intuition behind Lagrangian multiplier?}
+\section{What is the economic intuition behind Lagrangian multiplier?}
 
 Lagrangian multiplier is the shadow price of constrained resources. Marginal value of relaxing or tightening a constraint. For a problem,
 \[
@@ -326,7 +326,7 @@ At large $T$, if we increase $C_T$ by $\varepsilon$ and decrease future capital 
 \textcolor{red}{\text{in far future, you can not gain by this operation}}
 \]
 
-\subsection*{3. Basic RBC model: competitive market approach}
+\section{Basic RBC model: competitive market approach}
 
 \[
 \textcolor{red}{\text{divide social planner into household and firm}}
@@ -581,7 +581,7 @@ E_t\left\{
 
 \textcolor{red}{* The competitive market version of RBC model is a decentralized version of social planner RBC.}
 \newpage
-\subsection*{4. First and second welfare theorem in dynamic equilibrium}
+\section{First and second welfare theorem in dynamic equilibrium}
 
 *First welfare theorem. Provided that all product and factor markets are \textcolor{red}{competitive} and there are \textcolor{red}{no externalities} in production or consumption, dynamic competitive equilibrium are Pareto Optimal.
 \[
@@ -824,9 +824,9 @@ C_t+K_t=W_tN_t+r_tK_{t-1}+(1-\delta)K_{t-1}
 \[
 \Rightarrow\qquad \text{Setting is totally isomorphic.}
 \]
-\subsection*{Supplementary notes}
+\section{Supplementary notes}
 
-\paragraph{Q1. Technology shock: among $C$, $I$, and $K$, which one rises more?}
+\subsection{\texorpdfstring{Technology-shock responses of $C$, $I$, and $K$}{Technology-shock responses of C, I, and K}}
 
 Under a positive technology shock, $K_t$ does \emph{not} move on impact, because it is predetermined.  
 Thus, on impact, both $C_t$ and $I_t$ rise, while $K_t$ remains unchanged.
@@ -835,7 +835,7 @@ The more subtle question is whether $C_t$ or $I_t$ rises more. In the model, thi
 
 Empirically, however, the data typically show that consumption rises by less, while investment is more volatile.Later in the course, this can be seen more clearly from the impulse response functions.
 
-\paragraph{Q2. What is the difference between the two definitions of return?}
+\subsection{Definitions of return}
 
 In the baseline setup, $R$ denotes the \emph{capital rent}, namely the rental price.
 
@@ -861,7 +861,7 @@ Hence:
 \end{itemize}
 
 \newpage
-\subsection*{5. Solve the RBC model}
+\section{Solve the RBC model}
 
 Find the Steady State (S.S.) of the economy, drop time subscript:
 \[
@@ -906,7 +906,7 @@ N_t=1,\ \forall t
 \frac{\frac{1}{\beta}-1+(1-\alpha)\delta}{\alpha}
 \]
 
-\subsection*{6. Log-linearization}
+\section{Log-linearization}
 
 \textbf{(i) Resource constraint:}
 \[
@@ -1228,7 +1228,7 @@ The log-linearized system of equation:
 
 \newpage
 
-\subsection*{7. Solve the system in terms of exogenous parameters \& pre-determined variables}
+\section{Solve the system in terms of exogenous parameters \& pre-determined variables}
 
 Pre-determined: $(\hat z_t,\hat k_{t-1})$
 
@@ -1454,7 +1454,7 @@ Since we have one predetermined variable $\hat k_{t-1}$ and one jump variable $\
 \text{(from Blanchard and Kahn conditions)}
 \]
 
-\subsection*{8. What is Jacobian Matrix?}
+\section{What is Jacobian Matrix?}
 
 Partial derivative that tells how a change in today's state affects tomorrow's variables.
 

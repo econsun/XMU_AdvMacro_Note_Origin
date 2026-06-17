@@ -1,13 +1,13 @@
 % !TeX root = Lec02_Log_Line.tex
 
 \ifdefined\AdvMacroMain
-  \chapter{Lecture 2: Log Linearization}
+  \chapter{Log Linearization}
   \let\ThisNoteEnd\relax
 \else
   \documentclass[12pt]{article}
   \newcommand{\ProjectRoot}{..}
   \input{\ProjectRoot/_config/config}
-  \title{Lecture 2: Log Linearization}
+  \title{Log Linearization}
   \author{Chengyuan He}
   \date{March 2026}
   \begin{document}
@@ -19,7 +19,7 @@ Business cycle is fluctuation / deviation around trend. Log linearization: take 
 
 \textcolor{red}{* Can not work with discontinuous functions, eg: zero lower bound, default, work choice,etc.}
 
-\subsection*{1. Taylor expansions}
+\section{Taylor expansions}
 
 Taylor expansion of order $k$ of function $f$ around $a$ is to derive the best approximation of $f$ around $a$ by a polynomial of order $k$.
 
@@ -48,7 +48,7 @@ f(x)\approx f(a)+\frac{f'(a)}{1!}(x-a)^1+\frac{f''(a)}{2!}(x-a)^2
 = f(a)+f'(a)(x-a)+\frac{f''(a)}{2}(x-a)^2
 \]
 
-\subsection*{2. Taylor expansion on 2 dimensions}
+\section{Taylor expansion on two dimensions}
 
 Suppose $f$ is second-order continuous $(C^2)$ in a circle around $(x_0,y_0)$ that contains $(x_0+h,y_0+k)$.
 
@@ -82,7 +82,7 @@ f(z_0+\Delta)=f(z_0)+\nabla f(z_0)^T\Delta+\frac{1}{2}\Delta^T H_f(z_0+c\Delta)\
 }
 \]
 
-\subsection*{3. Log linearization}
+\section{Log linearization}
 \[
 \textcolor{red}{\text{percentage deviation:}}\qquad
 \hat x_t
@@ -136,9 +136,9 @@ X_t=
 \overbrace{\bar X\hat x_t}^{\textcolor{red}{\text{deviation from steady state}}}
 \]
 
-\subsection*{4. Examples}
+\section{Examples}
 
-\paragraph{(1)}
+\subsection{Linear equation}
 \[
 Y_t=aX_t
 \]
@@ -166,7 +166,7 @@ hence
 \hat x_t=\hat y_t.
 \]
 
-\paragraph{(2)}
+\subsection{Product}
 \[
 Z_t=X_tY_t
 \]
@@ -204,7 +204,7 @@ hence
 \hat z_t=\hat x_t+\hat y_t.
 \]
 
-\paragraph{(3)}
+\subsection{Constant product}
 Log linearize equation
 \[
 X_tY_t=C
@@ -223,7 +223,7 @@ so
 \hat x_t+\hat y_t=0.
 \]
 
-\paragraph{(4)}
+\subsection{Ratio}
 \[
 \frac{X_t}{Y_t}=C
 \qquad \Rightarrow \qquad
@@ -269,7 +269,7 @@ C=C(1+\hat x_t-\hat y_t)
 \hat x_t-\hat y_t=0.
 \]
 
-\paragraph{(5)}
+\subsection{Sum}
 \[
 X_t+Y_t=C
 \qquad \Rightarrow \qquad
@@ -285,7 +285,7 @@ hence
 \bar X\hat x_t+\bar Y\hat y_t=0.
 \]
 
-\paragraph{(6) budget constraint}
+\subsection{Budget constraint}
 \[
 C_t+K_t=Y_t+(1-\delta)K_{t-1}
 \qquad \Rightarrow \qquad
@@ -324,7 +324,7 @@ we obtain
 \bar Y\hat y_t+(1-\delta)\bar K\hat k_{t-1}.
 \]
 
-\paragraph{(7) Utility FOC}
+\subsection{Utility FOC}
 \[
 C_t^{-\sigma}=\lambda_t
 \qquad \Rightarrow \qquad
@@ -363,7 +363,7 @@ we get
 -\sigma \hat c_t=\hat \lambda_t.
 \]
 
-\paragraph{(8) C-D production function}
+\subsection{C-D production function}
 \[
 Y_t=A_t K_t^\alpha N_t^{1-\alpha}
 \qquad \Rightarrow \qquad
@@ -391,7 +391,7 @@ hence
 \]
 
 
-\paragraph{(9) GDP identity}
+\subsection{GDP identity}
 \[
 Y_t=C_t+I_t+G_t
 \]
@@ -413,7 +413,7 @@ s_c\hat c_t+s_i\hat i_t+s_g\hat g_t.
 
 \newpage
 
-\paragraph{(10) Capital law of motion}
+\subsection{Capital law of motion}
 \[
 K_{t+1}=(1-\delta)K_t+I_t
 \qquad \Rightarrow \qquad
@@ -461,7 +461,7 @@ we obtain
 \hat k_{t+1}=(1-\delta)\hat k_t+\delta \hat i_t.
 \]
 
-\paragraph{(11) Euler equation}
+\subsection{Euler equation}
 \[
 U'(C_t)=\beta E_t\bigl[U'(C_{t+1})R_{t+1}\bigr]
 \]
@@ -541,7 +541,7 @@ E_t(\hat c_{t+1})
 -\frac{1}{\sigma}E_t(\hat r_{t+1}).
 \]
 
-\subsection*{\textcolor{red}{Log linearization cheat sheet for economics}}
+\section{Log linearization cheat sheet for economics}
 \[
 \renewcommand{\arraystretch}{1.8}
 \begin{array}{ll}

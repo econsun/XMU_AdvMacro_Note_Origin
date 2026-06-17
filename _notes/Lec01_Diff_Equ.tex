@@ -1,13 +1,13 @@
 % !TeX root = Lec01_Diff_Equ.tex
 
 \ifdefined\AdvMacroMain
-  \chapter{Lecture 1: Difference Equation}
+  \chapter{Difference Equation}
   \let\ThisNoteEnd\relax
 \else
   \documentclass[12pt]{article}
   \newcommand{\ProjectRoot}{..}
   \input{\ProjectRoot/_config/config}
-  \title{Lecture 1: Difference Equation}
+  \title{Difference Equation}
   \author{Chengyuan He}
   \date{March 2026}
   \begin{document}
@@ -15,7 +15,7 @@
   \def\ThisNoteEnd{\end{document}}
 \fi
 
-\subsection*{1. Difference operators}
+\section{Difference operators}
 
 \[
 \text{1-st order difference:}\qquad \Delta y_t = y_t - y_{t-1}
@@ -33,7 +33,7 @@
 = y_t - 2y_{t-1} + y_{t-2}.
 \]
 
-\subsection*{2. Period}
+\section{Period}
 
 Period: an interval of time $\Rightarrow y_t$ is the $y$ for $t^{\text{th}}$ interval of time, not for a point of time.
 
@@ -69,7 +69,7 @@ is the change from $(t-1)^{\text{th}}$ time interval to $t^{\text{th}}$ interval
 }
 \]
 
-\subsection*{3. Solve a first-order difference equation}
+\section{Solve a first-order difference equation}
 
 Solve a first-order difference equation $\Longleftrightarrow$ rewrite $y_t$ as a function of $t$.
 
@@ -78,7 +78,7 @@ Example:
 y_t + a y_{t-1} = C.
 \]
 
-\subsubsection*{(1) Brutal force: iterative method}
+\subsection{Brute-force iterative method}
 
 \[
 y_t = -a y_{t-1} + C
@@ -143,7 +143,7 @@ Ct+y_0, & a=-1,
 \text{where } A = y_0-\dfrac{C}{1+a}.
 \]
 
-\subsubsection*{(2) General method}
+\subsection{General method}
 
 Since the system is \textit{linear}, we can separate:
 \begin{enumerate}[label=\arabic*)]
@@ -197,7 +197,7 @@ y_t+ay_{t-1}=C.
 
 \textcolor{red}{Now we solve the difference equation with general method.}
 
-\paragraph{1) Complementary solution}
+\subsubsection{Complementary solution}
 Since exponential sequences are eigenfunctions of the lag operator, try
 \[
 y_t = Ab^t.
@@ -217,7 +217,7 @@ Hence
 y_t^c = A(-a)^t.
 \]
 
-\paragraph{2) Particular solution}
+\subsubsection{Particular solution}
 Since the forcing term is a constant $C$, we guess
 \[
 y_t^p = k.
@@ -266,7 +266,7 @@ y_0=A
 A=y_0.
 \]
 
-\subsection*{4. Dynamic stability of equilibrium}
+\section{Dynamic stability of equilibrium}
 
 Consider
 \[
@@ -324,7 +324,7 @@ Then
 \end{cases}
 \]
 
-\subsection*{5. Sign of $b$ and oscillation / monotonicity}
+\section{\texorpdfstring{Sign of $b$ and oscillation / monotonicity}{Sign of b and oscillation / monotonicity}}
 
 Sign of $b$ also controls \textcolor{red}{oscillation} / \textcolor{red}{monotonicity}.
 
@@ -364,7 +364,7 @@ b<-1, & y_t \text{ oscillate around and diverge from } \bar y.
     }
 \end{center}
 
-\subsection*{6. The role of $A$}
+\section{\texorpdfstring{The role of $A$}{The role of A}}
 
 Since the general solution can be written as
 \[
@@ -386,7 +386,7 @@ A>0:\ \text{start above } \bar y;
 A<0:\ \text{start below } \bar y.
 \]
 
-\subsection*{7. Example: Inventory model}
+\section{Example: Inventory model}
 
 \textcolor{red}{
 Example: Inventory model.
@@ -476,7 +476,7 @@ If supply or demand elasticity in terms of price too high
 \Rightarrow \text{creates oscillation or even divergence.}
 \]
 
-\subsection*{8. Higher-order difference equations}
+\section{Higher-order difference equations}
 
 \[
 \text{2-nd order linear difference equation with constant coefficients \& constant term:}
@@ -485,7 +485,7 @@ If supply or demand elasticity in terms of price too high
 y_{t+2}+a_1 y_{t+1}+a_2 y_t = C.
 \]
 
-\subsubsection*{1$^\circ$ Particular solution $y^p$: the intertemporal equilibrium level}
+\subsection{\texorpdfstring{Particular solution $y^p$: the intertemporal equilibrium level}{Particular solution yp: the intertemporal equilibrium level}}
 
 Try a constant:
 \[
@@ -564,7 +564,7 @@ y^p=
 \end{cases}
 \]
 
-\subsubsection*{2$^\circ$ Complementary solution $y^c$: deviation from the equilibrium in each period}
+\subsection{\texorpdfstring{Complementary solution $y^c$: deviation from the equilibrium in each period}{Complementary solution yc: deviation from the equilibrium in each period}}
 
 Look at the homogeneous equation:
 \[
@@ -581,7 +581,7 @@ Then
 b^2+a_1b+a_2=0.
 \]
 
-\paragraph{Case 1: Two distinct real roots}
+\subsubsection{Two distinct real roots}
 If
 \[
 a_1^2-4a_2>0,
@@ -597,7 +597,7 @@ b_1=\frac{-a_1+\sqrt{a_1^2-4a_2}}{2},
 b_2=\frac{-a_1-\sqrt{a_1^2-4a_2}}{2}.
 \]
 
-\paragraph{Case 2: Repeated real root}
+\subsubsection{Repeated real root}
 If
 \[
 a_1^2-4a_2=0,
@@ -611,7 +611,7 @@ and
 y^c=A_3 b^t + A_4 t b^t.
 \]
 
-\paragraph{Case 3: Complex roots}
+\subsubsection{Complex roots}
 If
 \[
 a_1^2-4a_2<0,
@@ -658,7 +658,7 @@ R=\sqrt{a_2},
 \end{cases}
 \]
 
-\subsection*{9. Convergence under higher-order difference equation}
+\section{Convergence under higher-order difference equation}
 
 \begin{enumerate}[label=\arabic*$^\circ$]
     \item Distinct root: $b_{\mathrm{dom}}$ is the root with highest absolute value.  
@@ -680,7 +680,7 @@ R=\sqrt{a_2},
     \]
 \end{enumerate}
 
-\subsection*{10. Simultaneous difference equation (state-space form)}
+\section{Simultaneous difference equation (state-space form)}
 
 Let
 \[
@@ -781,7 +781,7 @@ A nonzero $v$ exists iff
 \det(A-bI)=0.
 \]
 
-\subsection*{11. Characteristic equation}
+\section{Characteristic equation}
 
 Characteristic equation:
 \[
@@ -834,7 +834,7 @@ Eigenvalues:
 \qquad \text{if } a_1^2>4a_2.
 \]
 
-\subsection*{12. Stability triangle on the $(T,D)$ plane}
+\section{\texorpdfstring{Stability triangle on the $(T,D)$ plane}{Stability triangle on the (T,D) plane}}
 
 \begin{enumerate}[label=\arabic*$^\circ$]
     \item
@@ -985,7 +985,7 @@ Four cases:
     \item $p(1)>0,\ p(-1)>0,\ D>1,\ T>2$
 \end{enumerate}
 
-\subsection*{\textcolor{red}{13. Region-by-region summary}}
+\section{Region-by-region summary}
 
 \[
 \begin{array}{|c|c|c|}
@@ -1101,7 +1101,7 @@ b_1>1,\ b_2>1
 \end{array}
 \]
 
-\subsection*{14. Blanchard and Kahn (BK) conditions}
+\section{Blanchard and Kahn (BK) conditions}
 
 Predetermined variable: initial value is given, states like $k,h,b$ {\small\textcolor{black}{(i.e.\ capital, hour, bond)}}.
 
@@ -1125,7 +1125,7 @@ Jump variable: initial value not given, can jump to satisfy equilibrium, like $c
 \text{Sink (Indeterminacy)}
 \]
 
-\subsection*{15. Why?}
+\section{Why?}
 
 Linearize around steady state, we write deviations as a first-order system:
 \[
@@ -1188,19 +1188,19 @@ n_u=n_j
 n_\ell=n_s.
 \]
 
-\paragraph{Case A}
+\subsection{Determinacy}
 \[
 n_\ell=n_s \quad (n_u=n_j):
 \]
 jump variables jump to land on saddle path.
 
-\paragraph{Case B}
+\subsection{No convergent equilibrium}
 \[
 n_\ell<n_s \quad (n_u>n_j):
 \]
 too many unstable modes to eliminate, but too few jump variables to adjust.
 
-\paragraph{Case C}
+\subsection{Indeterminacy}
 \[
 n_\ell>n_s \quad (n_u<n_j):
 \]

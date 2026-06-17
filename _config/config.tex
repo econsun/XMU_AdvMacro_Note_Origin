@@ -9,6 +9,12 @@
 \usepackage{float}
 \usepackage{hyperref}
 
+\setcounter{tocdepth}{1}
+\setcounter{secnumdepth}{2}
+\makeatletter
+\@ifundefined{chaptername}{}{\renewcommand{\chaptername}{Lecture}}
+\makeatother
+
 \definecolor{noteRed}{RGB}{190,45,90}
 
 \newcommand{\red}[1]{\textcolor{noteRed}{#1}}

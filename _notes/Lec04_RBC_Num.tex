@@ -1,13 +1,13 @@
 % !TeX root = Lec04_RBC_Num.tex
 
 \ifdefined\AdvMacroMain
-  \chapter{Lecture 4: Numerically Solve RBC Model}
+  \chapter{Numerically Solve RBC Model}
   \let\ThisNoteEnd\relax
 \else
   \documentclass[12pt]{article}
   \newcommand{\ProjectRoot}{..}
   \input{\ProjectRoot/_config/config}
-  \title{Lecture 4: Numerically Solve RBC Model}
+  \title{Numerically Solve RBC Model}
   \author{Chengyuan He}
   \date{March 2026}
   \begin{document}
@@ -15,7 +15,7 @@
   \def\ThisNoteEnd{\end{document}}
 \fi
 
-\subsection*{ Solve LOM}
+\section{Solve LOM}
 \[
 \hat{k}_t
 =
@@ -252,7 +252,7 @@ and
 \end{enumerate}
 
 \newpage
-\subsection*{ Solve the 4 Equations for 4 Unknowns}
+\section{Solve the equations for unknowns}
 Collect the four equations and solve for the four unknowns.
 
 \begin{enumerate}[label=(\roman*)]
@@ -627,7 +627,7 @@ Shock $\varepsilon_t$ and trace how variables respond.
 \text{e.g.\ Trace out all variables for }\varepsilon_1=1,\ \varepsilon_t=0\ \text{for }t\geq 2,\ \text{start from S.S.\ (one-time temporary).}
 \]
 
-\subsection*{ IRF and Half-life}
+\section{IRF and half-life}
 
 Since
 \[
@@ -944,7 +944,7 @@ and then solve for the other variables such as $c_t$.
 \end{enumerate}
 
 \newpage
-\subsection*{ State Space Approach: 2-D State Space / Saddle Path Analysis}
+\section{State-space approach: two-dimensional state space / saddle path analysis}
 
 Start from
 \[
@@ -1058,7 +1058,7 @@ consume more next period.
 consume less next period.
 \end{itemize}
 
-\subsection*{ Why These Relations Hold; Redo in Levels}
+\section{Why these relations hold; redo in levels}
 
 \paragraph{Why line (1) implies $\hat k_t<\hat k_{t-1}$}
 
