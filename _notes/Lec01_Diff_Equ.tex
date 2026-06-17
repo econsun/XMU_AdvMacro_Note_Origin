@@ -4,7 +4,7 @@
   \chapter{Lecture 1: Difference Equation}
   \let\ThisNoteEnd\relax
 \else
-  \documentclass[12pt]{ctexart}
+  \documentclass[12pt]{article}
   \newcommand{\ProjectRoot}{..}
   \input{\ProjectRoot/_config/config}
   \title{Lecture 1: Difference Equation}
@@ -37,14 +37,14 @@
 
 Period: an interval of time $\Rightarrow y_t$ is the $y$ for $t^{\text{th}}$ interval of time, not for a point of time.
 
-\textcolor{red}{* $t$ 是一个时间段概念，不是时间点概念}
+\textcolor{red}{* $t$ is a period concept, not a point-in-time concept.}
 
 \[
 \Delta y_t = y_t - y_{t-1}
 \]
 is the change from $(t-1)^{\text{th}}$ time interval to $t^{\text{th}}$ interval, not a derivative at a point of time $t$.
 
-\textcolor{red}{* $\Delta y_t$ 是变化量，并不是在 $t$ 点的微分（变化率）}
+\textcolor{red}{* $\Delta y_t$ is a change, not a derivative or growth rate at time $t$.}
 
 \[
 \text{Derivative} \;=\; \dot y_t
@@ -315,7 +315,7 @@ Then
 \tilde y_t = b^t \tilde y_0.
 \]
 
-\textcolor{red}{* $b=-a$ controls convergence 收敛性}
+\textcolor{red}{* $b=-a$ controls convergence.}
 
 \[
 \begin{cases}
@@ -326,7 +326,7 @@ Then
 
 \subsection*{5. Sign of $b$ and oscillation / monotonicity}
 
-Sign of $b$ also controls oscillation \textcolor{red}{交替振荡性} / monotonicity \textcolor{red}{单调性}.
+Sign of $b$ also controls \textcolor{red}{oscillation} / \textcolor{red}{monotonicity}.
 
 \[
 \begin{cases}
@@ -923,7 +923,7 @@ D<1
 
 \[
 \begin{cases}
-\text{complex roots with modulus（模） }<1, & \text{if }\Delta<0 \ (T^2<4D),\\
+\text{complex roots with modulus }<1, & \text{if }\Delta<0 \ (T^2<4D),\\
 \text{real roots both between }-1\text{ and }1, & \text{if }\Delta>0 \ (T^2>4D).
 \end{cases}
 \]
