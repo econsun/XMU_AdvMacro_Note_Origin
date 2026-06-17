@@ -1,0 +1,1766 @@
+% !TeX root = Lec08_NK_Baisc.tex
+
+\ifdefined\AdvMacroMain
+  \chapter{Lecture 8: Basic New Keynesian}
+  \let\ThisNoteEnd\relax
+\else
+  \documentclass[12pt]{ctexart}
+  \newcommand{\ProjectRoot}{..}
+  \input{\ProjectRoot/_config/config}
+  \title{Lecture 8: Basic New Keynesian}
+  \author{Chengyuan He}
+  \date{May 2026}
+  \begin{document}
+  \maketitle
+  \def\ThisNoteEnd{\end{document}}
+\fi
+
+\section*{RBC to NK}
+\textbf{RBC:} Fluctuations explained by technology shocks  (kydland--Prescott 1982; Prescott 1986)
+\[
+\text{Use DSGE models as tool: FOCs replacing behavioral equations, rational expectations.}
+\]
+\begin{enumerate}
+  \item Efficient allocation.
+  \item Implication: stabilization policies non-necessary.
+  \item Equilibrium outcome responds to exogenous shocks.
+  \item Limited role of monetary factors, neutrality of monetary policy: Friedman's rule
+\end{enumerate}
+\red{* Contradiction to:}
+\begin{enumerate}[label=\arabic*.]
+  \item \red{Common belief: influence on output and employment.}
+  \item \red{Empirical challenge: non-neutrality.}
+\end{enumerate}
+\red{$\Rightarrow$ Irrelevancy to policy evaluation: Normative implication different from policy practice.}
+
+\red{Monetary policy can affect real variables or not: e.g. output, employment, consumption.}
+\vspace{-2pt}
+\par\smallskip
+
+\par\smallskip
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+\textbf{RBC} & \textbf{New Keynesian} \\
+Agents / household / firms & $\sim$ \\
+DSGE & $\sim$ \\
+Markets are frictionless and perfectly competitive & Goods market imperfection (monopolistic competition) \\
+Price adjust instantaneously & Nominal rigidity (price, wage etc.) \\
+Technology shocks \newline \red{Not really: RBC also can introduce other shocks.} & Other shocks and transmission mechanisms
+\end{tabularx}\section*{New in NK}
+
+\begin{enumerate}[leftmargin=1.7em,itemsep=0.35em,topsep=0.2em]
+    \item Monopolistic competition: $P^m>P^c, Y^m<Y^c$, \red{垄断竞争}
+    \hfill \red{inefficient response to shocks.}
+
+    \item Nominal rigidities: staggered price / wage, 名义刚性，价格短期刚性.
+
+    \item Short-run non-neutrality of monetary policy, 短期货币非中性
+    $\Rightarrow$ \red{policy analysis \& intervention.}
+\end{enumerate}
+
+\par\smallskip
+
+These elements are new to RBC but old to Keynesian (static, reduced-form).
+
+\par\smallskip
+
+Empirical evidence of nominal rigidities:
+
+\begin{itemize}[leftmargin=1.7em,itemsep=0.25em,topsep=0.2em]
+    \item Taylor (1999): Average price adjustment frequency $=1$ year.
+    \item Bils and Klenow (2004): Heterogeneity of frequency across sectors / types of goods.
+    \item Nakamura and Steinsson (2008): Adjusting for sales, frequency $\approx 8$--$11$ months.
+    \item Bewley (1998): Wages do not fall during recessions (downward nominal rigidity).
+\end{itemize}
+
+\par\smallskip
+
+* High welfare / social security countries face stronger downward wage rigidity.
+
+? Working hour rigidity in China.
+\[
+\text{Nominal rigidity} \Rightarrow \text{price inertia} \Rightarrow
+\begin{cases}
+\text{Monetary policy changes real balance } M/P,\\
+\text{change real interest rate } r=i-\pi.
+\end{cases}
+\]
+\[
+\Rightarrow \text{Change in aggregate demand} \Rightarrow \text{Change in employment/output.}
+\]
+Identify monetary policy shock:
+\[
+\left\{
+\begin{array}{ll}
+\text{endogenous movement:} & \text{deliberate response to developments in economy }\Rightarrow\text{co-movement},\\
+\text{exogenous movement:} & \text{structural VAR residuals from policy rule.}
+\end{array}\right.
+\]
+\[
+\left\{
+\begin{array}{@{}l@{\quad}l@{}}
+\text{endogenous comovements:}
+& \text{high interest rate, high inflation/high output},\\
+& i_t=\phi_\pi\pi_t+\phi_y y_t+v_t,\\
+& \text{policy response + exogenous component / unexpected shocks};\\[0.35em]
+\text{exogenous component:}
+& u_t\text{ identification requires: GDP and prices cannot respond}\\
+& \text{contemporaneously to a monetary policy shock.}
+\end{array}
+\right.
+\]
+\newpage
+\section*{Basic NK}
+Basic setup:
+\begin{enumerate}[label=\circled{\arabic*}]
+  \item DSGE structure: Households live infinitely, maximize utility subject to intertemporal budget constraint. Firms with identical technology, subject to random shocks.
+  \vspace{0.5em}
+  \item AS and AD block.
+\end{enumerate}
+AD: log-linearized consumption Euler (relates output and price).
+
+\par\smallskip
+Let $\hat x_t=\log X_t-\log \bar X$ except $i_t,r_t,\pi_t$.
+\[
+\tilde y_t=\hat y_t-\hat y_t^{\,n}
+\]
+
+$\hat y_t^{\,n}$: natural output under flexible prices / long-run output.
+\[
+\tilde y_t
+=
+\E_t\tilde y_{t+1}
+-
+\frac{1}{\sigma}
+\underbrace{\left(\hat i_t-\E_t\hat\pi_{t+1}\right)}_{\hat r_t}
++
+\underbrace{v_t}_{\text{MP shock}}.
+\tag{1}
+\]
+AS: New Keynesian Phillips Curve (relates price and output):
+\[
+\hat\pi_t=\beta \E_t\hat\pi_{t+1}+\kappa\tilde y_t.
+\tag{2}
+\]
+\begin{enumerate}[label=\circled{\arabic*},start=3]
+  \item Policy rule:
+\end{enumerate}
+\[
+\hat i_t=f(\Omega_t)+v_t,\qquad \red{\Omega_t:\text{ information set / state vector.}}
+\tag{3}
+\]
+Four markets: goods, labor, bonds, money (cashless).\\
+\par\smallskip
+Differentiated goods: continuum of varieties $i\in[0,1]$.\\
+\par\smallskip
+Perfect competition in labor market, no wage rigidities.\\
+\par\smallskip
+Monopolistic competition on goods market: goods prices set by firms that produce them (profit $\neq 0$).\\
+\par\smallskip
+Nominal prices are sticky: a fraction $(1-\theta)$ of firms can reset their prices each period (Calvo pricing).\\
+\par\smallskip
+A continuum of infinitely-lived households.\\
+\par\smallskip
+A continuum of firms represented by $[0,1]$ goods $\Rightarrow$ \red{1 firm produces 1 differentiated good and sets price.}
+
+\section*{(i) Household's problem}
+\[
+\max_{C_t,N_t,B_t}\;\E_t\sum_{t=0}^{\infty}\beta^tU(C_t,N_t),
+\]
+\[
+\text{s.t.}\quad \boxit{P_t}C_t+Q_tB_t=B_{t-1}+W_tN_t+T_t.
+\]
+\blue{$P_t$: aggregate price index of the consumption bundle, $P_t C_t=\int_0^1P_t(i)C_t(i)\dd i$.}
+\[
+C_t=\left(\int_0^1 C_t(i)^{\frac{\varepsilon-1}{\varepsilon}}\dd i\right)^{\frac{\varepsilon}{\varepsilon-1}},
+\]
+\red{$C_t$: A composite bundle of goods; continuum of varieties produced by continuum of firms.}
+\[
+\begin{aligned}
+i &:\ \text{variety (differentiated goods) index},\\
+\mathrm{d}i &:\ \text{continuum of varieties produced by continuum of firms},\\
+\varepsilon &:\ \text{across-variety EoS.}
+\end{aligned}
+\]
+\par\smallskip
+\red{Solve household's problem in two steps:}
+\par\smallskip
+\red{1. Static optimal expenditure allocation (how to allocate across varieties?)}
+\[
+E=\min_{C_t(i)}\int_0^1P_t(i)C_t(i)\dd i=\text{total expenditure}
+\quad \text{s.t.}\quad
+C_t=\left(\int_0^1 C_t(i)^{\frac{\varepsilon-1}{\varepsilon}}\dd i\right)^{\frac{\varepsilon}{\varepsilon-1}}.
+\]
+\[
+\mathcal L=\int_0^1P_t(i)C_t(i)\dd i-P_t\left[\left(\int_0^1 C_t(i)^{\frac{\varepsilon-1}{\varepsilon}}\dd i\right)^{\frac{\varepsilon}{\varepsilon-1}}-C_t\right].
+\]
+\begin{tightalign}
+\frac{\partial\mathcal L}{\partial C_t(i)}=0
+&\Rightarrow
+P_t(i)
+-
+P_t\frac{\varepsilon}{\varepsilon-1}
+\left[
+\int_0^1 C_t(i)^{\frac{\varepsilon-1}{\varepsilon}}\dd i
+\right]^{\frac{1}{\varepsilon-1}}
+\frac{\varepsilon-1}{\varepsilon}
+C_t(i)^{-\frac{1}{\varepsilon}}
+=0
+\\[0.6em]
+&\Rightarrow
+P_t(i)-P_tC_t^{1/\varepsilon}C_t(i)^{-1/\varepsilon}=0
+\\[0.6em]
+&\Rightarrow
+C_t(i)=
+\left(\frac{P_t(i)}{P_t}\right)^{-\varepsilon}C_t.
+\end{tightalign}
+\begin{tightalign}
+C_t(i)^{\frac{\varepsilon-1}{\varepsilon}}
+&=\left(\frac{P_t(i)}{P_t}\right)^{1-\varepsilon}C_t^{\frac{\varepsilon-1}{\varepsilon}},\\
+\int_0^1C_t(i)^{\frac{\varepsilon-1}{\varepsilon}}\dd i
+&=C_t^{\frac{\varepsilon-1}{\varepsilon}}\int_0^1\left(\frac{P_t(i)}{P_t}\right)^{1-\varepsilon}\dd i,\\
+C_t^{\frac{\varepsilon-1}{\varepsilon}}
+&=C_t^{\frac{\varepsilon-1}{\varepsilon}}\int_0^1\left(\frac{P_t(i)}{P_t}\right)^{1-\varepsilon}\dd i,\\
+P_t^{1-\varepsilon}&=\int_0^1P_t(i)^{1-\varepsilon}\dd i,
+\qquad
+P_t=\left(\int_0^1P_t(i)^{1-\varepsilon}\dd i\right)^{\frac{1}{1-\varepsilon}}.
+\end{tightalign}
+\blue{Why $\varepsilon$ is the elasticity of substitution across varieties?}
+\[
+C_t(i)=\left(\frac{P_t(i)}{P_t}\right)^{-\varepsilon}C_t,
+\qquad
+C_t(j)=\left(\frac{P_t(j)}{P_t}\right)^{-\varepsilon}C_t
+\Rightarrow
+\frac{C_t(i)}{C_t(j)}=\left(\frac{P_t(i)}{P_t(j)}\right)^{-\varepsilon}.
+\]
+\[
+\log\frac{C_t(i)}{C_t(j)}=-\varepsilon\log\frac{P_t(i)}{P_t(j)},
+\qquad
+\frac{\dd\log\{C_t(i)/C_t(j)\}}{\dd\log\{P_t(i)/P_t(j)\}}=-\varepsilon.
+\]
+\[
+\sigma_{ij}=-\frac{\dd\log\{C_t(i)/C_t(j)\}}{\dd\log\{P_t(i)/P_t(j)\}}=\varepsilon,
+\quad \text{elasticity of substitution between two varieties.}
+\]
+\par\smallskip
+\red{2. Intertemporal problem}
+\[
+\max_{C_t,N_t,B_t}\E_t\sum_{t=0}^{\infty}\beta^tU(C_t,N_t)
+\quad\text{s.t.}\quad P_tC_t+Q_tB_t=B_{t-1}+W_tN_t+T_t.
+\]
+
+\[
+\mathcal L=\E_t\sum_{t=0}^{\infty}\beta^t\left\{U(C_t,N_t)+\lambda_t(B_{t-1}+W_tN_t+T_t-P_tC_t-Q_tB_t)\right\}.
+\]
+\begin{tightalign}
+\frac{\partial\mathcal L}{\partial C_t}=0&\Rightarrow U_{C,t}=P_t\lambda_t \quad (1),\\
+\frac{\partial\mathcal L}{\partial N_t}=0&\Rightarrow U_{N,t}+\lambda_tW_t=0 \quad (2),\\
+\frac{\partial\mathcal L}{\partial B_t}=0&\Rightarrow \beta^{t+1}\E_t\lambda_{t+1}-\beta^t\lambda_tQ_t=0
+\Rightarrow \E_t\beta\lambda_{t+1}=\lambda_tQ_t \quad (3).
+\end{tightalign}
+\[(1)\&(2)\Rightarrow -\frac{U_{N,t}}{U_{C,t}}=\frac{W_t}{P_t}\quad\text{Labor--leisure condition (intratemporal).}
+\]
+\[(1)\&(3)\Rightarrow Q_t=\beta\E_t\left\{\frac{U_{C,t+1}}{U_{C,t}}\frac{P_t}{P_{t+1}}\right\}
+=\beta\E_t\left\{\frac{U_{C,t+1}}{U_{C,t}}\frac{1}{\Pi_{t+1}}\right\},
+\quad \Pi_{t+1}=\frac{P_{t+1}}{P_t}\text{ inflation}.
+\]
+\centerline{Bond Euler equation (intertemporal).}
+\par\smallskip
+Suppose we have a separable utility function
+\[
+U(C_t,N_t)=\frac{C_t^{1-\sigma}}{1-\sigma}-\frac{N_t^{1+\varphi}}{1+\varphi},
+\qquad U_{C,t}=C_t^{-\sigma},\quad U_{N,t}=-N_t^\varphi.
+\]
+\[
+\frac{W_t}{P_t}=N_t^{\varphi}C_t^{\sigma},
+\qquad
+Q_t=\beta\E_t\left\{\frac{C_{t+1}^{-\sigma}}{C_t^{-\sigma}}\frac{1}{\Pi_{t+1}}\right\}.
+\]
+Log-linearize:
+\[
+\hat w_t-\hat p_t=\sigma\hat c_t+\varphi\hat n_t,
+\qquad
+\hat c_t=\E_t\hat c_{t+1}-\frac{1}{\sigma}(\hat i_t-\hat\Pi_{t+1}).
+\]
+\[
+Q_t=e^{-i_t},
+\qquad
+\hat\Pi_{t+1}=\log\Pi_{t+1}-\log\bar\Pi=\log\Pi_{t+1}=\pi_{t+1}.
+\]
+\subsection*{(ii) Firm's problem: two simultaneous problems (isomorphic)}
+\red{1. Cost minimization for each producer in the continuum}
+\[
+\min_{N_t(i)} W_tN_t(i)
+\quad\text{s.t.}\quad Y_t(i)=A_tN_t(i)^{1-\alpha}.
+\]
+\[
+\mathcal L=W_tN_t(i)+\mu_t\left[Y_t(i)-A_tN_t(i)^{1-\alpha}\right].
+\]
+\[
+\frac{\partial\mathcal L}{\partial N_t(i)}=W_t-\mu_t(1-\alpha)A_tN_t(i)^{-\alpha}=0
+\Rightarrow W_t=\mu_t(1-\alpha)A_tN_t(i)^{-\alpha}.
+\]
+\[
+\mu_t\text{ is the Lagrangian multiplier: shadow value of relaxing the production requirement by one unit.}
+\]
+\[
+\Rightarrow \mu_t \text{ is the nominal marginal cost: } \mu_t=MC_t,
+\qquad
+\mu_t=MC_t=\frac{W_t}{MPL_t(i)}.
+\]
+
+\noindent
+$W_t$: 1 labor's cost; \quad
+$MPL_t(i)$: 1 labor's output; \quad
+$\frac{W_t}{MPL_t(i)}$: cost per unit of output.
+
+\par\smallskip
+\par\smallskip
+\red{2. Profit maximization by choosing price.}
+\[
+\max_{P_t(i)}
+\;
+P_t(i)Y_t(i)-W_tN_t(i)
+=
+\max_{P_t(i)}
+\;
+P_t(i)Y_t(i)
+-
+W_t
+\left(
+\frac{Y_t(i)}{A_t}
+\right)^{\frac{1}{1-\alpha}}
+\qquad
+\red{\text{production function}}
+\]
+
+\[
+\frac{\partial Profit}{\partial P_t(i)}
+=
+Y_t(i)
++
+P_t(i)\frac{\partial Y_t(i)}{\partial P_t(i)}
+-
+W_t
+\frac{1}{1-\alpha}
+\left(
+\frac{Y_t(i)}{A_t}
+\right)^{\frac{\alpha}{1-\alpha}}
+\frac{\partial Y_t(i)}{\partial P_t(i)}
+\frac{1}{A_t}
+=0.
+\tag{*}
+\]
+\[
+MC_t
+=
+\frac{\partial}{\partial Y_t(i)}
+\left[
+W_t
+\left(
+\frac{Y_t(i)}{A_t}
+\right)^{\frac{1}{1-\alpha}}
+\right]=W_t
+\frac{1}{1-\alpha}
+\left(
+\frac{Y_t(i)}{A_t}
+\right)^{\frac{\alpha}{1-\alpha}}
+\frac{1}{A_t}
+\]
+\[
+Y_t(i)
++
+\left[
+P_t(i)-MC_t
+\right]
+\frac{\partial Y_t(i)}{\partial P_t(i)}
+=0.
+\]
+Plug in:
+\[
+Y_t(i)
+-
+\varepsilon
+\left[
+P_t(i)-MC_t
+\right]
+\frac{Y_t(i)}{P_t(i)}
+=0.
+\]
+
+Divide both sides by \(Y_t(i)\):
+\[
+1
+-
+\varepsilon
+\frac{P_t(i)-MC_t}{P_t(i)}
+=0.
+\]
+
+\[
+1-\varepsilon+\varepsilon\frac{MC_t}{P_t(i)}
+=0.
+\]
+
+Therefore,
+\[
+P_t(i)
+=
+\frac{\varepsilon}{\varepsilon-1}MC_t.
+\]
+\par\smallskip
+\red{Variety price equals to a constant markup $\mu$ over the marginal cost}
+
+\[
+\red{
+\text{where }
+\mu=\frac{\varepsilon}{\varepsilon-1};
+\qquad
+\text{monopolistic competition pricing.}
+}
+\]
+
+\par\smallskip
+\blue{When $\varepsilon\to\infty\Rightarrow \mu\to1$, perfect competition, $P_t(i)=MC_t$.}
+
+\blue{In general $\varepsilon$ is finite, $\mu>1$, $P_t(i)>MC_t\Rightarrow$ inefficiency, low employment and output.}
+\par\smallskip
+\par\smallskip
+\red{Cost minimization 1 and profit maximization 2 are dual problems:}
+\begin{enumerate}
+  \item \red{tells how expensive it is to produce at each output level.}
+  \item \red{tells the price-taking that cost schedule and demand as given.}
+\end{enumerate}
+\red{Nesting the two:}
+\[
+C(Y_t(i))=\min_{N_t(i)}W_tN_t(i)
+\quad\text{s.t.}\quad Y_t(i)=A_tN_t(i)^{1-\alpha}.
+\]
+Then solve
+\[
+\max_{P_t(i)}\{P_t(i)Y_t(i)-C(Y_t(i))\}
+\quad\text{s.t.}\quad
+Y_t(i)=\left(\frac{P_t(i)}{P_t}\right)^{-\varepsilon}C_t.
+\]
+When $\alpha=0$, marginal cost connects the two problems:
+\[
+MC_t=\frac{\partial C(Y_t(i))}{\partial Y_t(i)}.
+\]
+\subsection*{(iii) Sticky-price equilibrium}
+Calvo (1983) pricing: Each period a measure $(1-\theta)$ fraction of the continuum of firms reset their prices, the other $\theta$ keeps price unchanged.
+\[
+\Rightarrow \text{Average duration of a price is }\frac{1}{1-\theta}.
+\]
+\[
+\theta:\text{ index of price stickiness, pinned down by data.}
+\]
+Thus
+\[
+P_t=\left[\theta P_{t-1}^{1-\varepsilon}+(1-\theta)(P_t^*)^{1-\varepsilon}\right]^{\frac{1}{1-\varepsilon}}.
+\]
+
+Log-linearize:
+\begin{tightalign}
+P_t^{1-\varepsilon}&=\theta P_{t-1}^{1-\varepsilon}+(1-\theta)(P_t^*)^{1-\varepsilon},\\
+\bar P^{1-\varepsilon}(1+\hat p_t)^{1-\varepsilon}
+&=\theta\bar P^{1-\varepsilon}(1+\hat p_{t-1})^{1-\varepsilon}+(1-\theta)\bar P^{1-\varepsilon}(1+\hat p_t^*)^{1-\varepsilon},\\
+\bar P^{1-\varepsilon}(1-\varepsilon)\hat p_t
+&=\theta\bar P^{1-\varepsilon}(1-\varepsilon)\hat p_{t-1}+(1-\theta)\bar P^{1-\varepsilon}(1-\varepsilon)\hat p_t^*,\\
+\hat p_t&=\theta\hat p_{t-1}+(1-\theta)\hat p_t^*,\\
+\hat p_t-\hat p_{t-1}&=(1-\theta)(\hat p_t^*-
+\hat p_{t-1}).
+\end{tightalign}
+\begin{tightalign}
+\hat\pi_t&=\pi_t-\bar\pi=\pi_t=\log P_t-\log P_{t-1}
+=\log P_t-\log\bar P-(\log P_{t-1}-\log\bar P)\\
+&=\hat p_t-\hat p_{t-1}.
+\end{tightalign}
+\[
+\Rightarrow \hat\pi_t=(1-\theta)(\hat p_t^*-
+\hat p_{t-1}).
+\]
+
+\par\smallskip
+\red{* Positive inflation arises iff firms that adjust prices in $t$ choose to charge above the price level prevailed in $t-1$.}
+\[
+\red{\theta\uparrow\Rightarrow \text{more sticky firms}\Rightarrow \text{inflation is lower given the price difference.}}
+\]
+
+\par\smallskip
+\blue{Due to sticky price, firms must set price taking into account the risk that they will not be able to change price in the future.}
+\begin{tightalign}
+V_t(i)&=P_t(i)Y_t(i)-cost_t(i)+\theta\E_t\{Q_{t,t+1}[P_t(i)Y_{t+1}(i)-cost_{t+1}(i)]\}\\
+&\quad+\theta^2\E_t\{Q_{t,t+2}[P_t(i)Y_{t+2}(i)-cost_{t+2}(i)]\}+\cdots.
+\end{tightalign}
+
+\par\smallskip
+\red{Optimal pricing under sticky price:}
+Choose $P_t^*$ to maximize the expected PV of profits while this price remains effective, $P_t^*=P_t^*(i)$.
+\[
+V_t(i)=\max_{P_t^*}\sum_{k=0}^{\infty}\theta^k\E_t\left[Q_{t,t+k}(P_t^*Y_{t+k|t}-\psi_{t+k}(Y_{t+k|t}))\right]
+\quad\purple{\text{conditional on the firm can reset at }t}.
+\]
+\[
+\text{s.t.}\quad Y_{t+k|t}=\left(\frac{P_t^*}{P_{t+k}}\right)^{-\varepsilon}C_{t+k}.
+\]
+\[
+Q_{t,t+k}
+=
+\beta^k
+\left(\frac{C_{t+k}}{C_t}\right)^{-\sigma}
+\left(\frac{P_t}{P_{t+k}}\right)
+\quad
+\text{stochastic discount factor for nominal payoffs.}
+\]
+
+\noindent
+$\psi_{t+k}(\cdot)$ is the cost function.
+
+\noindent
+$Y_{t+k|t}$ is output in period $t+k$ for a firm that last reset price at $t$.
+
+\par\smallskip
+\blue{When $\theta=0$, collapse to with only $k=0$ term $\Rightarrow P_t^*=\frac{\varepsilon}{\varepsilon-1}\psi_t$.}\
+
+
+\par\smallskip
+\blue{* $1-\theta$ determines how many firms reset in the cross section.}\\
+\blue{$\theta^k$ matters for how long a chosen reset price survives in the time dimension.}
+
+FOC:
+\begin{tightalign}
+\frac{\partial V_t(i)}{\partial P_t^*}=0
+&\Rightarrow
+\E_t\left\{\sum_{k=0}^{\infty}\theta^kQ_{t,t+k}\left[Y_{t+k|t}+P_t^*\frac{\partial Y_{t+k|t}}{\partial P_t^*}
+-\frac{\partial\psi_{t+k}}{\partial Y_{t+k|t}}\frac{\partial Y_{t+k|t}}{\partial P_t^*}\right]\right\}=0,\\
+\frac{\partial Y_{t+k|t}}{\partial P_t^*}
+&=-\varepsilon\left(\frac{P_t^*}{P_{t+k}}\right)^{-\varepsilon-1}\frac{C_{t+k}}{P_{t+k}}=-\varepsilon\frac{Y_{t+k|t}}{P_t^*}.
+\end{tightalign}
+Define
+\[
+\varphi_{t+k|t}=\frac{\partial\psi_{t+k}}{\partial Y_{t+k|t}}
+\quad\text{as nominal marginal cost.}
+\]
+\begin{tightalign}
+&\E_t\left\{\sum_{k=0}^{\infty}\theta^kQ_{t,t+k}\left[Y_{t+k|t}+(P_t^*-\varphi_{t+k|t})(-\varepsilon)\frac{Y_{t+k|t}}{P_t^*}\right]\right\}=0,\\
+&\E_t\left\{\sum_{k=0}^{\infty}\theta^kQ_{t,t+k}Y_{t+k|t}\left[1-\varepsilon+\varepsilon\frac{\varphi_{t+k|t}}{P_t^*}\right]\right\}=0.
+\end{tightalign}
+\[
+P_t^*=\underbrace{\frac{\varepsilon}{\varepsilon-1}}_{\red{\text{markup }\mu}}\cdot
+\underbrace{\frac{\E_t\sum_{k=0}^{\infty}\theta^kQ_{t,t+k}Y_{t+k|t}\varphi_{t+k|t}}{\E_t\sum_{k=0}^{\infty}\theta^kQ_{t,t+k}Y_{t+k|t}}}_{\red{\text{weighted}}}
+\]
+\[
+\blue{\text{Weighted average of future marginal cost(*).}}
+\]
+\[
+\frac{
+\theta^k Q_{t,t+k}Y_{t+k|t}
+}{
+\E_t\sum_{k=0}^{\infty}\theta^k Q_{t,t+k}Y_{t+k|t}
+}
+:
+\red{\text{weight/how nominal MC of }t+k\text{ matters.}}
+\]
+When $\theta\to0$, $P_t^*\to\frac{\varepsilon}{\varepsilon-1}\varphi_t$.\\
+
+\par\smallskip
+\blue{Weights are larger when:}
+\begin{enumerate}[label=\blue{\arabic*)}, leftmargin=2.2em, itemsep=0.15em, topsep=0.15em]
+  \item \blue{$\theta\uparrow$: price is more sticky;}
+  \item \blue{$Q_{t,t+k}\uparrow$: future profit is more valuable in utility terms;}
+  \item \blue{$Y_{t+k|t}\uparrow$: firms expect to sell more in that period.}
+\end{enumerate}
+
+\red{Why } 
+$Q_{t,t+k}
+=
+\beta^k
+\left(\frac{C_{t+k}}{C_t}\right)^{-\sigma}
+\left(\frac{P_t}{P_{t+k}}\right)$?
+
+\[
+Q_t
+=
+\beta
+\left[
+\left(\frac{C_{t+1}}{C_t}\right)^{-\sigma}
+\frac{P_t}{P_{t+1}}
+\right]
+\quad
+\text{one-period nominal discount factor.}
+\]
+
+\begin{tightalign}
+Q_t
+&=
+Q_{t,t+1},
+\\
+Q_{t+1}
+&=
+\beta
+\left[
+\left(\frac{C_{t+2}}{C_{t+1}}\right)^{-\sigma}
+\frac{P_{t+1}}{P_{t+2}}
+\right],
+\\
+Q_{t,t+2}
+&=
+Q_{t,t+1}Q_{t+1,t+2}
+=
+\beta^2
+\left(\frac{C_{t+2}}{C_t}\right)^{-\sigma}
+\frac{P_t}{P_{t+2}},
+\\
+Q_{t,t+k}
+&=
+\beta^k
+\left(\frac{C_{t+k}}{C_t}\right)^{-\sigma}
+\frac{P_t}{P_{t+k}}.
+\end{tightalign}
+
+\noindent
+\red{$\beta^k$: impatience.}\\
+\red{$\left(\frac{C_{t+k}}{C_t}\right)^{-\sigma}$: marginal utility of future consumption.}\\
+\red{$\frac{P_t}{P_{t+k}}$: inflation erosion of nominal payoff; converts nominal payoff into real payoff.}
+\[
+Q_{t,t+k}=\beta^k\widetilde Q_{t,t+k},
+\qquad
+\widetilde Q_{t,t+k}=\left(\frac{C_{t+k}}{C_t}\right)^{-\sigma}\left(\frac{P_t}{P_{t+k}}\right).
+\]
+\[
+Y_{t+k|t}=\left(\frac{P_t^*}{P_{t+k}}\right)^{-\varepsilon}C_{t+k}=(P_t^*)^{-\varepsilon}P_{t+k}^{\varepsilon}Y_{t+k},\quad (Y_t=C_t,\forall t).
+\]
+\[(*)\Rightarrow
+P_t^*=\mu\frac{\E_t\sum_{k=0}^{\infty}(\beta\theta)^k\widetilde Q_{t,t+k}P_{t+k}^{\varepsilon}Y_{t+k}\varphi_{t+k|t}}{\E_t\sum_{k=0}^{\infty}(\beta\theta)^k\widetilde Q_{t,t+k}P_{t+k}^{\varepsilon}Y_{t+k}}.
+\]
+\[
+P_t^*\E_t\sum_{k=0}^{\infty}(\beta\theta)^k\widetilde Q_{t,t+k}P_{t+k}^{\varepsilon}Y_{t+k}
+=\mu\E_t\sum_{k=0}^{\infty}(\beta\theta)^k\widetilde Q_{t,t+k}P_{t+k}^{\varepsilon}Y_{t+k}\varphi_{t+k|t}.
+\]
+Let
+\[
+A_t\equiv\sum_{k=0}^{\infty}(\beta\theta)^k\widetilde Q_{t,t+k}P_{t+k}^{\varepsilon}Y_{t+k},
+\qquad
+a_{t+k}\equiv(\beta\theta)^k\widetilde Q_{t,t+k}P_{t+k}^{\varepsilon}Y_{t+k}.
+\]
+\[
+\widehat{LHS}=\hat p_t^*+\E_t\hat A_t.
+\]
+\begin{tightalign}
+\hat A_t&=\sum_{k=0}^{\infty}\frac{\bar a_{t+k}}{\bar A}\hat a_{t+k},\\
+\frac{\bar a_{t+k}}{\bar A}
+&=\frac{(\beta\theta)^k\bar{\widetilde Q}\bar P^{\varepsilon}\bar Y}{\sum_{k=0}^{\infty}(\beta\theta)^k\bar{\widetilde Q}\bar P^{\varepsilon}\bar Y}
+=\frac{(\beta\theta)^k\bar{\widetilde Q}\bar P^{\varepsilon}\bar Y}{\frac{1}{1-\beta\theta}\bar{\widetilde Q}\bar P^{\varepsilon}\bar Y}
+=(1-\beta\theta)(\beta\theta)^k,\\
+\hat a_{t+k}&=\hat{\widetilde q}_{t,t+k}+\varepsilon\hat p_{t+k}+\hat y_{t+k}.
+\end{tightalign}
+
+\par\smallskip
+\[
+\widehat{LHS}=\hat p_t^*+(1-\beta\theta)\E_t\sum_{k=0}^{\infty}(\beta\theta)^k(\hat{\widetilde q}_{t,t+k}+\varepsilon\hat p_{t+k}+\hat y_{t+k}).
+\]
+\[
+B_t\equiv\E_t\sum_{k=0}^{\infty}(\beta\theta)^k\widetilde Q_{t,t+k}P_{t+k}^{\varepsilon}Y_{t+k}\varphi_{t+k|t},
+\qquad
+\widehat{RHS}=\E_t\hat B_t.
+\]
+\begin{tightalign}
+\hat B_t&=\sum_{k=0}^{\infty}\frac{\bar b_{t+k}}{\bar B}\hat b_{t+k},
+\qquad
+\frac{\bar b_{t+k}}{\bar B}=(1-\beta\theta)(\beta\theta)^k,\\
+\hat b_{t+k}&=\hat{\widetilde q}_{t,t+k}+\varepsilon\hat p_{t+k}+\hat y_{t+k}+\hat\varphi_{t+k|t}.
+\end{tightalign}
+\[
+\widehat{RHS}=(1-\beta\theta)\E_t\sum_{k=0}^{\infty}(\beta\theta)^k(\hat{\widetilde q}_{t,t+k}+\varepsilon\hat p_{t+k}+\hat y_{t+k}+\hat\varphi_{t+k|t}).
+\]
+Combine $\widehat{LHS}=\widehat{RHS}$:
+\begin{tightalign}
+\hat p_t^*&=(1-\beta\theta)\E_t\sum_{k=0}^{\infty}(\beta\theta)^k\hat\varphi_{t+k|t}\\
+&=(1-\beta\theta)\E_t\sum_{k=0}^{\infty}(\beta\theta)^k(\widehat{mc}^{\ r}_{t+k|t}+\hat p_{t+k}).
+\end{tightalign}
+\red{nominal MC $=$ real MC $\times$ price}
+\[
+\varphi_{t+k|t}=MC^r_{t+k|t}\cdot P_{t+k}
+\Rightarrow \hat\psi_{t+k|t}=\widehat{mc}^{\ r}_{t+k|t}+\hat p_{t+k}.
+\]
+
+\par\smallskip
+\blue{1. Weights $\sum_{k=0}^{\infty}(1-\beta\theta)(\beta\theta)^k=1$: weighted average over expected future nominal marginal cost.}
+
+\par\smallskip
+\blue{2. Aggregate price level denotes willingness to maintain (in expectation) the relative price unchanged.}
+\[
+\text{Suppose } \widehat{mc}^{\,r}_{t+k|t}=0 \text{ for all } k,
+\quad
+\text{real marginal cost is constant.}
+\]
+
+\[
+\hat p_t^*
+=
+(1-\beta\theta)
+\E_t
+\sum_{k=0}^{\infty}
+(\beta\theta)^k
+\hat p_{t+k}.
+\]
+\blue{* Reset price rises when expected future aggregate prices rise.}\
+\red{Front-load future inflation to today's reset price. Expected inflation $\Rightarrow \hat p_t^*\uparrow$.}
+
+\par\smallskip
+\blue{3. Real MC $\widehat{mc}^{\ r}_{t+k|t}$ denotes desire to change the expected relative price to avoid any gap that may emerge between expected and desired markup. Monopolistic competitive firm's desired markup rule: $P=\mu MC$.}
+\[
+\text{Thus, firm wants its real price }\frac{P_t^*}{P_{t+k}}\text{ to be high enough relative to real MC.}
+\]
+\[
+\hat p_t^* -\hat p_{t+k}=\widehat{mc}^{\ r}_{t+k|t}+\text{desired markup}
+\Rightarrow \widehat{mc}^{\ r}_{t+k|t}\uparrow\Rightarrow\hat p_t^* -\hat p_{t+k}\uparrow.
+\]
+\blue{$\Rightarrow$ Expected future real marginal cost is higher: the firm wants a higher relative price.}
+
+\newpage
+\section*{(iv) Equilibrium}
+\textbf{1. Goods market clearing:}
+\[
+Y_t(i)=C_t(i),\quad \forall i\in[0,1].
+\]
+Define
+\[
+Y_t=\left(\int_0^1Y_t(i)^{\frac{\varepsilon-1}{\varepsilon}}\dd i\right)^{\frac{\varepsilon}{\varepsilon-1}}.
+\]
+Get $Y_t=C_t$. Log-linearize: $\hat y_t=\hat c_t$. Since
+\[
+\hat c_t=\E_t\hat c_{t+1}-\frac{1}{\sigma}(\hat i_t-\E_t\hat\pi_{t+1}),
+\]
+\[
+\Rightarrow \hat y_t=\E_t\hat y_{t+1}-\frac{1}{\sigma}(\hat i_t-\E_t\hat\pi_{t+1}).
+\]
+\textbf{2. Labor market clearing:}
+\[
+N_t=\int_0^1N_t(i)\dd i.
+\]
+\begin{tightalign}
+Y_t(i)=A_tN_t(i)^{1-\alpha}
+&\Rightarrow N_t=\int_0^1\left(\frac{Y_t(i)}{A_t}\right)^{\frac{1}{1-\alpha}}\dd i,\\
+Y_t(i)=\left(\frac{P_t(i)}{P_t}\right)^{-\varepsilon}Y_t
+&\Rightarrow N_t=\left(\frac{Y_t}{A_t}\right)^{\frac{1}{1-\alpha}}
+\int_0^1\left(\frac{P_t(i)}{P_t}\right)^{-\frac{\varepsilon}{1-\alpha}}\dd i,\\
+&\Rightarrow N_t^{1-\alpha}=\frac{Y_t}{A_t}\left[\int_0^1\left(\frac{P_t(i)}{P_t}\right)^{-\frac{\varepsilon}{1-\alpha}}\dd i\right]^{1-\alpha}.
+\end{tightalign}
+\section*{Price dispersion}
+
+Let
+\[
+D_t
+=
+\left[
+\int_0^1
+\left(\frac{P_t(i)}{P_t}\right)^{-\frac{\varepsilon}{1-\alpha}}
+\dd i
+\right]^{1-\alpha}
+=
+\exp(d_t).
+\]
+
+\[
+Y_t
+=
+A_tN_t^{1-\alpha}D_t^{-1},
+\qquad
+\blue{D_t\text{ measures how uneven prices are across firms.}}
+\]
+
+\[
+\blue{\text{When all firms charge the same price:}}\quad
+\frac{P_t(i)}{P_t}=1,\ \forall i
+\Rightarrow
+D_t=1
+\Rightarrow
+d_t=0.
+\]
+
+\par\smallskip
+\noindent
+\blue{Reduced to $Y_t=A_tN_t^{1-\alpha}$: frictionless benchmark under flexible prices, no price distortion.}
+
+
+\par\smallskip
+\blue{But under Calvo pricing, some firms use old price, some firms use new price $\Rightarrow D_t>1$.}
+\[
+Y_t(i)=\left(\frac{P_t(i)}{P_t}\right)^{-\varepsilon}Y_t.
+\]
+
+\noindent
+\blue{Firms with low relative prices sell too much; firms with high relative prices sell too little.}
+\[
+d_t=(1-\alpha)\log\left[\int_0^1\left(\frac{P_t(i)}{P_t}\right)^{-\frac{\varepsilon}{1-\alpha}}\dd i\right].
+\]
+Define $p_t(i)=\log P_t(i)$, $p_t=\log P_t$, $P_t(i)/P_t=e^{p_t(i)-p_t}$. Let $\chi_i=p_t(i)-p_t$.
+\[
+\Rightarrow d_t=(1-\alpha)\log\left[\int_0^1\exp\left(-\frac{\varepsilon}{1-\alpha}\chi_i\right)\dd i\right].
+\]
+
+\par\smallskip
+Second-order Taylor expansion around zero-inflation / zero-dispersion steady state.\\
+\red{Why zero inflation $\bar\Pi=1\Leftrightarrow$ zero dispersion $P_t(i)/P_t=1\Leftrightarrow \bar d=0$?}
+\[
+P_t=\left[\theta P_{t-1}^{1-\varepsilon}+(1-\theta)(P_t^*)^{1-\varepsilon}\right]^{\frac{1}{1-\varepsilon}},
+\quad \red{\text{to have }P_t=P_{t-1}=\bar P,\text{ need }P_t^*=\bar P.}
+\]
+\red{The firms that reset price set the same price as others.}
+\[
+\text{Since } 
+e^z
+=
+e^0+\frac{(e^z)|_{z=0}}{1!}(z-0)
++\frac{(e^z)|_{z=0}}{2!}(z-0)^2
++o(z^2).
+\]
+
+\[
+e^z\approx 1+z+\frac{z^2}{2}
+\quad \text{for small } z.
+\]
+
+\[
+e^{-\frac{\varepsilon}{1-\alpha}\chi_i}
+\approx
+1-\frac{\varepsilon}{1-\alpha}\chi_i
++
+\frac{1}{2}
+\left(\frac{\varepsilon}{1-\alpha}\right)^2
+\chi_i^2.
+\]
+
+\begin{tightalign}
+\int_0^1 e^{-\frac{\varepsilon}{1-\alpha}\chi_i}\dd i
+&\approx
+1-\frac{\varepsilon}{1-\alpha}\int_0^1\chi_i\dd i
++
+\frac{1}{2}
+\left(\frac{\varepsilon}{1-\alpha}\right)^2
+\int_0^1\chi_i^2\dd i,\\
+\chi_i=p_t(i)-p_t
+&\Rightarrow
+\int_0^1\chi_i\dd i
+=
+\int_0^1p_t(i)\dd i-\int_0^1p_t\dd i
+=
+p_t-p_t=0,\\
+\int_0^1e^{-\frac{\varepsilon}{1-\alpha}\chi_i}\dd i
+&\approx
+1+
+\frac{1}{2}
+\left(\frac{\varepsilon}{1-\alpha}\right)^2
+\int_0^1\chi_i^2\dd i.
+\end{tightalign}
+
+\[
+\int_0^1\chi_i^2\dd i
+\approx
+\operatorname{Var}_i\{p_t(i)-p_t\}
+\quad
+\text{cross-sectional second moment.}
+\]
+Take logs:
+\begin{tightalign}
+d_t&=(1-\alpha)\log\left[1+\frac{1}{2}\left(\frac{\varepsilon}{1-\alpha}\right)^2Var_i\{p_t(i)-p_t\}\right],\\
+\text{since }\log(1+u)&\approx u,\\
+d_t&\approx (1-\alpha)\frac{1}{2}\left(\frac{\varepsilon}{1-\alpha}\right)^2Var_i\{p_t(i)-p_t\},\\
+d_t&\approx \frac{\varepsilon^2}{2(1-\alpha)}Var_i\{p_t(i)-p_t\},\\
+d_t&\propto Var_i\{p_t(i)\}.
+\end{tightalign}
+\par\smallskip
+Thus, in the neighborhood of $\hat\pi_t=0$ or $\bar\Pi=1$, $d_t$ is $0$ up to first-order approximation:
+\[
+\hat d_t\approx0.
+\]
+Thus
+\[
+Y_t=A_tN_t^{1-\alpha}D_t^{-1}\quad\text{log linearization}
+\]
+\[
+\hat y_t=\hat a_t+(1-\alpha)\hat n_t-\hat d_t
+\Rightarrow
+\hat y_t=\hat a_t+(1-\alpha)\hat n_t,
+\qquad
+\hat n_t=\frac{1}{1-\alpha}(\hat y_t-\hat a_t).
+\]
+\newpage
+\section*{Average real marginal cost}
+\red{Average firm:}
+\[
+MC_t^r=\frac{W_t}{P_t}\frac{1}{MPN_t}=\frac{W_t}{P_t}\frac{1}{(1-\alpha)A_tN_t^{-\alpha}}.
+\]
+\begin{tightalign}
+\widehat{mc}_t^r
+&=\hat w_t-\hat p_t-\widehat{mpn}_t
+=\hat w_t-\hat p_t-(\hat a_t-\alpha\hat n_t)\\
+&=\hat w_t-\hat p_t-\left(\hat a_t-\frac{\alpha}{1-\alpha}\hat y_t+\frac{\alpha}{1-\alpha}\hat a_t\right)\\
+&=\hat w_t-\hat p_t-\frac{1}{1-\alpha}(\hat a_t-\alpha\hat y_t).
+\end{tightalign}
+\red{For firms that set price at $t$ and remains at $t+k$:}
+\[
+\begin{aligned}
+\widehat{mc}^{\,r}_{t+k|t}
+&=
+\hat w_{t+k}
+-
+\hat p_{t+k}
+-
+\widehat{mpn}_{t+k|t}
+\\[0.15em]
+&=
+\hat w_{t+k}
+-
+\hat p_{t+k}
+-
+\frac{1}{1-\alpha}
+\left(
+\hat a_{t+k}
+-
+\alpha \hat y_{t+k|t}
+\right)
+\\[0.15em]
+&=
+\hat w_{t+k}
+-
+\hat p_{t+k}
+-
+\frac{1}{1-\alpha}
+\left(
+\hat a_{t+k}
+-
+\alpha \hat y_{t+k}
++
+\alpha \hat y_{t+k}
+-
+\alpha \hat y_{t+k|t}
+\right)
+\\[0.15em]
+&=
+\widehat{mc}^{\,r}_{t+k}
+-
+\frac{\alpha}{1-\alpha}
+\left(
+\hat y_{t+k}
+-
+\hat y_{t+k|t}
+\right).
+\end{aligned}
+\]
+Since
+\[
+Y_{t+k|t}=\left(\frac{P_t^*}{P_{t+k}}\right)^{-\varepsilon}Y_{t+k}
+\Rightarrow \hat y_{t+k}-\hat y_{t+k|t}=\varepsilon(\hat p_t^*-
+\hat p_{t+k}).
+\]
+\[
+\Rightarrow\widehat{mc}_{t+k|t}^r=\widehat{mc}_{t+k}^r-\frac{\alpha\varepsilon}{1-\alpha}(\hat p_t^*-
+\hat p_{t+k}).
+\]
+\par\smallskip
+\blue{With CRS: $\alpha=0\Rightarrow\widehat{mc}_{t+k|t}^r=\widehat{mc}_{t+k}^r$. The real marginal cost is common across firms regardless whether they can reset price at $t$.}
+
+Since
+\[
+\widehat{mc}^{\,r}_{t+k|t}
+=
+\widehat{mc}^{\,r}_{t+k}
+-
+\frac{\alpha\varepsilon}{1-\alpha}
+(\hat p_t^*-\hat p_{t+k}),
+\]
+we have
+\[
+\hat p_t^*
+=
+(1-\beta\theta)E_t
+\sum_{k=0}^{\infty}
+(\beta\theta)^k
+\left[
+\Theta \widehat{mc}^{\,r}_{t+k}
++
+\hat p_{t+k}
+\right],
+\qquad
+\Theta=
+\frac{1-\alpha}{1-\alpha+\alpha\varepsilon}\leq 1.
+\]
+Derivation:
+\begin{tightalign}
+\hat p_t^*&=(1-\beta\theta)\E_t\left\{\sum_{k=0}^{\infty}(\beta\theta)^k\left[\widehat{mc}_{t+k}^r-\frac{\alpha\varepsilon}{1-\alpha}(\hat p_t^*-
+\hat p_{t+k})+\hat p_{t+k}\right]\right\},\\
+\hat p_t^*&=-\frac{\alpha\varepsilon}{1-\alpha}\hat p_t^*+(1-\beta\theta)\E_t\left\{\sum_{k=0}^{\infty}(\beta\theta)^k\left[\widehat{mc}_{t+k}^r+\frac{1-\alpha+\alpha\varepsilon}{1-\alpha}\hat p_{t+k}\right]\right\},\\
+\frac{1-\alpha+\alpha\varepsilon}{1-\alpha}\hat p_t^*&=(1-\beta\theta)\E_t\left\{\sum_{k=0}^{\infty}(\beta\theta)^k\left[\widehat{mc}_{t+k}^r+\frac{1-\alpha+\alpha\varepsilon}{1-\alpha}\hat p_{t+k}\right]\right\},\\
+\hat p_t^*&=(1-\beta\theta)\E_t\left\{\sum_{k=0}^{\infty}(\beta\theta)^k[\Theta\widehat{mc}_{t+k}^r+\hat p_{t+k}]
+\right\}.
+\end{tightalign}
+\begin{tightalign}
+\hat p_t^*&=(1-\beta\theta)(\Theta\widehat{mc}_t^r+\hat p_t)+\beta\theta\E_t\hat p_{t+1}^* \quad (*),\\
+\beta\theta\hat p_{t+1}^*&=\beta\theta(1-\beta\theta)\E_t\left\{\sum_{k=0}^{\infty}(\beta\theta)^k[\Theta\widehat{mc}_{t+1+k}^r+\hat p_{t+1+k}]
+\right\}\\
+&=(1-\beta\theta)\E_t\left\{\sum_{k=0}^{\infty}(\beta\theta)^{k+1}[\Theta\widehat{mc}_{t+(k+1)}^r+\hat p_{t+(k+1)}]
+\right\}.
+\end{tightalign}
+Let $k'=k+1$, $\forall k$:
+\[
+\beta\theta\hat p_{t+1}^*=(1-\beta\theta)\E_t\left\{\sum_{k'=1}^{\infty}(\beta\theta)^{k'}[\Theta\widehat{mc}_{t+k'}^r+\hat p_{t+k'}]\right\}.
+\]
+\blue{$k'$ is any index; we can use $k$.}\
+\blue{(*) just take out the term of $k=0$.}
+Combine (*) with log-linearized price index:
+\[
+\hat p_t=\theta\hat p_{t-1}+(1-\theta)\hat p_t^*.
+\]
+\begin{tightalign}
+\hat p_t&=\theta\hat p_{t-1}+(1-\theta)(1-\beta\theta)(\Theta\widehat{mc}_t^r+
+\hat p_t)+(1-\theta)\beta\theta\E_t\hat p_{t+1}^*,\\
+\text{since }\hat p_{t+1}^*&=\frac{\E_t\hat p_{t+1}-\theta\hat p_t}{1-\theta},\\
+\hat p_t&=\theta\hat p_{t-1}+(1-\theta)(1-\beta\theta)(\Theta\widehat{mc}_t^r+
+\hat p_t)+(1-\theta)\beta\theta\frac{\E_t\hat p_{t+1}-\theta\hat p_t}{1-\theta}.
+\end{tightalign}
+
+\begin{tightalign}
+\hat p_t&=\theta\hat p_{t-1}+(1-\theta)(1-\beta\theta)\Theta\widehat{mc}_t^r+(1-\theta-\beta\theta+\beta\theta^2)\hat p_t+\beta\theta\E_t\hat p_{t+1}-\beta\theta^2\hat p_t,\\
+\hat p_t-\theta\hat p_{t-1}-(1-\theta)\hat p_t&=(1-\theta)(1-\beta\theta)\Theta\widehat{mc}_t^r+\beta\theta(\E_t\hat p_{t+1}-\hat p_t),\\
+\theta(\hat p_t-\hat p_{t-1})&=(1-\theta)(1-\beta\theta)\Theta\widehat{mc}_t^r+\beta\theta\E_t\hat\pi_{t+1},\\
+\hat\pi_t&=\underbrace{\frac{(1-\theta)(1-\beta\theta)}{\theta}\Theta}_{\lambda}\widehat{mc}_t^r+\beta\E_t\hat\pi_{t+1}.
+\end{tightalign}
+\[
+\Rightarrow \hat\pi_t=\beta\E_t\hat\pi_{t+1}+\lambda\widehat{mc}_t^r\quad \text{iterate forward}
+\]
+\[
+\Rightarrow \hat\pi_t=\lambda\sum_{k=0}^{\infty}\beta^k\E_t\widehat{mc}_{t+k}^r.
+\]
+\par\smallskip
+\noindent
+\blue{$\lambda$ is the slope of NKPC w.r.t. real marginal cost.}\\
+\blue{$\theta\uparrow$ sticky price $\Rightarrow \lambda\downarrow \Rightarrow$ flatter Phillips curve.}\\
+\blue{$\Theta\downarrow$ stronger decreasing returns $\Rightarrow \lambda\downarrow$.}
+\par\smallskip
+\noindent
+\begin{minipage}{0.96\linewidth}
+\par\smallskip
+\red{Inflation results from aggregate consequences of purposeful price-setting decisions by firms,
+which adjust their prices in light of current and anticipated cost conditions.}
+\end{minipage}
+\par\smallskip
+\par\smallskip
+\section*{Relate marginal cost with output gap}
+\begin{tightalign}
+\widehat{mc}_t^r
+&=\hat w_t-\hat p_t-\frac{1}{1-\alpha}(\hat a_t-\alpha\hat y_t),\\
+\hat w_t-
+\hat p_t&=\sigma\hat c_t+\varphi\hat n_t
+\Rightarrow \hat w_t-
+\hat p_t=\sigma\hat y_t+\varphi\hat n_t,\\
+\Rightarrow \widehat{mc}_t^r&=\frac{\varphi+\alpha+\sigma-\alpha\sigma}{1-\alpha}\hat y_t-\frac{\varphi+1}{1-\alpha}\hat a_t.
+\end{tightalign}
+\par\smallskip
+\red{Real marginal cost rises with output, falls with productivity.}
+\par\smallskip
+\begin{enumerate}
+  \item \red{Labor becomes harder to expand due to household requires more compensation.}
+  \item \red{Decreasing return to scale: labor becomes less productive at the margin.}
+\end{enumerate}
+\par\smallskip
+Under flexible price:
+\[
+P_t(i)=\frac{\varepsilon}{\varepsilon-1}\frac{W_t}{A_tF_N,t(N_t(i))}=\mu MC_t=P_t,
+\]
+\[
+MC_t^r=\frac{MC_t}{P_t}=\frac{1}{\mu}\Rightarrow \widehat{mc}_t^r=0,
+\quad \text{real marginal cost has no variation.}
+\]
+\par\smallskip
+Define the output under flexible price as natural output (long-run output) $Y_t^n$.
+\[
+\Rightarrow \text{log deviation }\hat y_t^n\Rightarrow
+\hat y_t^n=\frac{\varphi+1}{\varphi+\alpha+\sigma-\alpha\sigma}\hat a_t.
+\]
+\par\smallskip
+\red{Define output gap as } $\tilde y_t=\hat y_t-\hat y_t^n$.
+\begin{tightalign}
+\text{Then }\widehat{mc}_t^r
+&=\frac{\varphi+\alpha+\sigma-\alpha\sigma}{1-\alpha}(\hat y_t^n+\tilde y_t)-\frac{\varphi+1}{1-\alpha}\hat a_t\\
+&=\frac{\varphi+\alpha+\sigma-\alpha\sigma}{1-\alpha}\frac{\varphi+1}{\varphi+\alpha+\sigma-\alpha\sigma}\hat a_t+\frac{\varphi+\alpha+\sigma-\alpha\sigma}{1-\alpha}\tilde y_t-\frac{\varphi+1}{1-\alpha}\hat a_t\\
+&=\frac{\varphi+\alpha+\sigma(1-\alpha)}{1-\alpha}\tilde y_t
+=\left(\sigma+\frac{\varphi+\alpha}{1-\alpha}\right)\tilde y_t.
+\end{tightalign}
+NKPC:
+\[
+\hat\pi_t=\beta\E_t\hat\pi_{t+1}+\lambda\widehat{mc}_t^r\quad(\hat\pi_{t+1}=\pi_{t+1})
+\]
+\[
+\Rightarrow \hat\pi_t=\beta\E_t\hat\pi_{t+1}+\kappa\tilde y_t,
+\quad \kappa=\lambda\left(\sigma+\frac{\varphi+\alpha}{1-\alpha}\right),
+\quad \lambda=\frac{(1-\theta)(1-\beta\theta)}{\theta}\Theta,
+\quad \Theta=\frac{1-\alpha}{1-\alpha+\alpha\varepsilon}.
+\]
+\par\smallskip
+\blue{When demand pushes output above natural output, firms face tighter resource constraints, and the marginal cost rises.}
+\begin{enumerate}
+  \item \blue{$\sigma$: demand / consumption smoothing channel.}
+  \[
+  Y_t>Y_t^n\Rightarrow C_t>C_t^n\Rightarrow MU\text{ of leisure}\uparrow\Rightarrow\text{tends to work less, but to keep }N\Rightarrow\frac{W}{P}\uparrow\Rightarrow MC^r\uparrow.
+  \]
+ \[
+\begin{aligned}
+&\sigma\uparrow
+\Rightarrow \text{less willing to substitute consumption intertemporally} \\
+&\Rightarrow \text{stronger intertemporal } C,N \text{ substitution} \\
+&\Rightarrow \text{stronger wage pressure}
+\Rightarrow \text{stronger MC pressure.}
+\end{aligned}
+\]
+  \item \blue{$\varphi$: labor market channel.}
+  \[
+  \varphi\uparrow\Rightarrow\text{households dislike work}\Rightarrow W\text{ increases by more}\Rightarrow MC^r\text{ increases by more.}
+  \]
+  \item \blue{$\alpha$: diminishing-returns-to-scale channel.}
+  \[
+  \alpha\uparrow\Rightarrow \text{to increase output by 1 unit}\Rightarrow \alpha\uparrow\text{ units increase in labor}\Rightarrow W/P\uparrow\Rightarrow MC^r\uparrow.
+  \]
+\end{enumerate}
+\newpage
+\section*{Dynamic IS curve}
+\begin{tightalign}
+\hat y_t&=\E_t\{\hat y_{t+1}\}-\frac{1}{\sigma}\left(\hat i_t-\E_t\{\hat\pi_{t+1}\}\right),\\
+\hat y_t^n+\tilde y_t&=\E_t\{\hat y_{t+1}^n+\tilde y_{t+1}\}-\frac{1}{\sigma}\left(\hat i_t-\E_t\{\hat\pi_{t+1}\}\right),\\
+\tilde y_t&=\E_t\{\hat y_{t+1}^n-\hat y_t^n\}+\E_t\{\tilde y_{t+1}\}-\frac{1}{\sigma}(\hat i_t-\E_t\{\hat\pi_{t+1}\}).
+\end{tightalign}
+Define natural interest rate as:
+\[
+\hat r_t^n=\sigma\E_t\{\hat y_{t+1}^n-\hat y_t^n\}
+=\frac{\sigma(1+\varphi)}{\varphi+\alpha+\sigma(1-\alpha)}\E_t\{\Delta\hat a_{t+1}\}
+=\sigma\psi_{ya}^n\E_t\{\Delta\hat a_{t+1}\}.
+\]
+\[
+\Rightarrow \tilde y_t=-\frac{1}{\sigma}(\hat i_t-\E_t\{\hat\pi_{t+1}\}-\hat r_t^n)+\E_t\{\tilde y_{t+1}\}.
+\]
+Define
+\[
+\hat r_t=\hat i_t-\E_t\{\hat\pi_{t+1}\}.
+\]
+\[
+\Rightarrow \tilde y_t=-\frac{1}{\sigma}(\hat r_t-\hat r_t^n)+\E_t\{\tilde y_{t+1}\}.
+\]
+Assume $\lim_{T\to\infty}\E_t\{\tilde y_{t+T}\}=0$ and iterate forward:
+\[
+\Rightarrow \tilde y_t=-\frac{1}{\sigma}\E_t\left\{\sum_{k=0}^{\infty}(\hat r_{t+k}-\hat r_{t+k}^n)\right\}.
+\]
+\blue{Output gap is proportional to the sum of current and anticipated deviations between the real interest rate and natural real interest rate.}
+\par\smallskip
+NKPC:
+\[
+\hat\pi_t=\beta\E_t\{\hat\pi_{t+1}\}+\kappa\tilde y_t\quad\text{iterate forward}
+\]
+\[
+\Rightarrow\hat\pi_t=\kappa\sum_{k=0}^{\infty}\beta^k\E_t\{\tilde y_{t+k}\},
+\quad \text{where }\kappa=\lambda\left(\sigma+\frac{\varphi+\alpha}{1-\alpha}\right).
+\]
+\[
+\red{\text{Inflation today is the discounted sum of the expected future output gap.}}
+\]
+\par\smallskip
+Basic New Keynesian non-policy block:
+\[
+\left\{
+\begin{array}{ll}
+\hat\pi_t=\kappa\sum_{k=0}^{\infty}\beta^k\E_t\{\tilde y_{t+k}\}, & \text{NKPC: determines inflation given output gap path},\\[3pt]
+\tilde y_t=-\frac{1}{\sigma}\E_t\left\{\sum_{k=0}^{\infty}(\hat r_{t+k}-\hat r_{t+k}^n)\right\}, & \text{DIS: determines output gap given real interest rate gap path.}
+\end{array}
+\right.
+\]
+
+\par\smallskip
+To close, we need more equations to pin down how nominal interest rate $i$ / $\hat i_t$ evolves (monetary policy).
+\[
+\left\{
+\begin{aligned}
+\tilde y_t
+&=
+-\frac{1}{\sigma}
+\left(
+\hat i_t-\mathbb E_t\{\hat\pi_{t+1}\}-\hat r_t^n
+\right)
++\mathbb E_t\{\tilde y_{t+1}\}
+\qquad \dashrightarrow \quad \text{DIS (Demand)}
+\\[0.6em]
+\hat\pi_t
+&=
+\beta \mathbb E_t\{\hat\pi_{t+1}\}
++\kappa \tilde y_t
+\qquad \dashrightarrow \quad \text{NKPC (Supply)}
+\end{aligned}
+\right.
+\]
+\newpage
+\section*{Dynamic monetary policy rule}
+\[
+\hat i_t=\phi_\pi\hat\pi_t+\phi_y\tilde y_t+v_t,
+\quad v_t\text{ is exogenous with zero mean.}
+\]
+\[
+\phi_\pi>0,\quad \phi_y>0,
+\quad \text{assume S.S. }\bar\Pi=0.
+\]
+DIS:
+\[
+\tilde y_t=-\frac{1}{\sigma}[\phi_\pi\hat\pi_t+\phi_y\tilde y_t-
+\E_t\{\hat\pi_{t+1}\}-(\hat r_t^n-v_t)]+\E_t\{\tilde y_{t+1}\}\quad (***)
+\]
+\[
+\Rightarrow \left(1+\frac{\phi_y}{\sigma}\right)\tilde y_t+\frac{\phi_\pi}{\sigma}\hat\pi_t
+=\E_t\{\tilde y_{t+1}\}+\frac{1}{\sigma}\E_t\{\hat\pi_{t+1}\}+\frac{1}{\sigma}(\hat r_t^n-v_t).
+\]
+\[
+-\kappa\tilde y_t+\hat\pi_t=\beta\E_t\{\hat\pi_{t+1}\}.
+\]
+\par\smallskip
+Write in matrix form in system of $[\tilde y_t,\hat\pi_t]'$:
+\[
+\underbrace{\begin{bmatrix}1+\phi_y/\sigma&\phi_\pi/\sigma\\-\kappa&1\end{bmatrix}}_{M}
+\begin{bmatrix}\tilde y_t\\\hat\pi_t\end{bmatrix}
+=\begin{bmatrix}1&1/\sigma\\0&\beta\end{bmatrix}
+\begin{bmatrix}\E_t\{\tilde y_{t+1}\}\\\E_t\{\hat\pi_{t+1}\}\end{bmatrix}
++\begin{bmatrix}1/\sigma\\0\end{bmatrix}(\hat r_t^n-v_t).
+\]
+\[
+\begin{bmatrix}\tilde y_t\\\hat\pi_t\end{bmatrix}
+=M^{-1}\begin{bmatrix}1&1/\sigma\\0&\beta\end{bmatrix}
+\begin{bmatrix}\E_t\{\tilde y_{t+1}\}\\\E_t\{\hat\pi_{t+1}\}\end{bmatrix}
++M^{-1}\begin{bmatrix}1/\sigma\\0\end{bmatrix}(\hat r_t^n-v_t).
+\]
+\[
+M^{-1}=\frac{1}{|M|}\begin{bmatrix}1&-\phi_\pi/\sigma\\ \kappa&1+\phi_y/\sigma\end{bmatrix}
+=\Omega\begin{bmatrix}\sigma&-\phi_\pi\\ \kappa\sigma&\sigma+\phi_y\end{bmatrix},
+\quad \Omega=\frac{1}{\sigma+\phi_y+\kappa\phi_\pi}.
+\]
+\[
+A_T=\Omega\begin{bmatrix}\sigma&-\phi_\pi\\\kappa\sigma&\sigma+\phi_y\end{bmatrix}
+\begin{bmatrix}1&1/\sigma\\0&\beta\end{bmatrix}
+=\begin{bmatrix}\sigma&1-\beta\phi_\pi\\ \kappa\sigma&\kappa+\beta(\sigma+\phi_y)\end{bmatrix}\Omega,
+\]
+\[
+B_T=\Omega\begin{bmatrix}\sigma&-\phi_\pi\\\kappa\sigma&\sigma+\phi_y\end{bmatrix}
+\begin{bmatrix}1/\sigma\\0\end{bmatrix}
+=\begin{bmatrix}1\\\kappa\end{bmatrix}\Omega.
+\]
+
+\[
+\Rightarrow
+\begin{bmatrix}\tilde y_t\\\hat\pi_t\end{bmatrix}
+=A_T\begin{bmatrix}\E_t\{\tilde y_{t+1}\}\\\E_t\{\hat\pi_{t+1}\}\end{bmatrix}
++B_T(\hat r_t^n-v_t).
+\]
+\par\smallskip
+\[
+\red{\text{Both }\tilde y_t\text{ and }\hat\pi_t\text{ are not predetermined }\xRightarrow{BK}\text{ both eigenvalues of }A_T\text{ are within the unit circle.}}
+\]
+For a $2\times2$ matrix $A_T$, both eigenvalues lie inside unit circle iff Jury/Schur condition holds:
+\[
+\left\{
+\begin{array}{l}
+1-\det(A_T)>0\quad (D<1),\\
+1-\operatorname{tr}(A_T)+\det(A_T)>0\quad (p(1)>0),\\
+1+\operatorname{tr}(A_T)+\det(A_T)>0\quad (p(-1)>0).
+\end{array}
+\right.
+\]
+\begin{tightalign}
+\det(A_T)&=\Omega^2[\sigma(\kappa+\beta(\sigma+\phi_y))-(1-\beta\phi_\pi)\kappa\sigma]
+=\Omega^2\sigma\beta(\sigma+\phi_y+\kappa\phi_\pi)
+=\frac{\beta\sigma}{\sigma+\phi_y+\kappa\phi_\pi},\\
+\operatorname{tr}(A_T)&=\Omega[\sigma+\kappa+\beta(\sigma+\phi_y)]
+=\frac{\sigma+\kappa+\beta(\sigma+\phi_y)}{\sigma+\phi_y+\kappa\phi_\pi}.
+\end{tightalign}
+\[
+1^\circ\quad
+1-
+\det(A_T)=1-\frac{\beta\sigma}{\sigma+\phi_y+\kappa\phi_\pi}
+=\frac{(1-\beta)\sigma+\phi_y+\kappa\phi_\pi}{\sigma+\phi_y+\kappa\phi_\pi}>0\quad \blue{\text{satisfy}},
+\]
+$\beta<1,\sigma>0,\phi_y>0,\kappa>0,\phi_\pi>0.$
+\begin{tightalign}
+2^\circ\quad 1-\operatorname{tr}(A_T)+\det(A_T)
+&=1-\frac{\sigma+\kappa+\beta(\sigma+\phi_y)}{\sigma+\phi_y+\kappa\phi_\pi}+\frac{\beta\sigma}{\sigma+\phi_y+\kappa\phi_\pi}\\
+&=\frac{\kappa(\phi_\pi-1)+(1-\beta)\phi_y}{\sigma+\phi_y+\kappa\phi_\pi}>0
+\end{tightalign}
+\[
+\Rightarrow \kappa(\phi_\pi-1)+(1-\beta)\phi_y>0\quad \blue{\text{satisfy if}}.
+\]
+\[
+3^\circ\quad
+1+\operatorname{tr}(A_T)+\det(A_T)
+=\frac{(\sigma+\phi_y+\kappa\phi_\pi)+(\sigma+\kappa+\beta(\sigma+\phi_y))+\beta\sigma}{\sigma+\phi_y+\kappa\phi_\pi}>0
+\quad \blue{\text{satisfy}}.
+\]
+\[
+\red{\text{The system is stable iff: }}\quad \kappa(\phi_\pi-1)+(1-\beta)\phi_y>0.
+\]
+\noindent
+\par\smallskip
+\red{If $\phi_y=0\Rightarrow \phi_\pi>1$, consistent with the Taylor principle:
+when inflation rises by $1\%$, the central bank needs to raise the nominal interest rate by $>1\%$.}
+\par\smallskip
+\[
+r_t=i_t-\E_t\pi_{t+1}
+\qquad \text{Fisher equation.}
+\]
+
+\[
+\red{\E_t\pi_{t+1}\uparrow 1\%,\quad
+i_t\uparrow>1\%
+\Rightarrow
+r_t\uparrow
+\Rightarrow
+\E_t\pi_{t+1}\downarrow.}
+\]
+\newpage
+\section*{Monetary policy shock}
+Assume $v_t$ follows AR(1):
+\[
+v_t=\rho_vv_{t-1}+\varepsilon_t^v,
+\qquad \rho_v\in[0,1].
+\]
+
+\[
+\varepsilon_t^v>0: \text{ contractionary MP shock},
+\qquad \varepsilon_t^v<0: \text{ expansionary MP shock.}
+\]
+
+\par\smallskip
+For simplicity, shut down technology shock:
+\[
+\hat a_t=0\Rightarrow \hat y_t^n=0,
+\quad \hat r_t^n=0,\quad \forall t.
+\]
+Guess
+\[
+\tilde y_t=\psi_{yv}v_t,
+\qquad \hat\pi_t=\psi_{\pi v}v_t.
+\]
+Plug into (***):
+\begin{tightalign}
+\psi_{yv}v_t&=-\frac{1}{\sigma}(\phi_\pi\psi_{\pi v}v_t+\phi_y\psi_{yv}v_t+v_t-\rho_v\psi_{\pi v}v_t)+\rho_v\psi_{yv}v_t,\\
+-\sigma\psi_{yv}&=\phi_\pi\psi_{\pi v}+\phi_y\psi_{yv}+1-\rho_v\psi_{\pi v}-\sigma\rho_v\psi_{yv},\\
+[\sigma(1-\rho_v)+\phi_y]\psi_{yv}&=(\rho_v-\phi_\pi)\psi_{\pi v}-1\quad (1).
+\end{tightalign}
+From NKPC:
+\begin{tightalign}
+\hat\pi_t&=\beta\E_t\{\hat\pi_{t+1}\}+\kappa\tilde y_t,\\
+\psi_{\pi v}v_t&=\beta\rho_v\psi_{\pi v}v_t+\kappa\psi_{yv}v_t,\\
+\psi_{yv}&=\frac{1-\beta\rho_v}{\kappa}\psi_{\pi v}\quad (2).
+\end{tightalign}
+Plug (2) into (1):
+\[
+\psi_{\pi v}=-\frac{\kappa}{(1-\beta\rho_v)[\sigma(1-\rho_v)+\phi_y]+\kappa(\phi_\pi-\rho_v)}.
+\]
+\[
+\hat\pi_t
+=
+\underbrace{-\kappa\Lambda_\nu}_{<0}
+v_t
+\]
+\[
+\Lambda_v=\frac{1}{(1-\beta\rho_v)[\sigma(1-\rho_v)+\phi_y]+\kappa(\phi_\pi-\rho_v)}>0.
+\]
+where
+\[
+\kappa
+=
+\left(\sigma+\frac{\varphi+\alpha}{1-\alpha}\right)\lambda
+=
+\left(\sigma+\frac{\varphi+\alpha}{1-\alpha}\right)
+\frac{(1-\theta)(1-\beta\theta)}{\theta}
+\frac{1-\alpha}{1-\alpha+\alpha\varepsilon}
+>0.
+\]
+\[
+\tilde y_t
+=
+\underbrace{-(1-\beta\rho_v)\Lambda_v}_{<0}
+v_t
+\]
+\begin{tightalign}
+\hat r_t
+&=
+\hat i_t-\E_t\{\hat\pi_{t+1}\}
+=
+\phi_\pi\psi_{\pi v}v_t
++
+\phi_y\psi_{yv}v_t
++
+v_t
++
+\kappa\Lambda_v\rho_vv_t
+\\
+&=
+\underbrace{\sigma(1-\rho_v)(1-\beta\rho_v)\Lambda_v}_{>0}
+v_t.
+\end{tightalign}
+\[
+\hat i_t
+=
+\underbrace{\left[\sigma(1-\rho_v)(1-\beta\rho_v)-\kappa\rho_v\right]\Lambda_v}_{\text{coefficient on }v_t}
+v_t.
+\]
+\[
+\text{ambiguous; depends on }\rho_v.\quad \text{if }\rho_v\uparrow,\ \hat i_t\downarrow.
+\]
+\blue{If monetary policy is more persistent, $\hat i_t\downarrow$ real interest rate decreases.}
+\[
+\text{Therefore}
+\left\{
+\begin{aligned}
+v_t &= \rho_v v_{t-1}+\varepsilon_t^v,
+\qquad \rho_v\in[0,1],\\
+\hat\pi_t &= -\kappa\Lambda_v v_t,\\
+\tilde y_t &= -(1-\beta\rho_v)\Lambda_v v_t,\\
+\hat r_t &= \sigma(1-\rho_v)(1-\beta\rho_v)\Lambda_v v_t,\\
+\hat i_t &= \left[\sigma(1-\rho_v)(1-\beta\rho_v)-\kappa\rho_v\right]\Lambda_v v_t.
+\end{aligned}
+\right.
+\]
+
+\par\smallskip
+\noindent
+\blue{Calibration: $\beta=0.99$ (quarterly data), $\sigma=1$ (log utility), $\varphi=1$, $\alpha=1/3$, $\varepsilon=6$, $\theta=2/3$, $\bar y=4$.}
+
+\noindent
+\blue{With $\phi_\pi=1.5$, $\phi_y=0.5$, $\rho_v=0.5$, and shock $\varepsilon_t^v=25$bp: 
+$\hat\pi_t<0$, $\tilde y_t<0$, $\hat y_t<0$, $\hat i_t>0$, $\hat m_t<0$.}
+\section*{Technology shock}
+Assume an AR(1) process of $\hat a_t$:
+\[
+\hat a_t=\rho_a\hat a_{t-1}+\varepsilon_t^a,
+\qquad \rho_a\in[0,1].
+\]
+\[
+\hat r_t^n=\sigma\E_t\{\hat y_{t+1}^n-\hat y_t^n\}=\sigma\psi_{ya}^n\E_t\{\Delta\hat a_{t+1}\}
+=-\sigma\psi_{ya}^n(1-\rho_a)\hat a_t.
+\]
+Setting $v_t=0,\forall t$. Assume:
+\[
+\tilde y_t=\psi_{yr}\hat r_t^n,
+\qquad \hat\pi_t=\psi_{\pi r}\hat r_t^n.
+\]
+\[
+\begin{bmatrix}\tilde y_t\\\hat\pi_t\end{bmatrix}
+=A_T\begin{bmatrix}\E_t\{\tilde y_{t+1}\}\\\E_t\{\hat\pi_{t+1}\}\end{bmatrix}
++B_T(\hat r_t^n-v_t).
+\]
+Opposite sign to $v_t$:
+\[
+\psi_{yr}=-\psi_{yv},\qquad \psi_{\pi r}=-\psi_{\pi v}.
+\]
+\begin{tightalign}
+\tilde y_t&=(1-\beta\rho_a)\Lambda_a\hat r_t^n
+=-\sigma\psi_{ya}^n(1-\rho_a)(1-\beta\rho_a)\Lambda_a\hat a_t,\\
+\hat\pi_t&=\kappa\Lambda_a\hat r_t^n=-\sigma\psi_{ya}^n(1-\rho_a)\kappa\Lambda_a\hat a_t,
+\end{tightalign}
+where
+\[
+\Lambda_a=\frac{1}{(1-\beta\rho_a)[\sigma(1-\rho_a)+\phi_y]+\kappa(\phi_\pi-\rho_a)}>0.
+\]
+
+\[
+\begin{aligned}
+\hat y_t
+&=
+\hat y_t^n+\tilde y_t
+=
+\psi_{ya}^n\hat a_t
+-
+\sigma\psi_{ya}^n(1-\rho_a)(1-\beta\rho_a)\Lambda_a\hat a_t
+\\
+&=
+\psi_{ya}^n
+\left[
+1-
+\underbrace{\sigma(1-\rho_a)(1-\beta\rho_a)\Lambda_a}_{(*)}
+\right]\hat a_t.
+\end{aligned}
+\]
+
+\[
+\begin{aligned}
+1-(*) 
+&=
+1-
+\sigma(1-\rho_a)(1-\beta\rho_a)
+\frac{1}{
+\sigma(1-\rho_a)(1-\beta\rho_a)
++
+\phi_y(1-\beta\rho_a)
++
+\kappa(\phi_\pi-\rho_a)
+}
+\\
+&=
+\frac{
+\sigma(1-\rho_a)(1-\beta\rho_a)
++
+\phi_y(1-\beta\rho_a)
++
+\kappa(\phi_\pi-\rho_a)
+-
+\sigma(1-\rho_a)(1-\beta\rho_a)
+}{
+\sigma(1-\rho_a)(1-\beta\rho_a)
++
+\phi_y(1-\beta\rho_a)
++
+\kappa(\phi_\pi-\rho_a)
+}
+\\
+&=
+\frac{
+\phi_y(1-\beta\rho_a)
++
+\kappa(\phi_\pi-\rho_a)
+}{
+\sigma(1-\rho_a)(1-\beta\rho_a)
++
+\phi_y(1-\beta\rho_a)
++
+\kappa(\phi_\pi-\rho_a)
+}.
+\end{aligned}
+\]
+
+\[
+\Rightarrow
+\hat y_t
+=
+\frac{
+\phi_y(1-\beta\rho_a)
++
+\kappa(\phi_\pi-\rho_a)
+}{
+\sigma(1-\rho_a)(1-\beta\rho_a)
++
+\phi_y(1-\beta\rho_a)
++
+\kappa(\phi_\pi-\rho_a)
+}
+\psi_{ya}^n\hat a_t.
+\]
+
+
+\[
+\begin{aligned}
+\phi_y(1-\beta\rho_a)+\kappa(\phi_\pi-\rho_a)
+&=
+\kappa(\phi_\pi-1)
++
+(1-\beta)\phi_y
++
+\kappa
+-
+\rho_a\kappa
++
+\beta\phi_y
+-
+\beta\rho_a\phi_y
+\\
+&=
+\underbrace{\kappa(\phi_\pi-1)+(1-\beta)\phi_y}_{\text{stable condition}}
++
+\underbrace{(1-\rho_a)\kappa}_{0\le \rho_a<1}
++
+\underbrace{(1-\rho_a)\beta\phi_y}_{0\le \rho_a<1}
+>0.
+\end{aligned}
+\]
+
+\blue{$y_t$ moves positively with $a_t$.}
+\[
+(1-\alpha)\hat n_t=\hat y_t-
+\hat a_t
+=\left[(\psi_{ya}^n-1)-\sigma\psi_{ya}^n(1-\rho_a)(1-\beta\rho_a)\Lambda_a\right]\hat a_t.
+\]
+In calibration: $\sigma=1\Rightarrow \psi_{ya}^n=\frac{1+\varphi}{\varphi+\alpha+\sigma(1-\alpha)}=1\Rightarrow n_t$ declines when $a_t$ increases.
+
+
+\par\smallskip
+\section*{Equilibrium with exogenous money supply: $\Delta \hat m_t$}
+\[
+\frac{M_t}{P_t}=L(i_t,Y_t).
+\]
+\red{Close the model with money demand equation instead of Taylor rule.}
+Define log real money balance:
+\[
+\widehat{\mathbb{M}}_t
+=
+\hat m_t-\hat p_t
+\Rightarrow
+\widehat{\mathbb{M}}_t
+=
+\hat y_t-\eta \hat i_t.
+\]
+
+\[
+\Rightarrow
+\tilde y_t-\eta\hat i_t
+=
+\widehat{\mathbb{M}}_t-\hat y_t^n
+\Rightarrow
+\hat i_t
+=
+\frac{1}{\eta}
+\left(
+\tilde y_t+\hat y_t^n-\widehat{\mathbb{M}}_t
+\right).
+\]
+
+\[
+\red{\text{Output}\uparrow
+\Rightarrow
+\text{money demand}\uparrow
+\Rightarrow
+i\uparrow.
+\quad
+\text{Real money supply}\uparrow
+\Rightarrow
+i\downarrow.}
+\]
+
+\[
+DIS
+\Rightarrow
+(1+\sigma\eta)\tilde y_t
+=
+\sigma\eta\E_t\{\tilde y_{t+1}\}
++
+\widehat{\mathbb{M}}_t
++
+\eta\E_t\{\hat\pi_{t+1}\}
++
+\eta\hat r_t^n
+-
+\hat y_t^n.
+\]
+
+From $\widehat{\mathbb{M}}_t$ definition:
+\[
+\widehat{\mathbb{M}}_t
+-
+\widehat{\mathbb{M}}_{t-1}
+=
+\Delta\hat m_t-\hat\pi_t
+\Rightarrow
+\widehat{\mathbb{M}}_{t-1}
+=
+\widehat{\mathbb{M}}_t+\hat\pi_t-\Delta\hat m_t.
+\]
+
+\[
+A_{M,0}
+\begin{bmatrix}
+\tilde y_t\\
+\hat\pi_t\\
+\widehat{\mathbb{M}}_{t-1}
+\end{bmatrix}
+=
+A_{M,1}
+\begin{bmatrix}
+\E_t\{\tilde y_{t+1}\}\\
+\E_t\{\hat\pi_{t+1}\}\\
+\widehat{\mathbb{M}}_t
+\end{bmatrix}
++
+B_M
+\begin{bmatrix}
+\hat r_t^n\\
+\hat y_t^n\\
+\Delta\hat m_t
+\end{bmatrix}.
+\]
+$\widehat{\mathbb{M}}_{t-1}$ is predetermined and $\tilde y_t$, $\hat\pi_t$ are not predetermined. Stationary solution will exist iff
+\[
+A_M=A_{M,0}^{-1}A_{M,1}\text{ has two eigenvalues inside the unit circle.}
+\]
+Assume the monetary policy shock follows AR(1):
+\[
+\Delta\hat m_t=\rho_m\Delta\hat m_{t-1}+\varepsilon_t^m,
+\qquad \rho_m\in[0,1].
+\]
+Let
+\[
+\hat r_t^n=\hat y_t^n=0,
+\quad \varepsilon_t^m=0.25,
+\quad t=0,
+\quad \varepsilon_t^m=0,
+\quad \forall t\ne0.
+\]
+An expansionary monetary policy shock:
+\[
+\Delta\hat m_t\uparrow\Rightarrow \tilde y_t\uparrow,\ \hat\pi_t\uparrow,\ \widehat{\mathbb{M}}_t\uparrow,
+\qquad \hat i_t\uparrow:\text{ no liquidity effect }(\sigma=1),
+\qquad \hat r_t\downarrow.
+\]
+\[
+\hat a_t\uparrow\Rightarrow \hat r_t^n\downarrow,\ \hat y_t\uparrow,\ \hat\pi_t\downarrow,\ \hat n_t\downarrow,\ \hat r_t\uparrow,\ \hat i_t\approx0,
+\qquad \hat y_t^n\uparrow\uparrow,\ \tilde y_t\downarrow.
+\]
+\blue{Liquidity effect: when real money balance $\uparrow$, $\widehat{\mathbb{M}}_t\uparrow\Rightarrow$ households hold too much money than they want.}
+\[
+\blue{\Rightarrow \hat i_t\downarrow\text{ to induce households to hold that money.}}
+\]
+\red{Why $\sigma=1$ liquidity effect is gone?}
+\[
+\hat i_t
+=
+\frac{1}{\eta}
+\left(
+\tilde y_t+\hat y_t^{\,n}-\widehat{\mathbb{M}}_t
+\right)
+\quad
+\text{with } \hat y_t^{\,n}=0.
+\]
+\red{DIS:}
+\[
+\tilde y_t=-\frac{1}{\sigma}(\hat i_t-
+\E_t\hat\pi_{t+1})+
+\E_t\tilde y_{t+1}.
+\]
+Set $\hat y_t^n=0$:
+\[
+\hat i_t=\frac{1}{\eta}(\tilde y_t-
+\widehat{\mathbb{M}}_t).
+\]
+\red{Liquidity effect: $\Delta\hat m_t>0$, $\hat i_t<0$, requires $\widehat{\mathbb{M}}_t>\tilde y_t$.}
+\red{Real balance must rise by more than the output gap.}
+\[
+\red{
+DIS \Rightarrow \hat i_t
+=
+\underbrace{\E_t\hat\pi_{t+1}}_{\red{>0}}
++
+\sigma
+\underbrace{\left[\E_t\hat y_{t+1}-\hat y_t\right]}_{\red{<0}}.
+}
+\]
+\[
+\hat i_t<0\Leftrightarrow \sigma(\tilde y_t-\E_t\tilde y_{t+1})>\E_t\hat\pi_{t+1}.
+\]
+
+\par\smallskip
+\red{After expansionary money shock, $\tilde y_t\uparrow\Rightarrow \tilde y_t>\E_t\tilde y_{t+1}\Rightarrow \E_t\tilde y_{t+1}-\tilde y_t<0$.}
+
+\par\smallskip
+\[
+\red{\text{When }\sigma=1,\text{ the negative term is not large enough to dominate the positive term.}}
+\]
+
+\par\smallskip
+\blue{Liquidity effect disappears whenever:}
+\[
+\E_t\hat\pi_{t+1}>\tilde y_t-
+\E_t\tilde y_{t+1}.
+\]
+Thus, $\sigma\gg1$, $\rho_m\ll1$ \blue{liquidity effect presents; money shock not persistent $\Rightarrow$ expected inflation $\downarrow$.}
+
+\ThisNoteEnd

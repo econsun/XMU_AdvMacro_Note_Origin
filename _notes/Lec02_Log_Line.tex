@@ -1,0 +1,577 @@
+% !TeX root = Lec02_Log_Line.tex
+
+\ifdefined\AdvMacroMain
+  \chapter{Lecture 2: Log Linearization}
+  \let\ThisNoteEnd\relax
+\else
+  \documentclass[12pt]{ctexart}
+  \newcommand{\ProjectRoot}{..}
+  \input{\ProjectRoot/_config/config}
+  \title{Lecture 2: Log Linearization}
+  \author{Chengyuan He}
+  \date{March 2026}
+  \begin{document}
+  \maketitle
+  \def\ThisNoteEnd{\end{document}}
+\fi
+
+Business cycle is fluctuation / deviation around trend. Log linearization: take logs to linearize the system and then take deviation from the trend / steady state.
+
+\textcolor{red}{* Can not work with discontinuous functions, eg: zero lower bound, default, work choice,etc.}
+
+\subsection*{1. Taylor expansions}
+
+Taylor expansion of order $k$ of function $f$ around $a$ is to derive the best approximation of $f$ around $a$ by a polynomial of order $k$.
+
+Suppose $f$ is $n+1$ times differentiable in an interval \textcolor{red}{around $a$}
+\[
+x\in(a-\varepsilon,\,a+\varepsilon),
+\]
+then
+\[
+f(x)=f(a)+\sum_{i=1}^{n}\frac{f^{(i)}(a)}{i!}(x-a)^i
++\underbrace{o\bigl((x-a)^n\bigr)}_{\text{Peano remainder terms.}}.
+\]
+
+
+eg:
+
+\[
+\text{1st order:}\qquad
+f(x)\approx f(a)+\frac{f'(a)}{1!}(x-a)^1
+= f(a)+f'(a)(x-a)
+\]
+
+\[
+\text{2nd order:}\qquad
+f(x)\approx f(a)+\frac{f'(a)}{1!}(x-a)^1+\frac{f''(a)}{2!}(x-a)^2
+= f(a)+f'(a)(x-a)+\frac{f''(a)}{2}(x-a)^2
+\]
+
+\subsection*{2. Taylor expansion on 2 dimensions}
+
+Suppose $f$ is second-order continuous $(C^2)$ in a circle around $(x_0,y_0)$ that contains $(x_0+h,y_0+k)$.
+
+\textcolor{red}{For a small move $(h,k)$ around $(x_0,y_0)$, how to approximate changes in $f$.}
+
+\[
+f(x_0+h,y_0+k)
+=
+f(x_0,y_0)
++
+\textcolor{red}{\Bigl[f_1(x_0,y_0)h+f_2(x_0,y_0)k\Bigr]}
++
+\frac{1}{2}
+\textcolor{red}{\Bigl[f_{11}(x,y)h^2+2f_{12}(x,y)hk+f_{22}(x,y)k^2\Bigr]}
+\]
+
+where
+\[
+(x,y)=(x_0+ch,y_0+ck)\qquad \text{for some } c\in(0,1).
+\]
+
+\textcolor{red}{A vector format:}
+\[
+\textcolor{red}{
+f(z_0+\Delta)=f(z_0)+\nabla f(z_0)^T\Delta+\frac{1}{2}\Delta^T H_f(z_0+c\Delta)\Delta
+}
+\]
+\[
+\textcolor{red}{
+\text{where } z_0=(x_0,y_0),\qquad \Delta=(h,k)
+}
+\]
+
+\subsection*{3. Log linearization}
+\[
+\textcolor{red}{\text{percentage deviation:}}\qquad
+\hat x_t
+=
+\log X_t
+-
+\underbrace{\log \bar X}_{\textcolor{red}{Steady state}}
+\]
+
+Since $\ Y_t \to 0$ when $\ Y_t$ is sufficiently small, we have
+\[
+e^{\ Y_t}=e^0+e^0(\ Y_t-0)=1+\ Y_t
+\qquad \Rightarrow \qquad
+\ Y_t\approx \log(1+\ Y_t).
+\]
+
+\[
+\hat x_t = \log\frac{X_t}{\bar X}
+= \log\left(1+\frac{X_t-\bar X}{\bar X}\right)
+\approx
+\frac{X_t-\bar X}{\bar X}.
+\]
+
+\[
+\hat x_t \times 100\%
+\quad \text{is approximately the percentage deviation w.r.t. S.S.}
+\]
+
+\newpage
+
+\[
+X_t=\bar X\left(\frac{X_t}{\bar X}\right)=\bar X e^{\log(X_t/\bar X)}=\bar X e^{\hat x_t}
+\]
+
+Taking first-order Taylor approximation:
+\[
+\bar X e^{\hat x_t}
+\approx
+\bar X e^0+\bar X e^0(\hat x_t-0)
+=
+\bar X+\bar X\hat x_t
+=
+(1+\hat x_t)\bar X
+\]
+
+\[
+\Rightarrow\qquad
+X_t=
+\overbrace{\bar X}^{\textcolor{red}{\text{Steady state}}}
++
+\overbrace{\bar X\hat x_t}^{\textcolor{red}{\text{deviation from steady state}}}
+\]
+
+\subsection*{4. Examples}
+
+\paragraph{(1)}
+\[
+Y_t=aX_t
+\]
+
+\[
+X_t\approx \bar X(1+\hat x_t)
+\qquad \Rightarrow \qquad
+Y_t\approx a\bar X(1+\hat x_t)=a\bar X+a\bar X\hat x_t
+\]
+
+Since
+\[
+Y_t=aX_t,\ \forall t
+\qquad \Rightarrow \qquad
+\bar Y=a\bar X,
+\]
+we get
+\[
+Y_t\approx \bar Y+\bar Y \hat x_t
+\qquad \Rightarrow \qquad
+Y_t\approx \bar Y+\bar Y \hat y_t
+\]
+hence
+\[
+\hat x_t=\hat y_t.
+\]
+
+\paragraph{(2)}
+\[
+Z_t=X_tY_t
+\]
+
+\[
+X_t\approx \bar X(1+\hat x_t), \qquad Y_t\approx \bar Y(1+\hat y_t)
+\]
+
+\[
+\Rightarrow\quad
+Z_t\approx \bar X\bar Y(1+\hat x_t)(1+\hat y_t)
+=
+\bar X\bar Y\Bigl(1+\hat x_t+\hat y_t+\underbrace{\textcolor{red}{\hat x_t\hat y_t}}_{\textcolor{red}{\approx 0}}\Bigr)
+\]
+
+So
+\[
+Z_t\approx \bar X\bar Y(1+\hat x_t+\hat y_t).
+\]
+
+Since
+\[
+Z_t=X_tY_t,\ \forall t
+\qquad \Rightarrow \qquad
+\bar Z=\bar X\bar Y,
+\]
+we get
+\[
+Z_t\approx \bar Z+\bar Z(\hat x_t+\hat y_t)
+\qquad \Rightarrow \qquad
+Z_t\approx \bar Z+\bar Z\hat z_t
+\]
+hence
+\[
+\hat z_t=\hat x_t+\hat y_t.
+\]
+
+\paragraph{(3)}
+Log linearize equation
+\[
+X_tY_t=C
+\qquad \Rightarrow \qquad
+\bar X\bar Y=C.
+\]
+
+By (2),
+\[
+X_tY_t\approx \bar X\bar Y(1+\hat x_t+\hat y_t)
+\qquad \Rightarrow \qquad
+C\approx C(1+\hat x_t+\hat y_t)
+\]
+so
+\[
+\hat x_t+\hat y_t=0.
+\]
+
+\paragraph{(4)}
+\[
+\frac{X_t}{Y_t}=C
+\qquad \Rightarrow \qquad
+\frac{\bar X}{\bar Y}=C.
+\]
+
+\[
+\frac{X_t}{Y_t}
+\approx
+\frac{\bar X(1+\hat x_t)}{\bar Y(1+\hat y_t)}
+\]
+
+Use
+\[
+(1+\hat y_t)(1-\hat y_t)=1+\hat y_t-\hat y_t-\hat y_t\hat y_t
+\qquad \Rightarrow \qquad
+\frac{1}{1+\hat y_t}\approx (1-\hat y_t).
+\]
+
+Therefore
+\[
+\frac{X_t}{Y_t}
+=
+\frac{\bar X}{\bar Y}(1+\hat x_t)(1-\hat y_t)
+\approx
+\frac{\bar X}{\bar Y}\bigl(1+\hat x_t-\hat y_t-\textcolor{red}{\hat x_t\hat y_t}\bigr)
+\]
+
+
+So
+\[
+\frac{X_t}{Y_t}\approx \frac{\bar X}{\bar Y}(1+\hat x_t-\hat y_t).
+\]
+
+Since
+\[
+\frac{X_t}{Y_t}=\frac{\bar X}{\bar Y}=C,
+\]
+we have
+\[
+C=C(1+\hat x_t-\hat y_t)
+\qquad \Rightarrow \qquad
+\hat x_t-\hat y_t=0.
+\]
+
+\paragraph{(5)}
+\[
+X_t+Y_t=C
+\qquad \Rightarrow \qquad
+\bar X+\bar Y=C.
+\]
+
+\[
+X_t+Y_t\approx \bar X(1+\hat x_t)+\bar Y(1+\hat y_t)
+=\bar X+\bar Y+\bar X\hat x_t+\bar Y\hat y_t
+\]
+hence
+\[
+\bar X\hat x_t+\bar Y\hat y_t=0.
+\]
+
+\paragraph{(6) budget constraint}
+\[
+C_t+K_t=Y_t+(1-\delta)K_{t-1}
+\qquad \Rightarrow \qquad
+\bar C+\bar K=\bar Y+(1-\delta)\bar K
+\]
+
+\[
+C_t\approx \bar C(1+\hat c_t),\qquad
+K_t\approx \bar K(1+\hat k_t),\qquad
+Y_t\approx \bar Y(1+\hat y_t),\qquad
+K_{t-1}\approx \bar K(1+\hat k_{t-1})
+\]
+
+\[
+\Rightarrow\quad
+\bar C(1+\hat c_t)+\bar K(1+\hat k_t)
+=
+\bar Y(1+\hat y_t)+(1-\delta)\bar K(1+\hat k_{t-1})
+\]
+
+\[
+\Rightarrow\quad
+\bar C+\bar C\hat c_t+\bar K+\bar K\hat k_t
+=
+\bar Y+\bar Y\hat y_t+(1-\delta)\bar K+(1-\delta)\bar K\hat k_{t-1}
+\]
+
+Using
+\[
+\bar C+\bar K=\bar Y+(1-\delta)\bar K,
+\]
+we obtain
+\[
+\bar C\hat c_t+\bar K\hat k_t
+=
+\bar Y\hat y_t+(1-\delta)\bar K\hat k_{t-1}.
+\]
+
+\paragraph{(7) Utility FOC}
+\[
+C_t^{-\sigma}=\lambda_t
+\qquad \Rightarrow \qquad
+\bar C^{-\sigma}=\bar \lambda
+\]
+
+Let
+\[
+C_t=\bar C e^{\hat c_t},\qquad \lambda_t=\bar \lambda e^{\hat \lambda_t}.
+\]
+
+Then
+\[
+C_t^{-\sigma}
+=
+\bar C^{-\sigma}e^{-\sigma \hat c_t}
+=
+\bar \lambda e^{\hat \lambda_t}.
+\]
+
+Since $\bar C^{-\sigma}=\bar \lambda$,
+\[
+e^{-\sigma \hat c_t}=e^{\hat \lambda_t}.
+\]
+
+Using
+\[
+e^{-\sigma \hat c_t}\approx 1-\sigma \hat c_t,
+\qquad
+e^{\hat \lambda_t}\approx 1+\hat \lambda_t,
+\]
+we get
+\[
+1-\sigma \hat c_t=1+\hat \lambda_t
+\qquad \Rightarrow \qquad
+-\sigma \hat c_t=\hat \lambda_t.
+\]
+
+\paragraph{(8) C-D production function}
+\[
+Y_t=A_t K_t^\alpha N_t^{1-\alpha}
+\qquad \Rightarrow \qquad
+\bar Y=\bar A \bar K^\alpha \bar N^{1-\alpha}
+\]
+
+\[
+\log Y_t=\log A_t+\alpha \log K_t+(1-\alpha)\log N_t
+\]
+\[
+\log \bar Y=\log \bar A+\alpha \log \bar K+(1-\alpha)\log \bar N
+\]
+
+Subtract:
+\[
+\log Y_t-\log \bar Y
+=
+(\log A_t-\log \bar A)
++\alpha(\log K_t-\log \bar K)
++(1-\alpha)(\log N_t-\log \bar N)
+\]
+hence
+\[
+\hat y_t=\hat a_t+\alpha \hat k_t+(1-\alpha)\hat n_t.
+\]
+
+
+\paragraph{(9) GDP identity}
+\[
+Y_t=C_t+I_t+G_t
+\]
+
+From (5) we know
+\[
+\hat y_t
+=
+\frac{\bar C}{\bar Y}\hat c_t
++
+\frac{\bar I}{\bar Y}\hat i_t
++
+\frac{\bar G}{\bar Y}\hat g_t
+=
+s_c\hat c_t+s_i\hat i_t+s_g\hat g_t.
+\]
+
+\textcolor{red}{share of GDP for each component}
+
+\newpage
+
+\paragraph{(10) Capital law of motion}
+\[
+K_{t+1}=(1-\delta)K_t+I_t
+\qquad \Rightarrow \qquad
+\bar K=(1-\delta)\bar K+\bar I
+\]
+
+\[
+\Rightarrow\quad
+\bar K(1+\hat k_{t+1})
+=
+(1-\delta)\bar K(1+\hat k_t)+\bar I(1+\hat i_t)
+\]
+
+\[
+\Rightarrow\quad
+\bar K+\bar K\hat k_{t+1}
+=
+(1-\delta)\bar K+(1-\delta)\bar K\hat k_t+\bar I+\bar I\hat i_t
+\]
+
+Using
+\[
+\bar K=(1-\delta)\bar K+\bar I,
+\]
+we get
+\[
+\bar K\hat k_{t+1}=(1-\delta)\bar K\hat k_t+\bar I\hat i_t.
+\]
+
+Thus
+\[
+\hat k_{t+1}
+=
+(1-\delta)\hat k_t+\frac{\bar I}{\bar K}\hat i_t.
+\]
+
+Since
+\[
+\bar K=(1-\delta)\bar K+\bar I
+\qquad \Rightarrow \qquad
+\frac{\bar I}{\bar K}=\delta,
+\]
+we obtain
+\[
+\hat k_{t+1}=(1-\delta)\hat k_t+\delta \hat i_t.
+\]
+
+\paragraph{(11) Euler equation}
+\[
+U'(C_t)=\beta E_t\bigl[U'(C_{t+1})R_{t+1}\bigr]
+\]
+
+use CRRA utility:
+\[
+U(C_t)=\frac{C_t^{1-\sigma}}{1-\sigma}
+\qquad \Rightarrow \qquad
+U'(C_t)=C_t^{-\sigma}
+\]
+
+So
+\[
+C_t^{-\sigma}
+=
+\beta E_t\bigl[C_{t+1}^{-\sigma}R_{t+1}\bigr].
+\]
+
+At steady state:
+\[
+\bar C^{-\sigma}
+=
+\beta \bar C^{-\sigma}\bar R
+\qquad \Rightarrow \qquad
+1=\beta \bar R.
+\]
+
+Let
+\[
+C_t=\bar C e^{\hat c_t},
+\qquad
+C_{t+1}=\bar C e^{\hat c_{t+1}},
+\qquad
+R_{t+1}=\bar R e^{\hat r_{t+1}}.
+\]
+
+Then
+\[
+\bar C^{-\sigma}e^{-\sigma \hat c_t}
+=
+\beta E_t\left[\bar C^{-\sigma}e^{-\sigma \hat c_{t+1}}\bar R e^{\hat r_{t+1}}\right].
+\]
+
+First-order approximation:
+$$
+\bar C^{-\sigma}(1-\sigma \hat c_t)
+=
+\beta E_t\left[\bar C^{-\sigma}\bar R (1-\sigma \hat c_{t+1})(1+\hat r_{t+1})\right]
+$$
+
+$$
+=
+\beta E_t\left[\bar C^{-\sigma}\bar R
+\Bigl(1+\hat r_{t+1}-\sigma \hat c_{t+1}
+-\underbrace{\textcolor{red}{\sigma \hat c_{t+1}\hat r_{t+1}}}_{\color{red}\approx 0}
+\Bigr)\right]
+$$
+
+Using $1=\beta \bar R$:
+\[
+1-\sigma \hat c_t
+=
+1+E_t(-\sigma \hat c_{t+1}+\hat r_{t+1}).
+\]
+
+Hence
+\[
+-\sigma \hat c_t
+=
+E_t(-\sigma \hat c_{t+1}+\hat r_{t+1})
+\]
+so
+\[
+\hat c_t
+=
+E_t(\hat c_{t+1})
+-\frac{1}{\sigma}E_t(\hat r_{t+1}).
+\]
+
+\subsection*{\textcolor{red}{Log linearization cheat sheet for economics}}
+\[
+\renewcommand{\arraystretch}{1.8}
+\begin{array}{ll}
+\textcolor{red}{(1)\ XY:\quad \hat x+\hat y}
+&
+\textcolor{red}{(2)\ X/Y:\quad \hat x-\hat y}
+\\
+\textcolor{red}{(3)\ X^\alpha:\quad \alpha \hat x}
+&
+\textcolor{red}{(4)\ \prod_i X_i^{\alpha_i}:\quad \sum_i \alpha_i \hat x_i}
+\\
+\textcolor{red}{(5)\ \sum_i X_i:\quad \sum_i \dfrac{\bar X_i}{\sum_j \bar X_j}\hat x_i}
+&
+\textcolor{red}{(6)\ K'=(1-\delta)K+I:\quad \hat k'=(1-\delta)\hat k+\delta \hat i}
+\\
+\textcolor{red}{(7)\ \pi_t=\dfrac{P_t}{P_{t-1}}:\quad \hat \pi_t=\hat p_t-\hat p_{t-1}}
+&
+\textcolor{red}{(8)\ \text{CRRA MU}:\quad \widehat{u'(c)}=-\sigma \hat c}
+\end{array}
+\]
+
+\[
+\textcolor{red}{(9)\ \text{CES index } X=\left[\sum_i w_i X_i^\rho\right]^{1/\rho}:\quad \hat x=\sum_i s_i \hat x_i}
+\]
+
+\[
+\textcolor{red}{
+\text{with }\;
+s_i=\frac{w_i \bar X_i^\rho}{\sum_j w_j \bar X_j^\rho}
+}
+\]
+
+\ThisNoteEnd

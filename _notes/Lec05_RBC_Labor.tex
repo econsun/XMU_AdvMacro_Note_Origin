@@ -1,0 +1,1461 @@
+% !TeX root = Lec05_RBC_Labor.tex
+
+\ifdefined\AdvMacroMain
+  \chapter{Lecture 5: RBC with Endogenous Labor}
+  \let\ThisNoteEnd\relax
+\else
+  \documentclass[12pt]{ctexart}
+  \newcommand{\ProjectRoot}{..}
+  \input{\ProjectRoot/_config/config}
+  \title{Lecture 5: RBC with Endogenous Labor}
+  \author{Chengyuan He}
+  \date{April 2026}
+  \begin{document}
+  \maketitle
+  \def\ThisNoteEnd{\end{document}}
+\fi
+
+\subsection*{HP filter}
+
+HP filter: decompose economic series into trend and cyclical component
+\[
+y_t = y_t^c + y_t^T
+\]
+\[
+\min_{\{y_t^T\}_{t=1}^N}
+\mathcal L
+=
+\underbrace{\sum_{t=1}^N (y_t-y_t^T)^2}_{\textstyle (1)}
++
+\lambda\,
+\underbrace{\sum_{t=2}^{N-1}
+\Big[
+(y_{t+1}^T-y_t^T)-(y_t^T-y_{t-1}^T)
+\Big]^2}_{\textstyle (2)}
+\]
+
+Notes:
+\begin{enumerate}[label=\textcolor{red}{\arabic*)}]
+\item penalty of calling everything trend
+\item change in trend growth rate, penalty of wiggles
+\end{enumerate}
+
+\textcolor{red}{If $\lambda$ huge, close to straight line in logs.}
+
+\textcolor{red}{If $\lambda=0$, wiggle a lot, fit to $y_t$.}
+
+Define
+\[
+\Delta^2 y_t^T
+\equiv
+y_{t+1}^T - 2y_t^T + y_{t-1}^T
+\qquad
+\text{(second-order difference)}
+\]
+
+\[
+\frac{\partial \mathcal L}{\partial y_t^T}=0
+\quad\Rightarrow\quad
+\frac{\partial (1)}{\partial y_t^T}
+=
+2(y_t^T-y_t)
+\]
+
+Since
+\[
+\Delta^2 y_{t-1}^T = y_t^T -2y_{t-1}^T + y_{t-2}^T
+\qquad \text{(coefficient $+1$)}
+\]
+\[
+\Delta^2 y_t^T = y_{t+1}^T -2y_t^T + y_{t-1}^T
+\qquad \text{(coefficient $-2$)}
+\]
+\[
+\Delta^2 y_{t+1}^T = y_{t+2}^T -2y_{t+1}^T + y_t^T
+\qquad \text{(coefficient $+1$)}
+\]
+
+\[
+\frac{\partial}{\partial y_t^T}
+\sum_{s=2}^{N-1} (\Delta^2 y_s^T)^2
+=
+2\Delta^2 y_{t-1}^T \frac{\partial \Delta^2 y_{t-1}^T}{\partial y_t^T}
++
+2\Delta^2 y_t^T \frac{\partial \Delta^2 y_t^T}{\partial y_t^T}
++
+2\Delta^2 y_{t+1}^T \frac{\partial \Delta^2 y_{t+1}^T}{\partial y_t^T}
+\]
+\[
+=
+2\big(
+\Delta^2 y_{t-1}^T - 2\Delta^2 y_t^T + \Delta^2 y_{t+1}^T
+\big)
+\]
+
+Since
+\[
+\Delta^2 y_{t-1}^T = y_t^T - 2y_{t-1}^T + y_{t-2}^T,
+\]
+\[
+-2\Delta^2 y_t^T
+=
+-2(y_{t+1}^T - 2y_t^T + y_{t-1}^T)
+=
+-2y_{t+1}^T + 4y_t^T - 2y_{t-1}^T,
+\]
+\[
+\Delta^2 y_{t+1}^T
+=
+y_{t+2}^T -2y_{t+1}^T + y_t^T,
+\]
+we get
+\[
+\frac{\partial \mathcal L}{\partial y_t^T}
+=
+\frac{\partial (1)}{\partial y_t^T}
++
+\lambda
+\frac{\partial}{\partial y_t^T}
+\sum_{s=2}^{N-1}(\Delta^2 y_s^T)^2
+=0.
+\]
+\[
+\Rightarrow\quad
+(1+6\lambda)y_t^T
+-4\lambda y_{t-1}^T
+-4\lambda y_{t+1}^T
++\lambda y_{t-2}^T
++\lambda y_{t+2}^T
+=
+y_t,
+\qquad
+3\le t\le N-2.
+\]
+
+At $t=1$ (only $\Delta^2 y_2^T$ exists),
+\[
+(1+\lambda)y_1^T - 2\lambda y_2^T + \lambda y_3^T = y_1.
+\]
+
+At $t=2$ (only $\Delta^2 y_2^T$ and $\Delta^2 y_3^T$ exist),
+\[
+-2\lambda y_1^T + (1+5\lambda)y_2^T -4\lambda y_3^T + \lambda y_4^T = y_2.
+\]
+
+Symmetrically for $t=N$ and $t=N-1$, collect $\{y_t\}$ into the $N\times 1$ vector $y$ and $\{y_t^T\}$ into $y^T$, then we have
+\[
+A y^T = y
+\quad\Rightarrow\quad
+y^T = A^{-1} y
+\quad\Rightarrow\quad
+y^c = y - A^{-1} y.
+\]
+
+where
+\[
+A=
+\begin{pmatrix}
+1+\lambda & -2\lambda & \lambda & 0 & 0 & \cdots & 0 & 0 & 0\\
+-2\lambda & 1+5\lambda & -4\lambda & \lambda & 0 & \cdots & 0 & 0 & 0\\
+\lambda & -4\lambda & 1+6\lambda & -4\lambda & \lambda & \cdots & 0 & 0 & 0\\
+0 & \lambda & -4\lambda & 1+6\lambda & -4\lambda & \ddots & 0 & 0 & 0\\
+\vdots & & \ddots & \ddots & \ddots & \ddots & \vdots & \vdots & \vdots\\
+0 & 0 & 0 & \cdots & \lambda & -4\lambda & 1+6\lambda & -4\lambda & \lambda\\
+0 & 0 & 0 & \cdots & 0 & \lambda & -4\lambda & 1+5\lambda & -2\lambda\\
+0 & 0 & 0 & \cdots & 0 & 0 & \lambda & -2\lambda & 1+\lambda
+\end{pmatrix}.
+\]
+
+Let $D$ be the $(N-2)\times N$ second-difference matrix, whose $t$-th row ($t=2,\dots,N-1$) looks like
+\[
+[\,0\ \cdots\ 1\ -2\ 1\ \cdots\ 0\,]
+\]
+so that
+\[
+(Dy^T)_{t-1}=\Delta^2 y_t^T.
+\]
+
+The HP objective becomes
+\[
+\min_{y^T}\ (y-y^T)'(y-y^T)+\lambda (Dy^T)'(Dy^T).
+\]
+
+F.O.C.
+\[
+-2(y-y^T)+2\lambda D'Dy^T=0
+\quad\Rightarrow\quad
+(I+\lambda D'D)y^T=y.
+\]
+
+Hence
+\[
+A=I+\lambda D'D.
+\]
+
+As a 5-diagonal pattern:
+\[
+\text{interior diagonal: } [\,0\ \cdots\ 1\ -2\ 1\ \cdots\ 0\,]
+\begin{bmatrix}
+0\\
+\vdots\\
+1\\
+-2\\
+1\\
+\vdots\\
+0
+\end{bmatrix}
+=6
+\]
+
+\[
+\text{first-off diagonal: } [\,0\ \cdots\ 1\ -2\ 1\ 0\ \cdots\ 0\,]
+\begin{bmatrix}
+0\\
+\vdots\\
+0\\
+1\\
+-2\\
+1\\
+0\\
+\vdots\\
+0
+\end{bmatrix}
+=-4
+\]
+
+\[
+\text{second-off diagonal: } [\,0\ \cdots\ 1\ -2\ 1\ 0\ 0\ \cdots\ 0\,]
+\begin{bmatrix}
+0\\
+\vdots\\
+0\\
+0\\
+1\\
+-2\\
+1\\
+0\\
+\vdots\\
+0
+\end{bmatrix}
+=1
+\]
+
+\[
+\lambda\uparrow
+\quad\Rightarrow\quad
+\text{the smoother the series } y_t^T.
+\]
+
+\paragraph{Pros}
+\begin{enumerate}[label=\arabic*)]
+\item Simple and transparent. (defined by one objective)
+\item Produces a smooth trend with tunable smoothness $\lambda$
+\item Widely used in Macro
+\end{enumerate}
+
+\paragraph{Cons}
+\begin{enumerate}[label=\arabic*)]
+\item End-point problem: start and end of sample is distorted.
+\item $\lambda$ sensitivity: moments (volatility, correlations) change a lot with $\lambda$.
+\item Spurious dynamics: HP can induce artificial serial correlations and distort cross-corr between series (create cycles).
+\item Leakage: low-frequency cycles leak into trend.
+\item Not structural: no model interpretation.
+\end{enumerate}
+
+Why $\lambda=1600$ is the quarterly standard?
+
+Rule of thumb:
+\[
+\lambda = 100\times (\text{periods per year})^2.
+\]
+Hence
+\[
+\lambda_{\text{quarter}} = 100\times 4^2 = 1600,
+\qquad
+\lambda_{\text{month}} = 100\times 12^2 = 14400,
+\qquad
+\lambda_{\text{annual}} = 100\times 1^2 = 100.
+\]
+
+\newpage
+\subsection*{Long and Plosser (1983, JPE)}
+
+Social planner's Problem Setup:
+\[
+U=\max_{\{C_t,L_t,K_t\}}
+E_0\left\{
+\sum_{t=0}^{\infty}\beta^t
+\big[
+\theta \ln C_t + (1-\theta)\ln L_t
+\big]
+\right\}
+\]
+
+s.t.
+\[
+K_t = Z_t K_{t-1}^{\alpha} N_t^{1-\alpha} - C_t
+\qquad \text{and } K_0 \text{ is given.}
+\]
+Resource constraint:
+\[
+C_t + K_t = Y_t.
+\]
+
+\[
+N_t + L_t = 1
+\qquad \text{(trade-off)}
+\]
+
+\[
+\textcolor{red}{L:\ \text{leisure} \qquad N:\ \text{working hour}.}
+\]
+
+\[
+\textcolor{red}{\text{Total time is normalized to }1.}
+\]
+
+where
+\[
+\log Z_t = (1-\psi)\log \bar Z + \psi \log Z_{t-1} + \varepsilon_t,
+\qquad
+\varepsilon_t \overset{i.i.d.}{\sim} N(0,\sigma^2),
+\qquad
+\psi<1.
+\]
+
+Note: capital completely turns over,
+\[
+(1-\delta)K_{t-1}=0
+\qquad \delta=1.
+\]
+
+Lagrangian:
+\[
+\mathcal L
+=
+E_0\sum_{t=0}^{\infty}\beta^t
+\Big[
+\theta \ln C_t + (1-\theta)\ln(1-N_t)
++
+\lambda_t\big(Z_t K_{t-1}^{\alpha}N_t^{1-\alpha}-C_t-K_t\big)
+\Big].
+\]
+
+\[
+\frac{\partial \mathcal L}{\partial C_t}=0
+\quad\Rightarrow\quad
+\frac{\theta}{C_t}=\lambda_t
+\tag{1}
+\]
+\[
+\frac{\partial \mathcal{L}}{\partial N_t}=0
+\qquad \Rightarrow \qquad
+-\underbrace{\frac{1-\theta}{1-N_t}}_{\text{utility loss}}
++\underbrace{\lambda_t}_{\text{MUC}_t}
+\underbrace{(1-\alpha)Z_tK_{t-1}^{\alpha}N_t^{-\alpha}}_{\text{MPN}_t}
+=0
+\]
+\[
+\Rightarrow\quad
+\frac{1-\theta}{1-N_t}
+=
+(1-\alpha)\lambda_t Z_t K_{t-1}^{\alpha} N_t^{-\alpha}
+\tag{2}
+\]
+\textcolor{red}{\qquad \text{labor-leisure condition (intratemporal)}}
+
+\[
+\frac{\partial \mathcal L}{\partial K_t}=0
+\quad\Rightarrow\quad
+-\lambda_t \beta^t
++
+\beta^{t+1}E_t
+\left[
+\lambda_{t+1}
+\frac{\partial}{\partial K_t}
+\big(
+Z_{t+1}K_t^{\alpha}N_{t+1}^{1-\alpha}
+\big)
+\right]
+=0
+\]
+\[
+\Rightarrow\quad
+\lambda_t
+=
+\beta E_t\big(
+\lambda_{t+1}\alpha Z_{t+1}K_t^{\alpha-1}N_{t+1}^{1-\alpha}
+\big)
+\tag{3}
+\]
+\textcolor{red}{\qquad \text{Euler equation (intertemporal)}}
+
+TVC:
+\[
+\lim_{T\to\infty}\beta^T U_C(C,L)K_{T+1}=0.
+\tag{4}
+\]
+
+\paragraph{Closed-form solution: constant savings rate and constant labor}
+\mbox{}\\
+Tractability: log utility + Cobb--Douglas + full depreciation
+\[
+\Rightarrow\quad \text{constant savings rate / hours.}
+\]
+
+Since
+\[
+Y_{t+1}=Z_{t+1}K_t^\alpha N_{t+1}^{1-\alpha},
+\]
+we have
+\[
+\alpha Z_{t+1}K_t^{\alpha-1}N_{t+1}^{1-\alpha}
+=
+\alpha\frac{Y_{t+1}}{K_t}.
+\]
+
+Plug into (3):
+\[
+\lambda_t = \beta E_t\left(\lambda_{t+1}\alpha\frac{Y_{t+1}}{K_t}\right).
+\]
+
+Using (1):
+\[
+\frac{\theta}{C_t}
+=
+\beta E_t\left(
+\frac{\theta}{C_{t+1}}\alpha\frac{Y_{t+1}}{K_t}
+\right)
+\]
+\[
+\Rightarrow\quad
+\frac{1}{C_t}
+=
+\beta\alpha E_t\left[
+\frac{Y_{t+1}}{C_{t+1}}\frac{1}{K_t}
+\right].
+\tag{5}
+\]
+
+Guess and verify:
+\[
+C_t=(1-s)Y_t,
+\qquad
+s \text{ is the savings rate},
+\qquad
+K_t=sY_t.
+\qquad \text{(full depreciate)}
+\]
+
+Then
+\[
+\frac{Y_{t+1}}{C_{t+1}}=\frac{1}{1-s}.
+\]
+Plug into (5):
+\[
+\frac{1}{(1-s)Y_t}
+=
+\alpha\beta
+\frac{1}{1-s}
+\frac{1}{sY_t}
+\]
+\[
+\Rightarrow\quad
+s=\alpha\beta.
+\]
+
+Hence
+\[
+C_t=(1-\alpha\beta)Y_t,
+\qquad
+K_t=\alpha\beta\,Y_t.
+\]
+\[
+\left\{
+\begin{aligned}
+&\alpha\uparrow
+\;\Rightarrow\;
+\text{capital income share}\uparrow
+\;\Rightarrow\;
+\text{savings rate}\uparrow,\\[0.4em]
+&\beta\uparrow
+\;\Rightarrow\;
+\text{discount factor}\downarrow
+\;\Rightarrow\;
+\text{savings rate}\uparrow.
+\end{aligned}
+\right.
+\]
+Plug into (2):
+\[
+\frac{1-\theta}{1-N_t}
+=
+(1-\alpha)\frac{\theta}{C_t}\frac{Y_t}{N_t}
+=
+(1-\alpha)\frac{\theta}{(1-\alpha\beta)Y_t}\frac{Y_t}{N_t}
+\]
+\[
+\Rightarrow\quad
+(1-\theta)(1-\alpha\beta)N_t
+=
+(1-\alpha)\theta(1-N_t)
+\]
+\[
+\Rightarrow\quad
+N_t=\bar N
+=
+\frac{\theta(1-\alpha)}
+{\theta(1-\alpha)+(1-\theta)(1-\alpha\beta)}.
+\]
+
+\newpage
+Since $N_t=\text{constant}\ \forall t$, we have
+\[
+\hat n_t=0.
+\]
+
+Also
+\[
+K_t=\alpha\beta\,Y_t,
+\qquad
+C_t=(1-\alpha\beta)Y_t
+\]
+so
+\[
+\hat k_t=\hat c_t=\hat y_t.
+\]
+
+Since
+\[
+\hat y_t
+=
+\hat z_t+\alpha\hat k_{t-1}+(1-\alpha)\hat n_t
+=
+\hat z_t+\alpha\hat k_{t-1},
+\]
+we get
+\[
+\hat k_t=\hat c_t=\hat y_t=\hat z_t+\alpha\hat k_{t-1}.
+\]
+
+And
+\[
+\hat z_t=\psi \hat z_{t-1}+\varepsilon_t.
+\]
+
+TFP shock alone can generate output/consumption/investment fluctuations, but
+
+\begin{enumerate}[label=\textcolor{red}{\arabic*)}]
+\item labor does not fluctuate at all,
+\item $c,k,y$ move one-for-one.
+\end{enumerate}
+
+Consumption is usually smoother than output; capital is usually more volatile.
+
+\begin{enumerate}[label=\textcolor{red}{\arabic*)}, start=3]
+\item Labor productivity moves like output in model.
+\[
+\left(\frac{\hat Y}{\hat N}\right)_t=\hat y_t-\hat n_t=\hat y_t,
+\qquad \text{while in data,}
+\]
+\[
+\sigma(Y/N)\ll \sigma(Y),
+\qquad
+\text{and } \mathrm{Corr}(Y/N,Y)=0.55.
+\]
+
+\item Prices (MRS, MRT, MPL, MPK) too-tight with output \& TFP, hard to generate weak wage cyclicality \& interest rate counter-cyclicality.
+\end{enumerate}
+
+\paragraph{Labor market equilibrium}
+\mbox{}\\
+Household's problem:
+\[
+U_{N,t}+\lambda_t W_t=0
+\quad\Rightarrow\quad
+U_{N,t}+U_{C,t}W_t=0
+\]
+\textcolor{red}{\qquad \text{labor supply}}
+
+Firm's problem:
+\[
+\max_{K_{t-1},N_t}\ \Pi_t = Y_t - W_tN_t - R_tK_{t-1}
+\]
+\textcolor{red}{\qquad \text{labor demand}}
+
+Hence
+\[
+W_t 
+= Z_t \frac{Y_t}{N_t}(1-\alpha).
+\]
+
+From household labor supply:
+\[
+W_t=\frac{1-\theta}{\theta}\frac{C_t}{1-N_t}.
+\]
+
+Equivalently,
+\[
+W_t
+=
+\frac{1-\theta}{\theta}
+\frac{(1-\alpha\beta) Z_t K_{t-1}^{\alpha}N_t^{1-\alpha}}
+{1-N_t}.
+\]
+From firm labor demand:
+\[
+W_t=(1-\alpha)Z_tK_{t-1}^{\alpha}N_t^{-\alpha}.
+\]
+
+
+A positive $Z_t$ or $K_{t-1}$ shock shifts labor supply up by the same factor as labor demand:
+\[
+Z_t K_{t-1}^{\alpha}.
+\]
+
+Hence labor supply's wealth effect is exactly offset by labor demand increase.
+So when \(Z_t\) rises, the real wage increases. This generates a substitution effect toward more labor, but also an income effect toward more leisure.
+
+\[
+W_t=(1-\alpha)Z_tK_{t-1}^{\alpha}N_t^{-\alpha}
+\]
+
+\[
+Z_t\uparrow
+\;\Rightarrow\;
+MPN_t\uparrow
+\;\Rightarrow\;
+W_t\uparrow
+\;\Rightarrow\;
+\text{labor demand curve shifts up}
+\]
+
+\[
+Z_t\uparrow
+\;\Rightarrow\;
+Y_t\uparrow
+\;\Rightarrow\;
+C_t=(1-\alpha\beta)Y_t\uparrow
+\;\Rightarrow\;
+MU_{C,t}\downarrow
+\;\Rightarrow\;
+N_t\downarrow
+\qquad
+\text{Wealth effect}
+\]
+
+\[
+\begin{aligned}
+\underbrace{\frac{1-\theta}{1-N_t}}_{\text{marginal disutility of working}}
+&=
+\underbrace{\lambda_tW_t}_{\text{marginal utility value of wage income}}
+=
+\underbrace{MU_{C,t}W_t}_{\text{intra-temporal optimality}}
+=
+\frac{\theta}{C_t}(1-\alpha)\frac{Y_t}{N_t}
+\\[8pt]
+&=
+\frac{\theta(1-\alpha)}{N_t}\left(\frac{Y_t}{C_t}\right)
+=
+\frac{\theta(1-\alpha)}{1-\alpha\beta}\frac{1}{N_t}.
+\end{aligned}
+\]
+\newpage
+\paragraph{Hansen (1985): Basic idea}
+Expand log preference to make labor respond to shocks.
+
+Household's problem:
+\[
+\max_{\{C_t,L_t,N_t\}}
+E_0\sum_{t=0}^{\infty}\beta^t u(C_t,L_t)
+=
+E_0\sum_{t=0}^{\infty}\beta^t u(C_t,1-N_t)
+\]
+
+\[
+\text{s.t.}\qquad
+N_t+L_t=1
+\]
+
+\[
+C_t+K_t
+=
+W_tN_t+R_tK_{t-1}+(1-\delta)K_{t-1}
+\qquad
+\text{(budget constraint not resource constraint)}
+\]
+
+\[
+K_t-(1-\delta)K_{t-1}=I_t
+\qquad
+\textcolor{red}{\text{investment}}
+\]
+
+\[
+\mathcal{L}
+=
+E_0\sum_{t=0}^{\infty}\beta^t
+\Big[
+u(C_t,1-N_t)
++
+\lambda_t\big(
+W_tN_t+R_tK_{t-1}+(1-\delta)K_{t-1}-C_t-K_t
+\big)
+\Big]
+\]
+
+\[
+\frac{\partial \mathcal{L}}{\partial C_t}=0
+\qquad \Rightarrow \qquad
+\underbrace{U_{C,t}}_{\textcolor{red}{\text{marginal utility of consumption}}}
+=
+\lambda_t
+\]
+
+\[
+\frac{\partial \mathcal{L}}{\partial N_t}=0
+\qquad \Rightarrow \qquad
+U_{N,t}+\lambda_tW_t=0
+\]
+
+\[
+\Rightarrow \qquad
+-\underbrace{U_{N,t}}_{\textcolor{red}{\text{marginal disutility of working}}}
+=
+\underbrace{\lambda_tW_t}_{\substack{\textcolor{red}{\text{marginal utility value of}}\\[-1mm]
+\textcolor{red}{\text{one more unit of wage income}}}}
+\]
+
+\[
+\frac{\partial \mathcal{L}}{\partial K_t}=0
+\qquad \Rightarrow \qquad
+-\lambda_t\beta^t
++
+\beta^{t+1}E_t\!\left[
+\lambda_{t+1}R_{t+1}
++
+\lambda_{t+1}(1-\delta)
+\right]
+=0
+\]
+
+\[
+\Rightarrow \qquad
+U_{C,t}
+=
+\beta E_t\!\left[
+U_{C,t+1}(R_{t+1}+1-\delta)
+\right]
+\]
+
+\paragraph{Firm's problem}
+\[
+\max_{N_t,K_{t-1}}\ \Pi_t = Y_t - W_tN_t - R_tK_{t-1}
+\]
+s.t.
+\[
+Y_t=Z_tK_{t-1}^{\alpha}N_t^{1-\alpha},
+\qquad
+\log Z_t=(1-\psi)\log \bar Z+\psi\log Z_{t-1}+\varepsilon_t.
+\]
+
+FOCs:
+\[
+\frac{\partial \Pi_t}{\partial K_{t-1}}=0
+\quad\Rightarrow\quad
+\alpha Z_tK_{t-1}^{\alpha-1}N_t^{1-\alpha}=R_t
+\quad\Rightarrow\quad
+\alpha\frac{Y_t}{K_{t-1}}=R_t
+\]
+
+\[
+\frac{\partial \Pi_t}{\partial N_t}=0
+\quad\Rightarrow\quad
+(1-\alpha)Z_tK_{t-1}^{\alpha}N_t^{-\alpha}=W_t
+\quad\Rightarrow\quad
+(1-\alpha)\frac{Y_t}{N_t}=W_t.
+\]
+
+Let utility function follow
+\[
+U(C_t,1-N_t)=\ln C_t + A\ln(1-N_t).
+\]
+Then
+\[
+U_{C,t}=\frac{1}{C_t},
+\qquad
+U_{N,t}=-\frac{A}{1-N_t}.
+\]
+
+Hence equilibrium conditions are
+\[
+\begin{cases}
+1=\beta E_t\left[\dfrac{C_t}{C_{t+1}}(R_{t+1}+1-\delta)\right],\\[0.8em]
+\dfrac{A}{1-N_t}=\dfrac{1}{C_t}W_t,\\[0.8em]
+W_t=(1-\alpha)Z_tK_{t-1}^{\alpha}N_t^{-\alpha},\\[0.8em]
+R_t=\alpha Z_tK_{t-1}^{\alpha-1}N_t^{1-\alpha},\\[0.8em]
+\Pi_t=Z_tK_{t-1}^{\alpha}N_t^{1-\alpha}-W_tN_t-R_tK_{t-1}=0,\\[0.8em]
+C_t+K_t=W_tN_t+R_tK_{t-1}+(1-\delta)K_{t-1},\\[0.8em]
+\log Z_t=(1-\psi)\log \bar Z+\psi\log Z_{t-1}+\varepsilon_t.
+\end{cases}
+\]
+
+Do not substitute out $R_t,W_t$, to make a system of equations of $(C_t,N_t,K_t,Z_t)$.
+
+Substituting yields
+\[
+\begin{cases}
+1=\beta E_t\left[
+\dfrac{C_t}{C_{t+1}}
+\big(
+\alpha Z_{t+1}K_t^{\alpha-1}N_{t+1}^{1-\alpha}+1-\delta
+\big)
+\right],\\[0.8em]
+AC_t=(1-N_t)(1-\alpha)Z_tK_{t-1}^{\alpha}N_t^{-\alpha},\\[0.8em]
+K_t=Z_tK_{t-1}^{\alpha}N_t^{1-\alpha}+(1-\delta)K_{t-1}-C_t,\\[0.8em]
+\log Z_t=(1-\psi)\log \bar Z+\psi\log Z_{t-1}+\varepsilon_t.
+\end{cases}
+\]
+\[
+\text{Step 1: Steady state}
+\quad\Rightarrow\quad
+\text{Step 2: Log-linearize}
+\quad\Rightarrow\quad
+\text{Step 3: Numerically solve}
+\]
+\newpage
+\subsection*{Steady state}
+
+At steady state:
+\[
+K_t=K_{t-1}=\bar K,
+\qquad
+C_t=C_{t+1}=\bar C,
+\qquad
+N_t=N_{t+1}=\bar N.
+\]
+
+\[
+\bar K = \bar Z \bar K^\alpha \bar N^{1-\alpha} + (1-\delta)\bar K - \bar C
+\quad\Rightarrow\quad
+\bar C=\bar Z\bar K^\alpha \bar N^{1-\alpha}-\delta\bar K.
+\tag{1}
+\]
+
+\[
+1
+=
+\alpha\beta \bar Z \bar K^{\alpha-1}\bar N^{1-\alpha}
++
+(1-\delta)\beta.
+\tag{2}
+\]
+
+\[
+A\bar C=(1-\bar N)(1-\alpha)\bar Z\bar K^\alpha \bar N^{-\alpha}.
+\tag{3}
+\]
+
+\[
+\Rightarrow\quad
+\bar Z\,\bar K^\alpha \bar N^{1-\alpha}-\delta \bar K
+=
+\frac{1}{A}\Big((1-\alpha)\bar Z\,\bar K^\alpha \bar N^{-\alpha}
+- (1-\alpha)\bar Z\,\bar K^\alpha \bar N^{1-\alpha}\Big)
+\]
+
+\[
+\Rightarrow\quad
+\bar Z\,\bar K^{\alpha-1}\bar N^{1-\alpha}
++
+\frac{1-\alpha}{A}\,\bar Z\,\bar K^{\alpha-1}\bar N^{1-\alpha}
+=
+\frac{1-\alpha}{A}\,\bar Z\,\bar K^{\alpha-1}\bar N^{-\alpha}
++\delta
+\]
+
+\[
+\Rightarrow\quad
+\bar Z\,\bar K^{\alpha-1}\bar N^{1-\alpha}
+=
+\frac{A}{1-\alpha+A}
+\left[
+\frac{1-\alpha}{A}\,\bar Z\,\bar K^{\alpha-1}\bar N^{-\alpha}
++\delta
+\right]
+\]
+
+Using (2), after simplification one gets
+\[
+\bar N
+=
+\left\{
+1+\frac{A}{1-\alpha}
+\left[
+1-\frac{\alpha\beta\delta}{1-\beta(1-\delta)}
+\right]
+\right\}^{-1}.
+\]
+
+Then
+\[
+\bar K
+=
+\left[
+\frac{1-\beta(1-\delta)}{\bar Z\alpha\beta}
+\bar N^{\alpha-1}
+\right]^{\frac{1}{\alpha-1}}
+=
+\bar N
+\left[
+\frac{\bar Z\alpha}{\beta^{-1}-(1-\delta)}
+\right]^{\frac{1}{1-\alpha}}.
+\]
+
+And
+\[
+\bar C
+=
+\bar Z\,\bar K^\alpha \bar N^{\,1-\alpha}
+-\delta \bar K
+=
+\bar N^{\alpha} \cdot
+\left[
+\frac{\bar Z \alpha}{\beta^{-1}-(1-\delta)}
+\right]^{\frac{\alpha}{1-\alpha}}
+\bar N^{1-\alpha}\bar Z
+-\delta \bar K
+\]
+
+\[
+=
+\bar Z^{\frac{1}{1-\alpha}}
+\bar N
+\left[
+\frac{\alpha}{\beta^{-1}-(1-\delta)}
+\right]^{\frac{\alpha}{1-\alpha}}
+-\delta \bar N\,\bar Z^{\frac{1}{1-\alpha}}
+\left[
+\frac{\alpha}{\beta^{-1}-(1-\delta)}
+\right]^{\frac{1}{1-\alpha}}
+\]
+
+\[
+=
+\bar N\,\bar Z^{\frac{1}{1-\alpha}}
+\left[
+\left(
+\frac{\alpha}{\beta^{-1}-(1-\delta)}
+\right)^{\frac{\alpha}{1-\alpha}}
+-\delta
+\left(
+\frac{\alpha}{\beta^{-1}-(1-\delta)}
+\right)^{\frac{1}{1-\alpha}}
+\right]
+\]
+\paragraph{Derive the log-linearized system}\mbox{}\\
+(i) TFP process:
+\[
+\log Z_t=(1-\psi)\log \bar Z+\psi \log Z_{t-1}+\varepsilon_t
+\]
+Let
+\[
+Z_t=\bar Z e^{\hat z_t}.
+\]
+Then
+\[
+\hat z_t + \log \bar Z
+=
+(1-\psi)\log \bar Z + \psi \log \bar Z + \psi \hat z_{t-1} + \varepsilon_t
+\]
+\[
+\Rightarrow\quad
+\hat z_t=\psi \hat z_{t-1}+\varepsilon_t.
+\]
+
+(ii)
+\[
+K_t=Z_tK_{t-1}^{\alpha}N_t^{1-\alpha}+(1-\delta)K_{t-1}-C_t.
+\]
+
+Substitute
+\[
+K_t=\bar K(1+\hat k_t),
+\quad
+Z_t=\bar Z(1+\hat z_t),
+\quad
+K_{t-1}=\bar K(1+\hat k_{t-1}),
+\quad
+N_t=\bar N(1+\hat n_t),
+\quad
+C_t=\bar C(1+\hat c_t),
+\]
+and keep only first-order terms:
+\[
+\bar K+\bar K\hat k_t
+=
+\bar Z\bar K^\alpha \bar N^{1-\alpha}
+(1+\hat z_t)(1+\alpha \hat k_{t-1})(1+(1-\alpha)\hat n_t)
++(1-\delta)\bar K+(1-\delta)\bar K\hat k_{t-1}
+-\bar C-\bar C\hat c_t.
+\]
+
+Using the steady state condition and dropping higher-order terms:
+\[
+\bar K\hat k_t
+=
+\alpha \bar Y \hat k_{t-1}
++
+\bar Y \hat z_t
++
+(1-\alpha)\bar Y \hat n_t
++
+(1-\delta)\bar K \hat k_{t-1}
+-
+\bar C \hat c_t,
+\]
+where
+\[
+\bar Y\equiv \bar Z\bar K^\alpha \bar N^{1-\alpha}.
+\]
+
+Hence
+\[
+\hat k_t
+=
+\left(\alpha\frac{\bar Y}{\bar K}+1-\delta\right)\hat k_{t-1}
++
+(1-\alpha)\frac{\bar Y}{\bar K}\hat n_t
++
+\frac{\bar Y}{\bar K}\hat z_t
+-
+\frac{\bar C}{\bar K}\hat c_t.
+\]
+
+(iii)
+\[
+AC_t=(1-N_t)(1-\alpha)Z_tK_{t-1}^{\alpha}N_t^{-\alpha}.
+\]
+
+Log-linearizing gives
+\[
+\hat n_t
+=
+\left(\alpha+\frac{\bar N}{1-\bar N}\right)^{-1}
+\big(
+\hat z_t+\alpha \hat k_{t-1}-\hat c_t
+\big).
+\]
+
+(iv) Euler equation:
+\[
+1=\beta E_t\left[
+\frac{C_t}{C_{t+1}}
+\big(
+\alpha Z_{t+1}K_t^{\alpha-1}N_{t+1}^{1-\alpha}+1-\delta
+\big)
+\right].
+\]
+
+Let
+\[
+M_{t+1}\equiv \alpha Z_{t+1}K_t^{\alpha-1}N_{t+1}^{1-\alpha},
+\qquad
+G_{t+1}\equiv M_{t+1}+1-\delta.
+\]
+
+Then
+\[
+\hat m_{t+1}
+=
+\hat z_{t+1}+(\alpha-1)\hat k_t+(1-\alpha)\hat n_{t+1}.
+\]
+
+Define
+\[
+\tilde\delta\equiv \frac{\bar M}{\bar G}.
+\]
+Since
+\[
+\bar G=\beta^{-1},
+\qquad
+\bar G=\bar M+(1-\delta),
+\]
+we have
+\[
+\tilde\delta
+=
+\frac{\bar M}{\bar G}
+=
+1-\frac{1-\delta}{\bar G}
+=
+1-\beta(1-\delta).
+\]
+
+Thus
+\[
+G_{t+1}\approx \bar G(1+\tilde\delta \hat m_{t+1}).
+\]
+
+Also
+\[
+\frac{C_t}{C_{t+1}}
+=
+\frac{\bar C e^{\hat c_t}}{\bar C e^{\hat c_{t+1}}}
+=
+e^{\hat c_t-\hat c_{t+1}}
+\approx
+1+\hat c_t-\hat c_{t+1}.
+\]
+
+So Euler equation becomes
+\[
+1
+=
+\beta E_t\Big[
+\bar G (1+\hat c_t-\hat c_{t+1}+\tilde\delta \hat m_{t+1})
+\Big]
+\]
+Since
+\[
+\beta \bar G=1,
+\]
+we obtain
+\[
+E_t\big[
+\hat c_t-\hat c_{t+1}+\tilde\delta \hat m_{t+1}
+\big]=0.
+\]
+
+Hence
+\[
+\hat c_t
+=
+E_t\hat c_{t+1}
+-
+\tilde\delta E_t\big[
+\hat z_{t+1}-(1-\alpha)\hat k_t+(1-\alpha)\hat n_{t+1}
+\big].
+\]
+
+If you have CRRA,
+\[
+\frac{C_t}{C_{t+1}} \to \left(\frac{C_t}{C_{t+1}}\right)^\sigma
+\quad\Rightarrow\quad
+\sigma \hat c_t
+=
+\sigma E_t\hat c_{t+1}
+-
+E_t\hat r_{t+1}.
+\]
+
+Thus we have a system of equations:
+\[
+\begin{cases}
+\hat z_t=\psi \hat z_{t-1}+\varepsilon_t,\\[0.5em]
+\hat c_t
+=
+E_t\hat c_{t+1}
+-
+\tilde\delta E_t\big[
+\hat z_{t+1}-(1-\alpha)\hat k_t+(1-\alpha)\hat n_{t+1}
+\big],\\[0.5em]
+\hat n_t
+=
+\left(\alpha+\dfrac{\bar N}{1-\bar N}\right)^{-1}
+(\hat z_t+\alpha\hat k_{t-1}-\hat c_t),\\[1em]
+\hat k_t
+=
+\left(\alpha\frac{\bar Y}{\bar K}+1-\delta\right)\hat k_{t-1}
++
+(1-\alpha)\frac{\bar Y}{\bar K}\hat n_t
++
+\frac{\bar Y}{\bar K}\hat z_t
+-
+\frac{\bar C}{\bar K}\hat c_t.
+\end{cases}
+\]
+
+Four equations, four variables:
+\[
+(\hat k_{t-1},\hat c_t,\hat n_t,\hat z_t).
+\]
+
+\[
+\hat k_{t-1}\text{ is predetermined variable,}
+\qquad
+\hat z_t \text{ follows a stable AR(1) process,}
+\]
+\[
+(\hat c_t,\hat n_t) \text{ are jump variables.}
+\]
+
+Use undetermined coefficient method; guess
+\[
+\hat k_t = V_{kk}\hat k_{t-1}+V_{kz}\hat z_t,
+\qquad
+\hat c_t = V_{ck}\hat k_{t-1}+V_{cz}\hat z_t,
+\qquad
+\hat n_t = V_{nk}\hat k_{t-1}+V_{nz}\hat z_t.
+\]
+
+Then
+\[
+\hat k_t
+=
+V_{kz}
+\sum_{i=0}^{\infty}\sum_{j=0}^{i}
+V_{kk}^{\,j}\psi^{\,i-j}\varepsilon_{t-i},
+\qquad
+\hat z_t=\sum_{s=0}^{\infty}\psi^s\varepsilon_{t-s},
+\]
+and since
+\[
+\hat y_t=\alpha\hat k_{t-1}+(1-\alpha)\hat n_t+\hat z_t,
+\]
+we can write
+\[
+\hat y_t
+=
+V_{yz}\varepsilon_t
++
+\sum_{i=0}^{\infty}
+\left(
+V_{yk}V_{kz}\sum_{j=0}^{i}V_{kk}^{\,j}\psi^{\,i-j}
++V_{yz}\psi^{i+1}
+\right)\varepsilon_{t-i-1}.
+\]
+
+Therefore,
+\[
+\mathrm{Var}(\hat y_t)
+=
+\left(
+V_{yz}^2
++
+\sum_{i=0}^{\infty}
+\left[
+V_{yk}V_{kz}\sum_{j=0}^{i}V_{kk}^{\,j}\psi^{\,i-j}
++
+V_{yz}\psi^{i+1}
+\right]^2
+\right)\mathrm{Var}(\varepsilon_t).
+\]
+
+Given parameters' value, we can back out the explicit numerical solution.
+
+This model works:
+\begin{enumerate}[label=\arabic*)]
+\item well for consumption volatility
+\item bad for output volatility: requires too small TFP volatility
+\end{enumerate}
+
+\begin{enumerate}[label=\arabic*), start=3]
+\item bad for hours volatility $\Rightarrow$ way too low.
+\item bad for investment volatility $\Rightarrow$ far too low.
+\end{enumerate}
+
+But it allows $N_t$ to move with shocks compared to Long--Plosser. While with this set of preference and technology, it cannot generate enough labor and investment volatility relative to output.
+\newpage
+\subsection*{Hansen (1985) with indivisible labor}
+
+Labor market phenomena:
+\begin{enumerate}[label=\arabic*)]
+\item Hours fluctuate a lot relative to productivity.
+\item Micro evidence does not support huge intertemporal substitution of labor at individual level.
+\end{enumerate}
+
+Target: get big aggregate hours fluctuations without assuming each person is very willing to shift leisure across time.
+
+Key mechanism:
+\begin{enumerate}[label=\arabic*)]
+\item Each individual's labor is a corner-choice:
+\[
+\tilde n_t \in \{0,n^*\}.
+\]
+Either work a fixed shift or no work.
+\item Lottery over jobs: assigned a job with probability $\pi_t$.
+\item Complete unemployment insurance: $C_t$ is independent of job status.
+\end{enumerate}
+
+\textcolor{red}{Crucial: we can write expected utility clearly at the ``representative agent'' level.}
+
+Thus total labor supply:
+\[
+H_t=\bar L\,\pi_t n^*
+\]
+where $\bar L$ is total labor force.
+
+Average labor supply:
+\[
+n_t=\frac{H_t}{\bar L}=\pi_t n^*.
+\]
+
+Representative-agent utility: individual utility is
+\[
+U(C_t)+v(\tilde n_t).
+\]
+
+Given lottery,
+\[
+E[U(C_t)+v(\tilde n_t)]
+=
+U(C_t)+\pi_t v(n^*)+(1-\pi_t)v(0).
+\]
+
+Let
+\[
+v(0)=0,
+\qquad
+\frac{v(n^*)}{n^*}=-A<0.
+\]
+Then
+\[
+E[U(C_t)+v(\tilde n_t)]
+=
+U(C_t)+\pi_t(-An^*)
+=
+U(C_t)-An_t.
+\]
+
+Suppose
+\[
+U(C_t)=\ln C_t
+\quad\Rightarrow\quad
+U_t=\ln C_t - A n_t.
+\]
+
+Hence
+\[
+U_{C,t}=\frac{1}{C_t},
+\qquad
+U_{N,t}=-A,
+\qquad
+-U_{N,t}=U_{C,t}W_t
+\]
+
+Micro-level: no smoothing in labor, either $n^*$ or $0$, keep small intertemporal labor substitution.
+
+Macro-level: planner / representative agent can vary $\pi_t$ a lot, aggregate hours become very responsive.
+
+Thus, we can define the equilibrium conditions for this model:
+\[
+\begin{cases}
+1=\beta E_t\left[\dfrac{C_t}{C_{t+1}}\left(\alpha Z_{t+1}K_t^{\alpha-1}N_{t+1}^{1-\alpha}+1-\delta\right)\right],\\[1em]
+K_t=Z_tK_{t-1}^{\alpha}N_t^{1-\alpha}+(1-\delta)K_{t-1}-C_t,\\[0.8em]
+AC_t=(1-\alpha)Z_tK_{t-1}^{\alpha}N_t^{-\alpha},
+\qquad
+\textcolor{red}{\text{key difference}}
+\qquad
+-U_{N,t}=U_{C,t}W_t=U_{C,t}MPL_t,\\[0.8em]
+\log Z_t=(1-\psi)\log \bar Z+\psi\log Z_{t-1}+\varepsilon_t.
+\end{cases}
+\]
+
+\paragraph{Mechanism}\mbox{}\\
+In the indivisible labor model, aggregate hours fluctuate mainly through the employment margin:
+more people work rather than each individual continuously adjusting hours.
+
+By contrast,in the divisible labor model,
+\[
+TFP\uparrow
+\Rightarrow
+\text{demand for labor}\uparrow
+\Rightarrow
+W_t\uparrow
+\Rightarrow
+N_t\uparrow
+\Rightarrow
+1-N_t\downarrow
+\]
+
+\[
+\ln(1-N_t)
+\text{ becomes steeper}
+\Rightarrow
+\text{the cost of giving up a marginal hour of leisure rises}
+\]
+
+\[
+\Rightarrow\quad
+\text{unwilling to adjust }N_t,\ \text{wage moves more} \Rightarrow \text{stiff labor}
+\]
+\[
+\Rightarrow\quad
+\text{small hour volatility.}
+\qquad
+\text{(each person chooses hours continuously)}
+\]
+\paragraph{Consistency with facts}
+
+\[
+n_t=\frac{H_t}{\bar L}=\frac{H_t}{L_t}\cdot \frac{L_t}{\bar L}
+\approx n^*(1-u_t)=n^*\pi_t,
+\]
+where $u_t$ is the unemployment rate.
+
+\[
+\frac{H_t}{L_t}=\bar n_t \approx n^*
+\qquad
+\text{is empirically stable.}
+\]
+
+*Cyclical movement in total hours comes from (extensive margin) employment, not from hours per worker (intensive margin).
+\newpage
+\subsection*{Other RBC models}
+
+\begin{enumerate}[label=\arabic*.]
+\item CRRA utility (King and Rebelo, 1999):
+\[
+U(C_t,L_t)=\ln C_t + A\frac{(1-N_t)^{1-\chi}-1}{1-\chi}.
+\]
+
+Investment volatility $\uparrow\uparrow$ (almost correct), but underpredicts persistence, over-predicts comovement; consumption \& labor are less volatile in model than data.
+
+\textcolor{red}{change preference curvature and more volatile TFP}
+
+\item KPR utility (King, Plosser and Rebelo, 1988):
+\[
+U(C_t,L_t)=\frac{[C_t\,v(L_t)]^{1-\sigma}-1}{1-\sigma}.
+\]
+
+Non-separable preference between $C$ and $N$.
+$U_{C,t}$ depends on $L_t$, $U_{L_t}$ depends on $C_t$.
+Relax the too-tight linkages $\Rightarrow$ improve comovement patterns.
+
+\item GHH utility (Greenwood--Hercowitz--Huffman, 1988, AER)
+\[
+U(C_t,N_t)
+=
+\frac{1}{1-\sigma}
+\left[
+\left(
+C_t - A\frac{N_t^{1+\psi}}{1+\psi}
+\right)^{1-\sigma}
+-1
+\right].
+\]
+
+Cancel wealth effect, labor supply responds to substitution effect (wage/productivity), $\Rightarrow$ even more volatile $N_t$.
+
+Since
+\[
+-U_{N,t}=U_{C,t}W_t
+\quad\Rightarrow\quad
+AN_t^\psi=W_t.
+\]
+
+\item Capital utilization:
+\[
+Y_t = Z_t (u_t K_{t-1})^{\alpha}N_t^{1-\alpha},
+\]
+\[
+K_t = I_t + [1-\delta(u_t)]K_{t-1},
+\qquad
+\delta(u)>0
+\]
+
+Extra intensive margin for capital $\Rightarrow$ higher investment volatility, higher output volatility.
+\end{enumerate}
+
+\ThisNoteEnd

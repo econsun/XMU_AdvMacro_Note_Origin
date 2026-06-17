@@ -1,0 +1,1039 @@
+% !TeX root = Lec09_NK_Policy.tex
+
+\ifdefined\AdvMacroMain
+  \chapter{Lecture 9: New Keynesian Policy Design}
+  \let\ThisNoteEnd\relax
+\else
+  \documentclass[12pt]{ctexart}
+  \newcommand{\ProjectRoot}{..}
+  \input{\ProjectRoot/_config/config}
+  \title{Lecture 9: New Keynesian Policy Design}
+  \author{Chengyuan He}
+  \date{May 2026}
+  \begin{document}
+  \maketitle
+  \def\ThisNoteEnd{\end{document}}
+\fi
+
+\section*{Efficient allocation and distortions}
+
+\[
+\text{Monopolistic competition + flexible prices}
+\Rightarrow
+\begin{aligned}[t]
+&\text{efficient allocation, with a subsidy to correct distortions}\\
+&\text{of monopolistic competition.}
+\end{aligned}
+\]
+\[
+\text{Sticky prices + policy that fully stabilizes the price level}
+\Rightarrow
+\text{efficient allocation.}
+\]
+
+\section*{Efficient allocation under social planner's problem}
+
+\[
+\max_{\{C_t,N_t\}} U(C_t,N_t)
+\]
+\[
+\text{s.t.}\qquad C_t(i)=A_tF(N_t(i)),
+\quad \text{for all }i\in[0,1],
+\]
+\[
+C_t=
+\left(\int_0^1 C_t(i)^{\frac{\varepsilon-1}{\varepsilon}}\dd i\right)^{\frac{\varepsilon}{\varepsilon-1}},
+\qquad
+N_t=\int_0^1N_t(i)\dd i.
+\]
+\[
+\begin{alignedat}{3}
+C_t(i) &= C_t, 
+&\qquad &\forall i\in[0,1],
+&\qquad &(1)
+\\
+N_t(i) &= N_t, 
+&\qquad &\forall i\in[0,1],
+&\qquad &(2)
+\\
+-\frac{U_{N,t}}{U_{C,t}}
+&=MPN_t
+=(1-\alpha)A_tN_t^{-\alpha},
+&&
+&\qquad &(3)
+\end{alignedat}
+\]
+\[
+\begin{array}{@{}l@{\quad}c@{\quad}l@{}}
+\text{nominal rigidity}
+&\Rightarrow&
+\left\{
+\begin{aligned}
+C_t(i)&\neq C_t,\\
+N_t(i)&\neq N_t,
+\end{aligned}
+\right.
+\\[1.0em]
+\text{nominal rigidity or monopolistic competition}
+&\Rightarrow&
+\text{(3) does not hold.}
+\\[1.0em]
+\textcolor{red!70!black}{\text{(1)\&(2) symmetric allocation}}
+&\Rightarrow&
+MPN_t=MPN_t(i).
+\end{array}
+\]
+Optimality conditions can be met due to:
+\begin{enumerate}[label=\roman*.]
+  \item All goods enter utility symmetrically.\par
+  \red{For planner, weight are the same even distribution }$C_t(i)$.
+  \item Identical technology of production.\par
+  \red{For planner, technology for $i$ is the same, even distribution }$N_t(i)$.
+  \item Concavity of utility.\par
+  \red{For planner, there is an optimal allocation of $C_t(i)$ and $N_t(i)$.}
+\end{enumerate}
+
+\[
+\MRS_{C,N}
+=
+-\frac{U_{N,t}}{U_{C,t}},
+\qquad
+\MRT_{C,N}
+=
+\frac{\dd C_t}{\dd N_t}
+=
+F_N(N_t)A_t
+\quad
+\red{\text{output transfered one-for-one to consumption.}}
+\]
+\[
+\red{\Rightarrow\MRS_{C,N}=\MRT_{C,N}=\MPN.}
+\]
+
+\section*{Suboptimality in NK}
+
+Two sources of distortion:
+\begin{enumerate}[label=\arabic*)]
+  \item Monopolistic competitive firms $\Rightarrow$ market power.
+  \item Sticky price.
+\end{enumerate}
+
+Let's study (1) separately. Assume flexible price. With isoelastic demand function, optimal pricing:
+\[
+P_t
+=
+\mu\frac{W_t}{\MPN_t},
+\qquad
+\mu=\frac{\varepsilon}{\varepsilon-1}
+\quad\text{markup}.
+\]
+\[
+\Rightarrow
+\MRS_{C,N}
+=
+-\frac{U_{N,t}}{U_{C,t}}
+=
+\frac{W_t}{P_t}
+=
+\frac{\MPN_t}{\mu}.
+\]
+\[
+\red{\mu>1\Rightarrow \text{low employment and output, and optimal condition }(3)\text{ is violated.}}
+\]
+
+Let $\tau$ denotes the employment subsidy; subsidy financed by lump-sum tax, \red{no distortions}.
+\[
+P_t
+=
+\mu\frac{(1-\tau)W_t}{\MPN_t}
+\Rightarrow
+-\frac{U_{N,t}}{U_{C,t}}
+=
+\frac{W_t}{P_t}
+=
+\frac{\MPN_t}{\mu(1-\tau)}.
+\]
+\[
+\MPN_t
+=
+\frac{\MPN_t}{\mu(1-\tau)}
+\Rightarrow
+\mu(1-\tau)=1
+\Rightarrow
+\tau=\frac{1}{\varepsilon}.
+\]
+\[
+\text{The optimal allocation can be achieved by giving employment subsidy of }\tau=\frac{1}{\varepsilon}.
+\]
+
+\par\smallskip
+Now study (2) price stickiness.
+\subsection*{1$^\circ$ Average markup varies over time}
+
+\[
+\mu_t
+=
+\frac{P_t}{(1-\tau)W_t/\MPN_t}
+=
+\frac{\mu P_t}{W_t/\MPN_t}
+\Rightarrow
+\frac{W_t}{P_t}=\frac{\mu}{\mu_t}\MPN_t.
+\]
+\[
+-\frac{U_{N,t}}{U_{C,t}}
+=
+\frac{W_t}{P_t}
+=
+\frac{\mu}{\mu_t}\MPN_t.
+\]
+\[
+\text{If }\mu_t\ne\mu,
+\quad\text{optimal allocation condition }(3)\text{ is violated.}
+\]
+
+\subsection*{2$^\circ$ Staggered price setting: sticky price}
+
+\[
+P_t(i)\ne P_t(j),
+\qquad
+C_t(i)\ne C_t(j),
+\qquad
+N_t(i)\ne N_t(j).
+\]
+\[
+\text{Optimal conditions }(1)\text{ and }(2)\text{ are violated.}
+\]
+
+\section*{Optimal Monetary Policy in the basic NK}
+
+Assumptions:
+\begin{enumerate}[label=\arabic*.]
+  \item An optimal subsidy to offset distortion of firms' market power.
+  \item Economy starts without relative price distortion:
+  \[
+  P_{-1}(i)=P_{-1},
+  \qquad \text{for all }i\in[0,1].
+  \]
+\end{enumerate}
+
+Optimal policy should achieve:
+\begin{enumerate}[label=\arabic*.]
+  \item $P_t=P_{t-1}$, $\forall t=0,1,2,\ldots$, so that conditions (1) and (2) hold.
+  \item $\mu_t=\mu$, $\forall t$, so that condition (3) holds.
+\end{enumerate}
+
+\[
+\Leftrightarrow
+\tilde y_t=\hat y_t-\hat y_t^n=0,
+\quad \forall t;
+\qquad
+\hat\pi_t=0,
+\quad \forall t.
+\]
+
+DIS:
+\[
+\tilde y_t
+=
+-\frac{1}{\sigma}\left(\hat i_t-\E_t\{\hat\pi_{t+1}\}-\hat r_t^n\right)
++
+\E_t\{\tilde y_{t+1}\}.
+\]
+\[
+\Rightarrow
+\hat i_t=\hat r_t^n,
+\qquad \forall t.
+\]
+
+\textbf{1. Stabilizing output:} \red{Not freezing output at constant.}
+\[
+\hat y_t=\hat y_t^n,
+\qquad \forall t.
+\]
+\[
+\purple{\text{Eliminating gap, not eliminating fluctuations.}}
+\]
+\[
+\blue{\hat y_t^n\text{ is subject to technology shock.}}
+\]
+
+\textbf{2. Stabilizing price:} divine coincidence.
+\[
+\text{If central bank achieves price stability, then it automatically gets }\tilde y_t=0.
+\]
+\[
+\purple{\text{Stabilizing inflation }\Rightarrow\text{ stabilizing output gap.}}
+\]
+
+\subsection*{\Large How to implement the optimal policy?}
+Non-policy block:
+\[
+\text{DIS:}\quad
+\tilde y_t
+=
+-\frac{1}{\sigma}\left(\hat i_t-\E_t\{\hat\pi_{t+1}\}-\hat r_t^n\right)
++
+\E_t\{\tilde y_{t+1}\},
+\]
+\[
+\text{NKPC:}\quad
+\hat\pi_t=\beta\E_t\{\hat\pi_{t+1}\}+\kappa\tilde y_t.
+\]
+\[
+\purple{\text{When }\hat\pi_t=0,\ \forall t\Rightarrow\tilde y_t=0,\ \forall t.\quad \text{divine coincidence.}}
+\]
+
+Policy block:
+\par\smallskip
+\noindent
+\textbf{Case a: An exogenous interest rate rule
+}
+\[
+\hat i_t=\hat r_t^n,
+\qquad \forall t.
+\]
+\[
+\Rightarrow
+\left\{
+\begin{aligned}
+\boxed{\tilde y_t}
+&=
+\frac{1}{\sigma}E_t\{\hat\pi_{t+1}\}
++
+E_t\{\tilde y_{t+1}\},
+\\
+\hat\pi_t
+&=
+\beta E_t\{\hat\pi_{t+1}\}
++
+\kappa \tilde y_t
+\end{aligned}
+\right.
+\]
+
+Substitute the first equation into the second:
+\begin{align*}
+\hat\pi_t
+&=\beta E_t\{\hat\pi_{t+1}\}
++\kappa\left(\dfrac{1}{\sigma}E_t\{\hat\pi_{t+1}\}+E_t\{\tilde y_{t+1}\}\right)\\
+&=\kappa E_t\{\tilde y_{t+1}\}
++\left(\beta+\dfrac{\kappa}{\sigma}\right)E_t\{\hat\pi_{t+1}\}.
+\end{align*}
+\[
+\Rightarrow
+\begin{bmatrix}
+\tilde y_t\\
+\hat\pi_t
+\end{bmatrix}
+=
+A_0
+\begin{bmatrix}
+E_t\{\tilde y_{t+1}\}\\
+E_t\{\hat\pi_{t+1}\}
+\end{bmatrix},
+\qquad
+\text{where }
+A_0=
+\begin{bmatrix}
+1 & \frac{1}{\sigma}\\
+\kappa & \beta+\frac{\kappa}{\sigma}
+\end{bmatrix}.
+\]
+
+\[
+\purple{\tilde y_t=\hat\pi_t=0\text{ is one solution associated with optimal policy, but not unique.}}
+\]
+\[
+\purple{\tilde y_t\text{ and }\hat\pi_t\text{ are neither predetermined.}}
+\]
+
+\[
+\det(A_0)=\beta,
+\qquad
+\operatorname{tr}(A_0)=1+\beta+\frac{\kappa}{\sigma}.
+\]
+\[
+P(1)=1-T+D=1-1-\beta-\frac{\kappa}{\sigma}+\beta=-\frac{\kappa}{\sigma}<0.
+\]
+\[
+P(-1)=1+T+D=1+1+\beta+\frac{\kappa}{\sigma}+\beta
+=2+2\beta+\frac{\kappa}{\sigma}>0.
+\]
+\[
+\text{There is one root between }(-1,1)\text{ and another one outside the unit circle.}
+\]
+\[
+\purple{\#\text{ jump variables } > \#\text{ unstable roots }\Rightarrow\text{ system is indeterminate.}}
+\]
+\[
+\purple{\text{No guarantee on the realization of }\tilde y_t=\hat\pi_t=0,\quad \forall t.}
+\]
+\par\smallskip
+\noindent
+\textbf{Case b: A Taylor-type interest rate rule}
+
+
+\[
+\hat i_t
+=
+\hat r_t^n+\phi_\pi\hat\pi_t+\phi_y\tilde y_t,
+\qquad
+\phi_\pi\ge0,
+\quad
+\phi_y\ge0,
+\quad \forall t.
+\]
+
+\[
+\left\{
+\begin{aligned}
+\tilde y_t
+&=
+-\frac{\phi_\pi}{\sigma}\hat\pi_t
+-
+\frac{\phi_y}{\sigma}\tilde y_t
++
+\frac{1}{\sigma}\E_t\{\hat\pi_{t+1}\}
++
+\E_t\{\tilde y_{t+1}\},\\
+\hat\pi_t
+&=
+\beta\E_t\{\hat\pi_{t+1}\}
++
+\kappa\tilde y_t.
+\end{aligned}
+\right.
+\]
+
+\[
+\left\{
+\begin{aligned}
+\tilde y_t
+&=
+\frac{1-\beta\phi_\pi}{\sigma+\phi_y+\kappa\phi_\pi}
+\E_t\{\hat\pi_{t+1}\}
++
+\frac{\sigma}{\sigma+\phi_y+\kappa\phi_\pi}
+\E_t\{\tilde y_{t+1}\},\\
+\hat\pi_t
+&=
+\frac{\kappa+\beta\sigma+\beta\phi_y}{\sigma+\phi_y+\kappa\phi_\pi}
+\E_t\{\hat\pi_{t+1}\}
++
+\frac{\sigma\kappa}{\sigma+\phi_y+\kappa\phi_\pi}
+\E_t\{\tilde y_{t+1}\}.
+\end{aligned}
+\right.
+\]
+
+\[
+\begin{bmatrix}
+\tilde y_t\\
+\hat\pi_t
+\end{bmatrix}
+=
+A_T
+\begin{bmatrix}
+\E_t\{\tilde y_{t+1}\}\\
+\E_t\{\hat\pi_{t+1}\}
+\end{bmatrix},
+\]
+\[
+A_T
+=
+\Omega
+\begin{bmatrix}
+\sigma & 1-\beta\phi_\pi\\
+\kappa\sigma & \kappa+\beta(\sigma+\phi_y)
+\end{bmatrix},
+\qquad
+\Omega=\frac{1}{\sigma+\phi_y+\kappa\phi_\pi}.
+\]
+
+\[
+\tilde y_t=\hat\pi_t=0,\quad \forall t
+\quad
+\text{is always a solution.}
+\]
+
+\purple{
+To guarantee uniqueness, we need two stable roots
+\[
+\text{notice that } x_t=A_T E_tx_{t+1},
+\quad
+\text{but BK is defined on }
+E_tx_{t+1}=A_T^{-1}x_t,
+\]
+\[
+\text{2 stable roots in } A_T
+\Longleftrightarrow
+\text{2 unstable roots in } A_T^{-1}.
+\]
+}
+
+\[
+\operatorname{tr}(A_T)=\Omega[\sigma+\kappa+\beta(\sigma+\phi_y)],
+\qquad
+\det(A_T)=\Omega\beta\sigma.
+\]
+\[
+\text{To have stable result, need }D<1,
+\quad P(1)>0,
+\quad P(-1)>0.
+\]
+\[
+\begin{aligned}
+P(1)
+&=
+1-\operatorname{tr}(A_T)+\det(A_T)
+=
+1-\Omega[\sigma+\kappa+\beta\phi_y]
+>0\\
+&\Rightarrow
+\sigma+\kappa+\beta\phi_y
+<
+\sigma+\phi_y+\kappa\phi_\pi\\
+&\Rightarrow
+\kappa(\phi_\pi-1)+(1-\beta)\phi_y>0
+\qquad (*)
+\end{aligned}
+\]
+
+\[
+P(-1)
+=
+1+\operatorname{tr}(A_T)+\det(A_T)
+=
+1+\Omega[\sigma+\kappa+\beta\phi_y+\beta\sigma]
+>0
+\quad
+\text{for sure.}
+\]
+
+\[
+\Delta
+=
+\operatorname{Tr}(A_T)^2
+-
+4\det(A_T)
+=
+\Omega^2[\sigma+\kappa+\beta(\sigma+\phi_y)]^2
+-
+4\Omega\beta\sigma,
+\qquad
+\text{sign does not matter.}
+\]
+\[
+\begin{aligned}
+D
+&=
+\det(A_T)
+=
+\Omega\beta\sigma
+=
+\frac{\beta\sigma}{\sigma+\phi_y+\kappa\phi_\pi}
+=
+\frac{1}{
+\frac{1}{\beta}
++
+\frac{\phi_y+\kappa\phi_\pi}{\beta\sigma}
+}
+\\
+&<
+\frac{1}{
+1+
+\frac{\kappa-\kappa\phi_\pi+\kappa\phi_\pi}{\beta\sigma}
+}
+=
+\frac{1}{
+1+\frac{\kappa}{\beta\sigma}
+}
+<1.
+\end{aligned}
+\]
+
+\[
+\text{If }\kappa(\phi_\pi-1)+(1-\beta)\phi_y>0\text{ is satisfied,}
+\quad
+\tilde y_t=\hat\pi_t=0
+\quad\text{and}\quad
+\hat i_t=\hat r_t^n
+\text{ hold}
+\forall t.
+\]
+\[
+\text{If }\phi_y=0
+\Rightarrow
+\kappa(\phi_\pi-1)>0
+\Rightarrow
+\phi_\pi>1
+\quad
+\text{Taylor principle.}
+\]
+\[
+\text{If }\phi_y>0,
+\quad
+\text{output gap helps, lower bound on }\phi_\pi\text{ can be relaxed a little.}
+\]
+\[
+\purple{\text{But }1-\beta\text{ is usually small, inflation is the main stabilizing force.}}
+\]\par\smallskip
+\noindent
+\textbf{Case c: A forward-looking interest rate rule}
+
+\[
+\hat i_t
+=
+\hat r_t^n+
+\phi_\pi\E_t\{\hat\pi_{t+1}\}
++
+\phi_y\E_t\{\tilde y_{t+1}\}.
+\]
+
+\[
+\left\{
+\begin{aligned}
+\tilde y_t
+&=
+\frac{1-\phi_\pi}{\sigma}\E_t\{\hat\pi_{t+1}\}
++
+\frac{\sigma-\phi_y}{\sigma}\E_t\{\tilde y_{t+1}\},\\
+\hat\pi_t
+&=
+\beta\E_t\{\hat\pi_{t+1}\}+\kappa\tilde y_t.\qquad(*)
+\end{aligned}
+\right.
+\]
+
+\[
+\left\{
+\begin{aligned}
+\tilde y_t
+&=
+\frac{1-\phi_\pi}{\sigma}\E_t\{\hat\pi_{t+1}\}
++
+\frac{\sigma-\phi_y}{\sigma}\E_t\{\tilde y_{t+1}\},\qquad(**)\\
+\hat\pi_t
+&=
+\frac{\kappa(1-\phi_\pi)+\beta\sigma}{\sigma}\E_t\{\hat\pi_{t+1}\}
++
+\frac{\kappa(\sigma-\phi_y)}{\sigma}\E_t\{\tilde y_{t+1}\}.\qquad(***)
+\end{aligned}
+\right.
+\]
+
+\[
+\begin{bmatrix}
+\tilde y_t\\
+\hat\pi_t
+\end{bmatrix}
+=
+A_F
+\begin{bmatrix}
+\E_t\{\tilde y_{t+1}\}\\
+\E_t\{\hat\pi_{t+1}\}
+\end{bmatrix},
+\]
+\[
+A_F=
+\begin{bmatrix}
+\frac{\sigma-\phi_y}{\sigma} & \frac{1-\phi_\pi}{\sigma}\\
+\frac{\kappa(\sigma-\phi_y)}{\sigma} & \beta+\frac{\kappa(1-\phi_\pi)}{\sigma}
+\end{bmatrix}.
+\]
+\[
+\operatorname{tr}(A_F)
+=
+\beta+\frac{\kappa(1-\phi_\pi)+\sigma-\phi_y}{\sigma},
+\qquad
+\det(A_F)=\beta\frac{\sigma-\phi_y}{\sigma}.
+\]
+\begin{align*}
+P(1)
+&=1-\operatorname{tr}(A_F)+\det(A_F)\\
+&=1-\beta-\frac{\kappa(1-\phi_\pi)+(\sigma-\phi_y)}{\sigma}
++\beta\frac{\sigma-\phi_y}{\sigma}>0\\
+&\Rightarrow
+\kappa(\phi_\pi-1)+(1-\beta)\phi_y>0
+\qquad (1)\quad
+\purple{\text{policy cannot be too passive.}}
+\end{align*}
+\[
+\begin{aligned}
+P(-1)
+&=
+1+\operatorname{tr}(A_F)+\det(A_F) \\
+&=
+1+\beta+\frac{\kappa}{\sigma}(1-\phi_\pi)
++1-\frac{1}{\sigma}\phi_y
++\beta-\frac{\beta}{\sigma}\phi_y
+>0
+\\
+&\Rightarrow
+\kappa(\phi_\pi-1)+(1+\beta)\phi_y
+<
+2\sigma(1+\beta)
+\qquad (2)
+\quad
+\purple{\text{policy cannot be too aggressive.}}
+\end{aligned}
+\]
+
+\[
+D<1
+\Rightarrow
+\beta\left(1-\frac{\phi_y}{\sigma}\right)<1,
+\quad
+\text{since }\beta\in(0,1)\text{ and }\phi_y\ge0,
+\text{ so this holds.}
+\]
+\[
+\Rightarrow
+\text{Under }(1)\text{ and }(2),
+\text{ we have 2 stable roots in }A_F,
+\text{ 2 unstable roots in }A_F^{-1}.
+\]
+\[
+\tilde y_t=\hat\pi_t=0,
+\quad \forall t,
+\quad \text{is the unique solution.}
+\]
+
+\purple{1) If $\phi_\pi>1$, the coefficient on $\E_t\{\hat\pi_{t+1}\}$ is negative.}
+\[
+\E_t\{\hat\pi_{t+1}\}\uparrow
+\Rightarrow
+\tilde y_t\downarrow
+\Rightarrow
+\hat\pi_t\downarrow.
+\]
+\purple{If $\phi_\pi<1$, then}
+\[
+\E_t\{\hat\pi_{t+1}\}\uparrow
+\Rightarrow
+\tilde y_t\uparrow
+\Rightarrow
+\hat\pi_t\uparrow,
+\]
+\[
+\purple{\text{self-fulfilling inflation; policy cannot be too passive.}}
+\]
+
+\purple{2) If policy is too aggressive so that condition (2) is violated,}
+\[
+P(-1)<0,
+\quad
+\text{one eigenvalue crosses }-1,
+\quad
+\text{system unstable.}
+\]
+
+\purple{But all optimal policy listed are not realistic, since policy rate must be adjusted one-for-one with the natural interest rate.}
+\[
+\text{But }\hat r_t^n\text{ is usually unobservable, because it depends on the true model of the economy,}
+\]
+\[
+\text{parameter values and the realized shocks.}
+\Rightarrow
+\purple{\text{Simple rules are needed!}}
+\]
+\[
+\text{Due to divine coincidence, unobservable output gap is not the main issue, since }E_t\hat\pi_{t+1}=0\Rightarrow\tilde y_t=0.
+\]
+\[
+\kappa(\phi_\pi-1)+(1-\beta)\phi_y=0
+\quad\Longleftrightarrow\quad
+\phi_\pi
+=
+1-\frac{1-\beta}{\kappa}\phi_y.
+\]
+
+\[
+\kappa(\phi_\pi-1)+(1+\beta)\phi_y=2\sigma(1+\beta)
+\quad\Longleftrightarrow\quad
+\phi_\pi
+=
+1+\frac{2\sigma(1+\beta)}{\kappa}
+-\frac{1+\beta}{\kappa}\phi_y.
+\]
+
+\begin{figure}[H]
+    \centering
+    \IfFileExists{\ProjectRoot/_assets/figures/lecture9-determinat.png}{%
+        \includegraphics[width=0.5\linewidth]{lecture9-determinat.png}%
+    }{%
+        \fbox{\texttt{missing figure: lecture9-determinat.png}}%
+    }
+    \caption{Determinacy region}
+    \label{fig:determinacy-region}
+\end{figure}
+
+\section*{Simple monetary policy rule}
+\subsection*{1. Rotemberg and Woodford (1999)}
+
+Second-order approximation to the utility losses due to deviations from efficient allocation:
+\[
+W
+=
+\frac{1}{2}\E_0\sum_{t=0}^{\infty}\beta^t
+\left[
+\left(\sigma+\frac{\varphi+\alpha}{1-\alpha}\right)\tilde y_t^2
++
+\frac{\varepsilon}{\kappa}\hat\pi_t^2
+\right].
+\]
+
+Per-period loss:
+\[
+L
+=
+\frac{1}{2}
+\left[
+\left(\sigma+\frac{\varphi+\alpha}{1-\alpha}\right)\Var(\tilde y_t)
++
+\frac{\varepsilon}{\kappa}\Var(\hat\pi_t)
+\right].
+\]
+\[
+\sigma\uparrow,\ \varphi\uparrow,\ \alpha\uparrow
+\Rightarrow L\uparrow.
+\quad
+\text{Curvature amplifies the effect (consumption, labor, technology).}
+\]
+\[
+\varepsilon\uparrow,\ \frac{1}{\kappa}\uparrow
+\Rightarrow L\uparrow.
+\quad
+\text{Amplify losses from price dispersion; }\frac{1}{\lambda}\text{ amplifies the degree of price dispersion.}
+\]
+
+\subsection*{2. Taylor-type interest rate rule}
+
+\[
+\hat i_t=\phi_\pi\hat\pi_t+\phi_y\hat y_t,
+\qquad
+\phi_\pi>0,
+\quad
+\phi_y>0.
+\]
+\[
+\hat i_t
+=
+\phi_\pi\hat\pi_t+\phi_y\tilde y_t+\phi_y\hat y_t^n.
+\]
+
+Plug in:
+\[
+\left\{
+\begin{aligned}
+\text{DIS:}\quad
+(\sigma+\phi_y)\tilde y_t+\phi_\pi\hat\pi_t
+&=
+\sigma\E_t\{\tilde y_{t+1}\}
++
+\E_t\{\hat\pi_{t+1}\}
++
+(\hat r_t^n-\phi_y\hat y_t^n),\\
+\text{NKPC:}\quad
+\hat\pi_t&=\beta\E_t\{\hat\pi_{t+1}\}+\kappa\tilde y_t.
+\end{aligned}
+\right.
+\]
+
+\[
+\begin{bmatrix}
+\tilde y_t\\
+\hat\pi_t
+\end{bmatrix}
+=
+A_T
+\begin{bmatrix}
+\E_t\{\tilde y_{t+1}\}\\
+\E_t\{\hat\pi_{t+1}\}
+\end{bmatrix}
++B_T(\hat r_t^n-\phi_y\hat y_t^n),
+\]
+\[
+A_T
+=
+\Omega
+\begin{bmatrix}
+\sigma & 1-\beta\phi_\pi\\
+\kappa\sigma & \kappa+\beta(\sigma+\phi_y)
+\end{bmatrix},
+\quad
+B_T=\Omega
+\begin{bmatrix}
+1\\
+\kappa
+\end{bmatrix},
+\quad
+\Omega=\frac{1}{\sigma+\phi_y+\kappa\phi_\pi}.
+\]
+
+Assume
+\[
+\hat a_t=\rho_a\hat a_{t-1}+\varepsilon_t^a,
+\qquad
+\hat y_t^n=\psi_{ya}^n\hat a_t,
+\qquad
+\psi_{ya}^n=\frac{1+\phi}{\sigma+\phi+\alpha(1-\sigma)}>0.
+\]
+\[
+\Rightarrow
+v_t=\phi_y\hat y_t^n=\phi_y\psi_{ya}^n\hat a_t.
+\]
+\[
+\hat r_t^n
+=
+\sigma\E_t\{\Delta\hat y_{t+1}^n\}
+=
+-\sigma\psi_{ya}^n(1-\rho_a)\hat a_t.
+\]
+\[
+\Delta\hat y_{t+1}^n
+=
+\hat y_{t+1}^n-\hat y_t^n
+=
+\psi_{ya}^n(\hat a_{t+1}-\hat a_t),
+\qquad
+\E_t\Delta\hat y_{t+1}^n
+=
+\psi_{ya}^n(\rho_a-1)\hat a_t.
+\]
+\[
+\hat r_t^n-v_t
+=
+-\psi_{ya}^n[\sigma(1-\rho_a)+\phi_y]\hat a_t.
+\]
+\[
+B_T(\hat r_t^n-v_t)
+=
+\begin{bmatrix}
+1\\
+\kappa
+\end{bmatrix}
+\Omega
+\left\{
+-\psi_{ya}^n
+\left[
+\sigma(1-\rho_a)+\phi_y
+\right]
+\right\}
+\hat a_t.
+\]
+
+\[
+\text{Shock loading:}\qquad
+f(\phi_y)=\frac{\sigma(1-\rho_a)+\phi_y}{\sigma+\phi_y+\kappa\phi_\pi},
+\qquad
+f'(\phi_y)=\frac{\sigma\rho_a+\kappa\phi_\pi}{(\sigma+\phi_y+\kappa\phi_\pi)^2}>0.
+\]
+\[
+\purple{\text{Shock term gets larger if the central bank responds more aggressively to output.}}
+\]
+\[
+\purple{\Rightarrow\text{ output gap and inflation variance }\uparrow,\text{ welfare }\downarrow.}
+\]
+\[
+\phi_\pi\to+\infty
+\Rightarrow
+f(\phi_y)\to0
+\Rightarrow
+\text{the exogenous driving force hitting the system goes to }0.
+\]
+\[
+\purple{\Rightarrow\text{ Aggressive inflation targeting gets arbitrarily close to the optimum.}}
+\]
+
+\section*{A constant money growth rule: Friedman (1960)}
+\[
+\Delta \hat m_t=0,\qquad \forall t.
+\]
+
+\[
+\hat m_t-\hat p_t=\hat y_t-\eta\hat i_t-\xi_t,
+\qquad
+\xi_t \text{ is an exogenous money demand shock: }
+\Delta\xi_t=\rho_\xi\Delta\xi_{t-1}+\varepsilon_t^\xi.
+\]
+
+
+Let
+\[
+\widehat{\mathbb{M}}_t^{+}
+=
+\widehat{\mathbb{M}}_t+\xi_t,
+\qquad
+\text{denotes real balance adjusted by exogenous component of money demand.}
+\]
+\[
+\widehat{\mathbb{M}}_t^{+}
+=
+\tilde y_t+\hat y_t^{\,n}-\eta\hat i_t.
+\]
+
+\[
+\Rightarrow
+\hat i_t
+=
+\frac{1}{\eta}
+\left(
+\tilde y_t+\hat y_t^{\,n}
+-
+\widehat{\mathbb{M}}_t^{+}
+\right).
+\]
+
+\[
+\widehat{\mathbb{M}}_t^{+}
+-
+\widehat{\mathbb{M}}_{t-1}^{+}
+=
+\hat m_t-\hat m_{t-1}
+-
+\hat p_t+\hat p_{t-1}
++
+\xi_t-\xi_{t-1}
+=
+0-\hat\pi_t+\Delta\xi_t.
+\]
+
+\[
+\Rightarrow
+\widehat{\mathbb{M}}_{t-1}^{+}
+=
+\widehat{\mathbb{M}}_t^{+}
++
+\hat\pi_t
+-
+\Delta\xi_t.
+\]
+
+\[
+A_{M,0}
+\begin{bmatrix}
+\tilde y_t\\
+\hat\pi_t\\
+\widehat{\mathbb{M}}_{t-1}^{+}
+\end{bmatrix}
+=
+A_{M,1}
+\begin{bmatrix}
+\E_t\{\tilde y_{t+1}\}\\
+\E_t\{\hat\pi_{t+1}\}\\
+\widehat{\mathbb{M}}_t^{+}
+\end{bmatrix}
++
+B_M
+\begin{bmatrix}
+\hat r_t^{\,n}\\
+\hat y_t^{\,n}\\
+\Delta\xi_t
+\end{bmatrix}.
+\]
+\par\smallskip
+\noindent
+\red{The degree of stability of money demand is a key element in determining the desirability of a money growth rule.}
+
+\ThisNoteEnd

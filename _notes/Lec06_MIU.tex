@@ -1,0 +1,2587 @@
+% !TeX root = Lec06_MIU.tex
+
+\ifdefined\AdvMacroMain
+  \chapter{Lecture 6: Money in Utility Models}
+  \let\ThisNoteEnd\relax
+\else
+  \documentclass[12pt]{ctexart}
+  \newcommand{\ProjectRoot}{..}
+  \input{\ProjectRoot/_config/config}
+  \title{Lecture 6: Money in Utility Models}
+  \author{Chengyuan He}
+  \date{April 2026}
+  \begin{document}
+  \maketitle
+  \def\ThisNoteEnd{\end{document}}
+\fi
+
+\subsection*{Model I. Classical monetary model}
+\begin{enumerate}[label=\arabic*]
+\item assume perfect competition \& fully flexible prices
+\item limited role for money,real and nominal dichotomy:
+\[
+N,C,Y,K,\frac{R}{P},\frac{M}{P}
+\]
+pinned down without monetary policy. Monetary policy only affects nominal variables.
+\end{enumerate}
+
+\paragraph{Household's problem}
+\[
+\max_{\{C_t,N_t,B_t\}}
+E_0\sum_{t=0}^{\infty}\beta^t U(C_t,N_t)
+\]
+
+s.t.
+\[
+P_tC_t + Q_tB_t = B_{t-1}+W_tN_t+T_t
+\]
+
+where
+\[
+\begin{aligned}
+B_t &: \text{one-period, nominally riskless discount bonds that mature in one period;}\\
+&\quad \text{bought in } t,\ \text{and pay one unit of money at } t+1.\\[6pt]
+Q_t &: \text{price of bonds; pay } Q_t \text{ units today and get 1 unit next period,} \\
+&\quad \text{or, pay 1 unit today and get } \frac{1}{Q_t} \text{ units,i.e.gross return next period}.\\[6pt]
+T_t &: \text{lump-sum taxes (if } T_t<0\text{) or dividends (if } T_t>0\text{).}
+\end{aligned}
+\]
+
+Lagrangian:
+\[
+\mathcal L
+=
+E_0\sum_{t=0}^{\infty}\beta^t
+\Big[
+U(C_t,N_t)+\lambda_t(B_{t-1}+W_tN_t-T_t-P_tC_t-Q_tB_t)
+\Big].
+\]
+
+FOCs:
+\[
+\frac{\partial \mathcal L}{\partial C_t}=0
+\quad\Rightarrow\quad
+U_{C_t}-\lambda_t P_t=0
+\tag{1}
+\]
+\[
+\frac{\partial \mathcal L}{\partial N_t}=0
+\quad\Rightarrow\quad
+U_{N_t}+\lambda_t W_t=0
+\tag{2}
+\]
+\[
+\frac{\partial \mathcal L}{\partial B_t}=0
+\quad\Rightarrow\quad
+-\beta^t\lambda_t Q_t+\beta^{t+1}E_t[\lambda_{t+1}]=0
+\quad\Rightarrow\quad
+Q_t=\beta E_t\left[\frac{\lambda_{t+1}}{\lambda_t}\right]
+\tag{3}
+\]
+\[
+\frac{\partial \mathcal L}{\partial \lambda_t}=0
+\quad\Rightarrow\quad
+P_tC_t+Q_tB_t=B_{t-1}+W_tN_t+T_t.
+\tag{5}
+\]
+
+From the first two FOCs:
+\[
+-\frac{U_{N_t}}{U_{C_t}}
+=
+\frac{W_t}{P_t}.
+\]
+
+From the bond FOC:
+\[
+Q_t
+=
+\beta E_t\left[
+\frac{U_{C,t+1}}{U_{C,t}}\frac{P_t}{P_{t+1}}
+\right].
+\]
+
+Suppose
+\[
+U(C_t,N_t)
+=
+\frac{C_t^{1-\sigma}}{1-\sigma}
+-
+\frac{N_t^{1+\varphi}}{1+\varphi}.
+\]
+
+Then
+\[
+U_{C_t}=C_t^{-\sigma},
+\qquad
+U_{N_t}=-N_t^{\varphi}.
+\]
+
+So
+\[
+\frac{W_t}{P_t}=C_t^\sigma N_t^\varphi.
+\]
+
+Hence
+\[
+N_t=\left(\frac{W_t/P_t}{C_t^\sigma}\right)^{1/\varphi}.
+\]
+\[
+Q_t
+=
+\beta E_t\!\left[
+\left(\frac{C_{t+1}}{C_t}\right)^{-\sigma}
+\frac{P_t}{P_{t+1}}
+\right].
+\]
+\[
+\frac{W_t}{P_t}=C_t^\sigma N_t^\varphi
+\quad\Rightarrow\quad
+N_t=\left(\frac{W_t/P_t}{C_t^\sigma}\right)^{1/\varphi}
+\quad\Rightarrow\quad
+\log N_t
+=
+\frac{1}{\varphi}\log\!\left(\frac{W_t}{P_t}\right)
+-
+\frac{\sigma}{\varphi}\log C_t
+\quad\Rightarrow\quad
+\frac{\partial \log N_t}{\partial \log (W_t/P_t)}
+=
+\frac{1}{\varphi}
+\]
+
+\noindent
+\textcolor{red}{\(\dfrac{1}{\varphi}\): Frisch elasticity (how labor supply responds to real wage), \(\varphi \uparrow \Rightarrow\) elasticity \(\downarrow\).}
+\paragraph{Firm's problem}
+
+\[
+\max_{Y_t,\,N_t}\ \Pi_t = P_t Y_t - W_t N_t
+\]
+
+s.t.
+\[
+Y_t=A_tN_t^{1-\alpha}.
+\]
+
+FOC:
+\[
+\frac{W_t}{P_t}=(1-\alpha)A_tN_t^{-\alpha}
+\qquad
+\text{: both are real terms.}
+\tag{4}
+\]
+
+\paragraph{Market clearing}
+\[
+\qquad \text{Goods market clearing:}
+\qquad Y_t=C_t
+\]
+\[
+\text{Labor market clearing: }\qquad N_t^{(d)} = N_t^{(s)}
+(\text{implicitly holds})
+\]
+\[
+\text{Bond market clearing:Hold by Walras Law}
+\qquad B_t=0
+\]
+
+Then we have the system
+\[
+\left\{
+\begin{aligned}
+Y_t &= C_t, 
+& \qquad & \text{goods market clearing} \\[4pt]
+T_t &= \alpha P_t Y_t, 
+& & \text{dividend} \\[4pt]
+Y_t &= A_t N_t^{1-\alpha}, 
+& & \text{production function} \\[4pt]
+\frac{W_t}{P_t} &= C_t^{\sigma} N_t^{\varphi}, 
+& & \text{labor-leisure condition} \\[6pt]
+\frac{W_t}{P_t} &= (1-\alpha)A_t N_t^{-\alpha}, 
+& & \text{real wage = MPL} \\[6pt]
+P_t C_t + Q_t B_t &= B_{t-1} + W_t N_t + T_t, 
+& & \text{budget constraint} \\[6pt]
+Q_t &= \beta E_t \left[
+\left(\frac{C_{t+1}}{C_t}\right)^{-\sigma}
+\frac{P_t}{P_{t+1}}
+\right], 
+& & \text{bond Euler equation} \\[8pt]
+\log A_t &= (1-\rho_a)\log \bar{A} + \rho_a \log A_{t-1} + \varepsilon_t,
+& & \text{productivity process}
+\end{aligned}
+\right.
+\]
+\[
+\text{No monetary policy involved.}
+\text{Denote the real wage as }
+W_t^r = \frac{W_t}{P_t}.
+\]
+
+\[
+\Rightarrow
+\qquad
+\text{Real equilibrium(in units of goods):}
+\qquad
+\left\{
+\begin{aligned}
+W_t^r &= C_t^{\sigma} N_t^{\varphi} \qquad (1)\\[4pt]
+Y_t &= A_t N_t^{1-\alpha} \qquad (2)\\[4pt]
+W_t^r &= (1-\alpha)A_t N_t^{-\alpha} \qquad (3)\\[4pt]
+Y_t &= C_t \qquad (4)
+\end{aligned}
+\right.
+\]
+
+\[
+\text{Four unknowns: } W_t^r,\ C_t,\ N_t,\ Y_t.
+\qquad
+\text{Four equations.}
+\]
+\paragraph{At steady state}
+Assume
+\[
+\bar A=1.
+\]
+
+From (2), (3), and \(Y=C\):
+\[
+(1-\alpha)\bar N^{-\alpha}
+=
+\bar C^\sigma \bar N^\varphi.
+\]
+
+Since
+\[
+\bar Y=\bar N^{1-\alpha},
+\qquad
+\bar C=\bar Y,
+\]
+we have
+\[
+(1-\alpha)\bar N^{-\alpha}
+=
+\left(\bar N^{1-\alpha}\right)^\sigma \bar N^\varphi
+=
+\bar N^{\sigma(1-\alpha)+\varphi}.
+\]
+
+Hence
+\[
+1-\alpha
+=
+\bar N^{\sigma(1-\alpha)+\varphi+\alpha},
+\]
+so
+\[
+\bar N
+=
+(1-\alpha)^{\frac{1}{\sigma(1-\alpha)+\varphi+\alpha}}.
+\]
+
+Thus
+\[
+\bar Y=\bar N^{1-\alpha}
+=
+(1-\alpha)^{\frac{1-\alpha}{\sigma(1-\alpha)+\varphi+\alpha}},
+\qquad
+\bar C=\bar Y.
+\]
+and
+\[
+\bar{W}^{\,r}
+=
+\bar C^\sigma \bar N^\varphi
+=
+(1-\alpha)\bar N^{-\alpha}.
+\]
+
+\paragraph{Log-linearization}
+
+\[
+\hat w_t^r=\sigma \hat c_t+\varphi \hat n_t
+\]
+\[
+\hat y_t=\hat a_t+(1-\alpha)\hat n_t
+\]
+\[
+\hat w_t^r=\hat a_t-\alpha \hat n_t
+\]
+\[
+\hat y_t=\hat c_t.
+\]
+
+Only one shock \(\hat a_t\), no predetermined variable. Assume
+\[
+\hat y_t=\psi_{ya}\hat a_t,
+\qquad
+\hat n_t=\psi_{na}\hat a_t,
+\qquad
+\hat{w}_t^{\,r}=\psi_{wa}\,\hat{a}_t
+\]
+
+Then
+\[
+\sigma \hat{a}_t + \sigma(1-\alpha)\hat{n}_t + \varphi \hat{n}_t
+= \hat{a}_t - \alpha \hat{n}_t
+\]
+
+\[
+\Rightarrow\quad
+\hat{c}_t=\hat{y}_t
+=
+\frac{1+\varphi}{\sigma(1-\alpha)+\varphi+\alpha}\,\hat{a}_t
+\qquad
+\text{coefficient >0}
+\]
+
+\[
+\hat{w}_t^{\,r}
+=
+\frac{\varphi+\sigma}{\sigma(1-\alpha)+\varphi+\alpha}\,\hat{a}_t
+\qquad
+\text{coefficient >0}
+\]
+\[
+\hat{n}_t
+=
+\frac{1-\sigma}{\sigma(1-\alpha)+\varphi+\alpha}\,\hat{a}_t
+\qquad
+\text{coefficient is ambiguous, depends on } \sigma
+\]
+\textcolor{red}{Income effect dominates if \(\sigma>1\): \(\dfrac{\partial \hat n_t}{\partial \hat a_t}<0\).}
+
+\textcolor{red}{Substitution effect dominates if \(\sigma<1\): \(\dfrac{\partial \hat n_t}{\partial \hat a_t}>0\).}
+
+\paragraph{Real interest rate}
+
+Bond Euler:
+\[
+Q_t
+=
+\beta E_t \left[
+\left(\frac{C_{t+1}}{C_t}\right)^{-\sigma}
+\frac{1}{\Pi_{t+1}}
+\right].
+\tag{*}
+\]
+\[
+\left(\frac{C_{t+1}}{C_t}\right)^{-\sigma}
+:\ \text{real stochastic discount factor},
+\qquad
+\frac{1}{\Pi_{t+1}}
+:\ \text{converts } t+1 \text{ nominal payoff into real terms}.
+\]
+
+Let
+\[
+Q_t=e^{-i_t},
+\qquad
+\frac{P_{t+1}}{P_t}=\Pi_{t+1}\ \text{inflation},
+\qquad
+\pi_{t+1}
+=
+\log \Pi_{t+1}
+=
+\log P_{t+1}-\log P_t,
+\qquad
+\beta = e^{-\rho}
+\]
+\[
+\text{Define real interest rate: }\quad
+r_t = i_t - E_t\pi_{t+1}
+\]
+\[
+i_t = -\log Q_t
+\qquad \text{log nominal interest rate}
+\]
+
+\[
+\rho = -\log \beta
+\qquad \text{rate of time preference}
+\]
+\qquad
+\[
+\text{Define new deviation: }\quad
+\hat{i}_t=i_t-\bar{i}
+\qquad
+\hat{r}_t=r_t-\bar{r}
+\qquad
+\bar{\pi}=\log \bar{P}-\log \bar{P}=0
+\]
+\qquad
+\[
+\left\{
+\begin{aligned}
+\left(\frac{C_{t+1}}{C_t}\right)^{-\sigma}
+&=
+e^{-\sigma \log C_{t+1}} \big/ e^{-\sigma \log C_t}
+=
+e^{-\sigma(\log C_{t+1}-\log C_t)},
+\\[6pt]
+\frac{1}{\Pi_{t+1}}
+&=
+\frac{P_t}{P_{t+1}}
+=
+e^{\log P_t-\log P_{t+1}}
+=
+e^{-\pi_{t+1}}.
+\end{aligned}
+\right.
+\]
+
+\[
+\Rightarrow\quad
+\textcolor{red}{
+e^{-i_t}
+=
+e^{-\rho} E_t \!\left[
+e^{-\sigma(\hat c_{t+1}-\hat c_t)-\pi_{t+1}}
+\right]
+}
+\tag{**}
+\]
+
+\[
+-i_t = -\rho + E_t\!\left[-\sigma(\hat c_{t+1}-\hat c_t)-\pi_{t+1}\right]
+\tag{1}
+\]
+
+\[
+\left.
+\begin{aligned}
+-\bar{i}
+&=
+-\rho
++
+E_t\!\left[
+-\sigma(\log \bar{C}-\log \bar{C})-\bar{\pi}
+\right],
+\\[6pt]
+\bar{\pi}
+&=
+\log \bar{P}-\log \bar{P}
+=
+0
+\end{aligned}
+\right\}
+\;\Rightarrow\;
+\bar{i}=\rho
+\tag{2}
+\]
+
+\[
+\begin{aligned}
+(1)+(2)\quad \Rightarrow\quad
+-\hat{i}_t+\bar{i}
+&=
+E_t\!\left[-\sigma\bigl(\log C_{t+1}-\log C_t\bigr)-\pi_{t+1}\right].
+\end{aligned}
+\]
+
+\[
+\left\{
+\begin{aligned}
+\hat{c}_{t+1} &= \log C_{t+1}-\log \bar{C},\\
+\hat{c}_t &= \log C_t-\log \bar{C}
+\end{aligned}
+\right.
+\qquad \Rightarrow \qquad
+\hat{c}_{t+1}-\hat{c}_t=\log C_{t+1}-\log C_t.
+\]
+
+\[
+\begin{aligned}
+\Rightarrow\quad
+-\hat{i}_t
+&=
+E_t\!\left[-\sigma(\hat{c}_{t+1}-\hat{c}_t)-\pi_{t+1}\right],
+\\[6pt]
+\Rightarrow\quad
+-\hat{i}_t
+&=
+-\sigma E_t\Delta \hat{c}_{t+1}-E_t[\pi_{t+1}],
+\\[6pt]
+\Rightarrow\quad
+\sigma E_t\Delta \hat{c}_{t+1}
+&=
+\hat{i}_t-E_t[\pi_{t+1}],
+\\[6pt]
+\hat{\pi}_{t+1}
+&=
+\pi_{t+1}-\bar{\pi}
+=
+\pi_{t+1},
+\\[6pt]
+\Rightarrow\quad
+\hat{i}_t-E_t[\hat{\pi}_{t+1}]
+&=
+\sigma E_t\Delta \hat{c}_{t+1}.
+\end{aligned}
+\tag{***}
+\]
+\[
+\text{Since }
+r_t=i_t-E_t[\pi_{t+1}],
+\tag{3}
+\]
+\[
+\bar{r}=\bar{i}-\bar{\pi}=\bar{i},
+\tag{4}
+\]
+\[
+(3)-(4)\;\Rightarrow\;
+\hat{r}_t=\hat{i}_t-E_t[\hat{\pi}_{t+1}]
+\]
+\[
+\text{Plug in }(***)\;\Rightarrow\;
+\hat{r}_t=\sigma E_t\Delta \hat{c}_{t+1}
+\]
+\[
+\hat{c}_{t+1}=\hat{y}_{t+1}=\psi_{ya}\hat{a}_{t+1},
+\]
+\[
+\Rightarrow\;
+\hat{r}_t=\sigma \psi_{ya}\, E_t[\Delta \hat{a}_{t+1}]
+\]
+\[
+\text{If the shock is transitory / mean reverting}
+\quad\Rightarrow\quad
+E_t[\Delta \hat{a}_{t+1}]<0
+\quad\Rightarrow\quad
+r_t<0.
+\]
+\textcolor{red}{A positive transitory technology shock causes the current real interest rate to fall below its steady-state level.}
+
+\textcolor{red}{Intuition: \(a_t\uparrow\) gives a favorable temporary income shock \(\Rightarrow\) households smooth consumption by saving \(\Rightarrow\) bond demand rises \(B_t^d\uparrow\) \(\Rightarrow\) bond price rises \(Q_t\uparrow\) \(\Rightarrow\) real interest rate falls \(r_t\downarrow\).}
+\paragraph{Dichotomy}
+
+\begin{itemize}
+\item \(r_t\) pinned down by real side, money growth does not affect \(r_t\).
+\item No policy is the best since only real variables enter utility.
+\item Does not match empirics:data say real variable move after monetary shocks and nominall variables respond slugg.
+\end{itemize}
+
+\newpage
+\subsection*{Model II. Money in utility model}
+
+\begin{itemize}
+\item Make nominal terms affect real terms.
+\item Explain why agents hold money which is inferior to bond. (Money has no return but affects utility.)
+\end{itemize}
+\paragraph{Household's Problem}
+
+\[
+\max_{\{C_t,M_t,N_t\}_{t=0}^{\infty}}
+E_0\sum_{t=0}^{\infty}\beta^t\,
+U\!\left(C_t,\mathbb{M}_t,N_t\right)
+\]
+
+\[
+\text{s.t.}\quad
+P_t C_t + Q_t B_t + M_t \le B_{t-1} + M_{t-1} + W_t N_t + T_t
+\]
+
+\textcolor{red}{Let \(\mathbb{M}_t=\dfrac{M_t}{P_t}\), the real money balance/supply.}
+
+Financial wealth before decisions(predetermined variable):
+\[
+A_t = B_{t-1}+M_{t-1}
+\]
+
+\[
+\Lambda_{t,T}=Q_t\cdot Q_{t+1}\cdots Q_T
+\]
+
+B.C.:
+\[
+P_tC_t + Q_tA_{t+1} + (1-Q_t)M_t = A_t + W_tN_t + T_t
+\]
+Notes 1:
+\[
+i_t:\ \text{continuously compounded nominal rate}
+\]
+\[
+Q_t:\ \text{price today } Q_t,\ \text{payoff tomorrow } 1
+\]
+
+Nominal interest rate:
+\[
+1-Q_t = 1-e^{-i_t} \approx i_t
+\]
+\[
+\begin{aligned}
+1-Q_t \;:\;& \text{the opportunity cost of holding one's financial wealth in money rather than} \\
+& \text{in interest-bearing bonds; a high } i_t \text{ thus means contractionary monetary policy.}
+\end{aligned}
+\]
+Notes:
+\[
+\Lambda_{t,T}:\ \text{state-contingent discount factor from } t \text{ to } T
+\]
+\[
+\frac{A_T}{P_T}:\ \text{terminal real wealth}
+\]
+
+No-Ponzi scheme:
+\[
+\lim_{T\to\infty} E_t\!\left[\Lambda_{t,T}\frac{A_T}{P_T}\right] \ge 0,
+\qquad \forall t
+\]
+
+Notes:
+\[
+\text{cannot end up with infinitely bad wealth}
+\]
+\[
+\text{(borrow a lot} \Rightarrow \text{roll-over)}
+\]
+
+TVC:
+\[
+\lim_{T\to\infty} E_t\!\left[\Lambda_{t,T}\frac{A_T}{P_T}\right] = 0
+\]
+
+Note:
+\[
+\text{no resources on table when world ends}
+\]
+
+\[
+\text{All financial assets } A_t \text{ yield gross nominal return } Q_t^{-1}=e^{i_t}.
+\]
+
+
+
+Lagrangian:
+\[
+\mathcal L
+=
+E_0\sum_{t=0}^{\infty}\beta^t
+\left[
+U\!\left(C_t,\mathbb{M}_t,N_t\right)
++
+\lambda_t\big(
+A_t+W_tN_t+T_t-P_tC_t-Q_tA_{t+1}-(1-Q_t)M_t
+\big)
+\right].
+\]
+
+FOCs:
+\[
+\frac{\partial \mathcal L}{\partial M_t}=0
+\quad\Rightarrow\quad
+U_{\mathbb{M}_t}\frac{1}{P_t}-\lambda_t(1-Q_t)=0
+\]
+\[
+\frac{\partial \mathcal L}{\partial C_t}=0
+\quad\Rightarrow\quad
+U_{C,t}=\lambda_t P_t
+\]
+\[
+\frac{\partial \mathcal{L}}{\partial N_t}=0
+\quad\Rightarrow\quad
+-\frac{U_{N,t}}{U_{C,t}}=\frac{W_t}{P_t}.
+\]
+Hence
+\[
+\frac{U_{\mathbb{M}_t}}{U_{C_t}}
+=
+1-Q_t
+=
+1-e^{-i_t}.
+\tag{5}
+\]
+
+
+\subsection*{Separable utility case(still dichotomy)}
+
+Assume
+\[
+U\!\left(C_t,\mathbb{M}_t,N_t\right)
+=
+\frac{C_t^{1-\sigma}}{1-\sigma}
++
+\frac{(\mathbb{M}_t)^{1-\nu}}{1-\nu}
+-
+\frac{N_t^{1+\varphi}}{1+\varphi}.
+\]
+
+Neither \(U_{C_t}\) nor \(U_{N_t}\) depends on \(\mathbb{M}_t\)\(\Rightarrow\) real equilibrium not affected(same as before).
+
+But we can derive money demand:
+\[
+U_{\mathbb{M}_t}
+=
+\left(\mathbb{M}_t\right)^{-\nu},
+\qquad
+U_{C_t}=C_t^{-\sigma}.
+\]
+\[
+\frac{U_{\mathbb{M},t}}{U_{C,t}} = 1-e^{-i_t}
+\quad\Rightarrow\quad
+\frac{\mathbb{M}_t^{-\nu}}{C_t^{-\sigma}} = 1-e^{-i_t}
+\]
+
+\[
+\Rightarrow\quad
+\mathbb{M}_t
+=
+C_t^{\sigma/\nu}\left[1-e^{-i_t}\right]^{-1/\nu}
+\]
+
+\[
+\Rightarrow\quad
+\log M_t-\log P_t
+=
+\frac{\sigma}{\nu}\log C_t
+-
+\frac{1}{\nu}\log(1-e^{-i_t})
+\]
+\[
+\hat{\mathbb{M}}_t
+\approx
+\frac{\sigma}{\nu}\hat{c}_t
+-\frac{1}{\nu\left(e^{\bar{i}}-1\right)}\hat{i}_t.
+\]
+\text{math notes:}
+\[
+\begin{aligned}
+\text{Let } f(i) &= \log(1-e^{-i}),\\[4pt]
+f'(i) &= \frac{e^{-i}}{1-e^{-i}} = \frac{1}{e^i-1},\\[4pt]
+f''(i) &= -\frac{e^i}{(e^i-1)^2},\\[6pt]
+\log(1-e^{-i_t})
+&\approx
+\log(1-e^{-\bar{i}})
++\frac{1}{e^i-1}(i_t-\bar{i}).
+\end{aligned}
+\]
+\[
+\log(1-e^{-\bar{i}}) \text{ is constant, so it cancels out in derivation.}
+\]
+\mbox{}\\
+If \(\sigma=\nu\), define
+\[
+\eta\equiv \frac1{\nu\left(e^{\bar{i}}-1\right)},
+\]
+then approximately
+\[
+\hat m_t-\hat p_t=\hat y_t-\eta \hat i_t.
+\]
+
+\textcolor{red}{\(\eta\): semi-elasticity of real money demand with respect to the nominal interest rate.}
+
+\textcolor{red}{\(\hat m_t-\hat p_t\): real money balances are determined by \(\hat y_t\) and \(\hat i_t\).}
+
+\textcolor{red}{\(\hat y_t\): determined by the real-side equilibrium, so monetary policy does not affect real activity in the separable case.}
+
+\subsection*{Inseparable utility case}
+Utility:
+\[
+U\!\left(C_t,\mathbb{M}_t,N_t\right)
+=
+\frac{X_t^{1-\sigma}}{1-\sigma}
+-
+\frac{N_t^{1+\varphi}}{1+\varphi}.
+\]
+\[
+\text{where, }\;
+X_t=
+\begin{cases}
+\left[(1-\theta)C_t^{\,1-\nu}+\theta\mathbb{M}_t^{1-\nu}\right]^{\frac{1}{1-\nu}}, & \nu\neq 1,\\[10pt]
+C_t^{\,1-\theta}\mathbb{M}_t^{\theta}, & \nu=1.
+\end{cases}
+\]
+\[
+\text{Elasticity of substitution between } C_t \text{ and } \mathbb{M}_t
+\text{ is } \frac{1}{\nu}
+\]
+\[
+\theta\in(0,1)
+\qquad
+\text{weight on money inside the CES aggregator.}
+\]
+
+\text{Derivatives when \(\nu\neq 1\)}
+
+For \(\nu\neq 1\),
+\[
+X_t=\left[(1-\theta)C_t^{\,1-\nu}+\theta \mathbb{M}_t^{\,1-\nu}\right]^{\frac{1}{1-\nu}}.
+\]
+
+Then
+\[
+U_{C,t}=X_t^{-\sigma}\cdot \frac{1}{1-\nu}\cdot X_t^{\nu}\cdot (1-\theta)(1-\nu)C_t^{-\nu}
+\]
+so
+\[
+U_{C,t}=(1-\theta)X_t^{\,\nu-\sigma}C_t^{-\nu}.
+\]
+
+Similarly,
+\[
+U_{\mathbb{M},t}
+=
+X_t^{-\sigma}\cdot \frac{1}{1-\nu}\cdot X_t^{\nu}\cdot \theta(1-\nu)\mathbb{M}_t^{-\nu}
+\]
+so
+\[
+U_{\mathbb{M},t}=\theta X_t^{\,\nu-\sigma}\mathbb{M}_t^{-\nu}.
+\]
+
+Also,
+\[
+U_{N,t}=-N_t^{\varphi}.
+\]
+
+\paragraph{Marginal rate of substitution and elasticity}
+
+Define
+\[
+X_C=(1-\theta)X^\nu C^{-\nu},
+\qquad
+X_ \mathbb{M}=\theta X^\nu \mathbb{M}^{-\nu}.
+\]
+
+Then
+\[
+MRS_{C,\mathbb{M}}
+=
+\frac{U_C}{U_{\mathbb{M}}}
+=
+\frac{X_C}{X_{\mathbb{M}}}
+=
+\frac{1-\theta}{\theta}\left(\frac{\mathbb{M}}{C}\right)^\nu.
+\]
+Hence
+\[
+\varepsilon
+=
+\frac{d\ln(\mathbb{M}/C)}{d\ln MRS_{C,\mathbb{M}}}
+=
+\frac{1}{\nu}.
+\]
+
+Thus,
+\[
+\nu>1 \;\Rightarrow\; \varepsilon<1 \quad \text{(complements)},
+\]
+\[
+\nu<1 \;\Rightarrow\; \varepsilon>1 \quad \text{(substitutes)}.
+\]
+
+\paragraph{FOCs}
+
+Labor supply condition:
+\[
+-\frac{U_{N,t}}{U_{C,t}}=\frac{W_t}{P_t}.
+\]
+
+Substituting the derivatives,
+\[
+\left\{
+\begin{aligned}
+\frac{W_t}{P_t}
+&=
+\frac{1}{1-\theta}N_t^\varphi X_t^{\sigma-\nu}C_t^\nu, \\[8pt]
+Q_t
+&=
+\beta E_t\!\left[\frac{U_{C,t+1}}{U_{C,t}}\frac{P_t}{P_{t+1}}\right]
+=
+\beta E_t\!\left[
+\left(\frac{C_{t+1}}{C_t}\right)^{-\nu}
+\left(\frac{X_{t+1}}{X_t}\right)^{\nu-\sigma}
+\frac{P_t}{P_{t+1}}
+\right].
+\end{aligned}
+\right.
+\qquad
+\begin{array}{l}
+X_t \text{ depends on } \mathbb{M}_t,\\
+\text{thus money is non-neutral.}
+\end{array}
+\]
+
+Money FOC:
+\[
+\frac{U_{\mathbb{M},t}}{U_{C,t}}=1-e^{-i_t}.
+\]
+
+So
+\[
+\frac{\theta}{1-\theta}C_t^\nu \mathbb{M}_t^{-\nu}=1-e^{-i_t}.
+\]
+
+Solving for real money balances,
+\[
+\mathbb{M}_t
+=
+C_t\left(1-e^{-i_t}\right)^{-1/\nu}
+\left(\frac{\theta}{1-\theta}\right)^{1/\nu}.
+\]
+When $\nu=\sigma$ and we drop $\theta$, the utility function reduces to the separable case, so the dichotomy holds.
+
+When $\nu \neq \sigma$, we have the general (non-separable) case.
+\[
+\begin{aligned}
+&\text{1) Labor supply and Euler equation are affected by the level of real balances through } X_t,\\
+&\text{2) Real balance depends on nominal interest rate.}
+\end{aligned}
+\]
+
+\[
+\begin{aligned}
+\text{Non-neutral monetary policy:}\qquad
+&\text{Monetary policy}
+\;\Rightarrow\;
+\text{nominal rate } i_t\\
+&\Rightarrow\;
+\text{real balance } \mathbb{M}
+\;\Rightarrow\;
+\text{labor supply and output.}
+\end{aligned}
+\]
+\[
+\text{Log linearize:}\qquad
+\mathbb{M}_t
+=
+C_t(1-e^{-i_t})^{-1/{\nu}}
+\left(\frac{\theta}{1-\theta}\right)^{1/{\nu}}
+\;\Rightarrow\;
+\hat{m}_t-\hat{p}_t
+=
+\hat{c}_t-\eta \hat{i}_t
+\qquad \cdots\; (*)
+\]
+
+\[
+\frac{W_t}{P_t}
+=
+\frac{1}{1-\theta}
+N_t^{\varphi}X_t^{\sigma-\nu}C_t^{\nu}
+\;\Rightarrow\;
+\hat{w}_t-\hat{p}_t
+=
+\sigma\hat{c}_t+\varphi \hat{n}_t+(\nu-\sigma)(\hat{c}_t-\hat{x}_t)
+\qquad \cdots\; (**)
+\]
+\[
+X_t^{1-\nu}
+=
+(1-\theta)C_t^{1-\nu}
++
+\theta \mathbb{M}^{1-\nu}
+\]
+\[
+\textcolor{red}{\text{S.S.:}\quad
+(1-\theta)\bar{C}^{\,1-\nu}
+=
+\bar{X}^{\,1-\nu}
+-
+\theta \bar{\mathbb{M}}^{\,1-\nu}}
+\]
+\[
+\Rightarrow\quad
+\bar X^{1-\nu}\hat x_t
+=
+(1-\theta)\bar C^{1-\nu}\hat c_t
++
+\theta \bar{\mathbb{M}}^{1-\nu}(\hat m_t-\hat p_t).
+\]
+
+\[
+\text{Using } 
+(1-\theta)\bar C^{1-\nu}
+=
+\bar X^{1-\nu}
+-
+\theta\bar{\mathbb{M}}^{1-\nu},
+\]
+\[
+\bar X^{1-\nu}\hat x_t
+=
+\left[
+\bar X^{1-\nu}
+-
+\theta\bar{\mathbb{M}}^{1-\nu}
+\right]\hat c_t
++
+\theta\bar{\mathbb{M}}^{1-\nu}(\hat m_t-\hat p_t).
+\]
+
+\[
+\Rightarrow
+\bar X^{1-\nu}(\hat c_t-\hat x_t)
+=
+\theta\bar{\mathbb{M}}^{1-\nu}
+\left[
+\hat c_t-(\hat m_t-\hat p_t)
+\right].
+\]
+
+\[
+\Rightarrow
+\hat c_t-\hat x_t
+=
+\underbrace{
+\theta
+\left(
+\frac{\bar{\mathbb{M}}}{\bar X}
+\right)^{1-\nu}
+}_{\chi}
+\left[
+\hat c_t-(\hat m_t-\hat p_t)
+\right].
+\tag{***}
+\]
+
+
+\[
+\text{Define}\qquad
+\left(\frac{\bar{M}}{\bar{P}}\right)\Big/\bar{C}
+=
+k_m
+\]
+
+\[
+\textcolor{red}{k_m:\ \text{inverse consumption velocity, low }k_m\text{ high velocity}}
+\]
+
+\[
+\text{Let}\qquad
+\chi
+=
+\theta
+\frac{\left(\frac{\bar{M}}{\bar{P}}\right)^{1-\nu}}{\bar{X}^{\,1-\nu}}
+=
+\theta
+\frac{\left(\frac{\bar{M}}{\bar{P}}\right)^{1-\nu}}
+{(1-\theta)\bar{C}^{\,1-\nu}+\theta\left(\frac{\bar{M}}{\bar{P}}\right)^{1-\nu}}
+=
+\frac{
+\theta\left(\left(\frac{\bar{M}}{\bar{P}}\right)\big/\bar{C}\right)^{1-\nu}
+}{
+1-\theta+\theta\left(\left(\frac{\bar{M}}{\bar{P}}\right)\big/\bar{C}\right)^{1-\nu}
+}
+\]
+
+\[
+=
+\frac{\theta k_m^{\,1-\nu}}{1-\theta+\theta k_m^{\,1-\nu}}
+\]
+
+\[
+\textcolor{red}{\chi:\ \text{steady-state expenditure share of money inside the CES aggregator}}
+\]
+
+\[
+\mathbb{M}_t
+=
+C_t(1-e^{-i_t})^{-1/{\nu}}
+\left(\frac{\theta}{1-\theta}\right)^{1/{\nu}}
+\;\Rightarrow\;
+\left(\frac{\bar{M}}{\bar{P}}\right)\Big/\bar{C}
+=
+(1-\beta)^{-1/{\nu}}
+\left(\frac{\theta}{1-\theta}\right)^{1/{\nu}}
+\]
+
+\[
+\Rightarrow\quad
+k_m
+=
+\left[
+\frac{\theta}{(1-\beta)(1-\theta)}
+\right]^{1/{\nu}}
+\]
+
+\[
+\textcolor{red}{k_m \text{ increases with money weight } \theta,\ \beta\uparrow \Rightarrow \text{opportunity cost of holding money} \downarrow}
+\]
+
+\[
+\text{Plug } (***) \text{ into } (**), \text{ we have}
+\]
+
+\[
+\hat{w}_t-\hat{p}_t
+=
+\sigma\hat{c}_t+\varphi \hat{n}_t
++
+(\nu-\sigma)\chi
+\Bigl[\hat{c}_t-(\hat{m}_t-\hat{p}_t)\Bigr]
+\]
+
+\[
+\text{Plug } (*) \text{ into the above equation:}
+\]
+
+\[
+\hat{w}_t-\hat{p}_t
+=
+\sigma\hat{c}_t+\varphi \hat{n}_t
++
+(\nu-\sigma)\chi
+\Bigl[\hat{c}_t-\hat{y}_t+\eta \hat{i}_t\Bigr]
+\]
+
+\[
+\Rightarrow\quad
+\hat{w}_t-\hat{p}_t
+=
+\sigma\hat{c}_t+\varphi \hat{n}_t+\omega \hat{i}_t
+\]
+
+\[
+\text{where}\qquad
+\omega=(\nu-\sigma)\chi\eta
+\]
+
+\[
+\textcolor{red}{\omega:\ \text{like nominal interest rate and labor supply}}
+\]
+\[
+\chi
+=
+\frac{\theta^{1/\nu}(1-\beta)^{1-\frac{1}\nu}}
+{(1-\theta)^{1/\nu}+\theta^{1/\nu}(1-\beta)^{1-\frac{1}\nu}}
+=
+\frac{\left(\frac{\theta}{1-\theta}\right)^{1/\nu}(1-\beta)^{1-\frac{1}\nu}}
+{1+\left(\frac{\theta}{1-\theta}\right)^{1/\nu}(1-\beta)^{1-\frac{1}\nu}}
+\]
+
+\[
+\Rightarrow\quad
+\chi=\frac{k_m(1-\beta)}{1+k_m(1-\beta)}
+\]
+
+\[
+k_m(1-\beta)
+=
+\left(\frac{\theta}{1-\theta}\right)^{1/\nu}(1-\beta)^{1-\frac{1}{\nu}}
+\]
+
+\[
+\Rightarrow\quad
+\omega
+=
+\chi \eta (\nu-\sigma)
+=
+\frac{k_m(1-\beta)}{1+k_m(1-\beta)}
+\cdot
+\frac{1}{\nu\bigl(e^{\bar{i}}-1\bigr)}
+\cdot
+(\nu-\sigma)
+\]
+
+\[
+e^{\bar{i}}=\beta^{-1}
+\;\Rightarrow\;
+e^{\bar{i}}-1=\frac{1-\beta}{\beta}
+\]
+
+\[
+\Rightarrow\quad
+\omega
+=
+\frac{k_m\beta\left(\nu-\sigma\right)}
+{\nu\left[1+k_m(1-\beta)\right]}
+\]
+\[
+\operatorname{sign}(\omega)=\operatorname{sign}\!\left(1-\frac{\sigma}{\nu}\right)
+\qquad\Rightarrow\qquad
+\omega>0
+\iff
+\nu>\sigma
+\]
+
+\[
+\eta=\frac{1}{\nu\bigl(e^{\bar{i}}-1\bigr)}
+\]
+
+\[
+\text{for small }\bar{i},\qquad
+e^{\bar{i}}-1\approx \bar{i}
+\;\Rightarrow\;
+\eta\approx \frac{1}{\nu\bar{i}}
+\;\Rightarrow\;
+\nu\approx \frac{1}{\eta\bar{i}}
+\]
+
+\[
+\text{since }\bar{i}\text{ is small, }\;
+\nu=\frac{1}{\eta\bar{i}}\gg \sigma
+\;\Rightarrow\;
+\omega>0
+\]
+
+\[
+\left\{
+\begin{aligned}
+\hat{w}_t-\hat{p}_t &= \sigma\hat{c}_t+\varphi\hat{n}_t+\omega \hat{i}_t,\\
+\hat{m}_t-\hat{p}_t &= \hat{y}_t-\eta \hat{i}_t,
+\end{aligned}
+\right.
+\qquad
+\hat{c}_t-\hat{x}_t
+=
+\chi\bigl[\hat{c}_t-(\hat{m}_t-\hat{p}_t)\bigr]
+\]
+
+\[
+{\color{red}
+\hat{i}_t\uparrow,\ \eta>0
+\;\Rightarrow\;
+\hat{m}_t-\hat{p}_t\downarrow
+\;\Rightarrow\;
+\hat{x}_t\downarrow
+\;\Rightarrow\;
+U_{C,t}\downarrow
+\;\Rightarrow\;
+U_{C\mathbb{M}}>0
+}
+\]
+
+\[
+\textcolor{red}{\text{Money and consumption are complements.}}
+\]
+
+\[
+\textcolor{red}{\hat{i}_t\uparrow,\ \eta>0
+\;\Rightarrow\;
+\hat{n}_t\downarrow
+\quad\text{given real wage and consumption}}
+\]
+
+\[
+\textcolor{red}{
+\begin{aligned}
+&\text{Money and labor move in the same direction: Less liquidity, } U_{C,t}\downarrow,\\
+&\text{consumption is less valuable, and the benefit of working is lower.}
+\end{aligned}
+}
+\]
+
+
+\paragraph{Log-linearize:}
+\[
+Q_t
+=
+\beta E_t\!\left[\frac{U_{C,t+1}}{U_{C,t}}\frac{P_t}{P_{t+1}}\right]
+=
+\beta E_t\!\left[
+\left(\frac{C_{t+1}}{C_t}\right)^{-\nu}
+\left(\frac{X_{t+1}}{X_t}\right)^{\nu-\sigma}
+\frac{P_t}{P_{t+1}}
+\right]
+\]
+
+\[
+Q_t=e^{-i_t},
+\qquad
+\beta=e^{-\rho},
+\qquad
+\Pi_{t+1}=\frac{P_{t+1}}{P_t},
+\qquad
+\pi_{t+1}=\log \Pi_{t+1}=\log P_{t+1}-\log P_t
+\]
+
+\[
+\Rightarrow\quad
+e^{-i_t}
+=
+e^{-\rho}
+E_t\!\left[
+e^{
+-\nu(\log C_{t+1}-\log C_t)
++(\nu-\sigma)(\log X_{t+1}-\log X_t)
+-\pi_{t+1}
+}
+\right]
+\]
+
+\[
+\Rightarrow\quad
+\left\{
+\begin{aligned}
+-i_t
+&=
+-\rho
++
+E_t\!\left[
+-\nu(\log C_{t+1}-\log C_t)
++(\nu-\sigma)(\log X_{t+1}-\log X_t)
+-\pi_{t+1}
+\right],\\[4pt]
+-\bar{i}
+&=
+-\rho
++
+E_t\!\left[
+-\nu(\log \bar{C}-\log \bar{C})
++(\nu-\sigma)(\log \bar{X}-\log \bar{X})
+-\bar{\pi}
+\right]
+\end{aligned}
+\right.
+\]
+
+\[
+\bar{\pi}=0
+\]
+
+\[
+\Rightarrow\quad
+\hat{i}_t
+=
+i_t-\bar{i}
+=
+E_t\!\left[
+\nu(\hat{c}_{t+1}-\hat{c}_t)
+-(\nu-\sigma)(\hat{x}_{t+1}-\hat{x}_t)
++\pi_{t+1}
+\right]
+\]
+
+\[
+\Rightarrow\quad
+\hat{i}_t-E_t\pi_{t+1}
+=
+\nu E_t(\hat{c}_{t+1}-\hat{c}_t)
+-(\nu-\sigma)E_t(\hat{x}_{t+1}-\hat{x}_t)
+\]
+
+\[
+\text{since}\qquad
+\hat{c}_t-\hat{x}_t
+=
+\chi\bigl[\hat{c}_t-(\hat{m}_t-\hat{p}_t)\bigr]
+\]
+
+\[
+\hat{m}_t-\hat{p}_t
+=
+\hat{c}_t-\eta \hat{i}_t
+\qquad\Rightarrow\qquad
+\hat{c}_t-\hat{x}_t
+=
+\chi\eta \hat{i}_t
+\qquad\Rightarrow\qquad
+\hat{x}_t
+=
+\hat{c}_t-\chi\eta \hat{i}_t
+\]
+
+\[
+\Rightarrow\quad
+\hat{i}_t-E_t\pi_{t+1}
+=
+\nu E_t\Delta \hat{c}_{t+1}
+-(\nu-\sigma)E_t\Delta \hat{c}_{t+1}
++
+\textcolor{red}{(\nu-\sigma)\chi\eta}\,E_t\Delta \hat{i}_{t+1}
+\]
+
+\[
+\Rightarrow\quad
+\hat{i}_t-E_t\pi_{t+1}
+=
+\sigma E_t\hat{c}_{t+1}
+-\sigma \hat{c}_t
++
+\omega E_t\Delta \hat{i}_{t+1}
+\]
+\[
+\Rightarrow\quad
+\sigma E_t\Delta \hat{c}_{t+1}
+=
+\hat{i}_t-E_t\pi_{t+1}
+-\omega E_t\Delta \hat{i}_{t+1}
+\]
+
+\[
+\Rightarrow\quad
+\sigma E_t\hat{c}_{t+1}-\sigma\hat{c}_t
+=
+\hat{i}_t-E_t\pi_{t+1}
+-\omega E_t\Delta \hat{i}_{t+1}
+\]
+
+\[
+\Rightarrow\quad
+\hat{c}_t
+=
+E_t\hat{c}_{t+1}
+-\frac{1}{\sigma}
+\left[
+\hat{i}_t-E_t\pi_{t+1}
+-\omega E_t\Delta \hat{i}_{t+1}
+\right]
+\qquad \cdots\; (*)
+\]
+
+\[
+\text{where}\qquad
+\omega=(\nu-\sigma)\chi\eta,
+\qquad
+\chi=\frac{k_m(1-\beta)}{1+k_m(1-\beta)},
+\qquad
+k_m=\frac{\bar{M}/\bar{P}}{\bar{C}},
+\qquad
+\eta=\frac{1}{\nu(e^{\bar{i}}-1)}.
+\]
+
+\[
+\textcolor{red}{\text{In }(*)\text{ we apply market clearing }\hat{c}_t=\hat{y}_t}
+\]
+
+\[
+\textcolor{red}{\text{households smooth consumption}
+\;\longrightarrow\;
+\text{how responsive current spending is to intertemporal incentives}}
+\]
+
+\[
+\Rightarrow\quad
+\hat{y}_t
+=
+E_t\hat{y}_{t+1}
+-\frac{1}{\sigma}
+\left[
+\hat{i}_t-E_t\pi_{t+1}
+-\omega E_t\Delta \hat{i}_{t+1}
+\right]
+\]
+
+
+\[
+\textcolor{red}{
+\begin{aligned}
+&\text{current demand/output} \\
+&= \text{expected future output/demand}
+-\text{IES}\times \text{expected real interest rate}
+-\text{forward guidance}
+\end{aligned}
+}
+\]
+\[
+\textcolor{red}{
+\text{For }\nu>\sigma\Rightarrow\omega>0.
+\ \text{When }E_t\Delta\hat{i}_{t+1}\uparrow,\ \hat{c}_t\uparrow.
+\ \text{forward guidance}
+}
+\]
+
+\textcolor{red}{If \(E_t\Delta \hat{i}_{t+1}\uparrow\), then future money holdings become less attractive, future liquidity services decline, and households shift some consumption from the future to today; hence \(\hat{c}_t\uparrow\).}
+
+\[
+\frac{W_t}{P_t}
+=
+(1-\alpha)A_tN_t^{-\alpha},
+\qquad
+Y_t=A_tN_t^{1-\alpha}
+\]
+
+\[
+\hat{w}_t-\hat{p}_t=\hat{a}_t-\alpha \hat{n}_t,
+\qquad
+\hat{y}_t=\hat{a}_t+(1-\alpha)\hat{n}_t
+\]
+
+\[
+\Rightarrow\quad
+\hat{n}_t=\frac{1}{1-\alpha}(\hat{y}_t-\hat{a}_t)
+\]
+
+\[
+\Rightarrow\quad
+\hat{w}_t-\hat{p}_t=\hat{y}_t-\hat{n}_t
+\]
+
+\[
+\hat{w}_t-\hat{p}_t=\sigma\hat{c}_t+\varphi \hat{n}_t+\omega \hat{i}_t
+\]
+\[
+\Rightarrow\quad
+\hat{y}_t-\hat{n}_t
+=
+\sigma \hat{y}_t+\varphi \hat{n}_t+\omega \hat{i}_t
+\]
+
+\[
+\Rightarrow\quad
+(1-\sigma)\hat{y}_t-(1+\varphi)\hat{n}_t
+=
+\omega \hat{i}_t
+\]
+
+\[
+\Rightarrow\quad
+\hat{n}_t
+=
+\frac{1-\sigma}{1+\varphi}\hat{y}_t
+-
+\frac{\omega}{1+\varphi}\hat{i}_t
+\]
+
+\[
+\hat{y}_t
+=
+\hat{a}_t+(1-\alpha)\hat{n}_t
+\]
+
+\[
+\Rightarrow\quad
+\hat{y}_t
+=
+\hat{a}_t
++
+(1-\alpha)
+\left[
+\frac{1-\sigma}{1+\varphi}\hat{y}_t
+-
+\frac{\omega}{1+\varphi}\hat{i}_t
+\right]
+\]
+
+\[
+\Rightarrow\quad
+\hat{y}_t
+=
+\frac{1+\varphi}{\alpha(1-\sigma)+\sigma+\varphi}\hat{a}_t
+-
+\frac{(1-\alpha)\omega}{\alpha(1-\sigma)+\sigma+\varphi}\hat{i}_t
+\qquad (1)
+\]
+\[
+\Rightarrow\quad
+\hat{y}_t-\hat{n}_t
+=
+\sigma\hat{y}_t+\varphi \hat{n}_t+\omega \hat{i}_t
+\]
+
+\[
+\Rightarrow\quad
+(1-\sigma)\hat{y}_t-(1+\varphi)\hat{n}_t=\omega \hat{i}_t
+\]
+
+\[
+\Rightarrow\quad
+\hat{n}_t
+=
+\frac{1-\sigma}{1+\varphi}\hat{y}_t
+-
+\frac{\omega}{1+\varphi}\hat{i}_t
+\]
+
+\[
+\hat{y}_t=\hat{a}_t+(1-\alpha)\hat{n}_t
+\]
+
+\[
+\Rightarrow\quad
+\hat{y}_t
+=
+\hat{a}_t+(1-\alpha)
+\left[
+\frac{1-\sigma}{1+\varphi}\hat{y}_t
+-
+\frac{\omega}{1+\varphi}\hat{i}_t
+\right]
+\]
+
+\[
+\Rightarrow\quad
+\hat{y}_t
+=
+\frac{1+\varphi}{\alpha(1-\sigma)+\sigma+\varphi}\hat{a}_t
+-
+\frac{(1-\alpha)\omega}{\alpha(1-\sigma)+\sigma+\varphi}\hat{i}_t
+\qquad (1)
+\]
+
+\[
+\textcolor{red}{\hat{y}_t:
+\text{ interest rate }\to \text{ real activity }\to
+\text{transmission coefficient}}
+\]
+
+\[
+\textcolor{red}{\text{comes from money-in-the-utility non-separability.}}
+\]
+
+\[
+\text{Money is non-neutral}
+\qquad
+\textcolor{red}{(\text{interest rate / monetary policy affects real output})}
+\]
+
+\[
+\text{But the function alone cannot pin down it; we need a monetary policy rule.}
+\]
+
+\[
+\text{Write the system of equations in terms of }
+(\hat{y}_t,\pi_t,\hat{i}_t).
+\]
+
+\[
+\text{Euler equation:}\qquad
+\hat{y}_t
+=
+E_t\hat{y}_{t+1}
+-\frac{1}{\sigma}
+\left[
+\hat{i}_t-E_t\pi_{t+1}
+-\omega E_t\Delta \hat{i}_{t+1}
+\right]
+\qquad (2)
+\]
+
+\[
+\textcolor{red}{\text{Also known as IS equation}}
+\]
+
+\[
+\text{Monetary policy rule:}\qquad
+\hat{i}_t=\phi_\pi \pi_t+v_t
+\qquad (3)
+\]
+
+\[
+\text{where}\qquad
+v_t=\rho_v v_{t-1}+\varepsilon_t^v
+\qquad (4)
+\]
+
+\[
+\hat{a}_t=\rho_a \hat{a}_{t-1}+\varepsilon_t^a
+\qquad (5)
+\]
+
+\[
+\text{Combine (1)--(5), use undetermined coefficients:}
+\]
+
+\[
+\pi_t = A_{\pi}\hat{a}_t + B_{\pi}v_t,
+\qquad
+\hat{i}_t = A_i \hat{a}_t + B_i v_t,
+\qquad
+\hat{y}_t = A_y \hat{a}_t + B_y v_t.
+\]
+\[
+\Rightarrow\quad
+\left\{
+\begin{aligned}
+{\pi}_t
+&=
+-\frac{\sigma(1-\rho_a)\psi_{ya}}
+{\phi_{\pi}(1+\omega\psi)(1-\theta\rho_a)}\,\hat{a}_t
+-\frac{1+(1-\rho_v)\omega\psi}
+{\phi_{\pi}(1+\omega\psi)(1-\theta\rho_v)}\,v_t,
+\\[8pt]
+\hat{i}_t
+&=
+-\frac{\sigma(1-\rho_a)\psi_{ya}}
+{(1+\omega\psi)(1-\theta\rho_a)}\,\hat{a}_t
+-\frac{\rho_v}
+{\phi_n(1+\omega\psi)(1-\theta\rho_v)}\,v_t,
+\\[8pt]
+\hat{y}_t
+&=
+\psi_{ya}\left(
+1+
+\frac{\sigma(1-\rho_a)\psi_{yi}}
+{(1+\omega\psi)(1-\theta\rho_a)}
+\right)\hat{a}_t
++
+\frac{\rho_v\psi_{yi}}
+{\phi_{\pi}(1+\omega\psi)(1-\theta\rho_v)}\,v_t.
+\end{aligned}
+\right.
+\]
+\[
+\text{where}\qquad
+\theta
+=
+\frac{1+\omega\varphi\phi_{\pi}}
+{(1+\omega\varphi)\phi_{\pi}},
+\qquad
+\psi
+=
+\frac{\alpha+\varphi}{\sigma(1-\alpha)+\alpha+\varphi}.
+\]
+
+\[
+\textcolor{red}{\text{Intuition: }}
+\psi
+\textcolor{red}{\text{ is a summary slope coming from the real-side block, capturing how strongly}}
+\]
+\[
+\textcolor{red}{\text{real activities / labor market tightness maps into wages and output in the log-linear world.}}
+\]
+
+\noindent
+$\theta$ is a dynamic feedback object mixing the Taylor coefficient $\phi_{\pi}$,
+the forward-guidance strength $\omega$, and the real-side slope.
+
+\noindent
+When $\omega=0$, $\theta$ collapses to $1/\phi_{\pi}$, which is the usual policy-feedback scale.
+
+\noindent
+When $\omega\neq 0$, $\theta$ changes because expected changes in it enter the IS equation.
+
+\paragraph{Impact of the monetary policy}
+
+
+\[
+\text{Conditional on an exogenous MP shock }\varepsilon_t^v\text{ to }v_t:
+\qquad
+\hat{y}_t=\psi_{ya}\hat{a}_t-\psi_{yi}\hat{i}_t
+\qquad\Rightarrow\qquad
+\frac{d\hat{y}_t}{d\hat{i}_t}=-\psi_{yi}.
+\]
+
+\[
+\text{Assume}\qquad
+\sigma=\phi=1,\qquad \alpha=\frac{1}{3}
+\qquad\Rightarrow\qquad
+\psi_{yi}=\frac{\omega}{3}.
+\]
+
+\[
+\omega
+=
+\frac{k_m\beta\left(1-\frac{\sigma}{\nu}\right)}
+{1+k_m(1-\beta)}
+\approx
+k_m
+\qquad
+\text{with }\nu\text{ large and }\beta\approx 1.
+\]
+
+\[
+\Rightarrow\qquad
+\psi_{yi}\approx \frac{k_m}{3}.
+\]
+
+\[
+\text{Recall}\qquad
+k_m=\frac{\bar{M}/\bar{P}}{\bar{C}},
+\]
+\[
+\text{how much liquidity stock households want to hold per unit of spending(cash buffer relative to spending)}
+\]
+
+\noindent
+Using M1, the money with highest liquidity: \quad
+$k_m \approx 0.3 \;\Longrightarrow\; \psi_{yi} \approx 0.1$.
+
+\medskip
+
+\noindent
+If $i_t$ increases by 1\% annually (0.25\% quarterly), $y_t$ decreases by 0.025\% quarterly.
+
+\bigskip
+
+\noindent
+Using M2, the money with highest liquidity + 2nd highest liquidity: \quad
+$k_m \approx 3 \;\Longrightarrow\; \psi_{yi} \approx 1$.
+
+\medskip
+
+\noindent
+If $i_t$ increases by 1\% annually, $y_t$ decreases by 1\% annually.
+
+\[
+\textcolor{red}{\text{* If money is quantitatively large, MIU channel becomes stronger.}}
+\]
+\paragraph{Deficiency of MIU model}
+
+\noindent
+\[
+\frac{d\pi_t}{d\hat{i}_t}
+=
+\frac{d\pi_t/d\nu_t}{d\hat{i}_t/d\nu_t}
+=
+\bigl(1+(1-\rho_{\nu})\omega\psi\bigr)\rho_{\nu}^{-1}
+>0,
+\]
+\[
+\frac{d\hat{r}_t}{d\hat{i}_t}
+=
+1-
+\frac{dE_t(\pi_{t+1})/d\nu_t}{d\hat{i}_t/d\nu_t}
+=
+-(1-\rho_{\nu})\omega\psi
+<0.
+\]
+
+\noindent
+A monetary policy shock that raises the nominal interest rate and lowers output also results in:
+
+\noindent
+(i) inflation tending to increase;
+
+\noindent
+(ii) the real interest rate tending to decrease
+\[
+\bigl({r}_t={i}_t-E_t\pi_{t+1}\bigr).
+\]
+
+\noindent
+This contradicts the data: contractionary monetary policy shocks raise real interest rates and lower inflation.
+
+\noindent
+In the data, money is neutral in the long run once prices adjust, but non-neutral in the short run. In the model, long-run and short-run effects are the same.
+
+\paragraph{Uniqueness of the nominal system}\mbox{}\\
+
+\noindent
+In a flexible-price (classical) economy, the real side pins down the real interest rate $\hat{r}_t$.
+The question is: what must monetary policy do to ensure that inflation $\pi_t$
+--- and hence the price level $p_t$ --- is uniquely determined?
+
+\noindent
+The Fisher relation is
+\[
+\hat{i}_t = E_t[\pi_{t+1}] + \hat{r}_t,
+\qquad\Rightarrow\qquad
+E_t[\pi_{t+1}] = \hat{i}_t - \hat{r}_t.
+\]
+
+\noindent
+Since $\hat{r}_t$ is pinned down by the real economy, if the central bank exogenously sets
+$\hat{i}_t$ as some stationary process, or simply sets $\hat{i}_t=0$, then the Fisher equation
+pins down expected inflation only, not realized inflation.
+
+\noindent
+Therefore, monetary policy must do more than fix the nominal interest rate exogenously:
+it must provide a rule that anchors the nominal system and uniquely determines inflation.
+
+\[
+\Rightarrow\qquad
+E_t[\pi_{t+1}]=-\hat{r}_t
+\qquad\Rightarrow\qquad
+\pi_{t+1}=-\hat{r}_t+\zeta_{t+1},
+\qquad
+E_t[\zeta_{t+1}]=0.
+\]
+
+\[
+\text{Any zero-mean innovation can be added without violating Fisher equation}
+\;\Rightarrow\;
+\text{indeterminacy.}
+\]
+
+\[
+\text{With an exogenous }\hat{i}_t,\text{ there are infinitely many inflation paths consistent with equilibrium.}
+\]
+
+\[
+\Rightarrow\qquad
+\text{sunspot driven (non-fundamental factors).}
+\]
+
+
+\[
+\text{Since}\qquad
+\hat{p}_t=\pi_t+\hat{p}_{t-1},
+\qquad
+\pi_t\text{ is indetermined}
+\;\Rightarrow\;
+\hat{p}_t\text{ is also indetermined (not unique).}
+\]
+
+\[
+\text{Other nominal variables are also indetermined:}
+\]
+
+\[
+\hat{m}_t=\hat{p}_t+\hat{y}_t-\eta \hat{i}_t
+\qquad\Rightarrow\qquad
+\hat{m}_t\text{ indetermined}
+\qquad
+(\text{nominal money})
+\]
+
+\[
+\hat{w}_t=\hat{w}_t^{r}+\hat{p}_t
+\qquad\Rightarrow\qquad
+\hat{W}_t\text{ indetermined}
+\qquad
+(\text{nominal wage})
+\]
+
+\noindent
+At steady state,
+\[
+P_t=\bar{P}
+\;\Rightarrow\;
+\bar{\pi}=0
+\;\Rightarrow\;
+\bar{i}=\bar{r}=\rho,
+\]
+so that
+\[
+\hat{r}_t = r_t - \rho.
+\]
+
+\medskip
+
+\noindent
+A simple inflation-based interest rate rule (Taylor style) is
+\[
+\hat{i}_t=\phi_{\pi}\pi_t,
+\qquad \phi_{\pi}\ge 0.
+\]
+
+\noindent
+\[
+\hat{i}_t=E_t[\pi_{t+1}] + \hat{r}_t,
+\]
+we obtain
+\[
+\phi_{\pi}\pi_t = E_t[\pi_{t+1}] + \hat{r}_t.
+\tag{*}
+\]
+
+\noindent
+This is a forward-looking difference equation in inflation.
+
+\noindent
+\textbf{Case 1:}\quad $\phi_{\pi}>1$
+
+\noindent
+Iterate forward:
+\[
+\pi_t=\frac{1}{\phi_{\pi}}E_t[\pi_{t+1}]+\frac{1}{\phi_{\pi}}\hat r_t
+\quad\Rightarrow\quad
+\pi_t=\sum_{k=0}^{\infty}\phi_{\pi}^{-(k+1)}E_t[\hat r_{t+k}],
+\]
+where the forward sum converges and yields a unique bounded solution.
+
+\smallskip
+
+\noindent
+Bond Euler:
+\[
+\hat i_t-E_t[\pi_{t+1}]=\sigma E_t\Delta \hat c_{t+1},
+\qquad
+\hat i_t-E_t[\pi_{t+1}]=\hat r_t,
+\]
+so
+\[
+\hat r_t=\sigma E_t\Delta \hat c_{t+1}.
+\]
+
+\smallskip
+
+\noindent
+Since \(\Delta \hat c_{t+1}=\Delta \hat y_{t+1}\), and
+\[
+\hat y_t=\psi_{ya}\hat a_t
+\quad\Rightarrow\quad
+\Delta \hat y_{t+1}=\psi_{ya}\Delta \hat a_{t+1},
+\]
+we obtain
+\[
+\hat r_t=\sigma\psi_{ya}E_t\Delta \hat a_{t+1}.
+\]
+
+\smallskip
+
+\noindent
+If productivity follows
+\[
+\hat a_{t+1}=\rho_a\hat a_t+\varepsilon^a_{t+1},
+\]
+then
+\[
+E_t[\hat a_{t+1}]=\rho_a\hat a_t,
+\qquad
+E_t[\Delta \hat a_{t+1}]
+=
+E_t[\hat a_{t+1}-\hat a_t]
+=
+(\rho_a-1)\hat a_t.
+\]
+
+\noindent
+Hence,
+\[
+\hat r_t=\sigma\psi_{ya}(\rho_a-1)\hat a_t.
+\]
+\smallskip
+
+\noindent
+Guess a linear solution:
+\[
+\pi_t=K\hat a_t,
+\qquad
+E_t\hat a_{t+1}=\rho_a\hat a_t.
+\]
+Substituting into
+\[
+\phi_{\pi}\pi_t=E_t\pi_{t+1}+\hat r_t
+\]
+gives
+\[
+\phi_{\pi}K\hat a_t=K\rho_a\hat a_t+\hat r_t
+=K\rho_a\hat a_t-\sigma\psi_{ya}(1-\rho_a)\hat a_t,
+\]
+so
+\[
+\phi_{\pi}K-K\rho_a=-\sigma\psi_{ya}(1-\rho_a),
+\]
+and therefore
+\[
+K=-\frac{\sigma\psi_{ya}(1-\rho_a)}{\phi_{\pi}-\rho_a}.
+\]
+Thus,
+\[
+\pi_t=-\frac{\sigma\psi_{ya}(1-\rho_a)}{\phi_{\pi}-\rho_a}\hat a_t.
+\]
+
+\smallskip
+
+\noindent
+The larger the $\phi_{\pi}$, the smaller the variation of inflation caused by $\hat a_t$.
+Central bank raises it more when inflation rises.
+Any shock that pushes up $\pi_t$ implies a larger rise in $i_t$; through the Fisher equation,
+expectations are forced to be consistent only with the saddle path.
+
+\bigskip
+
+\paragraph{Case 2: $\phi_{\pi}\le 1$}
+
+\noindent
+Forward iteration breaks. Since $\phi_{\pi}^{-1}\ge 1$, boundedness no longer pins down a unique $\pi_t$.
+
+\smallskip
+
+\noindent
+To satisfy the Fisher equation,
+\[
+\phi_{\pi}\pi_t=E_t[\pi_{t+1}]+\hat r_t.
+\]
+The stable solution is
+\[
+\pi_{t+1}=\phi_{\pi}\pi_t-\hat r_t+\xi_{t+1},
+\qquad
+E_t[\xi_{t+1}]=0,
+\]
+with sunspot shocks. Inflation and the price level are indetermined.
+
+\smallskip
+
+\noindent
+If the central bank responds less than one-for-one to inflation(weak response), expected inflation can move around
+without being forcefully pushed back by policy. This leaves room for self-fulfilling beliefs about inflation
+(sunspot shocks), just as in the exogenous $i_t$ case.
+
+\smallskip
+
+\noindent
+Determinacy requires the Taylor principle: raise the nominal rate more than one-for-one with inflation,
+that is, $\phi_{\pi}>1$.
+
+\smallskip
+
+\noindent
+The system is
+\[
+E_t\pi_{t+1}=\phi_{\pi}\pi_t-\hat r_t.
+\]
+Inflation $\pi_t$ is a jump variable. By the Blanchard--Kahn condition, to pin down a unique equilibrium
+we need
+\[
+\#\text{ unstable roots}=\#\text{ jump variables}.
+\]
+From
+\[
+E_t\pi_{t+1}=\phi_{\pi}\pi_t,
+\]
+the eigenvalue is $\phi_{\pi}$. If $\phi_{\pi}>1$, there is an unstable root, so the BK condition is satisfied.
+If $\phi_{\pi}\le 1$, there is no unstable root to discipline the jump variable, and we get many bounded paths:
+sunspot indeterminacy.
+
+\bigskip
+
+\paragraph{Optimal Monetary Policy}
+
+\noindent
+Assume a social planner takes the role of the central banker.
+
+\smallskip
+
+\noindent
+Social planner's problem:
+\[
+\max \; U\!\left(C_t,\frac{M_t}{P_t},N_t\right)
+\qquad
+\text{s.t.}
+\qquad
+C_t=A_tN_t^{1-\alpha}.
+\]
+
+\smallskip
+
+\noindent
+The Lagrangian is
+\[
+\mathcal{L}
+=
+U\!\left(C_t,\frac{M_t}{P_t},N_t\right)
++\lambda_t\bigl(A_tN_t^{1-\alpha}-C_t\bigr).
+\]
+
+\smallskip
+
+\noindent
+F.O.C.:
+\[
+-\frac{U_{N,t}}{U_{C,t}}
+=
+(1-\alpha)A_tN_t^{-\alpha}
+=
+W_t
+=
+MPL_t
+=
+MRS_{N,C},
+\]
+and
+\[
+U_{\mathbb{M},t}=0.
+\]
+
+\smallskip
+
+\noindent
+In competitive equilibrium,
+\[
+\frac{U_{\mathbb{M},t}}{U_{C,t}}=1-e^{-i_t}\approx i_t.
+\]
+Social and individual optima coincide iff $i_t=0$ for all $t$, which is the Friedman rule.
+\smallskip
+
+\noindent
+In the long run, with the Fisher equation,
+\[
+i=\pi+r=0
+\quad\Rightarrow\quad
+\pi=-r=-\rho<0,
+\]
+which is a moderate deflation.
+
+\smallskip
+
+\noindent
+In the short run, $i_t=0$ does not guarantee determinacy. Instead,
+\[
+E_t\pi_{t+1}=-r_t,
+\]
+or equivalently,
+\[
+\pi_{t+1}=-r_t+\xi_{t+1},
+\qquad
+E_t[\xi_{t+1}]=0,
+\]
+so any sunspot shock can be added.
+
+\smallskip
+
+\noindent
+Even though money balances and other nominal terms are indetermined, real variables are pinned down by
+\[
+MRS=MPL.
+\]
+Thus indeterminacy does not have welfare consequences.
+
+\smallskip
+
+\noindent
+To avoid indeterminacy, let
+\[
+i_t=\phi\,(r_{t-1}+\pi_t),
+\qquad \phi>1.
+\]
+Then
+\[
+i_t=E_t\pi_{t+1}+r_t
+\]
+\[
+E_t[i_{t+s}] = \phi^s i_t.
+\]
+Since \(\phi>1\), as \(s\to\infty\), \(i_t\) has to approach \(0\).
+\[
+\Rightarrow\quad \pi_t=-r_{t-1}\text{, so inflation is fully determined.}
+\]
+Any policy setting that guarantees that current inflation moves inversely, and one-for-one, with \(r_{t-1}\) will imply \(i_t=0\) and an efficient amount of real balances.
+
+\bigskip
+
+\paragraph{Supplementary: IS equation under the separable case in the MIU model}
+
+\noindent
+\[
+U\!\left(C_t,\mathbb{M}_t,N_t\right)
+=
+\frac{C_t^{1-\sigma}}{1-\sigma}
++
+\frac{(\mathbb{M}_t)^{1-\nu}}{1-\nu}
+-
+\frac{N_t^{1+\varphi}}{1+\varphi}.
+\]
+\smallskip
+
+\noindent
+From the bond Euler F.O.C.,
+\[
+Q_t=\beta E_t\!\left[\frac{U_{C,t+1}}{U_{C,t}}\frac{P_t}{P_{t+1}}\right].
+\]
+Since
+\[
+U_{C,t}=C_t^{-\sigma},
+\]
+we have
+\[
+Q_t=\beta E_t\!\left[\left(\frac{C_{t+1}}{C_t}\right)^{-\sigma}\frac{P_t}{P_{t+1}}\right].
+\]
+
+\smallskip
+
+\noindent
+Define
+\[
+i_t=-\log Q_t,
+\qquad
+\rho=-\log\beta,
+\qquad
+\pi_{t+1}=\log P_{t+1}-\log P_t.
+\]
+Then
+\[
+-i_t
+=
+-\rho
++
+E_t\!\left[-\sigma(\log C_{t+1}-\log C_t)-\pi_{t+1}\right].
+\]
+
+\smallskip
+
+\noindent
+At steady state,
+\[
+-\bar i
+=
+-\rho
++
+E_t\!\left[-\sigma(\log\bar C-\log\bar C)-\bar\pi\right],
+\]
+with
+\[
+\bar\pi=0.
+\]
+Hence
+\[
+\bar i=\rho.
+\]
+
+\smallskip
+
+\noindent
+Subtracting the steady state and using hats,
+\[
+\sigma E_t(\hat c_{t+1}-\hat c_t)=\hat i_t-E_t\pi_{t+1}.
+\]
+Thus
+\[
+\hat c_t
+=
+E_t\hat c_{t+1}
+-
+\frac{1}{\sigma}\bigl[\hat i_t-E_t\pi_{t+1}\bigr].
+\]
+Since
+\[
+\hat y_t=\hat c_t,
+\]
+we get
+\[
+\hat y_t
+=
+E_t\hat y_{t+1}
+-
+\frac{1}{\sigma}\bigl[\hat i_t-E_t\pi_{t+1}\bigr].
+\]
+Compare to the classical monetary model: the same.
+
+Compare to the inseparable case: \(\nu=\sigma\), and the term \(-\omega E_t\Delta \hat{i}_{t+1}\) disappears?
+\smallskip
+
+
+\bigskip
+\noindent\textbf{Supplement: Interpret}
+\[
+\hat{y}_t
+=
+E_t\hat{y}_{t+1}
+-\frac{1}{\sigma}\left[\hat{i}_t-E_t\pi_{t+1}-\omega E_t\Delta\hat{i}_{t+1}\right].
+\]
+\noindent
+1. The term
+\[
+i_t-E_t\pi_{t+1}
+\]
+is the opportunity cost of consuming today instead of tomorrow.
+
+\smallskip
+
+\noindent
+Suppose you have 1 RMB.
+
+\smallskip
+
+\noindent
+If you buy goods today, you get
+\[
+\frac{1}{P_t}
+\]
+units of goods.
+
+\smallskip
+
+\noindent
+If you save to tomorrow and then buy goods, you get
+\[
+\frac{1+i_t}{P_{t+1}}
+\]
+units of goods. Therefore,
+\[
+E_t\!\left[\frac{(1+i_t)/P_{t+1}}{1/P_t}\right]
+=
+E_t\!\left[\frac{1+i_t}{P_{t+1}/P_t}\right]
+=
+\frac{1+i_t}{1+E_t\pi_{t+1}}
+\approx
+i_t-E_t\pi_{t+1}.
+\]
+
+\smallskip
+
+\noindent
+So if
+\[
+\hat i_t-E_t\pi_{t+1}\uparrow,
+\]
+then
+\[
+\hat y_t\downarrow,
+\]
+because the opportunity cost of consuming today is higher.
+
+\smallskip
+
+\noindent
+2. The term
+\[
+\omega E_t\hat i_{t+1}
+\]
+is the forward-guidance term.
+
+\smallskip
+
+\noindent
+If tomorrow's nominal rate $i_{t+1}$ is expected to be high, then holding money tomorrow is expensive.
+Households therefore want to hold fewer real balances at $t+1$:
+\[
+\frac{M_{t+1}}{P_{t+1}}\downarrow.
+\]
+
+\smallskip
+
+\noindent
+With $\omega>0$, there is within-period substitution between $C_t$ and $\frac{M_{t+1}}{P_{t+1}}$,
+in addition to the usual intertemporal substitution of $X_t$.
+
+\smallskip
+
+\noindent
+Holding more real balances,
+\[
+\frac{M_{t+1}}{P_{t+1}}\uparrow,
+\]
+increases the marginal utility of consumption, $MU_{C,t+1}$, so future consumption becomes more valuable.
+Conversely,
+\[
+\frac{M_{t+1}}{P_{t+1}}\downarrow
+\]
+makes future consumption less valuable and induces households to consume more today.
+
+\smallskip
+
+\noindent
+In particular,
+\[
+U_{C,t}=(1-\theta)X_t^{\nu-\sigma}C_t^{-\nu},
+\qquad
+X_t \propto \mathbb{M}_t
+\quad\Rightarrow\quad
+U_{C\mathbb{M}}>0.
+\]
+
+\smallskip
+
+\noindent
+Consumption is more enjoyable with more liquidity.
+
+\bigskip
+
+\paragraph{Supplement for computation:Log-linearized bond Euler equation}
+\noindent
+Define
+\[
+i_t=-\log Q_t \;\Rightarrow\; e^{-i_t}=Q_t,
+\qquad
+\rho=-\log\beta \;\Rightarrow\; e^{-\rho}=\beta,
+\qquad
+\pi_{t+1}=\log P_{t+1}-\log P_t,
+\]
+and
+\[
+r_t=i_t-E_t[\pi_{t+1}].
+\]
+
+\noindent
+Define hats as level deviations:
+\[
+\hat i_t=i_t-\bar i,
+\qquad
+\hat\pi_{t+1}=\pi_{t+1}-\bar\pi,
+\qquad
+\bar\pi=0 \;\Rightarrow\; \hat\pi_{t+1}=\pi_{t+1}.
+\]
+Also,
+\[
+r_t-\bar r=i_t-\bar i-E_t[\pi_{t+1}-\bar\pi]
+\;\Rightarrow\;
+\hat r_t=\hat i_t-E_t[\hat\pi_{t+1}].
+\]
+
+\noindent
+From the bond Euler equation,
+\[
+Q_t=\beta E_t\!\left[\left(\frac{C_{t+1}}{C_t}\right)^{-\sigma}\frac{P_t}{P_{t+1}}\right]
+=\beta E_t\!\left[e^{-\sigma(\log C_{t+1}-\log C_t)-\pi_{t+1}}\right],
+\]
+so
+\[
+e^{-i_t}=e^{-\rho}E_t\!\left[e^{-\sigma(\log C_{t+1}-\log C_t)-\pi_{t+1}}\right].
+\]
+
+\noindent
+Let
+\[
+\hat c_{t+1}=\log C_{t+1}-\log\bar C,
+\qquad
+\hat c_t=\log C_t-\log\bar C
+\;\Rightarrow\;
+\log C_{t+1}-\log C_t=\hat c_{t+1}-\hat c_t.
+\]
+Then
+\[
+e^{-i_t}=e^{-\rho}E_t\!\left[e^{-\sigma(\hat c_{t+1}-\hat c_t)-\pi_{t+1}}\right].
+\]
+
+\noindent
+Taking logs,
+\[
+-i_t=-\rho+E_t\!\left[-\sigma(\hat c_{t+1}-\hat c_t)-\pi_{t+1}\right].
+\]
+At steady state,
+\[
+-\bar i=-\rho+E_t[0-0] \;\Rightarrow\; \bar i=\rho.
+\]
+Hence
+\[
+-(i_t-\bar i)=E_t\!\left[-\sigma(\hat c_{t+1}-\hat c_t)\right]-E_t[\pi_{t+1}-\bar\pi],
+\]
+or equivalently,
+\[
+\hat i_t=\sigma E_t[\Delta \hat c_{t+1}]+E_t[\hat\pi_{t+1}],
+\qquad
+\Delta \hat c_{t+1}=\hat c_{t+1}-\hat c_t.
+\]
+Therefore,
+\[
+\sigma E_t[\Delta \hat c_{t+1}]
+=\hat i_t-E_t[\hat\pi_{t+1}]
+=\hat r_t.
+\]
+Using \(\hat c_t=\hat y_t\), we obtain
+\[
+\sigma E_t[\Delta \hat y_{t+1}]=\hat r_t.
+\]
+
+\noindent
+Since
+\[
+E_t[\Delta \hat y_{t+1}]=E_t\hat y_{t+1}-\hat y_t,
+\qquad
+\hat y_t=\psi_{ya}\hat a_t
+\;\Rightarrow\;
+E_t[\Delta \hat y_{t+1}]=\psi_{ya}E_t[\Delta \hat a_{t+1}],
+\]
+it follows that
+\[
+\hat r_t=\sigma\psi_{ya}E_t[\Delta \hat a_{t+1}].
+\]
+
+\noindent
+Let
+\[
+\log A_{t+1}=(1-\psi)\log\bar A+\varphi\log A_t+\varepsilon_{t+1},
+\qquad
+\bar A=1.
+\]
+Then
+\[
+\log\bar A=\psi\log\bar A,
+\qquad
+\hat a_{t+1}=\psi\hat a_t+\varepsilon_{t+1}.
+\]
+Taking expectations,
+\[
+E_t[\hat a_{t+1}]
+=\psi\hat a_t+E_t[\varepsilon_{t+1}],
+\qquad
+\varepsilon_t\sim \text{i.i.d. }N(0,\sigma^2)
+\;\Rightarrow\;
+E_t[\varepsilon_{t+1}]=0,
+\]
+so
+\[
+E_t[\hat a_{t+1}]=\psi\hat a_t,
+\qquad
+E_t[\hat a_{t+1}-\hat a_t]=(\psi-1)\hat a_t.
+\]
+Let
+\[
+\Delta \hat a_{t+1}=\hat a_{t+1}-\hat a_t
+\;\Rightarrow\;
+E_t[\Delta \hat a_{t+1}]=(\psi-1)\hat a_t.
+\]
+
+\noindent
+Plugging this into \(\hat r_t=\sigma\psi_{ya}E_t[\Delta \hat a_{t+1}]\), we get
+\[
+\hat r_t
+=\sigma\psi_{ya}E_t[\Delta \hat a_{t+1}]
+=\sigma\psi_{ya}(\psi-1)\hat a_t.
+\]
+Since \(\psi\in(0,1)\) and \(\psi_{ya}>0\), the coefficient on \(\hat a_t\) is negative.
+
+\ThisNoteEnd

@@ -1,0 +1,1247 @@
+% !TeX root = Lec04_RBC_Num.tex
+
+\ifdefined\AdvMacroMain
+  \chapter{Lecture 4: Numerically Solve RBC Model}
+  \let\ThisNoteEnd\relax
+\else
+  \documentclass[12pt]{ctexart}
+  \newcommand{\ProjectRoot}{..}
+  \input{\ProjectRoot/_config/config}
+  \title{Lecture 4: Numerically Solve RBC Model}
+  \author{Chengyuan He}
+  \date{March 2026}
+  \begin{document}
+  \maketitle
+  \def\ThisNoteEnd{\end{document}}
+\fi
+
+\subsection*{ Solve LOM}
+\[
+\hat{k}_t
+=
+\frac{1}{\beta}\hat{k}_{t-1}
++
+\frac{\tilde{\delta}}{\alpha\beta}\hat{z}_t
+-
+\left(
+\frac{\tilde{\delta}}{\alpha\beta}-\delta
+\right)\hat{c}_t
+\]
+
+\[
+\sigma E_t \hat{c}_{t+1}
++
+\tilde{\delta}(1-\alpha)\hat{k}_t
+-
+\tilde{\delta} E_t \hat{z}_{t+1}
+=
+\sigma \hat{c}_t
+\]
+
+\[
+\hat{z}_{t+1}=\psi \hat{z}_t+\varepsilon_t
+\]
+
+State variables: $\hat k_{t-1}$ and shock $\hat z_t$.
+
+\[
+\text{$\hat k_{t-1}$ is predetermined.}
+\]
+
+The dynamics of the model can be described as a recursive law of motion in terms of states.
+
+LOM
+\[
+\begin{cases}
+\hat k_t = V_{kk}\hat k_{t-1}+V_{kz}\hat z_t,\\[0.3em]
+\hat c_t = V_{ck}\hat k_{t-1}+V_{cz}\hat z_t,
+\end{cases}
+\]
+and solve for $(V_{kk},V_{kz},V_{ck},V_{cz})$ by the method of undetermined coefficients.
+
+\begin{enumerate}[label=\arabic*)]
+\item
+\[
+\hat z_{t+1}=\psi \hat z_t+\varepsilon_t
+\quad\Rightarrow\quad
+E_t\hat z_{t+1}=\psi \hat z_t.
+\]
+
+Since $E_t(\varepsilon_t)=0$, and $\varepsilon_t\sim iid\,N(0,\sigma^2)$,
+\[
+E_t(\hat z_t)=\hat z_t,
+\]
+because $Z_t$ is already realized in period $t$, hence belongs to period-$t$'s information set.
+
+\item
+From
+\[
+\hat{k}_t
+=
+\frac{1}{\beta}\hat{k}_{t-1}
++
+\frac{\tilde{\delta}}{\alpha\beta}\hat{z}_t
+-
+\left(
+\frac{\tilde{\delta}}{\alpha\beta}-\delta
+\right)\hat{c}_t,
+\]
+substitute
+\[
+\hat{k}_t = V_{kk}\hat{k}_{t-1}+V_{kz}\hat{z}_t,
+\qquad
+\hat{c}_t = V_{ck}\hat{k}_{t-1}+V_{cz}\hat{z}_t,
+\]
+to get
+\[
+V_{kk}\hat{k}_{t-1}+V_{kz}\hat{z}_t
+=
+\frac{1}{\beta}\hat{k}_{t-1}
+-
+\left(
+\frac{\tilde{\delta}}{\alpha\beta}-\delta
+\right)
+\bigl(
+V_{ck}\hat{k}_{t-1}+V_{cz}\hat{z}_t
+\bigr)
++
+\frac{\tilde{\delta}}{\alpha\beta}\hat{z}_t.
+\]
+
+Collecting coefficients:
+\[
+\left[
+\frac{1}{\beta}
+-
+\left(
+\frac{\tilde{\delta}}{\alpha\beta}-\delta
+\right)V_{ck}
+-
+V_{kk}
+\right]\hat{k}_{t-1}
++
+\left[
+\frac{\tilde{\delta}}{\alpha\beta}
+-
+\left(
+\frac{\tilde{\delta}}{\alpha\beta}-\delta
+\right)V_{cz}
+-
+V_{kz}
+\right]\hat{z}_t
+=0.
+\]
+
+Hence
+\[
+\boxed{
+V_{kk}
+=
+\frac{1}{\beta}
+-
+\left(
+\frac{\tilde{\delta}}{\alpha\beta}-\delta
+\right)V_{ck}
+}
+\tag{1}
+\]
+and
+\[
+\boxed{
+V_{kz}
+=
+\frac{\tilde{\delta}}{\alpha\beta}
+-
+\left(
+\frac{\tilde{\delta}}{\alpha\beta}-\delta
+\right)V_{cz}
+}
+\tag{2}
+\]
+
+\item
+From
+\[
+\sigma E_t \hat{c}_{t+1}
++
+\tilde{\delta}(1-\alpha)\hat{k}_t
+-
+\tilde{\delta} E_t \hat{z}_{t+1}
+=
+\sigma \hat{c}_t,
+\]
+substitute
+\[
+\hat{c}_{t+1}=V_{ck}\hat{k}_t+V_{cz}\hat{z}_{t+1},
+\qquad
+\hat{k}_t=V_{kk}\hat{k}_{t-1}+V_{kz}\hat{z}_t,
+\qquad
+E_t\hat{z}_{t+1}=\psi \hat{z}_t.
+\]
+
+Then
+\[
+\sigma E_t\!\left[V_{ck}\hat{k}_t+V_{cz}\hat{z}_{t+1}\right]
++
+\tilde{\delta}(1-\alpha)\hat{k}_t
+-
+\tilde{\delta}\psi \hat{z}_t
+=
+\sigma \left(V_{ck}\hat{k}_{t-1}+V_{cz}\hat{z}_t\right).
+\]
+
+That is,
+\[
+\sigma E_t\!\left[
+V_{ck}\left(V_{kk}\hat{k}_{t-1}+V_{kz}\hat{z}_t\right)
++
+V_{cz}\hat{z}_{t+1}
+\right]
++
+\tilde{\delta}(1-\alpha)\left(V_{kk}\hat{k}_{t-1}+V_{kz}\hat{z}_t\right)
+-
+\tilde{\delta}\psi \hat{z}_t
+=
+\sigma V_{ck}\hat{k}_{t-1}
++
+\sigma V_{cz}\hat{z}_t.
+\]
+
+Collecting coefficients:
+\[
+\Bigl[
+\sigma V_{ck}V_{kk}
++
+\tilde{\delta}(1-\alpha)V_{kk}
+-
+\sigma V_{ck}
+\Bigr]\hat{k}_{t-1}
++
+\Bigl[
+\sigma (V_{ck}V_{kz}+V_{cz}\psi)
++
+\tilde{\delta}(1-\alpha)V_{kz}
+-
+\tilde{\delta}\psi
+-
+\sigma V_{cz}
+\Bigr]\hat{z}_t
+=0.
+\]
+
+Hence
+\[
+\boxed{
+\sigma V_{ck}(1-V_{kk})
+=
+\tilde{\delta}(1-\alpha)V_{kk}
+}
+\tag{3}
+\]
+and
+\[
+\boxed{
+\sigma V_{cz}(1-\psi)
+=
+\bigl[\sigma V_{ck}+\tilde{\delta}(1-\alpha)\bigr]V_{kz}
+-
+\tilde{\delta}\psi
+}
+\tag{4}
+\]
+\end{enumerate}
+
+\newpage
+\subsection*{ Solve the 4 Equations for 4 Unknowns}
+Collect the four equations and solve for the four unknowns.
+
+\begin{enumerate}[label=(\roman*)]
+\item
+(1) and (3) are two equations in $(V_{kk},V_{ck})$. Eliminate $V_{ck}$.
+
+From (1),
+\[
+V_{ck}
+=
+\frac{\frac{1}{\beta}-V_{kk}}{\frac{\tilde\delta}{\alpha\beta}-\delta}.
+\]
+
+Substitute into (3):
+\[
+\sigma\left(\frac{\frac{1}{\beta}-V_{kk}}{\frac{\tilde\delta}{\alpha\beta}-\delta}\right)(1-V_{kk})
+=
+\tilde\delta(1-\alpha)V_{kk}.
+\]
+
+So
+\[
+\frac{\sigma}{\beta}
+-\frac{\sigma}{\beta}V_{kk}
+-\sigma V_{kk}
++\sigma V_{kk}^2
+=
+\tilde\delta(1-\alpha)\left(\frac{\tilde\delta}{\alpha\beta}-\delta\right)V_{kk}.
+\]
+
+Equivalently,
+\[
+V_{kk}^2
+-
+\left[
+1+\frac{1}{\beta}
++
+\frac{\tilde\delta(1-\alpha)}{\sigma}
+\left(\frac{\tilde\delta}{\alpha\beta}-\delta\right)
+\right]V_{kk}
++
+\frac{1}{\beta}
+=0.
+\]
+
+Let
+\[
+\gamma
+=
+1+\frac{1}{\beta}
++
+\frac{\tilde\delta(1-\alpha)}{\sigma}
+\left(\frac{\tilde\delta}{\alpha\beta}-\delta\right).
+\]
+
+Then the two roots are
+\[
+V_{kk,1}
+=
+\frac{\gamma-\sqrt{\gamma^2-\frac{4}{\beta}}}{2}
+=
+\frac{\gamma}{2}
+-
+\sqrt{\left(\frac{\gamma}{2}\right)^2-\frac{1}{\beta}}
+>0,
+\]
+\[
+V_{kk,2}
+=
+\frac{\gamma+\sqrt{\gamma^2-\frac{4}{\beta}}}{2}
+=
+\frac{\gamma}{2}
++
+\sqrt{\left(\frac{\gamma}{2}\right)^2-\frac{1}{\beta}}
+>0.
+\]
+
+We need to choose the stable root of the linear rational expectations (LRE) system.
+
+Since
+\[
+\gamma
+=
+1+\frac{1}{\beta}
++
+\frac{\tilde\delta(1-\alpha)}{\sigma}
+\left(\frac{\tilde\delta}{\alpha\beta}-\delta\right)
+>
+1+\frac{1}{\beta},
+\]
+we have
+\[
+(1-V_{kk,1})(1-V_{kk,2})
+=
+1+V_{kk,1}V_{kk,2}-(V_{kk,1}+V_{kk,2})
+=
+1+\frac{1}{\beta}-\gamma
+<0.
+\]
+
+Hence
+\[
+0<V_{kk,1}<1<V_{kk,2}.
+\]
+
+So $V_{kk,2}$ is the explosive root and should be discarded.
+
+To see this, consider the shutdown-shock case $\hat z_t=0$:
+\[
+\hat k_t=V_{kk}\hat k_{t-1}.
+\]
+Then $V_{kk}$ is the speed of convergence:
+\[
+|V_{kk}|<1
+\;\Rightarrow\;
+\text{deviation in capital shrinks over time, economy returns to S.S.},
+\]
+\[
+|V_{kk}|>1
+\;\Rightarrow\;
+\text{deviation in capital grows over time, economy explodes and violates TVC}.
+\]
+
+By the Blanchard--Kahn condition, there is one predetermined state $\hat k_{t-1}$ and one jump variable $\hat c_t$, so the number of stable roots must equal the number of predetermined states. Therefore, exactly one stable root is needed.
+
+\[
+\boxed{\text{Drop }V_{kk,2};\ \text{only }V_{kk,1}\text{ is admissible.}}
+\]
+
+Thus
+\[
+V_{kk}
+=
+\frac{\gamma}{2}
+-
+\sqrt{\left(\frac{\gamma}{2}\right)^2-\frac{1}{\beta}}.
+\]
+
+And from (1),
+\[
+V_{ck}
+=
+\frac{1}{\frac{\tilde\delta}{\alpha\beta}-\delta}
+\left(
+\frac{1}{\beta}
+-
+\frac{\gamma}{2}
++
+\sqrt{\left(\frac{\gamma}{2}\right)^2-\frac{1}{\beta}}
+\right).
+\]
+
+\item
+(2) and (4) are two equations in $(V_{kz}, V_{cz})$. Solve for $V_{cz}$ by substituting $V_{kz}$ out.
+\end{enumerate}
+
+
+Starting from
+\[
+\sigma V_{cz}(1-\psi)
+=
+\bigl[\sigma V_{ck}+\tilde\delta(1-\alpha)\bigr]V_{kz}
+-
+\tilde\delta\psi,
+\]
+and
+\[
+V_{kz}
+=
+\frac{\tilde\delta}{\alpha\beta}
+-
+\left(\frac{\tilde\delta}{\alpha\beta}-\delta\right)V_{cz},
+\]
+
+substitute the second into the first:
+\[
+\sigma V_{cz}(1-\psi)
+=
+\left[
+\sigma
+\frac{1}{\dfrac{\tilde{\delta}}{\alpha\beta}-\delta}
+\left(
+\frac{1}{\beta}
+-
+\frac{\gamma}{2}
++
+\sqrt{\left(\frac{\gamma}{2}\right)^2-\frac{1}{\beta}}
+\right)
++
+\tilde{\delta}(1-\alpha)
+\right]
+\left[
+\frac{\tilde{\delta}}{\alpha\beta}
+-
+\left(
+\frac{\tilde{\delta}}{\alpha\beta}-\delta
+\right)V_{cz}
+\right]
+-
+\tilde{\delta}\psi
+\]
+
+\[
+\Rightarrow\quad
+V_{cz}
+=
+\frac{
+\sigma
+\frac{1}{\dfrac{\tilde{\delta}}{\alpha\beta}-\delta}
+\left(
+\frac{1}{\beta}
+-
+\frac{\gamma}{2}
++
+\sqrt{\left(\frac{\gamma}{2}\right)^2-\frac{1}{\beta}}
+\right)
++
+\tilde{\delta}(1-\alpha)
+-
+\alpha\beta\psi
+}{
+\sigma(1-\psi)
++
+\left[
+\sigma
+\frac{1}{\dfrac{\tilde{\delta}}{\alpha\beta}-\delta}
+\left(
+\frac{1}{\beta}
+-
+\frac{\gamma}{2}
++
+\sqrt{\left(\frac{\gamma}{2}\right)^2-\frac{1}{\beta}}
+\right)
++
+\tilde{\delta}(1-\alpha)
+\right]
+\left(
+\frac{\tilde{\delta}}{\alpha\beta}-\delta
+\right)
+}
+\times
+\frac{\tilde{\delta}}{\alpha\beta}.
+\]
+
+\[
+\Rightarrow\quad
+V_{kz}
+=
+\frac{\tilde{\delta}}{\alpha\beta}
+-
+\frac{\tilde{\delta}}{\alpha\beta}
+\left(
+\frac{\tilde{\delta}}{\alpha\beta}-\delta
+\right)
+\cdot
+\frac{
+\sigma
+\frac{1}{\dfrac{\tilde{\delta}}{\alpha\beta}-\delta}
+\left(
+\frac{1}{\beta}
+-
+\frac{\gamma}{2}
++
+\sqrt{\left(\frac{\gamma}{2}\right)^2-\frac{1}{\beta}}
+\right)
++
+\tilde{\delta}(1-\alpha)
+-
+\alpha\beta\psi
+}{
+\sigma(1-\psi)
++
+\left[
+\sigma
+\frac{1}{\dfrac{\tilde{\delta}}{\alpha\beta}-\delta}
+\left(
+\frac{1}{\beta}
+-
+\frac{\gamma}{2}
++
+\sqrt{\left(\frac{\gamma}{2}\right)^2-\frac{1}{\beta}}
+\right)
++
+\tilde{\delta}(1-\alpha)
+\right]
+\left(
+\frac{\tilde{\delta}}{\alpha\beta}-\delta
+\right)
+}.
+\]
+Now we have:
+\[
+\left\{
+\begin{aligned}
+\hat{k}_t &= V_{kk}\hat{k}_{t-1}+V_{kz}\hat{z}_t,\\
+\hat{c}_t &= V_{ck}\hat{k}_{t-1}+V_{cz}\hat{z}_t,\\
+\hat{z}_t &= \psi \hat{z}_{t-1}+\varepsilon_t.
+\end{aligned}
+\right.
+\]
+
+Where,
+\[
+V_{kk}
+=
+\frac{\gamma}{2}
+-
+\sqrt{\left(\frac{\gamma}{2}\right)^2-\frac{1}{\beta}},
+\qquad
+V_{ck}
+=
+\frac{\bar{K}}{\bar{C}}
+\left(
+\frac{1}{\beta}-V_{kk}
+\right),
+\]
+\[
+V_{cz}
+=
+\frac{
+\sigma V_{ck}+\tilde{\delta}(1-\alpha)-\alpha\beta\psi
+}{
+\sigma(1-\psi)+\left[\sigma V_{ck}+\tilde{\delta}(1-\alpha)\right]\dfrac{\bar{C}}{\bar{K}}
+}
+\times
+\frac{\tilde{\delta}}{\alpha\beta},
+\]
+\[
+V_{kz}
+=
+\frac{\tilde{\delta}}{\alpha\beta}
+-
+\frac{\bar{C}}{\bar{K}}V_{cz}.
+\]
+\paragraph{Feed in quarterly parameter values}
+\begin{flushleft}
+\noindent\makebox[7em][l]{$\beta = 0.99$}%
+matches a 4.1\% annual rate:
+$r_q=\frac{1}{\beta}-1\approx 1.01\%$, \quad
+$r_a\approx (1+r_q)^4-1\approx 4.1\%$.
+
+\medskip
+
+\noindent\makebox[7em][l]{$\alpha = 0.36$}%
+matches the capital income share in the data.
+
+\medskip
+
+\noindent\makebox[7em][l]{$\sigma = 1$}%
+log utility. Usually $\sigma=2$ implies IES $=\frac{1}{\sigma}=0.5$.
+
+\medskip
+
+\noindent\makebox[7em][l]{$\delta = 0.025$}%
+capital depreciates by 2.5\% per quarter (about 10\% annually).
+
+\medskip
+
+\noindent\makebox[7em][l]{$\bar Z = 1$}%
+steady-state technology level is normalized.
+
+\medskip
+
+\noindent\makebox[7em][l]{$\psi = 0.95$}%
+persistence of the productivity shock, i.e.\ how long $\varepsilon_t$ lasts.
+\end{flushleft}
+Then we can compute $(V_{kk},V_{cz},V_{kz},V_{ck})$.
+
+\paragraph{Impulse response function (IRF)}
+Shock $\varepsilon_t$ and trace how variables respond.
+\[
+\text{e.g.\ Trace out all variables for }\varepsilon_1=1,\ \varepsilon_t=0\ \text{for }t\geq 2,\ \text{start from S.S.\ (one-time temporary).}
+\]
+
+\subsection*{ IRF and Half-life}
+
+Since
+\[
+\hat z_t=\psi \hat z_{t-1}+\varepsilon_t,
+\]
+we have
+\[
+\hat z_1=\psi \hat z_0+\varepsilon_1=\varepsilon_1,
+\]
+since we start from steady state and $\hat z_0=0$.
+(Recall a hat means deviation from steady state.)
+
+Also,
+\[
+\hat z_2=\psi \hat z_1+\varepsilon_2=\psi \hat z_1=\psi \varepsilon_1,
+\]
+and in general
+\[
+\hat z_t=\psi^{\,t-1}\varepsilon_1.
+\]
+
+When $|\psi|<1$, the shock dies out as $t\to\infty$.
+
+For capital,
+\[
+\hat k_1=V_{kk}\hat k_0+V_{kz}\hat z_1=V_{kz}\varepsilon_1,
+\]
+since $\hat k_0=0$ at steady state.
+
+Then
+\[
+\hat k_2
+=
+V_{kk}\hat k_1+V_{kz}\hat z_2
+=
+V_{kk}V_{kz}\varepsilon_1+V_{kz}\psi\varepsilon_1
+=
+(V_{kk}+\psi)V_{kz}\varepsilon_1.
+\]
+
+In general,
+\[
+\hat k_t
+=
+V_{kk}\hat k_{t-1}+V_{kz}\psi^{t-1}\varepsilon_1
+=
+\sum_{i=0}^{t-1}V_{kk}^{\,i}\psi^{\,t-i-1}V_{kz}\varepsilon_1.
+\]
+
+$V_{kk}^{\,i}$ and $V_{kz}$ are constant.
+\noindent
+Each past TFP effect $\psi^{t-i-1}$ is stored/propagated through capital at rate $V_{kk}^{\,i}$, and $V_{kz}$ translates the TFP shock into capital.
+
+\paragraph{How to measure speed of convergence? Use half-life.}
+
+We have
+\[
+\hat k_{t+h} = V_{kk}^{\,h}\hat k_t.
+\]
+The half-life is defined by
+\[
+\frac{\hat k_{t+h_{1/2}}}{\hat k_t}=\frac{1}{2}
+\quad\Rightarrow\quad
+V_{kk}^{\,h_{1/2}}=\frac{1}{2}
+\quad\Rightarrow\quad
+\boxed{
+h_{1/2}^{(k)}=\frac{\ln(1/2)}{\ln(V_{kk})}
+}
+\qquad (0<V_{kk}<1).
+\]
+
+For the TFP shock,
+\[
+\boxed{
+h_{1/2}^{(z)}=\frac{\ln(1/2)}{\ln(\psi)}.
+}
+\]
+
+Examples:
+if $V_{kk}=0.95$,
+\[
+h_{1/2}^{(k)}\approx 13.5\ \text{quarters}\approx 3.4\ \text{years}.
+\]
+
+If $V_{kk}=0.9$,
+\[
+h_{1/2}^{(k)}\approx 6.6\ \text{quarters}\approx 1.6\ \text{years}.
+\]
+\begin{center}
+    \includegraphics[width=\linewidth]{impulse_response_function.png}
+\end{center}
+\paragraph{Question: why is capital hump-shaped?}
+From
+\[
+\hat{k}_t
+=
+\sum_{i=0}^{t-1}\left(V_{kk}^{\,i}\psi^{\,t-i-1}\right)V_{kz}\varepsilon_1
+=
+\begin{cases}
+V_{kz}\varepsilon_1\,\dfrac{\psi^t-V_{kk}^t}{\psi-V_{kk}}, & \psi\neq V_{kk},\\[1.2em]
+V_{kz}\varepsilon_1\, t\,\psi^t, & \psi=V_{kk}.
+\end{cases}
+\]
+if $\psi=V_{kk}$, then
+\[
+V_{kk}^{\,i}\psi^{\,t-i-1}=\psi^{\,t-1},
+\]
+so
+\[
+\hat k_t
+=
+\sum_{i=0}^{t-1}\psi^{\,t-1}V_{kz}\varepsilon_1
+=
+t\psi^{\,t-1}V_{kz}\varepsilon_1.
+\]
+
+Hence
+\[
+\frac{\hat k_{t+1}}{\hat k_t}
+=
+\frac{(t+1)\psi^t}{t\psi^{t-1}}
+=
+\psi\left(1+\frac{1}{t}\right).
+\]
+For small $t$, $1+\frac{1}{t}$ is large, so the ratio exceeds $1$ and $\hat{k}_t$ keeps rising.
+
+For large $t$, $1+\frac{1}{t}\to 1$, so the ratio tends to $\psi<1$ and $\hat{k}_t$ falls.
+
+Peak occurs approximately when
+\[
+\psi\left(1+\frac{1}{t}\right)=1
+\quad\Rightarrow\quad
+t\approx \frac{\psi}{1-\psi}.
+\]
+
+Thus when $\psi=V_{kk}$, $\hat k_t$ rises at first, peaks around
+\[
+t\approx \frac{\psi}{1-\psi},
+\]
+and then decays.
+
+When $\psi\neq V_{kk}$,
+\[
+\frac{\hat{k}_{t+1}}{\hat{k}_t}
+=
+\frac{\psi^{t+1}-V_{kk}^{t+1}}{\psi^t-V_{kk}^t}
+\quad\Rightarrow\quad
+\frac{\hat{k}_2}{\hat{k}_1}
+=
+\psi+V_{kk}.
+\]
+We get an initial rise if $\psi+V_{kk}>1$.
+
+\noindent
+It peaks when $\hat k_{t+1}=\hat k_t$, i.e.
+\[
+\psi^{t+1}-V_{kk}^{t+1}=\psi^t-V_{kk}^t,
+\]
+so
+\[
+\psi^t(1-\psi)=V_{kk}^t(1-V_{kk}),
+\]
+hence
+\[
+t^*
+=
+\frac{\ln\!\left(\frac{1-V_{kk}}{1-\psi}\right)}
+{\ln\!\left(\frac{\psi}{V_{kk}}\right)}.
+\]
+
+If $t^*>1$, the IRF rises for a while and then falls (hump-shaped).
+If $t^*\le 1$, it peaks in the first period and then decays monotonically.
+
+\paragraph{The effect of $\sigma$}
+\[
+\left.
+\begin{array}{l}
+\text{Supply only depends on patience }\beta\text{ and }\delta,\ \text{labor is fixed.}\\[0.4em]
+\text{Demand: investment covers depreciation.}
+\end{array}
+\right\}
+\text{$\sigma$ does not have long-run effect.}
+\]
+
+But does have short-run effects, governed by $\sigma$.
+\begin{center}
+    \includegraphics[width=0.9\linewidth]{coefficient_and_sigma.png}
+\end{center}
+\begin{enumerate}[label=\arabic*.]
+\item
+\[
+\sigma\uparrow
+\quad\Rightarrow\quad
+V_{kk}\uparrow\to 1
+\]
+Capital becomes more persistent and convergence is slower.
+
+Households dislike shifting consumption across time more, i.e.\ lower IES. 
+
+\item
+\[
+\sigma\uparrow
+\quad\Rightarrow\quad
+IES=\frac{1}{\sigma}\downarrow
+\quad\Rightarrow\quad
+V_{ck}\downarrow.
+\]
+Marginal utility becomes more responsive to changes in consumption, so consumption reacts less for a given state incentive coming from $k_{t-1}$.
+\end{enumerate}
+
+\begin{enumerate}[label=\arabic*., start=3]
+\item
+\[
+\sigma\uparrow
+\quad\Rightarrow\quad
+IES\downarrow
+\quad\Rightarrow\quad
+V_{cz}\downarrow
+\]
+Consumption's direct response to the shock shrinks.
+
+\item
+\[
+\sigma\uparrow
+\quad\Rightarrow\quad
+IES\downarrow
+\quad\Rightarrow\quad
+V_{cz}\downarrow
+\quad\Rightarrow\quad
+V_{kz}\uparrow
+\]
+After a TFP shock, consumption is more reluctant to jump, so more resources show up as investment / capital accumulation.
+\end{enumerate}
+\paragraph{Recall the steady state of the system}
+\[
+\bar C=\bar Z\bar K^\alpha +(1-\delta)\bar K-\bar K,
+\]
+\[
+1=\beta\bigl[\alpha \bar Z \bar K^{\alpha-1}+(1-\delta)\bigr].
+\]
+
+Thus
+\[
+\bar K
+=
+\left(
+\frac{\alpha \bar Z}{\frac{1}{\beta}-1+\delta}
+\right)^{\frac{1}{1-\alpha}},
+\]
+\[
+\bar Y=\bar Z\bar K^\alpha,
+\qquad
+\bar C=\bar Y-\delta \bar K,
+\]
+and
+\[
+\frac{\bar C}{\bar K}
+=
+\frac{\bar Y}{\bar K}-\delta
+=
+\bar Z\bar K^{\alpha-1}-\delta
+=
+\frac{\frac{1}{\beta}-1+(1-\alpha)\delta}{\alpha}.
+\]
+
+\paragraph{The effect of $\delta$ (depreciation)}
+
+Example values in the notes:
+\[
+\delta=0.025:
+\qquad
+\bar K \approx 38,\quad
+\bar Y \approx 3.7,\quad
+\bar C \approx 2.75,
+\]
+\[
+\delta=0.1:
+\qquad
+\bar K \approx 6.4,\quad
+\bar Y \approx 1.95,\quad
+\bar C \approx 1.3.
+\]
+
+So higher depreciation implies a lower steady-state level.
+
+Also,
+\[
+\delta\uparrow \Rightarrow V_{kk}\downarrow,
+\qquad
+\delta\uparrow \Rightarrow V_{kz}\uparrow.
+\]
+With less capital stock and higher MPK, return and output both respond more proportionally.
+
+For $V_{cz}$, the sign is ambiguous. The notes list several channels:
+\begin{itemize}
+\item Channel A: $\delta\uparrow \Rightarrow \tilde\delta\uparrow$,
+\item Channel B: $\delta\uparrow \Rightarrow \frac{\tilde\delta}{\alpha\bar\beta}-\delta\uparrow$,
+\item Channel C: $\delta\uparrow \Rightarrow V_{kk}\downarrow,\ V_{ck}\uparrow$.
+\end{itemize}
+The final sign depends on calibration.
+\paragraph{\textcolor{red}{Complete procedure for solving RBC}}
+\begin{enumerate}[label=\arabic*)]
+\item Model setup: social planner's problem vs.\ competitive market (isomorphic).
+\item Use dynamic programming to derive the necessary conditions(solve the model).
+\item Write down the definition of equilibrium, including allocations and equilibrium conditions.
+\item Find the steady state.
+\item Log-linearize the dynamic system and determine local dynamic property.
+\item Use the method of undetermined coefficients to solve the law of motion:
+\[
+k_t = V_{kk}k_{t-1}+V_{kz}z_t,
+\]
+and then solve for the other variables such as $c_t$.
+\item Calibrate and simulate the model.
+\end{enumerate}
+
+\newpage
+\subsection*{ State Space Approach: 2-D State Space / Saddle Path Analysis}
+
+Start from
+\[
+\hat k_t
+=
+\frac{1}{\beta}\hat k_{t-1}
+-
+\frac{\bar C}{\bar K}\hat c_t
++
+\frac{\tilde\delta}{\alpha\beta}\hat z_t.
+\]
+Let $\hat z_t=0$. Then
+\[
+\hat k_t
+=
+\frac{1}{\beta}\hat k_{t-1}
+-
+\frac{\bar C}{\bar K}\hat c_t,
+\]
+so
+\[
+\hat c_t
+=
+\frac{\bar K}{\beta \bar C}\hat k_{t-1}
+-
+\frac{\bar K}{\bar C}\hat k_t.
+\]
+
+Also, from
+\[
+\sigma E_t\hat c_{t+1}
++
+\tilde\delta(1-\alpha)\hat k_t
+-
+\tilde\delta E_t\hat z_{t+1}
+=
+\sigma \hat c_t,
+\]
+letting $\hat z_t=0$ gives
+\[
+\sigma(\hat c_t-\hat c_{t+1})
+-
+\bigl[1-\beta(1-\delta)\bigr](1-\alpha)\hat k_t
+=0
+\]
+Rearrange:
+\[
+\begin{cases}
+\hat k_t-\hat k_{t-1}
+=
+\left(\frac{1}{\beta}-1\right)\hat k_{t-1}
+-
+\frac{\bar C}{\bar K}\hat c_t,
+\\[0.8em]
+\hat c_{t+1}-\hat c_t
+=
+\frac{1}{\sigma}
+\bigl[1-\beta(1-\delta)\bigr](1-\alpha)
+\left(
+\underbrace{
+\frac{\bar C}{\bar K}\hat c_t-\frac{1}{\beta}\hat k_{t+1}
+}_{=-\hat k_t}
+\right).
+\end{cases}
+\]
+
+\paragraph{Steady-state loci}
+
+If
+\[
+\hat k_t=\hat k_{t-1},
+\]
+then
+\[
+\hat c_t
+=
+\left(\frac{1}{\beta}-1\right)\frac{\bar K}{\bar C}\hat k_{t-1}.
+\tag{1}
+\]
+
+If
+\[
+\hat c_{t+1}=\hat c_t,
+\]
+then
+\[
+\hat c_t
+=
+\frac{\bar K}{\beta \bar C}\hat k_{t-1}.
+\tag{2}
+\]
+
+The steady state is
+\[
+\hat k_t=\hat c_t=0.
+\]
+
+The stable arm is the unique saddle path converging to the steady state.
+\begin{center}
+    \includegraphics[width=0.9\linewidth]{steady_state.png}
+\end{center}
+The notes' directional interpretation:
+\begin{itemize}
+\item If $\hat c_t$ is above line (1), then $\hat k_t<\hat k_{t-1}$:
+consume too much, investment is low, so capital falls.
+\item If $\hat c_t$ is below line (1), then $\hat k_t>\hat k_{t-1}$:
+consume too little, save more, so capital rises.
+\item If $\hat c_t$ is above / left of line (2), then $\hat c_{t+1}>\hat c_t$:
+consume more next period.
+\item If $\hat c_t$ is below / right of line (2), then $\hat c_{t+1}<\hat c_t$:
+consume less next period.
+\end{itemize}
+
+\subsection*{ Why These Relations Hold; Redo in Levels}
+
+\paragraph{Why line (1) implies $\hat k_t<\hat k_{t-1}$}
+
+If $\hat c_t$ is above line (1), then
+\[
+\hat c_t
+>
+\left(\frac{1}{\beta}-1\right)\frac{\bar K}{\bar C}\hat k_{t-1},
+\]
+so
+\[
+\frac{\bar C}{\bar K}\hat c_t
+-
+\left(\frac{1}{\beta}-1\right)\hat k_{t-1}
+>0.
+\]
+
+Using
+\[
+\hat k_t-\hat k_{t-1}
+=
+\left(\frac{1}{\beta}-1\right)\hat k_{t-1}
+-\frac{\bar C}{\bar K}\hat c_t,
+\]
+we get
+\[
+\hat k_t<\hat k_{t-1}.
+\]
+
+\paragraph{Why line (2) implies $\hat c_{t+1}>\hat c_t$}
+
+If $\hat c_t$ is above line (2), then
+\[
+\hat c_t>\frac{\bar K}{\beta \bar C}\hat k_{t+1},
+\]
+so
+\[
+\frac{\bar C}{\bar K}\hat c_t-\frac{1}{\beta}\hat k_{t+1}>0.
+\]
+
+Hence, from
+\[
+\hat c_{t+1}-\hat c_t
+=
+\frac{1}{\sigma}
+\bigl[1-\beta(1-\delta)\bigr](1-\alpha)
+\left(
+\frac{\bar C}{\bar K}\hat c_t-\frac{1}{\beta}\hat k_{t+1}
+\right),
+\]
+we have
+\[
+\hat c_{t+1}>\hat c_t.
+\]
+
+\paragraph{Stable arm}
+
+The stable arm is the unique saddle path converging to steady state:
+\[
+\hat c_t=V_{ck}\hat k_{t-1}.
+\]
+
+The speed of convergence is
+\[
+\hat k_t=V_{kk}\hat k_{t-1}
+\quad\Rightarrow\quad
+\hat k_{t+h}=V_{kk}^{\,h}\hat k_t.
+\]
+
+Nature gives $\hat k_{t-1}$, and households choose $\hat c_t$ so as to land exactly on the stable arm. Then the economy follows that arm back to steady state. Off the stable arm, the system is unstable and diverges.
+
+\paragraph{Redo in levels}
+
+Set $Z_t=\bar Z$:
+\[
+C_t=\bar Z\,K_{t-1}^{\alpha}+(1-\delta)K_{t-1}-K_t,
+\]
+\[
+1=\beta E_t\left(\frac{C_{t+1}}{C_t}\right)^{-\sigma}
+\bigl(\alpha \bar Z\,K_t^{\alpha-1}+1-\delta\bigr).
+\]
+
+So
+\[
+K_t-K_{t-1}
+=
+\bar Z\,K_{t-1}^{\alpha}-\delta K_{t-1}-C_t,
+\]
+and
+\[
+E_t\frac{C_{t+1}}{C_t}
+=
+\left\{
+\beta\left[
+\alpha \bar Z
+\bigl(\bar Z\,K_{t-1}^{\alpha}+(1-\delta)K_{t-1}-C_t\bigr)^{\alpha-1}
++1-\delta
+\right]
+\right\}^{1/\sigma}
+\]
+
+At steady state, $\Delta K_t=0$, so
+\[
+C_t=\bar Z\,K_{t-1}^{\alpha}-\delta K_{t-1}.
+\tag{1}
+\]
+
+Thus:
+\[
+\text{if } C_t>\bar Z\,K_{t-1}^{\alpha}-\delta K_{t-1},
+\quad K_t<K_{t-1},
+\]
+\[
+\text{if } C_t<\bar Z\,K_{t-1}^{\alpha}-\delta K_{t-1},
+\quad K_t>K_{t-1}.
+\]
+
+At steady state, $\Delta C_t=0$, so
+\[
+1=
+\left\{
+\beta\left[
+\alpha \bar Z
+\bigl(\bar Z\,K_{t+1}^{\alpha}+(1-\delta)K_{t+1}-C_t\bigr)^{\alpha-1}
++1-\delta
+\right]
+\right\}^{1/\sigma},
+\]
+which implies
+\[
+C_t
+=
+\bar Z\,K_{t-1}^{\alpha} +(1-\delta)K_{t-1}-\bar K.
+\tag{2}
+\]
+
+Then:
+\[
+\text{if } C_t>-\bar K+\bar Z\,K_{t-1}^{\alpha} +(1-\delta)K_{t-1},
+\quad C_{t+1}>C_t,
+\]
+\[
+\text{if } C_t<-\bar K+\bar Z\,K_{t-1}^{\alpha} +(1-\delta)K_{t-1},
+\quad C_{t+1}<C_t.
+\]
+
+\paragraph{Steady-state equations in levels}
+\[
+\begin{cases}
+C_t=\bar Z\,K_{t-1}^{\alpha}-\delta K_{t-1}, \qquad (1)\\[0.5em]
+C_t=\bar Z\,K_{t-1}^{\alpha} +(1-\delta)K_{t-1}-\bar K. \qquad (2)
+\end{cases}
+\]
+
+\paragraph{Why is the stable arm still linear?}
+
+Since
+\[
+\hat c_t=V_{ck}\hat k_{t-1},
+\]
+we have
+\[
+\frac{C_t-\bar C}{\bar C}
+=
+V_{ck}\frac{K_t-\bar K}{\bar K}.
+\]
+
+Thus
+\[
+C_t
+=
+\frac{V_{ck}\bar C}{\bar K}K_t
+-
+V_{ck}\bar C
++\bar C.
+\]
+
+So in levels the stable arm is linear, with slope
+\[
+\frac{V_{ck}\bar C}{\bar K}.
+\]
+\begin{center}
+    \includegraphics[width=0.8\linewidth]{original_nonlinear.png}
+\end{center}
+
+\ThisNoteEnd

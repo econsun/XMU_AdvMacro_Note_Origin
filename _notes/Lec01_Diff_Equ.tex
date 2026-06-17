@@ -1,0 +1,1209 @@
+% !TeX root = Lec01_Diff_Equ.tex
+
+\ifdefined\AdvMacroMain
+  \chapter{Lecture 1: Difference Equation}
+  \let\ThisNoteEnd\relax
+\else
+  \documentclass[12pt]{ctexart}
+  \newcommand{\ProjectRoot}{..}
+  \input{\ProjectRoot/_config/config}
+  \title{Lecture 1: Difference Equation}
+  \author{Chengyuan He}
+  \date{March 2026}
+  \begin{document}
+  \maketitle
+  \def\ThisNoteEnd{\end{document}}
+\fi
+
+\subsection*{1. Difference operators}
+
+\[
+\text{1-st order difference:}\qquad \Delta y_t = y_t - y_{t-1}
+\]
+
+\[
+\text{2-nd order difference:}\qquad
+\Delta^2 y_t
+= \Delta(\Delta y_t)
+= \Delta(y_t-y_{t-1})
+= \Delta y_t - \Delta y_{t-1}
+= (y_t-y_{t-1})-(y_{t-1}-y_{t-2})
+\]
+\[
+= y_t - 2y_{t-1} + y_{t-2}.
+\]
+
+\subsection*{2. Period}
+
+Period: an interval of time $\Rightarrow y_t$ is the $y$ for $t^{\text{th}}$ interval of time, not for a point of time.
+
+\textcolor{red}{* $t$ 是一个时间段概念，不是时间点概念}
+
+\[
+\Delta y_t = y_t - y_{t-1}
+\]
+is the change from $(t-1)^{\text{th}}$ time interval to $t^{\text{th}}$ interval, not a derivative at a point of time $t$.
+
+\textcolor{red}{* $\Delta y_t$ 是变化量，并不是在 $t$ 点的微分（变化率）}
+
+\[
+\text{Derivative} \;=\; \dot y_t
+\;=\;
+\frac{\Delta y_t}{y_{t-1}}
+\;=\;
+\frac{y_t-y_{t-1}}{y_{t-1}}
+\;=\;
+\frac{y_t}{y_{t-1}}-1
+\;\approx\;
+\log\!\left(\frac{y_t}{y_{t-1}}\right)
+\]
+
+\[
+\textcolor{red}{
+\text{when } \frac{y_t-y_{t-1}}{y_{t-1}} \text{ is small, }
+\log\!\left(1+\frac{y_t}{y_{t-1}}-1\right)
+\approx
+\frac{y_t}{y_{t-1}}-1
+=
+\frac{y_t-y_{t-1}}{y_{t-1}}.
+}
+\]
+
+\subsection*{3. Solve a first-order difference equation}
+
+Solve a first-order difference equation $\Longleftrightarrow$ rewrite $y_t$ as a function of $t$.
+
+Example:
+\[
+y_t + a y_{t-1} = C.
+\]
+
+\subsubsection*{(1) Brutal force: iterative method}
+
+\[
+y_t = -a y_{t-1} + C
+\]
+\[
+y_{t-1} = -a y_{t-2} + C
+\]
+
+Hence
+\[
+y_t = a^2 y_{t-2} - aC + C,
+\qquad
+y_{t-2} = -a y_{t-3} + C.
+\]
+
+Continuing,
+\[
+y_t = -a^3 y_{t-3} + a^2 C - aC + C - \cdots
+\]
+
+and in general,
+\[
+y_t = (-a)^t y_0 + C \sum_{j=0}^{t-1} (-a)^j.
+\]
+
+If $a\neq -1$,
+\[
+\sum_{j=0}^{t-1} (-a)^j
+=
+\frac{1-(-a)^t}{1+a}.
+\]
+
+So
+\[
+y_t
+=
+(-a)^t\left(y_0-\frac{C}{1+a}\right)+\frac{C}{1+a},
+\qquad a\neq -1.
+\]
+
+Equivalently,
+\[
+y_t = A(-a)^t + \frac{C}{1+a},
+\qquad a\neq -1.
+\]
+
+If $a=-1$,
+\[
+\sum_{j=0}^{t-1}(-a)^j = \sum_{j=0}^{t-1}1=t
+\qquad\Rightarrow\qquad
+y_t = y_0 + Ct.
+\]
+
+Thus
+\[
+y_t=
+\begin{cases}
+A(-a)^t + \dfrac{C}{1+a}, & a\neq -1,\\[0.8em]
+Ct+y_0, & a=-1,
+\end{cases}
+\qquad
+\text{where } A = y_0-\dfrac{C}{1+a}.
+\]
+
+\subsubsection*{(2) General method}
+
+Since the system is \textit{linear}, we can separate:
+\begin{enumerate}[label=\arabic*)]
+    \item the part driven by constant $C$,
+    \item the part comes from the dynamics.
+\end{enumerate}
+
+\[
+\text{Why } y_t=y_t^p+y_t^c \text{ is valid?}
+\]
+
+Define linear operator
+\[
+L(\cdot)= (\cdot)_t + a(\cdot)_{t-1}.
+\]
+
+Then
+\[
+y_t + ay_{t-1} = C
+\qquad\Rightarrow\qquad
+L(y)=C.
+\]
+
+If $y^p$ is any particular solution such that
+\[
+L(y^p)=C,
+\]
+and if $y^c$ is any solution of the homogeneous equation
+\[
+L(y^c)=0
+\qquad
+\text{(complementary solution)},
+\]
+then by linearity,
+\[
+L(y^p+y^c)=L(y^p)+L(y^c)=C+0=C.
+\]
+
+Therefore,
+\[
+y^p+y^c
+\]
+solves the equation
+\[
+y_t+ay_{t-1}=C.
+\]
+
+\[
+\boxed{\text{All solutions}=\text{one particular solution}+\text{all homogeneous solutions}.}
+\]
+
+\textcolor{red}{Now we solve the difference equation with general method.}
+
+\paragraph{1) Complementary solution}
+Since exponential sequences are eigenfunctions of the lag operator, try
+\[
+y_t = Ab^t.
+\]
+
+Then for the homogeneous equation,
+\[
+Ab^t + aAb^{t-1}=0
+\quad\Rightarrow\quad
+b+a=0
+\quad\Rightarrow\quad
+b=-a.
+\]
+
+Hence
+\[
+y_t^c = A(-a)^t.
+\]
+
+\paragraph{2) Particular solution}
+Since the forcing term is a constant $C$, we guess
+\[
+y_t^p = k.
+\]
+
+Then
+\[
+k+ak=C
+\quad\Rightarrow\quad
+k=\frac{C}{1+a},
+\qquad a\neq -1.
+\]
+
+If $a=-1$,
+\[
+y_t-y_{t-1}=C
+\quad\Rightarrow\quad
+y_t^p=Ct.
+\]
+
+Therefore,
+\[
+y_t = y_t^c+y_t^p
+=
+\begin{cases}
+A(-a)^t+\dfrac{C}{1+a}, & a\neq -1,\\[0.8em]
+A+Ct, & a=-1.
+\end{cases}
+\]
+
+Using the initial condition:
+
+If $a\neq -1$,
+\[
+y_0=A(-a)^0+\frac{C}{1+a}
+=
+A+\frac{C}{1+a}
+\quad\Rightarrow\quad
+A=y_0-\frac{C}{1+a}.
+\]
+
+If $a=-1$,
+\[
+y_0=A
+\quad\Rightarrow\quad
+A=y_0.
+\]
+
+\subsection*{4. Dynamic stability of equilibrium}
+
+Consider
+\[
+y_t + ay_{t-1}=C.
+\]
+
+The steady state is defined by
+\[
+y_t=y_{t-1}=\bar y,
+\]
+so
+\[
+\bar y + a\bar y = C
+\quad\Rightarrow\quad
+\bar y=\frac{C}{1+a}
+\qquad (a\neq -1).
+\]
+
+Subtract steady state from the original equation:
+\[
+y_t-\bar y + a(y_{t-1}-\bar y)
+=
+C-\bar y-a\bar y.
+\]
+
+Define deviation from steady state as
+\[
+\tilde y_t = y_t-\bar y.
+\]
+
+Then
+\[
+\tilde y_t + a\tilde y_{t-1}=0
+\quad\Rightarrow\quad
+\tilde y_t = (-a)\tilde y_{t-1}.
+\]
+
+Let
+\[
+b=-a.
+\]
+Then
+\[
+\tilde y_t = b\tilde y_{t-1}
+\quad\Rightarrow\quad
+\tilde y_t = b^t \tilde y_0.
+\]
+
+\textcolor{red}{* $b=-a$ controls convergence 收敛性}
+
+\[
+\begin{cases}
+|b|<1 \Rightarrow b^t\to 0,\; \tilde y_t\to 0,\; y_t\to \bar y \quad \text{(convergence)},\\
+|b|>1 \Rightarrow b^t\to \infty,\; \tilde y_t\to \infty \quad \text{(divergence)}.
+\end{cases}
+\]
+
+\subsection*{5. Sign of $b$ and oscillation / monotonicity}
+
+Sign of $b$ also controls oscillation \textcolor{red}{交替振荡性} / monotonicity \textcolor{red}{单调性}.
+
+\[
+\begin{cases}
+b>0:
+& b^t \text{ keeps the same sign for all } t
+\Rightarrow
+\tilde y_t \text{ keeps the same sign for all } t,\\
+& \text{path is non-oscillatory (monotone, towards / away from } \bar y).\\[0.5em]
+b<0:
+& b^t \text{ alternates sign }
+\Rightarrow
+\tilde y_t \text{ flips sign each period} \\
+& \Rightarrow \text{oscillate around } \bar y.
+\end{cases}
+\]
+
+Further:
+\[
+\begin{cases}
+b>1, & y_t \text{ monotonically diverges from } \bar y,\\
+b=1, & y_t \text{ keeps the same distance away from } \bar y,\\
+0<b<1, & y_t \text{ monotonically converge to } \bar y,\\
+b=0, & y_t \text{ stays at steady state } \bar y \text{ always},\\
+-1<b<0, & y_t \text{ oscillate around and converge to } \bar y,\\
+b=-1, & y_t \text{ oscillate around } \bar y \text{ and keeps same absolute distance},\\
+b<-1, & y_t \text{ oscillate around and diverge from } \bar y.
+\end{cases}
+\]
+
+\begin{center}
+    \IfFileExists{\ProjectRoot/_assets/figures/relation.png}{%
+        \includegraphics[width=0.5\linewidth]{relation.png}%
+    }{%
+        \fbox{\texttt{missing figure: relation.png}}%
+    }
+\end{center}
+
+\subsection*{6. The role of $A$}
+
+Since the general solution can be written as
+\[
+y_t=\bar y + Ab^t
+\quad\Rightarrow\quad
+A=y_0-\bar y
+\]
+(initial deviation).
+
+Scale effect:
+\[
+|A| \uparrow \Rightarrow \text{start farther from equilibrium} \Rightarrow \text{bigger movements along path.}
+\]
+
+Mirror effect:
+\[
+A>0:\ \text{start above } \bar y;
+\qquad
+A<0:\ \text{start below } \bar y.
+\]
+
+\subsection*{7. Example: Inventory model}
+
+\textcolor{red}{
+Example: Inventory model.
+}
+
+\[
+\textcolor{red}{
+Q_{d,t}=\alpha-\beta p_t \qquad \text{demand}
+}
+\]
+
+\[
+\textcolor{red}{
+Q_{s,t}=-\gamma+\delta p_t \qquad \text{supply}
+}
+\]
+
+\[
+\textcolor{red}{
+p_{t+1}=p_t-\sigma\,(Q_{s,t}-Q_{d,t})
+}
+\]
+
+\[
+\textcolor{red}{
+\alpha,\beta,\gamma,\delta,\sigma>0
+\qquad
+\text{solve for } p_t\text{'s path}
+}
+\]
+
+Then
+\[
+Q_{s,t}-Q_{d,t}
+=
+-(\alpha+\gamma)+(\beta+\delta)p_t.
+\]
+
+Plug in:
+\[
+p_{t+1}
+=
+\bigl[1-\sigma(\beta+\delta)\bigr]p_t
++
+\sigma(\alpha+\gamma).
+\]
+
+At steady state,
+\[
+p_{t+1}=p_t=\bar p
+\quad\Rightarrow\quad
+\bar p=\frac{\alpha+\gamma}{\beta+\delta}.
+\]
+
+Thus, the deviation dynamics is
+\[
+p_t-\bar p
+=
+\bigl[1-\sigma(\beta+\delta)\bigr](p_{t-1}-\bar p).
+\]
+
+Stability condition tells us:
+\[
+\left|1-\sigma(\beta+\delta)\right|<1
+\quad\Rightarrow\quad
+0<\sigma(\beta+\delta)<2,
+\]
+system converges.
+
+Oscillation condition tells us:
+\[
+1-\sigma(\beta+\delta)<0
+\quad\Rightarrow\quad
+\sigma(\beta+\delta)>1
+\]
+creates oscillation.
+
+\textcolor{red}{
+* Economic intuition: if price adjustment is too aggressive $\sigma \uparrow\uparrow$, creates oscillation and divergence.
+}
+
+If supply or demand elasticity in terms of price too high
+\[
+\beta \uparrow\uparrow / \delta \uparrow\uparrow
+\]
+\[
+\Rightarrow \text{creates oscillation or even divergence.}
+\]
+
+\subsection*{8. Higher-order difference equations}
+
+\[
+\text{2-nd order linear difference equation with constant coefficients \& constant term:}
+\]
+\[
+y_{t+2}+a_1 y_{t+1}+a_2 y_t = C.
+\]
+
+\subsubsection*{1$^\circ$ Particular solution $y^p$: the intertemporal equilibrium level}
+
+Try a constant:
+\[
+y^p=k
+\quad\Rightarrow\quad
+k(1+a_1+a_2)=C
+\quad\Rightarrow\quad
+k=\frac{C}{1+a_1+a_2},
+\qquad 1+a_1+a_2\neq 0.
+\]
+
+Try a first-degree polynomial:
+\[
+y^p=kt.
+\]
+
+Then
+\[
+k(t+2)+a_1k(t+1)+a_2kt = C
+\]
+\[
+\Rightarrow\quad
+k\bigl[(1+a_1+a_2)t+(2+a_1)\bigr]=C.
+\]
+
+Impose
+\[
+1+a_1+a_2=0
+\]
+then
+\[
+k=\frac{C}{2+a_1},
+\qquad 2+a_1\neq 0.
+\]
+
+Try a second-degree polynomial:
+\[
+y^p=kt^2.
+\]
+
+Then
+\[
+k(t+2)^2 + a_1 k(t+1)^2 + a_2 kt^2 = C.
+\]
+
+The notes impose
+\[
+\begin{cases}
+1+a_1+a_2=0,\\
+2+a_1=0,
+\end{cases}
+\qquad\Rightarrow\qquad
+\begin{cases}
+a_1=-2,\\
+a_2=1.
+\end{cases}
+\]
+
+Substituting:
+\[
+k(t^2+4t+4)-2k(t^2+2t+1)+kt^2=C
+\]
+\[
+\Rightarrow\quad 2k=C
+\quad\Rightarrow\quad
+k=\frac{C}{2}.
+\]
+
+Therefore
+\[
+y^p=
+\begin{cases}
+\dfrac{C}{1+a_1+a_2}, & 1+a_1+a_2\neq 0,\\[1em]
+\dfrac{C}{2+a_1}\, t, & 1+a_1+a_2=0,\ a_1\neq -2,\\[1em]
+\dfrac{C}{2}\, t^2, & a_1=-2,\ a_2=1.
+\end{cases}
+\]
+
+\subsubsection*{2$^\circ$ Complementary solution $y^c$: deviation from the equilibrium in each period}
+
+Look at the homogeneous equation:
+\[
+y_{t+2}+a_1y_{t+1}+a_2y_t=0.
+\]
+
+Try
+\[
+y_t=Ab^t.
+\]
+
+Then
+\[
+b^2+a_1b+a_2=0.
+\]
+
+\paragraph{Case 1: Two distinct real roots}
+If
+\[
+a_1^2-4a_2>0,
+\]
+then
+\[
+y^c=A_1b_1^t+A_2b_2^t
+\]
+where
+\[
+b_1=\frac{-a_1+\sqrt{a_1^2-4a_2}}{2},
+\qquad
+b_2=\frac{-a_1-\sqrt{a_1^2-4a_2}}{2}.
+\]
+
+\paragraph{Case 2: Repeated real root}
+If
+\[
+a_1^2-4a_2=0,
+\]
+then
+\[
+b=b_1=b_2=-\frac{a_1}{2},
+\]
+and
+\[
+y^c=A_3 b^t + A_4 t b^t.
+\]
+
+\paragraph{Case 3: Complex roots}
+If
+\[
+a_1^2-4a_2<0,
+\]
+then
+\[
+b_{1,2}=h\pm vi,
+\qquad
+h=-\frac{a_1}{2},
+\qquad
+v=\frac{\sqrt{4a_2-a_1^2}}{2}.
+\]
+
+So
+\[
+y^c=A_5(h+vi)^t+A_6(h-vi)^t.
+\]
+
+Using De Moivre's Theorem:
+\[
+(h\pm vi)^t = R^t\bigl(\cos(\theta t)\pm i\sin(\theta t)\bigr)
+\]
+where
+\[
+R=\sqrt{h^2+v^2}=\sqrt{a_2},
+\qquad
+\cos \theta = \frac{h}{R} = -\frac{a_1}{2\sqrt{a_2}},
+\qquad
+\sin \theta = \frac{v}{R} = \sqrt{1-\frac{a_1^2}{4a_2}}.
+\]
+
+Hence
+\[
+y^c = R^t\bigl(A_5\cos \theta t + A_6\sin \theta t\bigr),
+\]
+where
+\[
+R=\sqrt{a_2},
+\qquad
+\theta \text{ is defined as }
+\begin{cases}
+\cos\theta = -\dfrac{a_1}{2\sqrt{a_2}},\\[0.8em]
+\sin\theta = \sqrt{1-\dfrac{a_1^2}{4a_2}}.
+\end{cases}
+\]
+
+\subsection*{9. Convergence under higher-order difference equation}
+
+\begin{enumerate}[label=\arabic*$^\circ$]
+    \item Distinct root: $b_{\mathrm{dom}}$ is the root with highest absolute value.  
+    Convergence requires
+    \[
+    |b_{\mathrm{dom}}|<1.
+    \]
+
+    \item Repeated root:
+    \[
+    |b|<1 \Rightarrow \text{converges}.
+    \]
+
+    \item Complex root:
+    \[
+    R>1: \text{ explosive oscillations},
+    \qquad
+    R<1: \text{ damped oscillations}.
+    \]
+\end{enumerate}
+
+\subsection*{10. Simultaneous difference equation (state-space form)}
+
+Let
+\[
+x_t=y_{t+1}.
+\]
+
+Then
+\[
+\begin{cases}
+x_{t+1}+a_1x_t+a_2y_t=C,\\
+x_t=y_{t+1}.
+\end{cases}
+\]
+
+Therefore,
+\[
+\begin{pmatrix}
+x_{t+1}\\
+y_{t+1}
+\end{pmatrix}
+=
+\begin{pmatrix}
+-a_1 & -a_2\\
+1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+x_t\\
+y_t
+\end{pmatrix}
++
+\begin{pmatrix}
+C\\
+0
+\end{pmatrix}.
+\]
+
+Generalize:
+\[
+X_{t+1}=AX_t+B
+\]
+where
+\[
+X_t=(x_{1t},x_{2t},\dots,x_{nt})
+\]
+is state space.
+
+\[
+A \text{ is a constant matrix with } a_{ij} \text{ as elements } (i,j=1,\dots,n),
+\]
+\[
+B \text{ is an array with } B_i,\ i=1,\dots,n \text{ as elements.}
+\]
+
+In this example,
+\[
+X_{t+1}=
+\begin{pmatrix}
+x_{t+1}\\
+y_{t+1}
+\end{pmatrix},
+\qquad
+A=
+\begin{pmatrix}
+-a_1 & -a_2\\
+1 & 0
+\end{pmatrix},
+\qquad
+b=
+\begin{pmatrix}
+C\\
+0
+\end{pmatrix}.
+\]
+
+Everything about dynamics and stability is controlled by eigenvalues of $A$.
+
+Ignore constant term $B$ to study deviation from steady state:
+\[
+X_{t+1}=AX_t.
+\]
+
+Try solution:
+\[
+X_t = vb^t.
+\]
+
+Plug in:
+\[
+vb^{t+1}=A(vb^t)
+\quad\Rightarrow\quad
+bv=Av.
+\]
+
+Here $b$ is an eigenvalue of $A$, with eigenvector $v$.
+
+A nonzero $v$ exists iff
+\[
+\det(A-bI)=0.
+\]
+
+\subsection*{11. Characteristic equation}
+
+Characteristic equation:
+\[
+p(b)=|A-bI|=0.
+\]
+
+For a $2\times 2$ matrix:
+\[
+p(b)=b^2-Tb+D=0,
+\]
+where
+\[
+T=\mathrm{trace}(A),\qquad D=\det(A).
+\]
+
+Also,
+\[
+T=b_1+b_2,\qquad D=b_1b_2,
+\]
+so
+\[
+p(b)=b^2-(b_1+b_2)b+b_1b_2=(b-b_1)(b-b_2).
+\]
+
+Eigenvalues are the solution of the characteristic equation: $b_1,b_2$.
+
+Back to the example, since
+\[
+A=
+\begin{pmatrix}
+-a_1 & -a_2\\
+1 & 0
+\end{pmatrix},
+\]
+we have
+\[
+T=\mathrm{tr}(A)=-a_1,
+\qquad
+D=\det(A)=a_2.
+\]
+
+Thus characteristic equation:
+\[
+b^2+a_1b+a_2=0.
+\]
+
+Eigenvalues:
+\[
+\frac{-a_1\pm \sqrt{a_1^2-4a_2}}{2},
+\qquad \text{if } a_1^2>4a_2.
+\]
+
+\subsection*{12. Stability triangle on the $(T,D)$ plane}
+
+\begin{enumerate}[label=\arabic*$^\circ$]
+    \item
+    \[
+    \Delta=T^2-4D.
+    \]
+    \[
+    \begin{cases}
+    \Delta<0: & \text{complex roots } \Rightarrow \text{above red curve},\\
+    \Delta>0: & \text{real roots } \Rightarrow \text{below red curve}.
+    \end{cases}
+    \]
+
+    \item
+    \[
+    p(1)=0,\quad p(-1)=0
+    \]
+    are the black curves.
+
+    \[
+    p(1)=1-T+D,
+    \qquad
+    \text{right to } p(1)=0 \Rightarrow p(1)<0.
+    \]
+
+    \[
+    p(-1)=1+T+D,
+    \qquad
+    \text{left to } p(-1)=0 \Rightarrow p(-1)<0.
+    \]
+
+    \item
+    \[
+    D=1 \text{ and } |b|=1 \text{ for complex roots}
+    \]
+    is the green curve.
+\end{enumerate}
+\begin{center}
+    \IfFileExists{\ProjectRoot/_assets/figures/T-D plane.png}{%
+        \includegraphics[width=0.5\linewidth]{T-D plane.png}%
+    }{%
+        \fbox{\texttt{missing figure: T-D plane.png}}%
+    }
+\end{center}
+Why $D$ controls $|b|$ in complex case?
+
+If roots are complex conjugates
+\[
+b_{1,2}=re^{\pm i\theta}
+\quad\Rightarrow\quad
+D=b_1b_2=r^2
+\quad\Rightarrow\quad
+r=\sqrt D.
+\]
+
+Stable ($r<1$) implies
+\[
+D<1.
+\]
+
+Thus, above green curve $|b|>1$, below green curve $|b|<1$.
+
+\textcolor{red}{
+* Conditions for two stable roots (both inside unit circle)
+}
+
+\[
+D<1
+\quad\text{and}\quad
+p(1)>0
+\quad\text{and}\quad
+p(-1)>0
+\]
+\[
+\Rightarrow\quad
+D<1,\quad
+1-T+D>0,\quad
+1+T+D>0
+\]
+\[
+\Rightarrow\quad
+D<1
+\quad\text{and}\quad
+|T|<1+D.
+\]
+
+\[
+\begin{cases}
+\text{complex roots with modulus（模） }<1, & \text{if }\Delta<0 \ (T^2<4D),\\
+\text{real roots both between }-1\text{ and }1, & \text{if }\Delta>0 \ (T^2>4D).
+\end{cases}
+\]
+
+\textcolor{red}{
+* Conditions for one stable root and one unstable root.
+}
+
+\[
+p(1)<0 \ \&\ p(-1)>0
+\qquad \text{or} \qquad
+p(1)>0 \ \&\ p(-1)<0.
+\]
+
+That is,
+\[
+\begin{cases}
+1-T+D<0,\\
+1+T+D>0,
+\end{cases}
+\qquad \text{or} \qquad
+\begin{cases}
+1-T+D>0,\\
+1+T+D<0.
+\end{cases}
+\]
+
+Thus,
+\[
+|T|>|1+D|.
+\]
+
+\[
+p(1)\ \&\ p(-1)
+\text{ has opposite signs }
+\Rightarrow
+\text{There is a root in the interval }(-1,1).
+\]
+
+Since
+\[
+p(1)<0,\ p(b)\to +\infty \text{ as } b\to +\infty
+\]
+or
+\[
+p(-1)<0,\ p(b)\to +\infty \text{ as } b\to -\infty,
+\]
+there is another root outside the interval $[-1,1]$.
+
+\textcolor{red}{
+* Conditions for explosive and unstable roots (both roots outside unit circle or complex with modulus $>1$)
+}
+
+Four cases:
+\begin{enumerate}[label=\arabic*$^\circ$]
+    \item $p(1)<0,\ p(-1)<0,\ D<0,\ |T|>1$
+    \item $p(1)>0,\ p(-1)>0,\ D>1,\ T<-2$
+    \item $\Delta<0$ and $D>1$
+    \item $p(1)>0,\ p(-1)>0,\ D>1,\ T>2$
+\end{enumerate}
+
+\subsection*{\textcolor{red}{13. Region-by-region summary}}
+
+\[
+\begin{array}{|c|c|c|}
+\hline
+\text{Region} & \text{Conditions} & \text{Roots} \\
+\hline
+1 & p(1)<0 \ \&\ p(-1)>0 &
+\text{saddle: }
+\begin{cases}
+1 \text{ stable root in }(-1,1),\\
+1 \text{ unstable root in }(1,+\infty)
+\end{cases}
+\\
+\hline
+2 & p(1)<0 \ \&\ p(-1)<0 &
+\text{explosive: }
+\begin{cases}
+1 \text{ unstable root in }(1,+\infty),\\
+1 \text{ unstable root in }(-\infty,-1)
+\end{cases}
+\\
+\hline
+3 & p(1)>0 \ \&\ p(-1)<0 &
+\text{saddle: }
+\begin{cases}
+1 \text{ stable root in }(-1,1),\\
+1 \text{ unstable root in }(-\infty,-1)
+\end{cases}
+\\
+\hline
+4 &
+\begin{array}{c}
+p(1)>0 \ \&\ p(-1)>0 \ \& \\
+\Delta>0 \ \&\ D>1 \ (T<-2)
+\end{array}
+&
+\text{explosive: 2 real unstable roots in }(-\infty,-1)
+\\
+\hline
+5 &
+\begin{array}{c}
+p(1)>0 \ \&\ p(-1)>0 \ \& \\
+\Delta<0 \ \&\ D>1
+\end{array}
+&
+\begin{array}{c}
+\text{explosive: complex conjugates with} \\
+\text{modulus } r=\sqrt D>1,\ \text{oscillates \& diverges}
+\end{array}
+\\
+\hline
+6 &
+\begin{array}{c}
+p(1)>0 \ \&\ p(-1)>0 \ \& \\
+\Delta<0 \ \&\ D<1 \ (-2<T<2)
+\end{array}
+&
+\begin{array}{c}
+\text{stable: complex conjugates with} \\
+\text{modulus } r=\sqrt D<1,\ \text{oscillates \& converges}
+\end{array}
+\\
+\hline
+7 &
+\begin{array}{c}
+\Delta>0 \ \&\ D<1 \ \&\ p(1)>0 \ \&\ p(-1)>0
+\end{array}
+&
+\begin{array}{c}
+\text{stable: 2 real roots } |b_1|<1,\ |b_2|<1
+\end{array}
+\\
+\hline
+7a &
+D>0 \ \&\ T<0 &
+\begin{array}{c}
+-1<b_2\le b_1<0 \\
+\text{\small (same sign, and }T=b_1+b_2\text{ negative)} \\
+\text{\small decay but can flip sign}
+\end{array}
+\\
+\hline
+7b &
+D<0 &
+\begin{array}{c}
+-1<b_2<0<b_1<1 \\
+\text{\small (opposite sign, }D=b_1b_2)
+\text{\small decay but can flip sign}
+\end{array}
+\\
+\hline
+7c &
+D>0 \ \&\ T>0 &
+\begin{array}{c}
+0<b_2\le b_1<1 \\
+\text{\small (same sign, and }T=b_1+b_2\text{ positive)} \\
+\text{\small monotone converge}
+\end{array}
+\\
+\hline
+8 &
+\begin{array}{c}
+\Delta>0,\ D>1,\ T>2 \\
+p(1)>0,\ p(-1)>0
+\end{array}
+&
+\begin{array}{c}
+\text{explosive: 2 real roots} \\
+b_1>1,\ b_2>1
+\end{array}
+\\
+\hline
+\end{array}
+\]
+
+\subsection*{14. Blanchard and Kahn (BK) conditions}
+
+Predetermined variable: initial value is given, states like $k,h,b$ {\small\textcolor{black}{(i.e.\ capital, hour, bond)}}.
+
+Jump variable: initial value not given, can jump to satisfy equilibrium, like $c,p$.
+
+\[
+\text{Stable roots} = \#\text{ predetermined variables}
+\Rightarrow
+\text{Saddle path (Determinacy)}
+\]
+
+\[
+\text{Stable roots} < \#\text{ predetermined variables}
+\Rightarrow
+\text{Source (Explosive, no convergent equilibrium)}
+\]
+
+\[
+\text{Stable roots} > \#\text{ predetermined variables}
+\Rightarrow
+\text{Sink (Indeterminacy)}
+\]
+
+\subsection*{15. Why?}
+
+Linearize around steady state, we write deviations as a first-order system:
+\[
+X_{t+1}=AX_t.
+\]
+
+If $A$ has eigenpairs $(b_i,v_i)$, the general solution can be written as sum of modes:
+\[
+X_t=\sum_i \alpha_i b_i^t v_i.
+\]
+
+If
+\[
+|b_i|<1,
+\]
+mode dies out $\Rightarrow$ stable.
+
+If
+\[
+|b_i|>1,
+\]
+mode blows up $\Rightarrow$ unstable / explosive.
+
+\[
+\text{A convergent equilibrium path must impose: }
+\alpha_i=0
+\quad\text{for every } |b_i|>1,
+\]
+which is a set of restrictions, one restriction per unstable root.
+
+Now partition variables into
+\[
+\{\text{predetermined states } s_t \ (\text{given } s_0)\ \text{with dimension } n_s,
+\]
+\[
+\text{jump variables } j_t \ (\text{free } j_0)\ \text{with dimension } n_j\}.
+\]
+
+\[
+X_t=(s_t,j_t).
+\]
+
+Initial conditions pin down $s_0$, but can choose $j_0$.
+
+Let
+\[
+n_u=\#\text{ unstable roots},
+\qquad
+n_\ell=\#\text{ stable roots}.
+\]
+
+\[
+n_u+n_\ell=n_s+n_j.
+\]
+
+To satisfy $n_u$ restrictions, we have $n_j$ free choices to satisfy them. Thus
+\[
+n_u=n_j
+\qquad\Longleftrightarrow\qquad
+n_\ell=n_s.
+\]
+
+\paragraph{Case A}
+\[
+n_\ell=n_s \quad (n_u=n_j):
+\]
+jump variables jump to land on saddle path.
+
+\paragraph{Case B}
+\[
+n_\ell<n_s \quad (n_u>n_j):
+\]
+too many unstable modes to eliminate, but too few jump variables to adjust.
+
+\paragraph{Case C}
+\[
+n_\ell>n_s \quad (n_u<n_j):
+\]
+more jump freedom needed to kill unstable modes (multiple equilibria)
+
+\ThisNoteEnd

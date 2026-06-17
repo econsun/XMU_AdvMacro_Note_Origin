@@ -1,0 +1,1428 @@
+% !TeX root = Lec10_NK_Choice.tex
+
+\ifdefined\AdvMacroMain
+  \chapter{Lecture 10: Discretion vs. Commitment}
+  \let\ThisNoteEnd\relax
+\else
+  \documentclass[12pt]{ctexart}
+  \newcommand{\ProjectRoot}{..}
+  \input{\ProjectRoot/_config/config}
+  \title{Lecture 10: Discretion vs. Commitment}
+  \author{Chengyuan He}
+  \date{June 2026}
+  \begin{document}
+  \maketitle
+  \def\ThisNoteEnd{\end{document}}
+\fi
+
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+\textbf{Myopic optimiser} & \textbf{Dynamic optimiser} \\
+Optimize period by period. & Optimize the sum of present and future utilities. \\
+\purple{discretion: period-by-period optimisation without committing to future actions.} &
+\purple{commitment: central bank can credibly announce and follow a future path. Backward induction.}
+\end{tabularx}
+
+\par\smallskip
+Recap: Optimal Monetary Policy is strict inflation targeting.
+\[
+\hat\pi_t=0
+\Rightarrow
+\hat y_t=\hat y_t^{\,n}=\hat y_t^{\,e}.
+\]
+However, possible and optimal but not feasible
+\red{since central bank can not fully stabilize inflation.}
+
+\red{Facing short-run tradeoff due to supply shock.}
+
+\section*{NK with imperfection at the supply side}
+
+Under flexible price:
+\[
+y_t^{\,n}\neq y_t^{\,e}
+\qquad
+(\text{natural output} \neq \text{efficient output})
+\Rightarrow
+\text{short-run tradeoff between quantity and prices.}
+\]
+\purple{Move oppositely facing supply shock.}
+
+Assume at steady state, the inefficiency associated with the flexible price is not there:
+\[
+\bar y=\bar y^{\,n}=\bar y^{\,e},
+\]
+while exists short-run deviations:
+\[
+\hat y_t\ne \hat y_t^{\,n}\ne \hat y_t^{\,e}.
+\]
+
+Welfare losses are:
+\[
+E_0\sum_{t=0}^{\infty}\beta^t
+\left(\hat\pi_t^2+\alpha_x\hat x_t^2\right).
+\]
+
+Define welfare relevant output gap as
+\begin{align*}
+\hat x_t
+&=\hat y_t-\hat y_t^{\,e}
+=\log y_t-\log\bar y-\bigl(\log y_t^{\,e}-\log\bar y^{\,e}\bigr)
+=\log y_t-\log y_t^{\,e},\\
+\hat\pi_t&=\log P_t-\log P_{t-1},
+\qquad
+\alpha_x=\frac{\kappa}{\varepsilon}.
+\end{align*}
+
+\[
+\left.
+\begin{aligned}
+\tilde y_t
+&=\hat y_t-\hat y_t^{\,n}
+=\hat x_t+(\hat y_t^{\,e}-\hat y_t^{\,n}),\\
+\hat\pi_t
+&=\beta E_t\{\hat\pi_{t+1}\}+\kappa\tilde y_t
+\end{aligned}
+\right\}
+\Rightarrow
+\hat\pi_t
+=\beta E_t\{\hat\pi_{t+1}\}+\kappa\hat x_t+u_t,
+\]
+where
+\[
+v_t=\beta E_t\{\hat\pi_{t+1}\}+u_t.
+\]
+\par\vspace{0.3em}
+\noindent
+\begin{itemize}
+    \item $E_t\{\hat\pi_{t+1}\}$: taken as given when choosing current-period policy.
+    \item $u_t$: exogenous cost-push shock.
+\end{itemize}
+
+\noindent
+A nonzero $u_t$ makes it impossible to attain simultaneously zero inflation and an efficient level of output. 
+For example, $u_t$ may come from exogenous changes in desired wage markups, price markups, labor income taxes, minimum wages, etc.
+
+Assume $u_t$ follows:
+\[
+u_t=\rho_u u_{t-1}+\varepsilon_t^{u},
+\qquad \rho_u\in[0,1).
+\]
+\[
+\begin{array}{ll}
+\text{NKPC:}
+&
+\hat\pi_t
+=
+\beta E_t\{\hat\pi_{t+1}\}
++\kappa\hat x_t
++u_t,
+\\[0.7em]
+\text{DIS:}
+&
+\hat x_t
+=
+-\dfrac{1}{\sigma}
+\left(
+\hat i_t
+-
+E_t\{\hat\pi_{t+1}\}
+-
+\hat r_t^{\,e}
+\right)
++
+E_t\{\hat x_{t+1}\}.
+\end{array}
+\]
+
+\[
+\hat r_t^{\,e}
+\text{ is the efficient real interest rate that supports the efficient allocation.}
+\]
+
+\section*{Optimal Policy under discretion (period-by-period optimization)}
+
+\[
+\min_{\hat x_t,\hat\pi_t}\quad \hat\pi_t^2+\alpha_x\hat x_t^2
+\qquad
+\text{s.t.}\quad
+\hat\pi_t=\kappa\hat x_t+v_t,
+\]
+where
+\[
+v_t=\beta E_t\{\hat\pi_{t+1}\}+u_t.
+\]
+
+\noindent
+$E_t\{\hat\pi_{t+1}\}$: independent of current policy; \quad
+$u_t$: exogenous.
+
+\[
+\mathcal L
+=\hat\pi_t^2+\alpha_x\hat x_t^2
+-\lambda(\hat\pi_t-\kappa\hat x_t-v_t).
+\]
+\begin{align*}
+\frac{\partial\mathcal L}{\partial \hat\pi_t}=0
+&\Rightarrow 2\hat\pi_t=\lambda,\\
+\frac{\partial\mathcal L}{\partial \hat x_t}=0
+&\Rightarrow 2\alpha_x\hat x_t=-\lambda\kappa
+\Rightarrow
+\hat x_t=-\frac{\kappa}{\alpha_x}\hat\pi_t,
+\qquad \forall t
+\quad \red{\text{targeting rule}.}
+\end{align*}
+
+To dampen the rise in inflation due to cost-push shock,
+\[
+\hat x_t<0
+\Rightarrow
+\hat y_t<\hat y_t^{\,e}.
+\]
+\[
+\Rightarrow
+\text{drive output below efficiency level; negative output gap }\Rightarrow\text{ policy trade-off.}
+\]
+
+Plug into NKPC:
+\begin{align*}
+\hat\pi_t
+&=\beta E_t\{\hat\pi_{t+1}\}+\kappa\hat x_t+u_t
+=\beta E_t\{\hat\pi_{t+1}\}-\frac{\kappa^2}{\alpha_x}\hat\pi_t+u_t,\\
+\Rightarrow\quad
+\hat\pi_t
+&=\frac{\alpha_x\beta}{\alpha_x+\kappa^2}E_t\{\hat\pi_{t+1}\}
++\frac{\alpha_x}{\alpha_x+\kappa^2}u_t.
+\end{align*}
+
+Iterate forward:
+\[
+\left\{
+\begin{aligned}
+\hat\pi_t&=\alpha_x\psi u_t,\\
+\hat x_t&=-\kappa\psi u_t,
+\end{aligned}
+\right.
+\qquad
+\psi=\frac{1}{\kappa^2+\alpha_x(1-\beta\rho_u)}.
+\]
+
+Central bank lets output gap and inflation deviate from targets in proportion to the current value of the cost-push shock:
+\[
+\hat\pi_t=\alpha_x\psi u_t,
+\qquad
+\hat x_t=-\kappa\psi u_t.
+\]
+
+\[
+{\color{noteRed}
+\psi_{0.5}
+=
+\frac{1}{\kappa^2+\alpha_x\left(1-\frac{\beta}{2}\right)}
+>
+\psi_0
+=
+\frac{1}{\kappa^2+\alpha_x}.
+}
+\]
+
+\purple{Optimal to partly accommodate inflation pressure from the cost-push shock by letting inflation rise.}
+
+Without any policy response, $\kappa=0$:
+\[
+\hat\pi_t=\beta E_t\{\hat\pi_{t+1}\}+u_t.
+\]
+Guess $\hat\pi_t=Au_t$ and $E_tu_{t+1}=\rho_u u_t$:
+\[
+Au_t=\beta A\rho_u u_t+u_t
+\Rightarrow
+A=\frac{1}{1-\beta\rho_u}.
+\]
+Without output gap response:
+\[
+\hat\pi_t=\frac{1}{1-\beta\rho_u}u_t
+>
+\frac{\alpha_x}{\kappa^2+\alpha_x({1-\beta\rho_u})}u_t.
+\]
+\[
+\begin{aligned}
+\hat x_t
+&=
+-\kappa\psi u_t
+\Rightarrow
+\kappa\hat x_t
+=
+-\kappa^2\psi u_t<0
+\quad \text{when }u_t>0,\\
+\hat\pi_t
+&=
+\beta E_t\hat\pi_{t+1}
+\boxed{-\kappa^2\psi u_t}
++
+u_t.
+\end{aligned}
+\]
+
+\par\smallskip
+\noindent
+\purple{$u_t$ pushes inflation up --- direct effect.}
+
+\noindent
+\purple{Induced recessionary output gap pushes inflation down.}
+
+\noindent
+Using
+\[
+E_t\{\hat\pi_{t+1}\}=\alpha_x\psi\rho_u u_t,
+\]
+\[
+\hat\pi_t
+=\left[\beta\alpha_x\psi\rho_u-\kappa^2\psi+1\right]u_t
+=\alpha_x\psi u_t.
+\]
+\[
+\hat\pi_t=\hat p_t-\hat p_{t-1}
+\Rightarrow
+\hat p_t=\hat p_{t-1}+\sum_{j=0}^{t}\hat\pi_j.
+\]
+
+\[
+\text{Since } \hat\pi_j=\alpha_x\psi u_j,
+\quad
+\text{and } u_j\to0 \text{ as } j\to\infty,
+\Rightarrow
+\hat\pi_j\to0 \text{ as } j\to\infty.
+\]
+
+\[
+\Rightarrow
+\lim_{t\to\infty}\hat p_t
+=
+\hat p_{-1}
++
+\sum_{j=0}^{\infty}\hat\pi_j
+>
+\hat p_{-1},
+\qquad
+\purple{\underline{\text{level price stay permanently higher.}}}
+\]
+
+\section*{Optimal discretionary policy implementation}
+
+\[
+\hat\pi_t=\alpha_x\psi u_t,
+\qquad
+\hat x_t=-\kappa\psi u_t.
+\tag{Target rule}
+\]
+\[
+\hat x_t=-\frac{1}{\sigma}\left(\hat i_t-E_t\{\hat\pi_{t+1}\}-\hat r_t^{\,e}\right)+E_t\{\hat x_{t+1}\}.
+\]
+Plug in:
+\begin{align*}
+-\kappa\psi u_t
+&=
+-\frac{1}{\sigma}
+\left(\hat i_t-\alpha_x\psi\rho_u u_t-\hat r_t^{\,e}\right)
+-\kappa\psi\rho_u u_t,\\
+\Rightarrow\quad
+\hat i_t
+&=
+\underbrace{\hat r_t^{\,e}}_{\text{efficiency rate}}
++
+\underbrace{\psi_i u_t}_{\text{response from cost-push shock}},
+\qquad
+\psi_i=\psi\left[\kappa\sigma(1-\rho_u)+\alpha_x\rho_u\right].
+\end{align*}
+\purple{$\kappa\sigma(1-\rho_u)$: need to affect current output gap through IS curve.}\
+\purple{$\alpha_x\rho_u$: forward-looking part.}
+
+\red{$u_t\uparrow$ cost-push shock $\Rightarrow$ inflation $\hat\pi_t\uparrow$ $\Rightarrow$ cool demand through $\hat i_t\uparrow>\hat r_t^{\,e}$ $\Rightarrow$ $\hat x_t\downarrow$ $\Rightarrow$ $\hat\pi_t\downarrow$.}\qquad
+But output losses are costly $\Rightarrow$ only fights $\hat\pi_t\uparrow$ partially.
+\newpage
+\subsection*{DIS}
+
+\[
+\hat x_t
+=
+-\frac{1}{\sigma}
+\left(
+\hat i_t
+-
+E_t\{\hat\pi_{t+1}\}
+-
+\hat r_t^{\,e}
+\right)
++
+E_t\{\hat x_{t+1}\}.
+\]
+Calculation:
+\[
+C_t^{-\sigma}
+=
+\beta(1+i_t)E_t
+\left[
+\frac{C_{t+1}^{-\sigma}}{1+\pi_{t+1}}
+\right].
+\]
+
+At steady state, $\beta(1+\bar i)=1$ and $\bar\pi=0$:
+
+\[
+1=\beta(1+\bar r),
+\qquad
+1+\bar r=\frac{1}{\beta},
+\qquad
+\rho=-\log\beta
+\qquad 
+{\color{red!50!black}
+\rho:\ \text{steady-state real rate.}
+}
+\]
+
+Log-linearization:
+
+\[
+\hat c_t
+=
+E_t\{\hat c_{t+1}\}
+-
+\frac{1}{\sigma}
+\left[
+\hat i_t
+-
+E_t\{\hat\pi_{t+1}\}
+\right],
+\]
+
+\[
+\hat y_t
+=
+-\frac{1}{\sigma}
+\left[
+\hat i_t
+-
+E_t\{\hat\pi_{t+1}\}
+\right]
++
+E_t\{\hat y_{t+1}\}.
+\]
+
+
+\[
+\hat x_t+\hat y_t^{\,e}
+=
+-\frac{1}{\sigma}
+\left[
+\hat i_t
+-
+E_t\{\hat\pi_{t+1}\}
+\right]
++
+E_t\{\hat x_{t+1}\}
++
+E_t\{\hat y_{t+1}^{\,e}\},
+\]
+
+\[
+\hat x_t
+=
+-\frac{1}{\sigma}
+\left[
+\hat i_t
+-
+E_t\{\hat\pi_{t+1}\}
+-
+\sigma E_t\{\Delta\hat y_{t+1}^{\,e}\}
+\right]
++
+E_t\{\hat x_{t+1}\},
+\]
+
+\[
+\hat x_t
+=
+-\frac{1}{\sigma}
+\left[
+\hat i_t
+-
+E_t\{\hat\pi_{t+1}\}
+-
+\hat r_t^{\,e}
+\right]
++
+E_t\{\hat x_{t+1}\}
+\qquad
+\text{where }
+\hat r_t^{\,e}
+=
+\sigma E_t\{\Delta\hat y_{t+1}^{\,e}\}.
+\]
+
+
+Consider an inflation targeting rule:
+\[
+\hat i_t=\hat r_t^{\,e}+\phi_\pi\hat\pi_t,
+\qquad
+\phi_\pi=(1-\rho_u)\frac{\kappa\sigma}{\alpha_x}+\rho_u.
+\]
+\[
+\begin{array}{@{}l@{\qquad}l@{}}
+\hat i_t=\hat r_t^{\,e}+\psi_i u_t,
+&
+\hat\pi_t=\alpha_x\psi u_t
+\Rightarrow
+u_t=\dfrac{\hat\pi_t}{\alpha_x\psi}
+\\[0.25em]
+&
+\Rightarrow
+\hat i_t
+=
+\hat r_t^{\,e}
++
+\dfrac{\psi_i}{\alpha_x\psi}\hat\pi_t.
+\end{array}
+\]
+\[
+\frac{\psi_i}{\alpha_x\psi}
+=\frac{\kappa\sigma(1-\rho_u)+\alpha_x\rho_u}{\alpha_x}
+=(1-\rho_u)\frac{\kappa\sigma}{\alpha_x}+\rho_u
+=\phi_\pi.
+\]
+
+Since a determinate equilibrium exists iff $\phi_\pi>1$:
+\[
+\phi_\pi>1
+\Rightarrow
+\frac{\kappa\sigma}{\alpha_x}>1
+\quad \text{may not be satisfied.}
+\]
+
+A rule that decentralizes the desired discretionary equilibrium:
+\begin{align*}
+\hat i_t
+&=\hat r_t^{\,e}+\psi_i u_t+\phi_\pi(\hat\pi_t-\alpha_x\psi u_t)\\
+\tag{Instrument rule}
+&=\hat r_t^{\,e}+\Theta_i u_t+\phi_\pi\hat\pi_t,
+\end{align*}
+where
+\[
+\Theta_i=\psi\left[\kappa\sigma(1-\rho_u)-\alpha_x(\phi_\pi-\rho_u)\right].
+\]
+Now we have a unique equilibrium, and it is the desired discretionary equilibrium.
+
+\begin{enumerate}
+  \item Under desired equilibrium:
+  \[
+  \hat\pi_t=\alpha_x\psi u_t,
+  \qquad
+  \hat i_t=\hat r_t^{\,e}+\psi_i u_t.
+  \]
+  \blue{We do not change the intended discretionary allocation.}
+  \item Central bank reacts more aggressively:
+  \[
+  \hat i_t\uparrow\quad \text{when}\quad \hat\pi_t>\alpha_x\psi u_t.
+  \]
+  If $\phi_\pi>1$, nominal rate rises more than one-for-one with inflation deviations; real rate rises, demand falls, inflation falls, eliminating self-fulfilling inflation paths.
+\end{enumerate}
+
+\[
+\begin{aligned}
+\purple{\text{Target rule:}}\quad
+&\purple{\text{tell central bank the relationship between target variables to achieve.}}\\
+\purple{\text{E.g.}}\quad
+&\hat x_t=-\frac{\kappa}{\alpha_x}\hat\pi_t,
+\qquad
+\purple{\text{This tells tradeoff, but still infeasible, since } y_t^e \text{ is unobservable.}}
+\end{aligned}
+\]
+
+\[
+\begin{aligned}
+\purple{\text{Instrument rule:}}\quad
+&\purple{\text{tell central bank how to set its instrument.}}\\
+\purple{\text{E.g.}}\quad
+&\hat i_t=\hat r_t^{\,e}+\Theta_i u_t+\phi_\pi\hat\pi_t,
+\qquad
+\purple{\hat r_t^{\,e} \text{ and } u_t \text{ are hard to observe and measure.}}
+\end{aligned}
+\]
+\section*{Optimal Policy under commitment}
+
+Central bank able to commit with full credibility to a policy plan.
+\[
+\min_{\{\hat x_t,\hat\pi_t\}_{t=0}^{\infty}}
+\frac12 E_0\sum_{t=0}^{\infty}\beta^t
+\left(\hat\pi_t^2+\alpha_x\hat x_t^2\right)
+\]
+\[
+\text{s.t.}\quad
+\hat\pi_t=\beta E_t\{\hat\pi_{t+1}\}+\kappa\hat x_t+u_t,
+\qquad
+u_t=\rho_u u_{t-1}+\varepsilon_t^u.
+\]
+
+\[
+\mathcal L
+=E_0\sum_{t=0}^{\infty}\beta^t
+\left[\frac12(\hat\pi_t^2+\alpha_x\hat x_t^2)
++\gamma_t(\hat\pi_t-\kappa\hat x_t-\beta E_t\{\hat\pi_{t+1}\}-u_t)
+\right].
+\]
+
+F.O.C.:
+\begin{align*}
+\frac{\partial\mathcal L}{\partial \hat\pi_t}=0
+&\Rightarrow
+\hat\pi_t+\gamma_t-\gamma_{t-1}=0,
+\qquad \gamma_{-1}=0,\\
+\frac{\partial\mathcal L}{\partial \hat x_t}=0
+&\Rightarrow
+\alpha_x\hat x_t-\kappa\gamma_t=0
+\Rightarrow
+\gamma_t=\frac{\alpha_x}{\kappa}\hat x_t,
+\qquad \forall t.
+\end{align*}
+\purple{Constraint in period $-1$ not effective for optimal plan in period $0$.}
+\[
+\Rightarrow
+\left\{
+\begin{aligned}
+\hat x_0
+&=
+-\frac{\kappa}{\alpha_x}\hat\pi_0,\\
+\hat x_t
+&=
+\hat x_{t-1}
+-
+\frac{\kappa}{\alpha_x}\hat\pi_t,
+\qquad t\ge 1.
+\end{aligned}
+\right.
+\qquad
+\purple{(*)}
+\Rightarrow
+\hat x_t
+=
+-\frac{\kappa}{\alpha_x}\check p_t.
+\]
+
+\[
+\begin{aligned}
+\hat x_1
+&=
+\hat x_0-\frac{\kappa}{\alpha_x}\hat\pi_1
+=
+-\frac{\kappa}{\alpha_x}
+\left(
+\hat\pi_0+\hat\pi_1
+\right),
+\\
+\hat x_2
+&=
+\hat x_1-\frac{\kappa}{\alpha_x}\hat\pi_2
+=
+-\frac{\kappa}{\alpha_x}
+\left(
+\hat\pi_0+\hat\pi_1+\hat\pi_2
+\right).
+\end{aligned}
+\]
+
+\[
+\Rightarrow
+\hat x_t
+=
+-\frac{\kappa}{\alpha_x}
+\sum_{s=0}^{t}\hat\pi_s.
+\]
+
+\[
+\because
+\quad
+\hat\pi_s=\log P_s-\log P_{s-1},
+\qquad
+\sum_{s=0}^{t}\hat\pi_s
+=
+\sum_{s=0}^{t}
+\left(
+\log P_s-\log P_{s-1}
+\right)
+=
+\log P_t-\log P_{-1}.
+\]
+
+
+\[
+\quad\Rightarrow\quad
+\hat x_t
+=
+-\frac{\kappa}{\alpha_x}\check p_t.
+\qquad
+\check p_t=\log P_t-\log P_{-1},
+\qquad
+\purple{\check p_t:\ \text{price-level targeting.}}
+\]
+
+While under discretion, we have purely static:
+\(\hat x_t=-\dfrac{\kappa}{\alpha_x}\hat\pi_t\).
+
+
+\noindent
+Now today's policy depends on past policy through $\hat x_{t-1}$: history dependent policy making.
+
+Then
+\begin{align*}
+\hat\pi_t&=\beta E_t\{\hat\pi_{t+1}\}+\kappa\hat x_t+u_t,\\
+\check p_t-\check p_{t-1}
+&=\beta E_t\{\check p_{t+1}-\check p_t\}-\frac{\kappa^2}{\alpha_x}\check p_t+u_t,\\
+\left(1+\beta+\frac{\kappa^2}{\alpha_x}\right)\check p_t
+&=\beta E_t\{\check p_{t+1}\}+\check p_{t-1}+u_t.
+\end{align*}
+Let
+\[
+a=\frac{\alpha_x}{(1+\beta)\alpha_x+\kappa^2}.
+\]
+Then
+\[
+\check p_t=a\check p_{t-1}+a\beta E_t\{\check p_{t+1}\}+au_t.
+\qquad \forall t
+\]
+Assume
+\begin{align*}
+\check p_t
+&=\delta\check p_{t-1}+\eta u_t,
+\qquad \text{undetermined coefficients.}\\
+\check p_t
+&=\frac{a}{\delta}(\check p_t-\eta u_t)
++a\beta\delta\check p_t
++a\beta\eta\rho_u u_t
++a u_t,\\
+\left(1-\frac{a}{\delta}-a\beta\delta\right)\check p_t
+&+
+\left(\frac{a\eta}{\delta}-a\beta\eta\rho_u-a\right)u_t
+=0.
+\end{align*}
+\[
+\left\{
+\begin{aligned}
+1-\frac{a}{\delta}-a\beta\delta&=0,\\
+\frac{a}{\delta}\eta-a\beta\eta\rho_u-a&=0,
+\end{aligned}
+\right.
+\Rightarrow
+\left\{
+\begin{aligned}
+\delta&=\frac{1-\sqrt{1-4\beta a^2}}{2\beta a}\in(0,1),\\
+\eta&=\frac{\delta}{1-\delta\beta\rho_u}.
+\end{aligned}
+\right.
+\]
+Thus
+\[
+\check p_t=\delta\check p_{t-1}+\frac{\delta}{1-\delta\beta\rho_u}u_t,
+\]
+where
+\[
+\delta=\frac{1-\sqrt{1-4\beta a^2}}{2\beta a}\in(0,1).
+\]
+\[
+\hat x_t=-\frac{\kappa}{\alpha_x}\check p_t
+\Rightarrow
+\hat x_t=\delta\hat x_{t-1}-\frac{\kappa\delta}{\alpha_x(1-\delta\beta\rho_u)}u_t.
+\tag{**}
+\]
+
+
+\[
+\hat x_0
+=
+-\frac{\kappa\delta}{\alpha_x(1-\delta\beta\rho_u)}u_0.
+\]
+\[
+\hat\pi_t=\kappa\hat x_t+\kappa\sum_{k=1}^{\infty}\beta^{k-1}E_t\{\hat x_{t+k}\}+u_t.
+\]
+\purple{In response to $u_t$, central bank may lower future output gap with credible promises. Given $\hat x_t$, current $\hat\pi_t$ may decline less.}\
+\purple{Since cost function is convex, damping of deviations in period of shock improves welfare.}
+\\[1em]
+Assume transitory shock $(\rho_u=0)$:
+\begin{align*}
+DIS:\hat x_t
+&=
+-\frac{1}{\sigma}
+\left(
+\hat i_t-E_t\{\hat\pi_{t+1}\}-\hat r_t^{\,e}
+\right)
++
+E_t\{\hat x_{t+1}\}
+\\
+\Rightarrow\quad
+\hat i_t
+&=
+\hat r_t^{\,e}
++
+E_t\{\hat\pi_{t+1}\}
++
+\sigma\left[
+E_t\{\hat x_{t+1}\}-\hat x_t
+\right],
+\\[0.35em]
+\hat x_t
+&=
+-\frac{\kappa}{\alpha_x}\check p_t,
+\\
+E_t\{\hat x_{t+1}\}-\hat x_t
+&=
+-\frac{\kappa}{\alpha_x}
+\left(
+E_t\{\check p_{t+1}\}-\check p_t
+\right),
+\\
+E_t\{\hat\pi_{t+1}\}
+&=
+E_t\{\check p_{t+1}-\check p_t\},
+\\[0.35em]
+\Rightarrow\quad
+\hat i_t
+&=
+\hat r_t^{\,e}
++
+E_t\{\hat\pi_{t+1}\}
+-
+\sigma\frac{\kappa}{\alpha_x}E_t\{\hat\pi_{t+1}\},
+\\
+\Rightarrow\quad
+\hat i_t
+&=
+\hat r_t^{\,e}
++
+\left(
+1-\frac{\sigma\kappa}{\alpha_x}
+\right)
+E_t\{\hat\pi_{t+1}\}.
+\tag{1}
+\end{align*}
+Since $\check p_t=\delta\check p_{t-1}+\delta u_t$ when $\rho_u=0$,
+\[
+E_t\{\check p_{t+1}\}=\delta\check p_t,
+\qquad
+E_t\{\hat\pi_{t+1}\}=\delta\check p_t-\check p_t=-(1-\delta)\check p_t.
+\]
+Thus
+\[
+\hat i_t=\hat r_t^{\,e}-(1-\delta)\left(1-\frac{\sigma\kappa}{\alpha_x}\right)\check p_t
+\]
+Iterate backward:
+\[
+\check p_t=\delta u_t+\delta^2u_{t-1}+\cdots
+=\sum_{k=0}^{t}\delta^{k+1}u_{t-k}.
+\]
+
+\[
+\begin{aligned}
+\Rightarrow\quad
+\hat i_t
+&=
+\hat r_t^{\,e}
+-
+(1-\delta)
+\left(
+1-\frac{\sigma\kappa}{\alpha_x}
+\right)
+\sum_{k=0}^{t}
+\delta^{k+1}u_{t-k}.
+\end{aligned}
+\]
+
+\noindent
+\text{Equilibrium nominal rate consistent with optimal allocation.}
+
+\noindent
+To make an implementable rule that makes the allocation unique:
+
+\[
+\hat i_t
+=
+\hat r_t^{\,e}
+-
+\left[
+\phi_p
++
+(1-\delta)
+\left(
+1-\frac{\sigma\kappa}{\alpha_x}
+\right)
+\right]
+\sum_{k=0}^{t}\delta^{k+1}u_{t-k}
++
+\phi_p \check p_t,
+\qquad
+\red{\text{ensure determinacy, } \phi_p>0.}
+\]
+
+\[
+\Rightarrow
+\hat i_t
+=
+\hat r_t^{\,e}
+-
+(\phi_p+A)\check p_t
++
+\phi_p\check p_t,
+\qquad
+A=(1-\delta)\left(1-\frac{\sigma\kappa}{\alpha_x}\right).
+\]
+
+Along the intended equilibrium, the rule collapses back to
+\[
+\hat i_t^*=\hat r_t^{\,e^*}-(1-\delta)\left(1-\frac{\sigma\kappa}{\alpha_x}\right)\check p_t^*.
+\]
+Without a term with $\check p_t$, the rule does not actively push back against the deviation.
+
+Define deviation from the target equilibrium:
+\[
+\tilde p_t=\check p_t-\check p_t^*,
+\qquad
+\tilde x_t=\hat x_t-\hat x_t^*,
+\qquad
+\tilde\pi_t=\hat\pi_t-\hat\pi_t^*,
+\qquad
+\tilde i_t=\hat i_t-\hat i_t^*.
+\]
+
+\begin{flushleft}
+\[
+\left\{
+\begin{aligned}
+\text{DIS:}\quad
+\tilde x_t
+&=
+E_t\tilde x_{t+1}
+-
+\frac{1}{\sigma}
+\left(
+\phi_p\tilde p_t
+-
+E_t\tilde\pi_{t+1}
+\right),
+\\[0.4em]
+\text{NKPC:}\quad
+\tilde\pi_t
+&=
+\kappa\tilde x_t
++
+\beta E_t\tilde\pi_{t+1},
+\\[0.4em]
+\text{Price identity:}\quad
+\tilde\pi_t
+&=
+\tilde p_t-\tilde p_{t-1},
+\\[0.4em]
+\text{Guess:}\quad
+\tilde p_t
+&=
+\lambda\tilde p_{t-1}.
+\end{aligned}
+\right.
+\Longrightarrow
+\left\{
+\begin{alignedat}{2}
+\tilde x_t
+&=
+\frac{1+\phi_p-\lambda}{\sigma(\lambda-1)}
+\tilde p_t,
+&\qquad& \\[0.5em]
+\tilde x_t
+&=
+\frac{1}{\kappa}
+\left[
+(1+\beta)
+-
+\frac{1}{\lambda}
+-
+\beta\lambda
+\right]\tilde p_t,
+&\qquad& \\[0.5em]
+\tilde\pi_t
+&=
+\left(1-\frac{1}{\lambda}\right)\tilde p_t,E_t\tilde{\pi}_{t+1}
+=(\lambda-1)\tilde p_t
+&\qquad
+E_t\tilde\pi_{t+1}
+&=
+(\lambda-1)\tilde p_t,
+\\[0.5em]
+E_t\tilde x_{t+1}
+&=
+\frac{1}{\kappa}
+\left[
+(1+\beta)
+-
+\frac{1}{\lambda}
+-
+\beta\lambda
+\right]
+E_t\tilde p_{t+1}
+&\qquad& \\[-0.2em]
+&=
+\frac{1}{\kappa}
+\left[
+(1+\beta)
+-
+\frac{1}{\lambda}
+-
+\beta\lambda
+\right]
+\lambda\tilde p_t
+=
+\lambda\tilde x_t.
+&\qquad&
+\end{alignedat}
+\right.
+\]
+\end{flushleft}
+
+
+\begin{flushleft}
+Equating the two expressions for $\tilde x_t$:
+\[
+\frac{1+\phi_p-\lambda}{\sigma(\lambda-1)}
+=
+\frac{1}{\kappa}
+\left[
+(1+\beta)
+-
+\frac{1}{\lambda}
+-
+\beta\lambda
+\right].
+\]
+
+\[
+H(\lambda)
+\equiv
+\sigma(\lambda-1)^2(1-\beta\lambda)
+-
+\kappa\lambda(1+\phi_p-\lambda)
+=
+0.
+\]
+\end{flushleft}
+\begingroup
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
+\setlength{\jot}{2pt}
+
+\noindent
+When $\phi_p=0$:
+\[
+H(1)=0
+\rightarrow
+\tilde p_t=\tilde p_{t-1}
+\rightarrow
+\tilde p_t
+\text{ is constant and can hold at any level deviation.}
+\]
+\noindent
+When $\phi_p>0$:
+\[
+\begin{aligned}
+H(1)
+&=
+\sigma(1-1)^2(1-\beta)
+-
+\kappa(1+\phi_p-1)=
+-\kappa\phi_p
+<0
+\end{aligned}
+\rightarrow
+\lambda=1
+\text{ is not a root.}
+\]
+\noindent
+\begingroup
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
+\setlength{\jot}{2pt}
+\hspace*{2em}
+Proof that there are 1 stable root and 2 unstable roots which is what we want:
+\begin{enumerate}
+\item[(i)]
+For $\lambda\in(0,1)$,
+\[
+H(\lambda)=0
+\Longleftrightarrow
+\frac{\kappa}{\sigma}
+\frac{\lambda(1+\phi_p-\lambda)}
+{(1-\lambda)^2(1-\beta\lambda)}
+=
+1.
+\]
+Then
+\[
+LHS(0)=0,
+\qquad
+LHS(1)=+\infty
+\quad
+\Longrightarrow
+\quad
+\exists\ \lambda_1\in(0,1).
+\]
+
+\item[(ii)]
+For $\lambda\in(-\infty,0]$,
+\[
+(\lambda-1)^2>0,
+\qquad
+1-\beta\lambda>0,
+\qquad
+-\kappa\lambda(1+\phi_p-\lambda)\geq 0.
+\]
+\[
+H(\lambda)
+>0
+\quad
+\Longrightarrow
+\quad
+\text{there is no negative real root.}
+\]
+\end{enumerate}
+\endgroup
+\endgroup
+\begin{flushleft}
+Therefore, there are either two positive real roots or conjugate complex roots.
+
+\[
+\lambda_1\lambda_2\lambda_3
+=
+\frac{1}{\beta}
+>
+1
+\qquad
+\lambda_1\in(0,1)
+\Rightarrow
+\lambda_2\lambda_3
+=
+\frac{1}{\beta\lambda_1}
+>
+1.
+\]
+
+Thus the remaining roots are unstable:
+\[
+\begin{cases}
+|\lambda_2|=|\lambda_3|>1,
+& \text{if they are complex conjugate roots},
+\\[0.4em]
+\lambda_2>1,\ \lambda_3>1,
+& \text{if they are unstable real roots}.
+\end{cases}
+\]
+\end{flushleft}
+\medskip
+
+\noindent
+Economic intuition:
+
+\begin{enumerate}
+\item[(i)] $\phi_p>0$:
+\[
+\check p_t\uparrow
+\Longrightarrow
+\hat i_t\uparrow
+\Longrightarrow
+\text{reduced demand}
+\Longrightarrow
+\text{negative output gap}
+\xRightarrow{\text{NKPC}}
+\hat\pi_t\downarrow.
+\]
+
+Hence the belief that prices will drift up is no longer self-fulfilling; monetary policy offsets the deviation.
+
+\item[(ii)] $\phi_p=0$:
+
+The central bank does not react to the endogenous price-level drift,beliefs may survive as alternative equilibria.
+\end{enumerate}
+
+\newpage
+\section*{Distorted steady state}
+
+Permanent supply-side distortion:
+\[
+\bar y^{\,n}<\bar y^{\,e}.
+\]
+Real imperfections generate a permanent gap between natural and efficient levels of output:
+\[
+-\frac{U_N}{U_C}=MPN(1-\phi),
+\qquad
+\phi=1-\frac{1}{\mu}.
+\]
+Output is inefficiently low.\\[2em]
+
+The welfare losses:
+\[
+E_0\sum_{t=0}^{\infty}\beta^t
+\left[\frac12(\hat\pi_t^2+\alpha_x\hat x_t^2)-\Lambda\hat x_t\right],
+\qquad
+\text{where }\Lambda=\phi\frac{\lambda}{\varepsilon}>0.
+\]
+Deviation of the welfare-relevant output gap:
+\[
+\hat x_t
+=
+\log X_t-\log \bar X
+=
+(\log Y_t-\log Y_t^{e})
+-
+(\log \bar Y-\log \bar Y^{e})
+=
+(\log Y_t-\log Y^{e})
+-
+(\log \bar Y^{n}-\log \bar Y^{e}).
+\]
+\[
+\log \bar X
+=
+\log \bar Y-\log \bar Y^{e}
+=
+\log \bar Y^{n}-\log \bar Y^{e}
+<0.
+\]
+NKPC constraint:
+\[
+\hat\pi_t=\beta E_t\{\hat\pi_{t+1}\}+\kappa\hat x_t+u_t,
+\qquad
+\text{where }u_t=\kappa(\hat y_t^{\,e}-\hat y_t^{\,n})
+\text{ is cost-push shock.}
+\]
+
+\subsection*{i. Optimal discretionary policy}
+
+\[
+\min_{\hat x_t,\hat\pi_t}
+\frac12(\hat\pi_t^2+\alpha_x\hat x_t^2)-\Lambda\hat x_t
+\qquad
+\text{s.t.}\quad
+\hat\pi_t=\kappa\hat x_t+v_t,
+\quad v_t=\beta E_t\{\hat\pi_{t+1}\}+u_t.
+\]
+F.O.C.:
+\[
+\hat x_t
+=
+\frac{\Lambda}{\alpha_x}
+-
+\frac{\kappa}{\alpha_x}\hat\pi_t.
+\]
+
+\noindent
+\purple{$\frac{\Lambda}{\alpha_x}$: central bank always wants a more expansionary policy.}
+
+\noindent
+\purple{Plug into the constraint.}
+\[
+\hat\pi_t
+=\frac{\alpha_x\beta}{\alpha_x+\kappa^2}E_t\{\hat\pi_{t+1}\}
++\frac{\kappa\Lambda}{\alpha_x+\kappa^2}
++\frac{\alpha_x}{\alpha_x+\kappa^2}u_t.
+\]
+Guess $\hat\pi_t=A+Bu_t$:
+\[
+\Rightarrow
+A+B u_t
+=
+\frac{\alpha_x\beta}{\alpha_x+\kappa^2}
+\left(A+B\rho_u u_t\right)
++
+\frac{\kappa\Lambda}{\alpha_x+\kappa^2}
++
+\frac{\alpha_x}{\alpha_x+\kappa^2}u_t.
+\]
+\[
+A=\frac{\kappa\Lambda}{\kappa^2+\alpha_x(1-\beta)},
+\qquad
+B=\alpha_x\psi,
+\qquad
+\psi=\frac{1}{\kappa^2+\alpha_x(1-\beta\rho_u)}.
+\]
+Thus
+\[
+\Rightarrow
+\hat\pi_t^*
+=
+\frac{\Lambda\kappa}{\kappa^2+\alpha_x(1-\beta)}
++
+\alpha_x\psi u_t.
+\]
+
+\noindent
+\purple{$\dfrac{\Lambda\kappa}{\kappa^2+\alpha_x(1-\beta)}$: constant $>0$; inflation bias from distorted S.S.}
+
+\noindent
+\purple{$\alpha_x\psi u_t$: usual response.}
+
+\noindent
+\purple{Changed average level of inflation / output gap; shock response no change.}
+
+\par\smallskip
+\par\smallskip
+\noindent
+Inefficient low natural level of output $\Rightarrow$
+
+\noindent
+(i)positive average inflation, because CB's incentive to push output above its natural S.S. level.
+
+\noindent
+(ii)increases the incentive to keep inflation higher than $0$ as $\Lambda$ increases (inflation bias).
+
+\subsection*{ii. Optimal policy under commitment}
+
+\[
+\mathcal L
+=E_t\sum_{t=0}^{\infty}\beta^t
+\left[\frac12(\hat\pi_t^2+\alpha_x\hat x_t^2)-\Lambda\hat x_t
++\gamma_t(\hat\pi_t-
+\kappa\hat x_t-\beta E_t\{\hat\pi_{t+1}\}-u_t)
+\right].
+\]
+F.O.C.:
+\begin{align*}
+\frac{\partial\mathcal L}{\partial \hat\pi_t}=0
+&\Rightarrow
+\hat\pi_t+\gamma_t-\textcolor{red}{\gamma_{t-1}}=0,
+\tag{1}\\
+\frac{\partial\mathcal L}{\partial \hat x_t}=0
+&\Rightarrow
+\alpha_x\hat x_t-\kappa\gamma_t-\Lambda=0,
+\tag{2}
+\end{align*}
+\[
+\gamma_{-1}=0\qquad
+\]
+\[
+(1)\Rightarrow
+\gamma_t
+=
+\frac{\alpha_x\hat x_t-\Lambda}{\kappa},
+\qquad
+\gamma_{t-1}
+=
+\frac{\alpha_x\hat x_{t-1}-\Lambda}{\kappa},
+\quad
+\text{plug into }(2)
+\Rightarrow
+\hat x_t
+=
+\hat x_{t-1}
+-
+\frac{\kappa}{\alpha_x}\hat\pi_t.
+\]
+\noindent
+Since $\hat\pi_t=\check p_t-\check p_{t-1}$, by iterating forward:
+\[
+\left.
+\begin{aligned}
+\hat x_t&=-\frac{\kappa}{\alpha_x}\check p_t+\text{constant}\\
+(1)\Rightarrow\hat x_t&=\frac{\Lambda}{\alpha_x}-\frac{\kappa}{\alpha_x}\check p_t
+\end{aligned}
+\right\}
+\Rightarrow
+\text{constant}=\frac{\Lambda}{\alpha_x}
+\]
+
+\[
+\text{Plug into NKPC:}\quad
+\left.
+\begin{aligned}
+\hat\pi_t
+&=
+\beta E_t\{\hat\pi_{t+1}\}
++
+\kappa\hat x_t
++
+u_t,\\
+\hat\pi_t
+&=
+\check p_t-\check p_{t-1},\\
+\hat\pi_{t+1}
+&=
+\check p_{t+1}-\check p_t.
+\end{aligned}
+\right\}
+\Rightarrow
+\check p_t
+=
+a\check p_{t-1}
++
+a\beta E_t\{\check p_{t+1}\}
++
+\frac{a\kappa\Lambda}{\alpha_x}
++
+a u_t.
+\]
+\[
+\text{where }
+a
+=
+\frac{\alpha_x}{\kappa^2+\alpha_x(1+\beta)}.
+\]
+\noindent
+Solve with undetermined coefficients:
+\[
+\check p_t=A\check p_{t-1}+Bu_t+\textcolor{red}C.
+\]
+\[
+A=\delta=\frac{1-\sqrt{1-4\beta a^2}}{2\beta a}\in(0,1),
+\qquad
+B=\frac{\delta}{1-\delta\beta\rho_u},
+\qquad
+C=\frac{\delta\kappa\Lambda}{(1-\delta\beta)\alpha_x}.
+\]
+Thus
+\[
+\check p_t
+=
+\delta\check p_{t-1}
++
+\frac{\delta}{1-\delta\beta\rho_u}u_t
++
+\frac{\delta\kappa\Lambda}{(1-\delta\beta)\alpha_x}.
+\tag{3}
+\]
+
+\noindent
+\red{$\dfrac{\delta}{1-\delta\beta\rho_u}u_t$}: shock response, not affected.
+
+\noindent
+\red{$\dfrac{\delta\kappa\Lambda}{1-\delta\beta}$}: stabilization bias; shifts price-level path upward by a constant
+
+\noindent
+$\Rightarrow$ price level converges to a constant and average inflation is $0$.
+
+\[
+\lim_{T\to\infty}P_T
+=P_{-1}+\frac{\delta\kappa\Lambda}{(1-\delta\beta)(1-\delta)\alpha_x}.
+\]
+\purple{Zero average inflation, but positive upward bias above $P_{-1}$.}
+
+\[
+\hat x_t=\frac{\Lambda}{\alpha_x}-\frac{\kappa}{\alpha_x}\check p_t.
+\]
+Plug in (3):
+\[
+\hat x_t
+=\underbrace{\delta\hat x_{t-1}}_{\text{history dependence}}
+-
+\underbrace{\frac{\kappa\delta}{\alpha_x(1-\delta\beta\rho_u)}u_t}_{\text{same shock response}}
++
+\underbrace{\frac{\Lambda}{\alpha_x}
+\left[1-\delta\left(1+\frac{\kappa^2}{(1-\delta\beta)\alpha_x}\right)\right]}_{\text{constant S.S. deviation}}.
+\]
+
+Commitment leads to:
+\begin{enumerate}
+  \item output can be raised above its natural level with welfare improvement;
+  \item more subdued effects on inflation;
+  \item commitment avoids the inflation bias under discretionary policy.
+\end{enumerate}
+
+\ThisNoteEnd

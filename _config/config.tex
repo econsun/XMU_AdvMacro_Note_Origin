@@ -1,0 +1,32 @@
+\usepackage[a4paper,margin=0.85in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{array,tabularx}
+\usepackage{float}
+\usepackage{hyperref}
+
+\definecolor{noteRed}{RGB}{190,45,90}
+
+\newcommand{\red}[1]{\textcolor{noteRed}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\purple}[1]{\textcolor{purple}{#1}}
+
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\MPN}{\mathrm{MPN}}
+\newcommand{\MRS}{\mathrm{MRS}}
+\newcommand{\MRT}{\mathrm{MRT}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\boxit}[1]{\fbox{\ensuremath{#1}}}
+\newcommand{\circled}[1]{\textcircled{\scriptsize #1}}
+
+\newenvironment{tightalign}
+  {\[\begin{aligned}}
+  {\end{aligned}\]}
+
+\graphicspath{
+  {\ProjectRoot/_assets/figures/}
+  {\ProjectRoot/_assets/figures/lecture_04/}
+}

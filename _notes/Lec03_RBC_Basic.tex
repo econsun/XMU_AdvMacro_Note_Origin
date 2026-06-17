@@ -1,0 +1,1471 @@
+% !TeX root = Lec03_RBC_Basic.tex
+
+\ifdefined\AdvMacroMain
+  \chapter{Lecture 3: Real Business Cycle Model}
+  \let\ThisNoteEnd\relax
+\else
+  \documentclass[12pt]{ctexart}
+  \newcommand{\ProjectRoot}{..}
+  \input{\ProjectRoot/_config/config}
+  \title{Lecture 3: Real Business Cycle Model}
+  \author{Chengyuan HE}
+  \date{March 2026}
+  \begin{document}
+  \maketitle
+  \def\ThisNoteEnd{\end{document}}
+\fi
+
+\subsection*{1. Basic RBC model: Social Planner's Problem}
+
+\textbf{Preference:}
+\[
+U
+=
+E_0\!\left[
+\sum_{t=0}^{\infty}\beta^t
+\frac{C_t^{1-\sigma}-1}{1-\sigma}
+\right]
+\]
+\[
+\textcolor{red}{\text{expectation given information at } t=0}
+\]
+
+\textbf{Technology:}
+\[
+C_t + K_t = Z_t \boxed{K_{t-1}}^{\alpha} N_t^{1-\alpha} + (1-\delta)K_{t-1}
+\]
+\[
+\textcolor{red}{ \text{The amount of capital is predetermined in last period.}}
+\]
+\[
+\textcolor{red}{\text{Produced goods \& depreciated capital in last period used for consumption \& new capital.}}
+\]
+\[
+\textcolor{red}{\text{In current period } t,\ \text{agent decides on } K_t.}
+\]
+\[
+Z_t \text{ is the TFP which follows the process:}
+\]
+\[
+\log Z_t
+=
+(1-\psi)\underbrace{\log \bar Z}_{\textcolor{red}{\displaystyle \text{steady state TFP}}}
++
+\psi \log Z_{t-1}
++
+\varepsilon_t
+\]
+\[
+\textcolor{red}{\text{usually normalize } \bar Z=1 \Rightarrow \log \bar Z=0}
+\]
+
+\textbf{Endowment:}
+\[
+N_t=1,\qquad K_{-1}>0
+\]
+\[
+\textcolor{red}{\text{time/labor endowment}\qquad \text{initial capital stock}}
+\]
+
+\textbf{Information:} decision made based on all information $I_t$ up to $t$.
+
+Social planner maximize the social utility by choosing $C_t,K_t$:
+\[
+\max_{\{C_t,K_t\}} U
+=
+\max_{\{C_t,K_t\}}
+E_0\!\left[
+\sum_{t=0}^{\infty}\beta^t
+\frac{C_t^{1-\sigma}-1}{1-\sigma}
+\right]
+\]
+
+subject to a budget constraint:
+\[
+\forall t,\qquad
+C_t+K_t
+=
+Z_tK_{t-1}^{\alpha}N_t^{1-\alpha}
++
+(1-\delta)K_{t-1}
+\]
+\[
+N_t=1,\qquad K_{-1}>0
+\]
+
+Set up dynamic Lagrangian equation:
+\[
+\mathcal L
+=
+E_0\sum_{t=0}^{\infty}\beta^t
+\left\{
+\frac{C_t^{1-\sigma}-1}{1-\sigma}
++
+\lambda_t\bigl[
+Z_tK_{t-1}^{\alpha}
++
+(1-\delta)K_{t-1}
+-
+C_t-K_t
+\bigr]
+\right\}
+\]
+
+F.O.C.:
+\[
+\frac{\partial \mathcal L}{\partial C_t}=0
+\qquad \Rightarrow \qquad
+C_t^{-\sigma}-\lambda_t=0
+\tag{1}
+\]
+\[
+\begin{aligned}
+\frac{\partial \mathcal L}{\partial K_t}=0
+\qquad \Rightarrow \qquad
+&
+-\lambda_t \beta^t
++
+E_t\!\left[
+\lambda_{t+1}\beta^{t+1}
+\bigl(\alpha Z_{t+1}K_t^{\alpha-1}+1-\delta\bigr)
+\right]
+=0
+\\[0.6em]
+\Rightarrow\qquad
+&
+-\lambda_t
++
+\beta E_t\!\left[
+\lambda_{t+1}
+\bigl(\alpha Z_{t+1}K_t^{\alpha-1}+1-\delta\bigr)
+\right]
+=0
+\end{aligned}
+\tag{2}
+\]
+\[
+\frac{\partial \mathcal L}{\partial \lambda_t}=0
+\qquad \Rightarrow \qquad
+C_t+K_t-Z_tK_{t-1}^{\alpha}-(1-\delta)K_{t-1}=0
+\]
+
+Transversality Condition:
+\[
+\lim_{t\to\infty}\beta^t E_t[\lambda_t K_t]=0
+\]
+
+Plug in (1) into (2):
+\[
+\beta E_t\!\left[
+C_{t+1}^{-\sigma}
+\bigl(\alpha Z_{t+1}K_t^{\alpha-1}+1-\delta\bigr)
+\right]
+=
+C_t^{-\sigma}
+\]
+
+\[
+\Rightarrow\qquad
+1
+=
+\beta E_t\!\left[
+\left(\frac{C_t}{C_{t+1}}\right)^{\sigma}
+\bigl(\alpha Z_{t+1}K_t^{\alpha-1}+1-\delta\bigr)
+\right]
+\]
+
+\newpage
+
+We have a dynamic system of $(K_t,C_t,Z_{t+1})$
+\[
+\begin{aligned}
+K_t
+&= Z_t K_{t-1}^{\alpha} + (1-\delta)K_{t-1} - C_t,
+&& \text{(1)} \\[0.8em]
+1
+&= \beta E_t\!\left[\left(\dfrac{C_t}{C_{t+1}}\right)^{\sigma}
+\bigl(1-\delta+\alpha Z_{t+1}K_t^{\alpha-1}\bigr)\right],
+&& \text{(2)} \\[0.8em]
+\log Z_t
+&= (1-\psi)\log \bar Z + \psi \log Z_{t-1} + \varepsilon_t,
+\qquad \varepsilon_t \sim iid\,N(0,\sigma_\varepsilon^2),
+&& \text{(3)}
+\end{aligned}
+\]
+\[
+\text{state variables } (K_{t-1},\, C_t),
+\qquad
+\text{shock variable } Z_t.
+\]
+
+Three variables, three equations: \quad \#(equation) = \#(variable)
+
+\subsection*{2. What is the economic intuition behind Lagrangian multiplier?}
+
+Lagrangian multiplier is the shadow price of constrained resources. Marginal value of relaxing or tightening a constraint. For a problem,
+\[
+V(b)=\max_x f(x)\qquad \text{subject to } g(x)\le b
+\]
+
+\[
+\mathcal L(x,\lambda)=f(x)+\lambda\,(b-g(x))
+\]
+
+\begin{itemize}
+    \item If constraint is binding $g(x)=b$, $\lambda$ shows how much the objective function would increase if you relax the constraint slightly.\textcolor{red}{\text{——shadow value}}
+\end{itemize}
+
+Envelope theorem:
+\[
+\frac{dV(b)}{db}
+=
+\frac{\partial \mathcal L(x,\lambda;b)}{\partial b}\Big|_{x^*,\lambda^*}
+\qquad \Rightarrow \qquad
+V'(b)=\lambda^*(b)
+\]
+
+\[
+V(b+\Delta)-V(b)\approx \lambda^*(b)\Delta
+\]
+
+\begin{itemize}
+    \item If constraint is non-binding $g(x)<b$, $\textcolor{red}{\lambda^*}=0
+    \qquad \Rightarrow \qquad V'(b)=0$:
+    A relaxation of constraint will not improve the objective function.
+
+\end{itemize}
+
+
+eg: RBC:
+\[
+W_t
+=
+\max_{\{C_{t+j},K_{t+j+1}\}_{j=0}^{\infty}}
+E_t\sum_{j=0}^{\infty}\beta^j
+\frac{C_{t+j}^{1-\sigma}}{1-\sigma}
+\]
+
+subject to
+\[
+C_{t+j}+K_{t+j+1}
+=
+F(Z_{t+j},K_{t+j})
++
+(1-\delta)K_{t+j}
++\textcolor{red}{a_t}
+\]
+\[
+\textcolor{red}{a_t \text{ appear only at } j=0,\ \text{perturb only one period's constraint}}
+\]
+
+\[
+\mathcal L
+=
+E_t\sum_{j=0}^{\infty}\beta^j
+\left[
+\frac{C_{t+j}^{1-\sigma}}{1-\sigma}
++\lambda_{t+j}
+\bigl(F(\cdot)+(1-\delta)K_{t+j}-C_{t+j}-K_{t+j+1}+a_{t+j}\bigr)
+\right]
+\]
+
+\[
+\frac{\partial W_t}{\partial a_t}
+=
+\frac{\partial \mathcal L_t}{\partial a_t}\Big|_{\text{at optimum}}
+=
+\lambda_t
+\]
+
+\[
+\frac{\partial \mathcal L}{\partial C_t}
+=
+\beta^t C_t^{-\sigma}-\beta^t\lambda_t=0
+\qquad \Rightarrow \qquad
+C_t^{-\sigma}=\lambda_t
+\]
+
+\[
+\Rightarrow\qquad
+\frac{\partial W_t}{\partial a_t}
+=
+\lambda_t
+=
+C_t^{-\sigma}
+=
+U_C(C_t)
+=
+\frac{\partial (\text{max attainable lifetime utility } W_t)}{\partial (\text{one more unit of resources at } t)}
+\]
+
+\textbf{What is transversality condition (TVC)?}
+
+Boundary condition at infinity that rules out Ponzi-scheme: leaving valuable resources unspent forever.
+
+In a typical RBC model,
+\[
+\text{TVC:}\qquad
+\lim_{T\to\infty}\beta^T U_C(C_T)K_{T+1}=0
+\]
+
+The discounted marginal utility value of the capital stock carried into the far future must vanish. Otherwise you're wasting utility by not consuming some of it earlier.
+
+At large $T$, if we increase $C_T$ by $\varepsilon$ and decrease future capital by $\varepsilon$:
+\[
+\text{First-order loss in capital:}\qquad \beta^{T+1}\lambda_{T+1}\varepsilon
+\]
+\[
+\text{First-order gain in utility:}\qquad \beta^T U_C\varepsilon
+\]
+
+\[
+\Rightarrow\qquad
+\lim_{T\to\infty}\beta^T U_C K_{T+1}=0
+\]
+\[
+\textcolor{red}{\text{in far future, you can not gain by this operation}}
+\]
+
+\subsection*{3. Basic RBC model: competitive market approach}
+
+\[
+\textcolor{red}{\text{divide social planner into household and firm}}
+\]
+
+\textcolor{red}{*Household's problem:}
+Household's own capital $K_{t-1}$ \& one unit of labor $N_t=1$. They lend capital and labor to firms and earn interest $R_t$ \& wage $W_t$.
+
+\[
+\max_{\{C_t,K_t,N_t\}_{t=0}^{\infty}}
+E_0\left[
+\sum_{t=0}^{\infty}\beta^t\frac{C_t^{1-\sigma}-1}{1-\sigma}
+\right]
+\]
+
+s.t.
+\[
+C_t+K_t^{(s)}
+=
+W_tN_t^{(s)}
++
+R_tK_{t-1}^{(s)}
++
+(1-\delta)K_{t-1}^{(s)}
+\]
+\[
+\textcolor{red}{(s)\text{ means supply}}
+\]
+
+No-ponzi Scheme condition (TVC):
+\[
+\lim_{t\to\infty}
+E_0\!\left[
+\left(\prod_{s=0}^{t}R_s^{-1}\right)K_t^{(s)}
+\right]
+=0
+\]
+
+\textcolor{red}{*Firm's problem:}
+Representative firm with tech $Z_t$, hire capital \& labor to produce, and sells output to maximize profit. Given $W_t,R_t$, firm chooses $N_t^{(d)}$ \& $K_{t-1}^{(d)}$.
+
+\[
+\Pi_t
+=
+\max_{\{K_{t-1}^{(d)},N_t^{(d)}\}}
+Z_t(K_{t-1}^{(d)})^{\alpha}(N_t^{(d)})^{1-\alpha}
+-
+W_tN_t^{(d)}
+-
+R_tK_{t-1}^{(d)}
+\]
+\[
+\textcolor{red}{(d)\text{ means demand}}
+\]
+
+where tech follows AR(1):
+\[
+\log Z_t=(1-\psi)\log \bar Z+\psi \log Z_{t-1}+\varepsilon_t,
+\qquad
+\varepsilon_t\sim iid\,N(0,\sigma_{\varepsilon}^2)
+\]
+
+\textcolor{red}{Solve household's problem with Lagrangian Multiplier Method:}
+
+\[
+\mathcal L
+=
+E_0\sum_{t=0}^{\infty}\beta^t
+\left[
+\frac{C_t^{1-\sigma}-1}{1-\sigma}
++
+\lambda_t\bigl(
+R_tK_{t-1}^{(s)}+W_tN_t^{(s)}+(1-\delta)K_{t-1}^{(s)}-C_t-K_t^{(s)}
+\bigr)
+\right]
+\]
+
+\[
+\frac{\partial \mathcal L}{\partial C_t}=0
+\qquad \Rightarrow \qquad
+C_t^{-\sigma}-\lambda_t=0
+\tag{1}
+\]
+
+\[
+\frac{\partial \mathcal L}{\partial K_t}=0
+\qquad \Rightarrow \qquad
+-\beta^t\lambda_t+\beta^{t+1}E_t[\lambda_{t+1}(R_{t+1}+1-\delta)]=0
+\]
+\[
+\Rightarrow\qquad
+\lambda_t
+=
+\beta E_t[\lambda_{t+1}(R_{t+1}+1-\delta)]
+\tag{2}
+\]
+
+\[
+\frac{\partial \mathcal L}{\partial \lambda_t}=0
+\qquad \Rightarrow \qquad
+C_t+K_t^{(s)}
+=
+W_tN_t^{(s)}+R_tK_{t-1}^{(s)}+(1-\delta)K_{t-1}^{(s)}
+\tag{3}
+\]
+
+Euler equation. Plug (1) into (2):
+\[
+\underbrace{C_t^{-\sigma}}_{\text{MU of 1 unit } C \text{ today}}
+=
+\underbrace{\beta}_{\textcolor{red}{\text{discount to today}}}
+E_t\!\left[
+\underbrace{C_{t+1}^{-\sigma}}_{\text{MU of 1 unit } C \text{ tomorrow}}
+\underbrace{(R_{t+1}+1-\delta)}_{\textcolor{red}{\text{return of extra unit of } K \text{ tomorrow}}}
+\right]
+\]
+
+LHS: The utility of 1 unit of consumption today.
+
+RHS: The expected utility of sacrificing 1 unit of consumption today, instead save as capital, and carry over to next period, get $R_{t+1}$ (rent earning) \& get $(1-\delta)$ unit of depreciated capital, consume $R_{t+1}+1-\delta$ in the next period at marginal utility of consumption $\lambda_{t+1}=C_{t+1}^{-\sigma}$. Finally, discount to current value by multiplying $\beta$.
+
+\[
+\text{LHS}=\text{RHS}
+\qquad \Rightarrow \qquad
+\text{Intertemporal trade-off (``no arbitrage'')}
+\]
+
+\begin{itemize}
+    \item A TFP shock on $Z_t$ change the level through resource constraint, and dynamics through the Euler equation.
+\end{itemize}
+
+Resource constraint:
+\[
+C_t+K_t=Z_tK_{t-1}^{\alpha}N_t^{1-\alpha}+(1-\delta)K_{t-1}
+\]
+
+\textcolor{red}{Solve firm's problem with Lagrangian multiplier method:}
+
+\[
+\frac{\partial}{\partial K_{t-1}^{(d)}}
+\Bigl[
+Z_t(K_{t-1}^{(d)})^{\alpha}(N_t^{(d)})^{1-\alpha}
+-W_tN_t^{(d)}-R_tK_{t-1}^{(d)}
+\Bigr]
+=0
+\]
+
+\[
+\Rightarrow\qquad
+\alpha Z_t(K_{t-1}^{(d)})^{\alpha-1}(N_t^{(d)})^{1-\alpha}=R_t
+\tag{4}
+\]
+\[
+\text{MPK}=R_t
+\]
+
+\[
+\frac{\partial \Pi_t}{\partial N_t^{(d)}}=0
+\qquad \Rightarrow \qquad
+(1-\alpha)Z_t(K_{t-1}^{(d)})^{\alpha}(N_t^{(d)})^{-\alpha}=W_t
+\tag{5}
+\]
+\[
+\text{MPL}=W_t
+\]
+
+\textcolor{red}{Close the model: Market clearing conditions}
+
+Capital market:
+\[
+K_{t-1}^{(d)}=K_{t-1}^{(s)}
+\qquad \cdots \quad \text{capital demand = supply}
+\]
+
+Labor market:
+\[
+N_t^{(d)}=N_t^{(s)}=1
+\qquad \cdots \quad \text{labor demand = supply}
+\]
+
+Goods market:
+\[
+C_t+K_t=Z_tK_{t-1}^{\alpha}N_t^{1-\alpha}+(1-\delta)K_{t-1}
+\qquad \cdots \quad \text{Resource constraint}
+\]
+
+Walras Law: if there are $m$ markets, then we need $m-1$ number of market clearing conditions. The last market is automatically cleared.
+
+Thus, here we need two out of three. We keep resource constraint \& capital market clearing by dropping (d) \& (s). We also plug in constant labor supply, demand.
+
+\textcolor{red}{How resource constraint is derived?}
+
+Competitive market $\Rightarrow \Pi_t=0$:
+\[
+Z_t(K_{t-1}^{(d)})^\alpha (N_t^{(d)})^{1-\alpha}
+=
+W_tN_t^{(d)}+R_tK_{t-1}^{(d)}
+\]
+
+(3) from household's problem:
+\[
+C_t+K_t^{(s)}
+=
+W_tN_t^{(s)}+R_tK_{t-1}^{(s)}+(1-\delta)K_{t-1}^{(s)}
+\]
+
+\[
+(s)=(d)
+\Rightarrow
+C_t+K_t
+=
+Z_tK_{t-1}^{\alpha}N_t^{1-\alpha}+(1-\delta)K_{t-1}
+\]
+\[
+\textcolor{red}{\text{Produced goods + depreciated capital from last period is divided into use of capital}}
+\]
+\[
+\textcolor{red}{\text{and consumption}}
+\]
+
+\textcolor{red}{System of equations of the competitive market version of the model:}
+\[
+\text{(i)}\quad
+K_t=Z_tK_{t-1}^{\alpha}+(1-\delta)K_{t-1}-C_t
+\qquad \cdots \quad \text{resource constraint}
+\]
+
+\[
+\text{(ii)}\quad
+1
+=
+E_t\left\{
+\beta\left(\frac{C_t}{C_{t+1}}\right)^{\sigma}
+\left[
+\alpha Z_{t+1}K_t^{\alpha-1}+(1-\delta)
+\right]
+\right\}
+\]
+
+\[
+\text{(iii)}\quad
+\log Z_t=(1-\psi)\log \bar Z+\psi \log Z_{t-1}+\varepsilon_t,\qquad
+\varepsilon_t\sim iid\,N(0,\sigma_{\varepsilon}^2)
+\]
+
+\[
+\textcolor{red}{\ast\ \text{The competitive market version is equivalent to Social planner's version. (isomorphic)}}
+\]
+\[
+\textcolor{red}{\Rightarrow\ \text{Same equilibrium outcome}}
+\]
+
+\textcolor{red}{* The competitive market version of RBC model is a decentralized (去中心化) version of social planner RBC.}
+\newpage
+\subsection*{4. First and second welfare theorem in dynamic equilibrium}
+
+*First welfare theorem. Provided that all product and factor markets are \textcolor{red}{competitive} and there are \textcolor{red}{no externalities} in production or consumption, dynamic competitive equilibrium are Pareto Optimal.
+\[
+\textcolor{red}{\text{``no friction'' world in economics}}
+\]
+
+*Second welfare theorem. All Pareto optimal allocation can be decentralized as a dynamic competitive equilibrium.
+
+\noindent $1^{st}$ Welfare theorem in RBC:\quad
+CE allocation solves the social planner's problem
+$\Rightarrow$
+Competitive equilibria are Pareto Optimal.
+
+\medskip
+
+\noindent $2^{nd}$ Welfare theorem in RBC:\quad
+Social planner allocation solves the competitive equilibrium
+$\Rightarrow$
+Pareto efficient allocation is supported by CE ($\exists$ competitive prices that support it).
+
+
+Both theorems rely on:
+\begin{enumerate}[label=\arabic*)]
+    \item perfect competition (price takers)
+    \item No externalities, no taxes/distortions, no market power.
+    \item Complete contracting:no missing markets (rep agent RBC avoids this)
+    \item Concave utility, convex technology set (CRS + concavity)
+    \item TVC / no-Ponzi to rule out pathological asset plans
+\end{enumerate}
+\newpage
+\textcolor{red}{Question 1. If there is a exogenous TFP shock $Z_t$, which moves more on impact $C_t$ or $K_t$}
+
+
+\[
+Y_t = C_t + i_t
+\qquad \Rightarrow \qquad
+\Delta Y = \Delta C + \Delta i
+\]
+
+\[
+Y_t = Z_t K_{t-1}^{\alpha}
+\qquad \Rightarrow \qquad
+Z_t \uparrow \Rightarrow Y_t \uparrow
+\]
+
+\[
+\log Z_{t+1} = (1-\psi)\log \bar Z + \psi \log Z_t + \varepsilon_t
+\qquad \Rightarrow \qquad
+Z_t \uparrow \Rightarrow Z_{t+1} \uparrow \Rightarrow MPK_{t+1} \uparrow \Rightarrow R_{t+1} \uparrow
+\]
+
+\[
+i_t = K_t - (1-\delta)K_{t-1}
+\qquad \Rightarrow \qquad
+K_t \uparrow \Rightarrow i_t \uparrow
+\]
+
+\[
+1 = \beta E_t \left[
+\left(\frac{C_t}{C_{t+1}}\right)^{\sigma}
+(R_{t+1}+1-\delta)
+\right]
+\qquad \Rightarrow \qquad
+R_{t+1} \uparrow \Rightarrow \frac{C_t}{C_{t+1}} \downarrow \Rightarrow C_{t+1} \uparrow > C_t \uparrow
+\]
+
+Thus, \qquad
+$Z_t \uparrow \Rightarrow C_t \uparrow,\ C_{t+1} \uparrow \ \&\ i_t \uparrow$
+
+$K_{t-1}$ is pre-determined, thus at current period $t$, $\Delta K_{t-1}=0$.
+
+\[
+i_t \uparrow \gg C_t \uparrow \; ? \qquad \text{Ambiguous for now.}
+\]
+
+1) but in data, it is true
+
+2) 1$^\circ$\quad $\sigma$ captures intertemporal substitution
+
+\[
+\sigma \uparrow
+\qquad \Rightarrow \qquad
+\text{stronger consumption smoothing}
+\qquad \Rightarrow \qquad
+i_t \uparrow \gg C_t \uparrow
+\]
+\[
+\text{more likely to hold}
+\]
+
+2$^\circ$ \quad $\psi$ captures shock persistence
+
+\[
+\psi \uparrow
+\qquad \Rightarrow \qquad
+i_t \uparrow \gg C_t \uparrow
+\qquad \text{more likely to hold}
+\]
+
+3$^\circ$ \quad $\alpha$ captures MPK
+
+\[
+\alpha \uparrow
+\qquad \Rightarrow \qquad
+i_t \uparrow \gg C_t \uparrow
+\qquad \text{more likely}
+\]
+
+4$^\circ$ \quad $\delta$ captures depreciation
+
+\[
+\delta \uparrow
+\qquad \Rightarrow \qquad
+i_t \uparrow \gg C_t \uparrow
+\qquad \text{less likely}
+\]
+
+5$^\circ$ \quad $\beta$ captures patience
+
+\[
+\beta \uparrow
+\qquad \Rightarrow \qquad
+i_t \uparrow \gg C_t \uparrow
+\qquad \text{more likely}
+\]
+
+But in normal calibration, where
+\[
+\sigma = 2,\qquad
+\psi = 0.95,\qquad
+\alpha = \frac{1}{3},
+\]
+\[
+\delta = 0.025 \; (\text{quarter data}),\qquad
+\beta = 0.99 \; (\text{quarter data})
+\]
+
+\[
+i_t \uparrow \gg C_t \uparrow
+\qquad \text{and} \qquad
+std(i_t) > std(C_t)
+\]
+
+\textcolor{red}{Question 2: What if households sell capital to firms and firms sell back to household after production?}
+
+\textbf{Household's problem:}
+\[
+\max_{\{C_t,K_t,N_t\}_{t=0}^{\infty}}
+E_0\left[
+\sum_{t=0}^{\infty}\beta^t\frac{C_t^{1-\sigma}-1}{1-\sigma}
+\right]
+\]
+
+s.t.
+\[
+C_t+K_t^{(s)}=W_tN_t^{(s)}+R_tK_{t-1}^{(s)}
+\]
+
+\[
+\Rightarrow\qquad
+\begin{aligned}
+C_t^{-\sigma}
+&=\beta E_t\left[C_{t+1}^{-\sigma}R_{t+1}\right],
+&& \text{(1)}\\[0.5em]
+C_t+K_t^{(s)}
+&=W_tN_t^{(s)}+R_tK_{t-1}^{(s)},
+&& \text{(2)}
+\end{aligned}
+\]
+
+\textbf{Firm's problem:}
+\[
+\max_{\{K_{t-1}^{(d)},N_t^{(d)}\}}
+\Pi_t
+=
+\max
+\left\{
+Z_t(K_{t-1}^{(d)})^\alpha (N_t^{(d)})^{1-\alpha}
+-
+W_tN_t^{(d)}
+-
+R_tK_{t-1}^{(d)}
++
+(1-\delta)K_{t-1}^{(d)}
+\right\}
+\]
+
+\[
+\Rightarrow\qquad
+\begin{aligned}
+\alpha Z_t(K_{t-1}^{(d)})^{\alpha-1}(N_t^{(d)})^{1-\alpha}+(1-\delta)
+&=R_t,
+&& \text{(3)}\\[0.6em]
+(1-\alpha) Z_t(K_{t-1}^{(d)})^{\alpha}(N_t^{(d)})^{-\alpha}
+&=W_t,
+&& \text{(4)}
+\end{aligned}
+\]
+
+System of equations is exactly the same as SP's problem. (isomorphic)
+
+Here, $R_t$ is no longer rental rate, but the gross return factor: rental + resale value.
+
+Define the usual rental rate as
+\[
+r_t=R_t-(1-\delta)
+\]
+
+\[
+(3)\Rightarrow MPK=r_t
+\]
+
+\[
+\Pi_t
+=
+Z_tK^\alpha N^{1-\alpha}
++(1-\delta)K
+-RK-WN
+=
+Z_tK^\alpha N^{1-\alpha}
+-\bigl(R-(1-\delta)\bigr)K-WN
+\]
+\[
+=
+Z_tK^\alpha N^{1-\alpha}-rK-WN
+\]
+
+\[
+(1)\Rightarrow\qquad
+C_t^{-\sigma}
+=
+\beta E_t\left[C_{t+1}^{-\sigma}(r_{t+1}+1-\delta)\right]
+\]
+
+\[
+(2)\Rightarrow\qquad
+C_t+K_t=W_tN_t+r_tK_{t-1}+(1-\delta)K_{t-1}
+\]
+
+\[
+\Rightarrow\qquad \text{Setting is totally isomorphic.}
+\]
+\subsection*{Supplementary notes}
+
+\paragraph{Q1. Technology shock: among $C$, $I$, and $K$, which one rises more?}
+
+Under a positive technology shock, $K_t$ does \emph{not} move on impact, because it is predetermined.  
+Thus, on impact, both $C_t$ and $I_t$ rise, while $K_t$ remains unchanged.
+
+The more subtle question is whether $C_t$ or $I_t$ rises more. In the model, this is not a pure theoretical certainty independent of parameters: it depends on the parameter values. 
+
+Empirically, however, the data typically show that consumption rises by less, while investment is more volatile.Later in the course, this can be seen more clearly from the impulse response functions.
+
+\paragraph{Q2. What is the difference between the two definitions of return?}
+
+In the baseline setup, $R$ denotes the \emph{capital rent}, namely the rental price.
+
+Later, in Q2, we define
+\[
+r = R - (1-\delta).
+\]
+There, $R$ is reinterpreted as the \emph{gross return on capital}, i.e.\ the total return from holding one unit of capital across periods.
+
+Under this notation:
+\[
+R = r + (1-\delta).
+\]
+
+Hence:
+\begin{itemize}
+    \item $r$ corresponds to the baseline $R$, namely the rental price ;
+    \item $R$ in Q2 is the gross return on capital;
+    \item the gross return consists of two parts:
+    \[
+    \text{gross return} = \text{rental price} + \text{residual value of capital}.
+    \]
+\end{itemize}
+
+\newpage
+\subsection*{5. Solve the RBC model}
+
+Find the Steady State (S.S.) of the economy, drop time subscript:
+\[
+\bar C=\bar Z\bar K^\alpha +(1-\delta)\bar K-\bar K
+\qquad \cdots \quad \text{Resource constraint}
+\]
+
+\[
+1=\beta\left[\alpha \bar Z\bar K^{\alpha-1}+(1-\delta)\right]
+\qquad \cdots \quad \text{Euler equation}
+\]
+
+Two variables, $(\bar K,\bar C)$ given parameters $(\bar Z,\beta,\alpha,\delta)$
+\[
+C_t=C_{t+1}=\bar C,\qquad
+K_t=k_{t+1}=\bar K,\qquad
+Z_t=Z_{t+1}=\bar Z,\qquad
+N_t=1,\ \forall t
+\]
+
+\[
+\bar K
+=
+\left[
+\frac{\alpha \bar Z}{\frac{1}{\beta}-(1-\delta)}
+\right]^{\frac{1}{1-\alpha}},
+\qquad
+\bar C=\bar Z\bar K^\alpha-\delta \bar K,
+\qquad
+\bar Y=\bar Z\bar K^\alpha
+\]
+
+\[
+\frac{\bar C}{\bar K}
+=
+\bar Z\bar K^{\alpha-1}-\delta
+=
+\frac{\bar Y}{\bar K}-\delta
+=
+\frac{\frac{1}{\beta}-(1-\delta)}{\alpha}-\delta
+=
+\frac{\frac{1}{\beta}-1+(1-\alpha)\delta}{\alpha}
+\]
+
+\subsection*{6. Log-linearization}
+
+\textbf{(i) Resource constraint:}
+\[
+K_t=Z_tK_{t-1}^{\alpha}+(1-\delta)K_{t-1}-C_t
+\qquad \Rightarrow \qquad
+\bar K=\bar Z\bar K^\alpha +(1-\delta)\bar K-\bar C
+\]
+
+\[
+\bar K(1+\hat k_t)
+=
+\bar Z(1+\hat z_t)\bar K^\alpha (1+\hat k_{t-1})^\alpha
++
+(1-\delta)\bar K(1+\hat k_{t-1})
+-\bar C(1+\hat c_t)
+\]
+
+Using
+\[
+(1+\hat k_{t-1})^\alpha \approx 1+\alpha \hat k_{t-1}
+\]
+we get
+\[
+\bar K+\bar K\hat k_t
+=
+\bar Z\bar K^\alpha
+\bigl(1+\hat z_t+\alpha \hat k_{t-1}\bigr)
++
+(1-\delta)\bar K+(1-\delta)\bar K\hat k_{t-1}
+-\bar C-\bar C\hat c_t
+\]
+
+Subtract steady state:
+\[
+\bar K\hat k_t
+=
+\alpha \bar Z\bar K^\alpha \hat k_{t-1}
++
+\bar Z\bar K^\alpha \hat z_t
++
+(1-\delta)\bar K\hat k_{t-1}
+-
+\bar C\hat c_t
+\]
+
+\[
+\Rightarrow\qquad
+\hat k_t
+=
+\left(\alpha \frac{\bar Y}{\bar K}+1-\delta\right)\hat k_{t-1}
++
+\frac{\bar Y}{\bar K}\hat z_t
+-
+\frac{\bar C}{\bar K}\hat c_t
+\]
+
+\[
+\textcolor{black}{\ast\ \text{next period change in } k \text{ equals }}
+\]
+\[
+\textcolor{black}{1)\ \text{change in } K_{t-1}\text{, that result in change in output }(MPK=\alpha \bar Y/\bar K)\ \&\ \text{depreciated capital }1-\delta}
+\]
+\[
+\textcolor{black}{2)\ \text{change in tech } z \text{ that result in change in output}}
+\]
+\[
+\textcolor{black}{3)\ \text{change in consumption } C \text{ that result in change in investment.}}
+\]
+
+\textbf{(ii) Euler equation:}
+\[
+1
+=
+\beta E_t\left[
+\left(\frac{C_t}{C_{t+1}}\right)^\sigma
+\bigl(1-\delta+\alpha Z_{t+1}K_t^{\alpha-1}\bigr)
+\right]
+\]
+
+Define
+\[
+R_{t+1}=1-\delta+\alpha Z_{t+1}K_t^{\alpha-1}
+\qquad \Rightarrow \qquad
+\bar R=\frac{1}{\beta}
+\]
+
+from
+\[
+1=\beta E_t\left[\left(\frac{C_t}{C_{t+1}}\right)^\sigma R_{t+1}\right]
+\]
+we get
+\[
+1=E_t\left[\left(\frac{C_t}{C_{t+1}}\right)^\sigma \frac{R_{t+1}}{\bar R}\right]
+\]
+
+Let
+\[
+\frac{C_t}{C_{t+1}}
+=
+\frac{\bar C e^{\hat c_t}}{\bar C e^{\hat c_{t+1}}}
+=
+e^{\hat c_t-\hat c_{t+1}},
+\qquad
+\frac{R_{t+1}}{\bar R}=e^{\hat r_{t+1}}
+\]
+
+Thus
+\[
+1
+=
+E_t\left[
+e^{\sigma(\hat c_t-\hat c_{t+1})+\hat r_{t+1}}
+\right]
+\]
+
+use $e^x\approx 1+x$ for small $x$:
+\[
+1
+\approx
+E_t\left[
+1+\sigma(\hat c_t-\hat c_{t+1})+\hat r_{t+1}
+\right]
+\]
+
+\[
+\Rightarrow\qquad
+\sigma \hat c_t
+=
+\sigma E_t\hat c_{t+1}
+-
+E_t\hat r_{t+1}
+\tag{1}
+\]
+
+Now derive $\hat r_{t+1}$.
+Let
+\[
+MPK_{t+1}=\alpha Z_{t+1}K_t^{\alpha-1}
+\qquad \Rightarrow \qquad
+\overline{MPK}=\alpha \bar Z\bar K^{\alpha-1}
+\]
+\[
+\bar R = 1-\delta+\overline{MPK}
+\]
+Now approximate $MPK_{t+1}$ around steady state:
+\[
+\alpha Z_{t+1}K_t^{\alpha-1}
+\approx
+\alpha \bar Z(1+\hat z_{t+1})\bar K^{\alpha-1}(1+\hat k_t)^{\alpha-1}
+\]
+\[
+=
+\overline{MPK}
+\bigl[1+\hat z_{t+1}+(\alpha-1)\hat k_t\bigr]
+\]
+\[
+where (1+x)^a \approx 1+ax\qquad \Rightarrow \qquad
+(1+\hat{k}_t)^{\alpha-1} \approx 1+(\alpha-1)\hat{k}_t
+\]
+
+\newpage
+
+\[
+R_{t+1}
+\approx
+(1-\delta)+\overline{MPK}
++
+\overline{MPK}\bigl[\hat z_{t+1}+(\alpha-1)\hat k_t\bigr]
+=
+\bar R+\overline{MPK}\bigl[\hat z_{t+1}+(\alpha-1)\hat k_t\bigr]
+\]
+
+\[
+\hat r_{t+1}
+=
+\log\left(\frac{R_{t+1}}{\bar R}\right)
+\approx
+\frac{R_{t+1}-\bar R}{\bar R}
+=
+\frac{\overline{MPK}}{\bar R}
+\bigl[\hat z_{t+1}+(\alpha-1)\hat k_t\bigr]
+\]
+
+\[
+\frac{\overline{MPK}}{\bar R}
+=
+\frac{\bar R-(1-\delta)}{\bar R}
+=
+1-\frac{1-\delta}{\bar R}
+=
+1-(1-\delta)\beta
+\]
+
+Let
+\[
+\tilde \delta \equiv 1-(1-\delta)\beta
+\]
+share of gross return that comes from new output rather than keeping old capital.
+
+Then
+\[
+\hat r_{t+1}
+=
+\tilde \delta
+\bigl[\hat z_{t+1}-(1-\alpha)\hat k_t\bigr]
+\tag{2}
+\]
+
+Plug (2) into (1):
+\[
+\sigma \hat c_t
+=
+\sigma E_t\hat c_{t+1}
+-
+\tilde \delta E_t\hat z_{t+1}
++
+\tilde \delta(1-\alpha)\hat k_t
+\]
+
+\[
+E_t(\hat c_{t+1}-\hat c_t)
+=
+\frac{\tilde\delta}{\sigma}
+\underbrace{\Bigl(E_t\hat z_{t+1}-(1-\alpha)\hat k_t\Bigr)}_{\textcolor{red}{\text{log deviation of next period's MPK}}}
+\]
+\[
+\textcolor{red}{\text{Expected growth in consumption is proportional to expected returns.}}
+\]
+\[
+\textcolor{red}{
+E_t(\hat c_{t+1}-\hat c_t)\propto E_t\widehat{MPK}_{t+1}
+}
+\]
+\[
+\textcolor{red}{
+MPK\uparrow \Rightarrow \text{want more consumption tomorrow } \Rightarrow \text{save/invest more today } \Rightarrow C \text{ grows}
+}
+\]
+\[
+\textcolor{red}{
+\sigma\uparrow \Rightarrow \text{stronger smoothing, IES}\downarrow \text{ / more curvature } \Rightarrow \text{households hate changing } C \text{ across time}
+}
+\]
+\[
+\textcolor{red}{
+\tilde\delta\uparrow \Rightarrow \text{returns move more with MPK}\uparrow \Rightarrow C \text{ responds by more}
+}
+\]
+
+\textbf{(iii) Technology process:}
+\[
+\log Z_{t+1}
+=
+(1-\psi)\log \bar Z+\psi \log Z_t+\varepsilon_t
+\]
+
+\[
+\log(\bar Z e^{\hat z_{t+1}})
+=
+(1-\psi)\log \bar Z+\psi \log(\bar Z e^{\hat z_t})+\varepsilon_t
+\]
+
+\[
+\Rightarrow\qquad
+\hat z_{t+1}=\psi \hat z_t+\varepsilon_t
+\]
+the deviation of technology from S.S. is an AR(1) process
+
+The log-linearized system of equation:
+\[
+\hat k_t
+=
+\left(\alpha \frac{\bar Y}{\bar K}+1-\delta\right)\hat k_{t-1}
++
+\frac{\bar Y}{\bar K}\hat z_t
+-
+\frac{\bar C}{\bar K}\hat c_t
+\]
+
+\[
+\alpha \frac{\bar Y}{\bar K}+1-\delta
+=
+\overline{MPK}+1-\delta=\bar R=\frac{1}{\beta}
+\]
+
+\[
+\frac{\bar Y}{\bar K}
+=
+\frac{\overline{MPK}}{\alpha}
+=
+\frac{\bar R-(1-\delta)}{\alpha}
+=
+\frac{\frac{1}{\beta}-(1-\delta)}{\alpha}
+=
+\frac{\tilde \delta}{\alpha \beta}
+\]
+
+\[
+\frac{\bar C}{\bar K}
+=
+\bar Z\bar K^{\alpha-1}-\delta
+=
+\frac{\overline{MPK}}{\alpha}-\delta
+=
+\frac{\tilde \delta}{\alpha \beta}-\delta
+\]
+
+\[
+\Rightarrow\qquad
+\begin{cases}
+\hat k_t=\dfrac{1}{\beta}\hat k_{t-1}+\dfrac{\tilde\delta}{\alpha\beta}\hat z_t-\left(\dfrac{\tilde\delta}{\alpha\beta}-\delta\right)\hat c_t\\[1.1em]
+\sigma E_t\hat c_{t+1}+\tilde\delta(1-\alpha)\hat k_t-\tilde\delta E_t\hat z_{t+1}=\sigma \hat c_t\\[0.8em]
+\hat z_{t+1}=\psi \hat z_t+\varepsilon_t
+\end{cases}
+\]
+\[
+\textcolor{red}{\ast\ \text{Three equations, three variables } (\hat k_t,\hat c_{t+1},\hat z_{t+1})}
+\]
+
+\newpage
+
+\subsection*{7. Solve the system in terms of exogenous parameters \& pre-determined variables}
+
+Pre-determined: $(\hat z_t,\hat k_{t-1})$
+
+Write in matrix form:
+\[
+\begin{pmatrix}
+1 & 0 & 0\\
+\tilde\delta(1-\alpha) & \sigma & -\tilde\delta\\
+0 & 0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+\hat k_t\\
+E_t\hat c_{t+1}\\
+E_t\hat z_{t+1}
+\end{pmatrix}
+=
+\begin{pmatrix}
+\frac{1}{\beta} & \delta-\frac{\tilde\delta}{\alpha\beta} & \frac{\tilde\delta}{\alpha\beta}\\
+0 & \sigma & 0\\
+0 & 0 & \psi
+\end{pmatrix}
+\begin{pmatrix}
+\hat k_{t-1}\\
+\hat c_t\\
+\hat z_t
+\end{pmatrix}
+\]
+
+Because
+\[
+\hat z_{t+1}=\psi \hat z_t+\varepsilon_t
+\]
+is a stationary process, the dynamic property of system is pinned down by the deterministic part:
+\[
+\textcolor{red}{\hat z_t \text{ is either 0 or converges to 0 since } 0<\psi<1}
+\]
+
+\[
+M\,E_t[x_t]=N x_{t-1}
+\]
+where
+\[
+x_{t-1}=\begin{bmatrix}\hat k_{t-1} & \hat c_t\end{bmatrix}'
+\]
+
+\[
+M=
+\begin{pmatrix}
+1 & 0\\
+\tilde\delta(1-\alpha) & \sigma
+\end{pmatrix},
+\qquad
+N=
+\begin{pmatrix}
+\frac{1}{\beta} & \delta-\frac{\tilde\delta}{\alpha\beta}\\
+0 & \sigma
+\end{pmatrix}
+\]
+
+\[
+\det(M)=\sigma>0
+\qquad \Rightarrow \qquad
+M^{-1}\text{ exists}
+\]
+
+Assume
+\[
+M^{-1}=
+\begin{pmatrix}
+b_{11} & b_{12}\\
+b_{21} & b_{22}
+\end{pmatrix}
+\]
+
+Impose $MM^{-1}=I$:
+\[
+\begin{pmatrix}
+1 & 0\\
+\tilde\delta(1-\alpha) & \sigma
+\end{pmatrix}
+\begin{pmatrix}
+b_{11} & b_{12}\\
+b_{21} & b_{22}
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & 0\\
+0 & 1
+\end{pmatrix}
+\]
+
+\[
+\Rightarrow\qquad
+b_{11}=1,\quad
+b_{12}=0,\quad
+b_{22}=\frac{1}{\sigma},\quad
+b_{21}=-\frac{\tilde\delta(1-\alpha)}{\sigma}
+\]
+
+\[
+\Rightarrow\qquad
+M^{-1}
+=
+\begin{pmatrix}
+1 & 0\\
+-\dfrac{\tilde\delta(1-\alpha)}{\sigma} & \dfrac{1}{\sigma}
+\end{pmatrix}
+\]
+
+\[
+\Rightarrow\qquad
+M^{-1}N
+=
+\begin{pmatrix}
+1 & 0\\
+-\dfrac{\tilde\delta(1-\alpha)}{\sigma} & \dfrac{1}{\sigma}
+\end{pmatrix}
+\begin{pmatrix}
+\frac{1}{\beta} & \delta-\frac{\tilde\delta}{\alpha\beta}\\
+0 & \sigma
+\end{pmatrix}
+\]
+
+\[
+=
+\begin{pmatrix}
+\dfrac{1}{\beta} & \delta-\dfrac{\tilde\delta}{\alpha\beta}\\[0.8em]
+-\dfrac{\tilde\delta(1-\alpha)}{\sigma\beta}
+&
+1+\dfrac{\tilde\delta(1-\alpha)}{\sigma}
+\left(
+\dfrac{\tilde\delta}{\alpha\beta}-\delta
+\right)
+\end{pmatrix}
+\]
+
+Using
+\[
+\delta-\frac{\tilde\delta}{\alpha\beta}
+=
+-\frac{\bar C}{\bar K},
+\]
+we can write
+\[
+M^{-1}N
+=
+\begin{pmatrix}
+\dfrac{1}{\beta} & -\dfrac{\bar C}{\bar K}\\[0.8em]
+-\dfrac{\tilde\delta(1-\alpha)}{\sigma\beta}
+&
+1+\dfrac{\tilde\delta(1-\alpha)}{\sigma}\dfrac{\bar C}{\bar K}
+\end{pmatrix}
+\]
+
+\[
+E_t[x_t]=M^{-1}N x_{t-1}
+\]
+\[
+\textcolor{red}{\text{Jacobian matrix}}
+\]
+
+Thus, $M^{-1}N$ shows the property of roots.
+
+\newpage
+
+\[
+T
+=
+1+\frac{1}{\beta}
++
+\frac{\tilde\delta(1-\alpha)}{\sigma}\frac{\bar C}{\bar K}
+\]
+
+\[
+D
+=
+\frac{1}{\beta}
+\left[
+1+\frac{\tilde\delta(1-\alpha)}{\sigma}\frac{\bar C}{\bar K}
+\right]
+-
+\frac{\tilde\delta(1-\alpha)}{\sigma\beta}\frac{\bar C}{\bar K}
+=
+\frac{1}{\beta}
+\]
+
+\[
+p(-1)=1+D+T
+=
+2+\frac{2}{\beta}
++
+\frac{\tilde\delta(1-\alpha)}{\sigma}\frac{\bar C}{\bar K}
+>0
+\]
+
+\[
+p(1)=1+D-T
+=
+-\frac{\tilde\delta(1-\alpha)}{\sigma}\frac{\bar C}{\bar K}
+<0
+\]
+
+\[
+\Rightarrow\qquad
+\begin{cases}
+p(-1)>0\\
+p(1)<0
+\end{cases}
+\]
+
+\[
+\Rightarrow\qquad
+1 \text{ stable root in }(-1,1),\qquad
+1 \text{ unstable root in }(1,+\infty)
+\]
+
+Since we have one predetermined variable $\hat k_{t-1}$ and one jump variable $\hat c_t$,
+\[
+\Rightarrow\qquad
+\text{the system is a saddle path equilibrium}
+\]
+\[
+\text{(from Blanchard and Kahn conditions)}
+\]
+
+\subsection*{8. What is Jacobian Matrix?}
+
+Partial derivative that tells how a change in today's state affects tomorrow's variables.
+
+eg:
+\[
+x_t=f(x_{t-1},z_t)
+\]
+
+\[
+J=\frac{\partial f}{\partial x}\Big|_{(\bar x,\bar z)}
+\]
+（ Notes transcribed by CMT.）
+
+\ThisNoteEnd
