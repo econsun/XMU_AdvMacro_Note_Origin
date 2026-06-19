@@ -1,0 +1,556 @@
+\documentclass[11pt,fleqn]{article}
+\usepackage[a4paper,margin=0.65in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{array,tabularx,booktabs,multicol}
+\usepackage{float}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{bm}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{microtype}
+
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{Tinos}}
+\setCJKmainfont{Noto Serif CJK SC}
+
+\definecolor{noteRed}{RGB}{190,45,90}
+\definecolor{noteBlue}{RGB}{45,90,150}
+\definecolor{notePurple}{RGB}{115,70,150}
+\definecolor{noteGreen}{RGB}{70,125,105}
+\newcommand{\red}[1]{\textcolor{noteRed}{#1}}
+\newcommand{\blue}[1]{\textcolor{noteBlue}{#1}}
+\newcommand{\purple}[1]{\textcolor{notePurple}{#1}}
+\newcommand{\gray}[1]{\textcolor{gray!80!black}{#1}}
+\newcommand{\green}[1]{\textcolor{noteGreen}{#1}}
+\newcommand{\purp}[1]{\purple{#1}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\ph}{\varphi}
+\newcommand{\MPN}{\mathrm{MPN}}
+\newcommand{\MRS}{\mathrm{MRS}}
+\newcommand{\MRT}{\mathrm{MRT}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\ann}[1]{\quad\text{\purple{#1}}}
+\newcommand{\mplus}{\hat m^{+}}
+\newcommand{\fitmath}[1]{\[\begin{adjustbox}{max width=\linewidth}$\displaystyle #1$\end{adjustbox}\]}
+\newcommand{\pageno}[1]{\hfill\tikz[baseline=(c.base)]\node[ellipse,draw=noteRed,text=noteRed,inner sep=1.3pt](c){\scriptsize #1};\par\vspace{-2pt}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlength{\mathindent}{0pt}
+\setlist[itemize]{itemsep=0.15em,topsep=0.25em,leftmargin=1.35em}
+\setlist[enumerate]{itemsep=0.18em,topsep=0.25em,leftmargin=1.55em}
+\allowdisplaybreaks
+\AtBeginDocument{%
+  \abovedisplayskip=5pt plus 1pt minus 1pt
+  \belowdisplayskip=5pt plus 1pt minus 1pt
+  \abovedisplayshortskip=4pt plus 1pt minus 1pt
+  \belowdisplayshortskip=4pt plus 1pt minus 1pt
+  \setlength{\jot}{2pt}
+  \fontsize{13pt}{15pt}\selectfont
+}
+
+\tcbset{
+  noteBox/.style={
+    enhanced, breakable, colback=white, colframe=gray!40!black,
+    boxrule=0.45pt, arc=1.2mm, left=1.5mm, right=1.5mm,
+    top=1mm, bottom=1mm, before skip=2pt, after skip=2pt,
+    fonttitle=\bfseries\color{notePurple}, coltitle=notePurple
+  }
+}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Lecture 9 Supplements: Policy Rules and Welfare Loss}
+
+\vspace{0.4em}
+{\normalsize Author: Chengyuan He}
+
+{\normalsize Transcribed by: Mengting Chen}
+
+{\normalsize Date: June 2026}
+\end{center}
+\vspace{-0.5em}
+
+\vspace{0.5em}
+\textbf{Rotemberg and Woodford (1999): second-order approximation to household utility around efficient allocation}
+\[
+\tilde y_t=y_t-y_t^n,
+\qquad
+Y_t=A_tN_t^{1-\alpha}\Rightarrow \tilde y_t=(1-\alpha)\tilde n_t
+\Rightarrow \tilde n_t=\frac{\tilde y_t}{1-\alpha}.
+\]
+\[
+\text{expand utility around }x=\tilde y_t=\tilde c_t,\qquad
+U=\frac{C^{1-\delta}}{1-\delta}-\frac{N^{1+\psi}}{1+\psi}.
+\]
+\purp{consumption moves by $x$, labor moves by $x/(1-\alpha)$.}
+\par\vspace{1em}
+\textbf{Consumption part:} \purp{move by $x$}
+\[
+\frac{(C^ne^x)^{1-\sigma}-(C^n)^{1-\sigma}}{(1-\sigma)U_c^nC^n}\tag{$\ast$}
+\qquad\text{where }U_c^n=(C^n)^{-\sigma}
+\]
+\[
+\left.
+\begin{aligned}
+(\ast)&=\frac{e^{(1-\sigma)x}-1}{1-\delta},\\[-1pt]
+ e^{(1-\sigma)x}&\simeq1+(1-\sigma)x+\frac12(1-\sigma)^2x^2
+\end{aligned}\right\}
+\Rightarrow\quad
+(\ast)=x+\frac12(1-\sigma)x^2.
+\]
+\purp{Taylor expansion around $0$.}
+\par\vspace{1em}
+\textbf{Labor part:} Since consumption move by $x$, labor move by $x/(1-\alpha)$.
+
+Expand labor by $\dfrac{x}{1-\alpha}$ gives the normalized labor utility change:
+\[
+-\frac{\bigl(N^ne^{x/(1-\alpha)}\bigr)^{1+\psi}-(N^n)^{1+\psi}}{(1+\psi)U_c^nC^n}\tag{$\ast\ast$}
+\]
+\begin{align*}
+\text{Since}\quad -\frac{U_N}{U_C}&=MPN=(1-\alpha)\frac{Y^n}{N^n},
+& U_N&=(N^n)^\psi,\\[-1pt]
+\Rightarrow\quad
+\frac{(N^n)^\psi}{U_c^n}&=(1-\alpha)\frac{C^n}{N^n},
+&\Rightarrow\quad
+\frac{(N^n)^{1+\psi}}{U_c^nC^n}&=1-\alpha.
+\end{align*}
+\begin{align*}
+(\ast\ast)&=-\frac{e^{(1+\psi)x/(1-\alpha)}-1}{1+\psi}
+\frac{(N^n)^{1+\psi}}{U_c^nC^n}\\[-1pt]
+&=-(1-\alpha)\frac{e^{(1+\psi)x/(1-\alpha)}-1}{1+\psi}.
+\end{align*}
+\[
+e^{(1+\psi)x/(1-\alpha)}\simeq
+1+\frac{1+\psi}{1-\alpha}x
++\frac12\left(\frac{1+\psi}{1-\alpha}\right)^2x^2,
+\qquad\text{expand at }x=0.
+\]
+\[
+(\ast\ast)=-\frac{1-\alpha}{1+\psi}
+\left(\frac{1+\psi}{1-\alpha}x+\frac12\left(\frac{1+\psi}{1-\alpha}\right)^2x^2\right)
+=-x-\frac12*\frac{1+\psi}{1-\alpha}x^2.
+\]
+\par\vspace{1em}
+\textbf{Combine consumption part with labor part:}
+\begin{align*}
+&x+\frac12(1-\sigma)x^2-x-\frac12\frac{1+\psi}{1-\alpha}x^2\\[-1pt]
+&\qquad=\frac12\left(1-\sigma-\frac{1+\psi}{1-\alpha}\right)x^2
+=-\frac12\left(\sigma-1+\frac{1+\psi}{1-\alpha}\right)x^2
+=-\frac12\left(\sigma+\frac{\alpha+\psi}{1-\alpha}\right)\tilde y_t^2,
+\quad (x=\tilde y).
+\end{align*}
+
+\textbf{Now derive the inflation part:} $P_t(i)\neq P_t(j)$; inflation creates relative-price dispersion.
+\[
+\begin{aligned}
+&\text{Cross sectional variance of log relative price}\Rightarrow
+V=\int_0^1(p(i)-p)^2di=\int_0^1s(i)^2di,\\[-1pt]
+&\hspace{4em} s(i)=p(i)-p.
+\end{aligned}
+\]
+\begin{align*}
+Y(i)&=\left(\frac{P(i)}{P}\right)^{-\varepsilon}Y
+\Rightarrow \log Y(i)=-\varepsilon\log P(i)+\varepsilon\log P+\log Y,\\[-1pt]
+\Rightarrow\quad y(i)-y&=-\varepsilon(p(i)-p)=-\varepsilon s(i).
+\end{align*}
+\[
+\left.
+\begin{aligned}
+Y(i)&=A N(i)^{1-\alpha}
+\Rightarrow
+N(i)=\left(\frac{Y(i)}{A}\right)^{\frac{1}{1-\alpha}}\\
+Y(i)&=Ye^{-\varepsilon s(i)}
+\end{aligned}
+\right\}
+\Rightarrow
+N(i)=\left(\frac{Y}{A}\right)^{\frac{1}{1-\alpha}}
+e^{-\frac{\varepsilon}{1-\alpha}s(i)}.
+\]
+\[
+N=\int_0^1N(i)di=\left(\frac{Y}{A}\right)^{\frac{1}{1-\alpha}}
+\int_0^1e^{-\frac{\varepsilon}{1-\alpha}s(i)}di,
+\qquad
+\tag{1}
+\text{ithout price dispersion }s(i)=0.
+\]
+\[
+\Rightarrow
+N^{sym}=\left(\frac{Y}{A}\right)^{\frac{1}{1-\alpha}}
+\tag{2}
+\quad\cdots\quad \text{symmetrical labor/price.}
+\]
+\[
+\frac{(1)}{(2)}=\frac{N}{N^{sym}}=\int_0^1e^{-\frac{\varepsilon}{1-\alpha}s(i)}di,
+\qquad
+\text{let }a=\frac{\varepsilon}{1-\alpha}.
+\]
+\[
+e^{-as(i)}\simeq1-as(i)+\frac{a^2}{2}s(i)^2,
+\qquad\text{expand around }s(i)=0.
+\]
+\[
+\Rightarrow\quad
+\frac{N}{N^{sym}}=1-a\int_0^1s(i)di+\frac{a^2}{2}\int_0^1s(i)^2di.\tag{$\ast\ast\ast$}
+\]
+\begin{align*}
+P
+&=
+\left[
+\int_0^1 P(i)^{1-\varepsilon}\,di
+\right]^{\frac{1}{1-\varepsilon}}
+\\[2pt]
+\Rightarrow\quad
+1
+&=
+\left[
+\int_0^1
+\left(\frac{P(i)}{P}\right)^{1-\varepsilon}
+di
+\right]^{\frac{1}{1-\varepsilon}}
+\\[2pt]
+\Rightarrow\quad
+1
+&=
+\int_0^1 e^{(1-\varepsilon)s(i)}\,di,
+\qquad
+\frac{P(i)}{P}
+=
+e^{p(i)-p}
+=
+e^{s(i)}.
+\end{align*}
+
+\[
+e^{(1-\varepsilon)s(i)}
+\approx
+1+(1-\varepsilon)s(i)
++\frac12(1-\varepsilon)^2 s(i)^2.
+\]
+
+\begin{align*}
+1
+&=
+\int_0^1
+\left[
+1+(1-\varepsilon)s(i)
++\frac12(1-\varepsilon)^2 s(i)^2
+\right]di
+\\[2pt]
+&=
+1+(1-\varepsilon)\int_0^1 s(i)\,di
++\frac12(1-\varepsilon)^2\int_0^1 s(i)^2\,di.
+\end{align*}
+\[
+\Rightarrow\quad
+(1-\varepsilon)\int_0^1 s(i)\,di
++\frac12(1-\varepsilon)^2 V=0,
+\qquad
+\text{where } 
+V \equiv \int_0^1 s(i)^2\,di .
+\]
+
+\[
+\Rightarrow\quad
+\int_0^1 s(i)\,di
++\frac12(1-\varepsilon)V=0
+\quad\Rightarrow\quad
+\int_0^1 s(i)\,di
+=
+\frac{\varepsilon-1}{2}V.
+\]
+
+\begin{equation}
+\begin{aligned}
+(\ast\ast\ast)
+=\frac{N}{N^{sym}}
+&=
+1-a\int_0^1 s(i)\,di
++\frac{a^2}{2}\int_0^1 s(i)^2\,di
+\\[2pt]
+&=
+1-a\cdot\frac{\varepsilon-1}{2}V
++\frac{a^2}{2}V
+\\[2pt]
+&=
+1-\frac{\varepsilon}{1-\alpha}\cdot\frac{\varepsilon-1}{2}V
++\frac12\left(\frac{\varepsilon}{1-\alpha}\right)^2V
+\\[2pt]
+&=
+1+
+\frac{\varepsilon(1-\alpha+\alpha\varepsilon)}
+{2(1-\alpha)^2}V.
+\end{aligned}
+\tag{$\ast\ast\ast\ast$}
+\end{equation}
+
+\green{Price dispersion increases labor required to produce the same aggregate output.}
+
+\begin{align*}
+-\frac{U_N}{U_C}&=MPN=(1-\alpha)\frac{Y}{N},
+&\purp{\text{We need to know extra labor's utility loss.}}
+\end{align*}
+\[
+\left.
+\begin{aligned}
+\frac{\MPN\,\Delta N}{Y}
+&=(1-\alpha)\frac{\Delta N}{N},\\[4pt]
+(\ast\ast\ast\ast)\quad
+\frac{N-N^{sym}}{N^{sym}}
+&=
+\frac{N}{N^{sym}}-1
+=
+\frac{\varepsilon(1-\alpha+\alpha\varepsilon)}
+{2(1-\alpha)^2}V
+\end{aligned}
+\right\}
+\Rightarrow
+\underbrace{
+\frac{\MPN\,\Delta N}{Y}
+}_{\text{labor price dispersion}}
+=
+\frac{\varepsilon(1-\alpha+\alpha\varepsilon)}
+{2(1-\alpha)}V .
+\]
+\par\vspace{1em}
+\[
+\text{Define }\quad
+\Theta=\frac{1-\alpha}{1-\alpha+\alpha\varepsilon}
+\quad\text{(same as lecture 8)}
+\quad\Rightarrow\quad
+\frac{MPN\Delta N}{Y}=\frac12\frac{\varepsilon}{\Theta}V.
+\]
+Now convert price dispersion to inflation. Since
+\[
+P_t^{1-\varepsilon}
+=(1-\theta)(P_t^*)^{1-\varepsilon}
++\theta P_{t-1}^{1-\varepsilon},
+\]
+log-linearizing around the zero-inflation steady state gives
+\[
+p_t=(1-\theta)p_t^*+\theta p_{t-1},
+\qquad
+p_t\equiv \log P_t .
+\]
+\begin{align*}
+&\Rightarrow\quad
+\pi_t=p_t-p_{t-1}
+=(1-\theta)(p_t^*-p_{t-1}) \\[-1pt]
+&\hspace{4.1em}
+=(1-\theta)(p_t^*-p_t)+(1-\theta)(p_t-p_{t-1}) \\[-1pt]
+&\hspace{4.1em}
+=(1-\theta)(p_t^*-p_t)+(1-\theta)\pi_t \\[-1pt]
+&\Rightarrow\quad
+p_t^*-p_t=\frac{\theta}{1-\theta}\pi_t
+\Rightarrow
+S_t^*=\frac{\theta}{1-\theta}\pi_t
+\qquad \purp{\text{price-setter dispersion.}}
+\end{align*}
+\[
+\text{Non-price-resetters have}\quad
+\left\{
+\begin{aligned}
+S_t(i)&=p_t(i)-p_t,\\[-1pt]
+S_{t-1}(i)&=p_{t-1}(i)-p_{t-1},\\[-1pt]
+p_t(i)&=p_{t-1}(i).
+\end{aligned}\right.
+\]
+\[
+\Rightarrow S_t(i)-S_{t-1}(i)
+=
+[p_t(i)-p_t]-[p_{t-1}(i)-p_{t-1}]
+=
+-p_t+p_{t-1}
+=
+-\pi_t.
+\]
+\[
+\Rightarrow\quad
+S_t(i)=S_{t-1}(i)-\pi_t.
+\]
+\begin{align*}
+V_t&=(1-\theta)(S_t^*)^2+\theta\int_0^1(S_{t-1}(i)-\pi_t)^2di\\[-1pt]
+&=\frac{\theta^2}{1-\theta}\pi_t^2+\theta V_{t-1}+\theta\pi_t^2
+\qquad\purp{\text{We show it at the end}}\\[-1pt]
+&=\theta V_{t-1}+\frac{\theta}{1-\theta}\pi_t^2.
+\end{align*}
+Assume $V_{-1}=0$:
+\begin{align*}
+\sum_{t=0}^{\infty}\beta^tV_t
+&=\theta\sum_{t=0}^{\infty}\beta^tV_{t-1}
++\frac{\theta}{1-\theta}\sum_{t=0}^{\infty}\beta^t\pi_t^2,\\[-1pt]
+\text{Since }V_{-1}=0,
+\quad \sum_{t=0}^{\infty}\beta^tV_{t-1}
+&=\beta\sum_{t=1}^{\infty}\beta^{t-1}V_{t-1}+V_{-1}
+=\beta\sum_{t=0}^{\infty}\beta^tV_t,\\[-1pt]
+\Rightarrow\quad
+\sum_{t=0}^{\infty}\beta^tV_t
+&=\beta\theta\sum_{t=0}^{\infty}\beta^tV_t
++\frac{\theta}{1-\theta}\sum_{t=0}^{\infty}\beta^t\pi_t^2,\\[-1pt]
+\Rightarrow\quad
+(1-\beta\theta)\sum_{t=0}^{\infty}\beta^tV_t
+&=\frac{\theta}{1-\theta}\sum_{t=0}^{\infty}\beta^t\pi_t^2,\\[-1pt]
+\Rightarrow\quad
+\sum_{t=0}^{\infty}\beta^tV_t
+&=\frac{\theta}{(1-\theta)(1-\beta\theta)}\sum_{t=0}^{\infty}\beta^t\pi_t^2.\tag{3}
+\end{align*}
+
+\par\vspace{0.6em}
+
+\[
+\frac{MPN_t\Delta N_t}{Y_t}=\frac12\frac{\varepsilon}{\Theta}V_t
+\Rightarrow
+\text{Total present value of welfare loss}
+=\frac12\frac{\varepsilon}{\Theta}\sum_{t=0}^{\infty}\beta^tV_t.
+\]
+Plug in (3):
+\[
+L^\pi=\frac12\frac{\varepsilon}{\Theta}
+\frac{\theta}{(1-\theta)(1-\beta\theta)}
+\sum_{t=0}^{\infty}\beta^t\pi_t^2.
+\]
+Define
+\[
+\lambda=\frac{(1-\theta)(1-\beta\theta)}{\theta}\Theta,
+\qquad \Theta\text{ same as lecture 8.}
+\]
+\[
+L^\pi=\frac12\frac{\varepsilon}{\lambda}\sum_{t=0}^{\infty}\beta^t\pi_t^2
+=\frac12\sum_{t=0}^{\infty}\beta^t\frac{\varepsilon}{\lambda}\hat\pi_t^2.
+\]
+\[
+L^C+L^N
+=\frac12\sum_{t=0}^{\infty}\beta^t
+\left(\sigma+\frac{\alpha+\psi}{1-\alpha}\right)\tilde y_t^2.
+\]
+Thus
+\[
+L=L^C+L^N+L^\pi
+=\frac12\sum_{t=0}^{\infty}\beta^t
+\left[\left(\sigma+\frac{\alpha+\psi}{1-\alpha}\right)\tilde y_t^2
++\frac{\varepsilon}{\lambda}\hat\pi_t^2\right].
+\]
+Why
+\[
+\theta\int_0^1\bigl(S_{t-1}(i)-\pi_t\bigr)^2\,di
+=
+\theta V_{t-1}+\theta\pi_t^2 .
+\]
+
+\begin{align*}
+\int_0^1\bigl(S_{t-1}(i)-\pi_t\bigr)^2\,di
+&=
+\int_0^1 S_{t-1}(i)^2\,di
++\int_0^1 \pi_t^2\,di
+-2\pi_t\int_0^1 S_{t-1}(i)\,di \\[2pt]
+&=
+V_{t-1}
++\pi_t^2
+-2\pi_t\int_0^1 S_{t-1}(i)\,di .
+\end{align*}
+
+Since we have
+\[
+\int_0^1 S_{t-1}(i)\,di
+=
+\frac{\varepsilon-1}{2}V_{t-1},
+\]
+
+\begin{align*}
+\int_0^1\bigl(S_{t-1}(i)-\pi_t\bigr)^2\,di
+&=
+V_{t-1}
++\pi_t^2
+-2\pi_t\cdot
+\frac{\varepsilon-1}{2}V_{t-1} \\[2pt]
+&=
+V_{t-1}
++\pi_t^2
+-(\varepsilon-1)V_{t-1}\pi_t .
+\end{align*}
+\green{$\pi_t$ is first-order, $V_{t-1}$ is second-order $\Rightarrow \pi_tV_{t-1}$ is third-order.}
+
+\green{In a second-order welfare approximation, we drop third-order terms.}
+\[
+\Rightarrow\quad
+\theta\int_0^1(S_{t-1}(i)-\pi_t)^2di=\theta V_{t-1}+\theta\pi_t^2.
+\]
+
+From
+\[
+L=\frac12\sum_{t=0}^{\infty}\beta^t
+\left[\left(\sigma+\frac{\alpha+\psi}{1-\alpha}\right)\tilde y_t^2
++\frac{\varepsilon}{\lambda}\hat\pi_t^2\right],
+\]
+where
+\[
+\lambda=\frac{(1-\theta)(1-\beta\theta)}{\theta}\Theta ,
+\qquad
+\Theta=\frac{1-\alpha}{1-\alpha+\alpha\varepsilon}.
+\]
+\[
+\lambda\text{ is the slope of NKPC with respect to real marginal cost.}
+\]
+Let
+\[
+\kappa=\lambda\left(\sigma+\frac{\psi+\alpha}{1-\alpha}\right)
+\quad\cdots\quad
+\text{slope of NKPC with respect to }\tilde y_t.
+\]
+\[
+L
+=
+\frac12\sum_{t=0}^{\infty}\beta^t
+\left[
+\frac{\kappa}{\lambda}\tilde y_t^2
++
+\frac{\varepsilon}{\lambda}\hat\pi_t^2
+\right]
+=
+\frac12\frac{\varepsilon}{\lambda}
+\sum_{t=0}^{\infty}\beta^t
+\left[
+\frac{\kappa}{\varepsilon}\tilde y_t^2
++
+\hat\pi_t^2
+\right].
+\]
+
+\par\vspace{0.6em}
+We let
+\[
+\alpha_x=\frac{\kappa}{\varepsilon}\qquad
+L=\frac12\frac{\varepsilon}{\lambda}\sum_{t=0}^{\infty}\beta^t
+\left[\hat\pi_t^2+\alpha_x\tilde y_t^2\right].
+\]
+When we have inefficiency at supply side:
+\[
+\tilde{y}_t
+=
+\hat{y}_t-\hat{y}_t^n
+\neq
+\hat{y}_t-\hat{y}_t^e
+=
+\hat{x}_t .
+\]
+The welfare loss is coming from the gap between realized current output $\hat y_t$ \purp{(deviation)} and the efficient output $\hat y_t^e$ \purp{(deviation)}, thus
+\[
+L=\frac12\frac{\varepsilon}{\lambda}\sum_{t=0}^{\infty}\beta^t
+\left[\hat\pi_t^2+\alpha_x\hat x_t^2\right].
+\]
+Now scale the welfare loss by $2\frac{\lambda}{\varepsilon}$:
+\[
+L'\equiv2\frac{\lambda}{\varepsilon}L
+=\sum_{t=0}^{\infty}\beta^t
+\left[\hat\pi_t^2+\alpha_x\hat x_t^2\right].
+\]
+since $2\cdot\dfrac{\lambda}{\varepsilon}$ is constant, the scaling does not affect the optimal decision $(\hat\pi_t^*,\hat x_t^*)$ that minimizes the loss $L'$.
+
+\end{document}
