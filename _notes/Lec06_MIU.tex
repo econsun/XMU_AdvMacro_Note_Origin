@@ -27,8 +27,8 @@ pinned down without monetary policy. Monetary policy only affects nominal variab
 
 \paragraph{Household's problem}
 \[
-\max_{\{C_t,N_t,B_t\}}
-E_0\sum_{t=0}^{\infty}\beta^t U(C_t,N_t)
+\max_{\left\{C_t,N_t,B_t\right\}}
+E_0\sum_{t=0}^{\infty}\beta^t U\left(C_t,N_t\right)
 \]
 
 s.t.
@@ -52,9 +52,9 @@ Lagrangian:
 \mathcal L
 =
 E_0\sum_{t=0}^{\infty}\beta^t
-\Big[
-U(C_t,N_t)+\lambda_t(B_{t-1}+W_tN_t-T_t-P_tC_t-Q_tB_t)
-\Big].
+\left[
+U\left(C_t,N_t\right)+\lambda_t\left(B_{t-1}+W_tN_t-T_t-P_tC_t-Q_tB_t\right)
+\right].
 \]
 
 FOCs:
@@ -73,7 +73,7 @@ U_{N_t}+\lambda_t W_t=0
 \[
 \frac{\partial \mathcal L}{\partial B_t}=0
 \quad\Rightarrow\quad
--\beta^t\lambda_t Q_t+\beta^{t+1}E_t[\lambda_{t+1}]=0
+-\beta^t\lambda_t Q_t+\beta^{t+1}E_t\left[\lambda_{t+1}\right]=0
 \quad\Rightarrow\quad
 Q_t=\beta E_t\left[\frac{\lambda_{t+1}}{\lambda_t}\right]
 \tag{3}
@@ -103,7 +103,7 @@ Q_t
 
 Suppose
 \[
-U(C_t,N_t)
+U\left(C_t,N_t\right)
 =
 \frac{C_t^{1-\sigma}}{1-\sigma}
 -
@@ -145,7 +145,7 @@ N_t=\left(\frac{W_t/P_t}{C_t^\sigma}\right)^{1/\varphi}
 -
 \frac{\sigma}{\varphi}\log C_t
 \quad\Rightarrow\quad
-\frac{\partial \log N_t}{\partial \log (W_t/P_t)}
+\frac{\partial \log N_t}{\partial \log \left(W_t/P_t\right)}
 =
 \frac{1}{\varphi}
 \]
@@ -165,7 +165,7 @@ Y_t=A_tN_t^{1-\alpha}.
 
 FOC:
 \[
-\frac{W_t}{P_t}=(1-\alpha)A_tN_t^{-\alpha}
+\frac{W_t}{P_t}=\left(1-\alpha\right)A_tN_t^{-\alpha}
 \qquad
 \text{: both are real terms.}
 \tag{4}
@@ -177,8 +177,8 @@ FOC:
 \qquad Y_t=C_t
 \]
 \[
-\text{Labor market clearing: }\qquad N_t^{(d)} = N_t^{(s)}
-(\text{implicitly holds})
+\text{Labor market clearing: }\qquad N_t^{\left(d\right)} = N_t^{\left(s\right)}
+\left(\text{implicitly holds}\right)
 \]
 \[
 \text{Bond market clearing:Hold by Walras Law}
@@ -189,24 +189,24 @@ Then we have the system
 \[
 \left\{
 \begin{aligned}
-Y_t &= C_t, 
+Y_t &= C_t,
 & \qquad & \text{goods market clearing} \\[4pt]
-T_t &= \alpha P_t Y_t, 
+T_t &= \alpha P_t Y_t,
 & & \text{dividend} \\[4pt]
-Y_t &= A_t N_t^{1-\alpha}, 
+Y_t &= A_t N_t^{1-\alpha},
 & & \text{production function} \\[4pt]
-\frac{W_t}{P_t} &= C_t^{\sigma} N_t^{\varphi}, 
+\frac{W_t}{P_t} &= C_t^{\sigma} N_t^{\varphi},
 & & \text{labor-leisure condition} \\[6pt]
-\frac{W_t}{P_t} &= (1-\alpha)A_t N_t^{-\alpha}, 
+\frac{W_t}{P_t} &= \left(1-\alpha\right)A_t N_t^{-\alpha},
 & & \text{real wage = MPL} \\[6pt]
-P_t C_t + Q_t B_t &= B_{t-1} + W_t N_t + T_t, 
+P_t C_t + Q_t B_t &= B_{t-1} + W_t N_t + T_t,
 & & \text{budget constraint} \\[6pt]
 Q_t &= \beta E_t \left[
 \left(\frac{C_{t+1}}{C_t}\right)^{-\sigma}
 \frac{P_t}{P_{t+1}}
-\right], 
+\right],
 & & \text{bond Euler equation} \\[8pt]
-\log A_t &= (1-\rho_a)\log \bar{A} + \rho_a \log A_{t-1} + \varepsilon_t,
+\log A_t &= \left(1-\rho_a\right)\log \bar{A} + \rho_a \log A_{t-1} + \varepsilon_t,
 & & \text{productivity process}
 \end{aligned}
 \right.
@@ -224,10 +224,10 @@ W_t^r = \frac{W_t}{P_t}.
 \qquad
 \left\{
 \begin{aligned}
-W_t^r &= C_t^{\sigma} N_t^{\varphi} \qquad (1)\\[4pt]
-Y_t &= A_t N_t^{1-\alpha} \qquad (2)\\[4pt]
-W_t^r &= (1-\alpha)A_t N_t^{-\alpha} \qquad (3)\\[4pt]
-Y_t &= C_t \qquad (4)
+W_t^r &= C_t^{\sigma} N_t^{\varphi} \qquad \left(1\right)\\[4pt]
+Y_t &= A_t N_t^{1-\alpha} \qquad \left(2\right)\\[4pt]
+W_t^r &= \left(1-\alpha\right)A_t N_t^{-\alpha} \qquad \left(3\right)\\[4pt]
+Y_t &= C_t \qquad \left(4\right)
 \end{aligned}
 \right.
 \]
@@ -245,7 +245,7 @@ Assume
 
 From (2), (3), and \(Y=C\):
 \[
-(1-\alpha)\bar N^{-\alpha}
+\left(1-\alpha\right)\bar N^{-\alpha}
 =
 \bar C^\sigma \bar N^\varphi.
 \]
@@ -258,31 +258,31 @@ Since
 \]
 we have
 \[
-(1-\alpha)\bar N^{-\alpha}
+\left(1-\alpha\right)\bar N^{-\alpha}
 =
 \left(\bar N^{1-\alpha}\right)^\sigma \bar N^\varphi
 =
-\bar N^{\sigma(1-\alpha)+\varphi}.
+\bar N^{\sigma\left(1-\alpha\right)+\varphi}.
 \]
 
 Hence
 \[
 1-\alpha
 =
-\bar N^{\sigma(1-\alpha)+\varphi+\alpha},
+\bar N^{\sigma\left(1-\alpha\right)+\varphi+\alpha},
 \]
 so
 \[
 \bar N
 =
-(1-\alpha)^{\frac{1}{\sigma(1-\alpha)+\varphi+\alpha}}.
+\left(1-\alpha\right)^{\frac{1}{\sigma\left(1-\alpha\right)+\varphi+\alpha}}.
 \]
 
 Thus
 \[
 \bar Y=\bar N^{1-\alpha}
 =
-(1-\alpha)^{\frac{1-\alpha}{\sigma(1-\alpha)+\varphi+\alpha}},
+\left(1-\alpha\right)^{\frac{1-\alpha}{\sigma\left(1-\alpha\right)+\varphi+\alpha}},
 \qquad
 \bar C=\bar Y.
 \]
@@ -292,7 +292,7 @@ and
 =
 \bar C^\sigma \bar N^\varphi
 =
-(1-\alpha)\bar N^{-\alpha}.
+\left(1-\alpha\right)\bar N^{-\alpha}.
 \]
 
 \paragraph{Log-linearization}
@@ -301,7 +301,7 @@ and
 \hat w_t^r=\sigma \hat c_t+\varphi \hat n_t
 \]
 \[
-\hat y_t=\hat a_t+(1-\alpha)\hat n_t
+\hat y_t=\hat a_t+\left(1-\alpha\right)\hat n_t
 \]
 \[
 \hat w_t^r=\hat a_t-\alpha \hat n_t
@@ -321,7 +321,7 @@ Only one shock \(\hat a_t\), no predetermined variable. Assume
 
 Then
 \[
-\sigma \hat{a}_t + \sigma(1-\alpha)\hat{n}_t + \varphi \hat{n}_t
+\sigma \hat{a}_t + \sigma\left(1-\alpha\right)\hat{n}_t + \varphi \hat{n}_t
 = \hat{a}_t - \alpha \hat{n}_t
 \]
 
@@ -329,7 +329,7 @@ Then
 \Rightarrow\quad
 \hat{c}_t=\hat{y}_t
 =
-\frac{1+\varphi}{\sigma(1-\alpha)+\varphi+\alpha}\,\hat{a}_t
+\frac{1+\varphi}{\sigma\left(1-\alpha\right)+\varphi+\alpha}\,\hat{a}_t
 \qquad
 \text{coefficient >0}
 \]
@@ -337,14 +337,14 @@ Then
 \[
 \hat{w}_t^{\,r}
 =
-\frac{\varphi+\sigma}{\sigma(1-\alpha)+\varphi+\alpha}\,\hat{a}_t
+\frac{\varphi+\sigma}{\sigma\left(1-\alpha\right)+\varphi+\alpha}\,\hat{a}_t
 \qquad
 \text{coefficient >0}
 \]
 \[
 \hat{n}_t
 =
-\frac{1-\sigma}{\sigma(1-\alpha)+\varphi+\alpha}\,\hat{a}_t
+\frac{1-\sigma}{\sigma\left(1-\alpha\right)+\varphi+\alpha}\,\hat{a}_t
 \qquad
 \text{coefficient is ambiguous, depends on } \sigma
 \]
@@ -414,9 +414,9 @@ i_t = -\log Q_t
 \begin{aligned}
 \left(\frac{C_{t+1}}{C_t}\right)^{-\sigma}
 &=
-e^{-\sigma \log C_{t+1}} \big/ e^{-\sigma \log C_t}
+e^{-\sigma \log C_{t+1}} / e^{-\sigma \log C_t}
 =
-e^{-\sigma(\log C_{t+1}-\log C_t)},
+e^{-\sigma\left(\log C_{t+1}-\log C_t\right)},
 \\[6pt]
 \frac{1}{\Pi_{t+1}}
 &=
@@ -435,14 +435,14 @@ e^{-\pi_{t+1}}.
 e^{-i_t}
 =
 e^{-\rho} E_t \!\left[
-e^{-\sigma(\hat c_{t+1}-\hat c_t)-\pi_{t+1}}
+e^{-\sigma\left(\hat c_{t+1}-\hat c_t\right)-\pi_{t+1}}
 \right]
 }
 \tag{**}
 \]
 
 \[
--i_t = -\rho + E_t\!\left[-\sigma(\hat c_{t+1}-\hat c_t)-\pi_{t+1}\right]
+-i_t = -\rho + E_t\!\left[-\sigma\left(\hat c_{t+1}-\hat c_t\right)-\pi_{t+1}\right]
 \tag{1}
 \]
 
@@ -454,7 +454,7 @@ e^{-\sigma(\hat c_{t+1}-\hat c_t)-\pi_{t+1}}
 -\rho
 +
 E_t\!\left[
--\sigma(\log \bar{C}-\log \bar{C})-\bar{\pi}
+-\sigma\left(\log \bar{C}-\log \bar{C}\right)-\bar{\pi}
 \right],
 \\[6pt]
 \bar{\pi}
@@ -471,10 +471,10 @@ E_t\!\left[
 
 \[
 \begin{aligned}
-(1)+(2)\quad \Rightarrow\quad
+\left(1\right)+\left(2\right)\quad \Rightarrow\quad
 -\hat{i}_t+\bar{i}
 &=
-E_t\!\left[-\sigma\bigl(\log C_{t+1}-\log C_t\bigr)-\pi_{t+1}\right].
+E_t\!\left[-\sigma\left(\log C_{t+1}-\log C_t\right)-\pi_{t+1}\right].
 \end{aligned}
 \]
 
@@ -494,17 +494,17 @@ E_t\!\left[-\sigma\bigl(\log C_{t+1}-\log C_t\bigr)-\pi_{t+1}\right].
 \Rightarrow\quad
 -\hat{i}_t
 &=
-E_t\!\left[-\sigma(\hat{c}_{t+1}-\hat{c}_t)-\pi_{t+1}\right],
+E_t\!\left[-\sigma\left(\hat{c}_{t+1}-\hat{c}_t\right)-\pi_{t+1}\right],
 \\[6pt]
 \Rightarrow\quad
 -\hat{i}_t
 &=
--\sigma E_t\Delta \hat{c}_{t+1}-E_t[\pi_{t+1}],
+-\sigma E_t\Delta \hat{c}_{t+1}-E_t\left[\pi_{t+1}\right],
 \\[6pt]
 \Rightarrow\quad
 \sigma E_t\Delta \hat{c}_{t+1}
 &=
-\hat{i}_t-E_t[\pi_{t+1}],
+\hat{i}_t-E_t\left[\pi_{t+1}\right],
 \\[6pt]
 \hat{\pi}_{t+1}
 &=
@@ -513,7 +513,7 @@ E_t\!\left[-\sigma(\hat{c}_{t+1}-\hat{c}_t)-\pi_{t+1}\right],
 \pi_{t+1},
 \\[6pt]
 \Rightarrow\quad
-\hat{i}_t-E_t[\hat{\pi}_{t+1}]
+\hat{i}_t-E_t\left[\hat{\pi}_{t+1}\right]
 &=
 \sigma E_t\Delta \hat{c}_{t+1}.
 \end{aligned}
@@ -521,7 +521,7 @@ E_t\!\left[-\sigma(\hat{c}_{t+1}-\hat{c}_t)-\pi_{t+1}\right],
 \]
 \[
 \text{Since }
-r_t=i_t-E_t[\pi_{t+1}],
+r_t=i_t-E_t\left[\pi_{t+1}\right],
 \tag{3}
 \]
 \[
@@ -529,11 +529,11 @@ r_t=i_t-E_t[\pi_{t+1}],
 \tag{4}
 \]
 \[
-(3)-(4)\;\Rightarrow\;
-\hat{r}_t=\hat{i}_t-E_t[\hat{\pi}_{t+1}]
+\left(3\right)-\left(4\right)\;\Rightarrow\;
+\hat{r}_t=\hat{i}_t-E_t\left[\hat{\pi}_{t+1}\right]
 \]
 \[
-\text{Plug in }(***)\;\Rightarrow\;
+\text{Plug in }\left(***\right)\;\Rightarrow\;
 \hat{r}_t=\sigma E_t\Delta \hat{c}_{t+1}
 \]
 \[
@@ -541,12 +541,12 @@ r_t=i_t-E_t[\pi_{t+1}],
 \]
 \[
 \Rightarrow\;
-\hat{r}_t=\sigma \psi_{ya}\, E_t[\Delta \hat{a}_{t+1}]
+\hat{r}_t=\sigma \psi_{ya}\, E_t\left[\Delta \hat{a}_{t+1}\right]
 \]
 \[
 \text{If the shock is transitory / mean reverting}
 \quad\Rightarrow\quad
-E_t[\Delta \hat{a}_{t+1}]<0
+E_t\left[\Delta \hat{a}_{t+1}\right]<0
 \quad\Rightarrow\quad
 r_t<0.
 \]
@@ -571,7 +571,7 @@ r_t<0.
 \paragraph{Household's Problem}
 
 \[
-\max_{\{C_t,M_t,N_t\}_{t=0}^{\infty}}
+\max_{\left\{C_t,M_t,N_t\right\}_{t=0}^{\infty}}
 E_0\sum_{t=0}^{\infty}\beta^t\,
 U\!\left(C_t,\mathbb{M}_t,N_t\right)
 \]
@@ -594,7 +594,7 @@ A_t = B_{t-1}+M_{t-1}
 
 B.C.:
 \[
-P_tC_t + Q_tA_{t+1} + (1-Q_t)M_t = A_t + W_tN_t + T_t
+P_tC_t + Q_tA_{t+1} + \left(1-Q_t\right)M_t = A_t + W_tN_t + T_t
 \]
 Notes 1:
 \[
@@ -660,9 +660,9 @@ E_0\sum_{t=0}^{\infty}\beta^t
 \left[
 U\!\left(C_t,\mathbb{M}_t,N_t\right)
 +
-\lambda_t\big(
-A_t+W_tN_t+T_t-P_tC_t-Q_tA_{t+1}-(1-Q_t)M_t
-\big)
+\lambda_t\left(
+A_t+W_tN_t+T_t-P_tC_t-Q_tA_{t+1}-\left(1-Q_t\right)M_t
+\right)
 \right].
 \]
 
@@ -670,7 +670,7 @@ FOCs:
 \[
 \frac{\partial \mathcal L}{\partial M_t}=0
 \quad\Rightarrow\quad
-U_{\mathbb{M}_t}\frac{1}{P_t}-\lambda_t(1-Q_t)=0
+U_{\mathbb{M}_t}\frac{1}{P_t}-\lambda_t\left(1-Q_t\right)=0
 \]
 \[
 \frac{\partial \mathcal L}{\partial C_t}=0
@@ -701,7 +701,7 @@ U\!\left(C_t,\mathbb{M}_t,N_t\right)
 =
 \frac{C_t^{1-\sigma}}{1-\sigma}
 +
-\frac{(\mathbb{M}_t)^{1-\nu}}{1-\nu}
+\frac{\left(\mathbb{M}_t\right)^{1-\nu}}{1-\nu}
 -
 \frac{N_t^{1+\varphi}}{1+\varphi}.
 \]
@@ -735,7 +735,7 @@ C_t^{\sigma/\nu}\left[1-e^{-i_t}\right]^{-1/\nu}
 =
 \frac{\sigma}{\nu}\log C_t
 -
-\frac{1}{\nu}\log(1-e^{-i_t})
+\frac{1}{\nu}\log\left(1-e^{-i_t}\right)
 \]
 \[
 \hat{\mathbb{M}}_t
@@ -746,17 +746,17 @@ C_t^{\sigma/\nu}\left[1-e^{-i_t}\right]^{-1/\nu}
 \text{math notes:}
 \[
 \begin{aligned}
-\text{Let } f(i) &= \log(1-e^{-i}),\\[4pt]
-f'(i) &= \frac{e^{-i}}{1-e^{-i}} = \frac{1}{e^i-1},\\[4pt]
-f''(i) &= -\frac{e^i}{(e^i-1)^2},\\[6pt]
-\log(1-e^{-i_t})
+\text{Let } f\left(i\right) &= \log\left(1-e^{-i}\right),\\[4pt]
+f'\left(i\right) &= \frac{e^{-i}}{1-e^{-i}} = \frac{1}{e^i-1},\\[4pt]
+f''\left(i\right) &= -\frac{e^i}{\left(e^i-1\right)^2},\\[6pt]
+\log\left(1-e^{-i_t}\right)
 &\approx
-\log(1-e^{-\bar{i}})
-+\frac{1}{e^i-1}(i_t-\bar{i}).
+\log\left(1-e^{-\bar{i}}\right)
++\frac{1}{e^i-1}\left(i_t-\bar{i}\right).
 \end{aligned}
 \]
 \[
-\log(1-e^{-\bar{i}}) \text{ is constant, so it cancels out in derivation.}
+\log\left(1-e^{-\bar{i}}\right) \text{ is constant, so it cancels out in derivation.}
 \]
 \mbox{}\\
 If \(\sigma=\nu\), define
@@ -787,7 +787,7 @@ U\!\left(C_t,\mathbb{M}_t,N_t\right)
 \text{where, }\;
 X_t=
 \begin{cases}
-\left[(1-\theta)C_t^{\,1-\nu}+\theta\mathbb{M}_t^{1-\nu}\right]^{\frac{1}{1-\nu}}, & \nu\neq 1,\\[10pt]
+\left[\left(1-\theta\right)C_t^{\,1-\nu}+\theta\mathbb{M}_t^{1-\nu}\right]^{\frac{1}{1-\nu}}, & \nu\neq 1,\\[10pt]
 C_t^{\,1-\theta}\mathbb{M}_t^{\theta}, & \nu=1.
 \end{cases}
 \]
@@ -796,7 +796,7 @@ C_t^{\,1-\theta}\mathbb{M}_t^{\theta}, & \nu=1.
 \text{ is } \frac{1}{\nu}
 \]
 \[
-\theta\in(0,1)
+\theta\in\left(0,1\right)
 \qquad
 \text{weight on money inside the CES aggregator.}
 \]
@@ -805,23 +805,23 @@ C_t^{\,1-\theta}\mathbb{M}_t^{\theta}, & \nu=1.
 
 For \(\nu\neq 1\),
 \[
-X_t=\left[(1-\theta)C_t^{\,1-\nu}+\theta \mathbb{M}_t^{\,1-\nu}\right]^{\frac{1}{1-\nu}}.
+X_t=\left[\left(1-\theta\right)C_t^{\,1-\nu}+\theta \mathbb{M}_t^{\,1-\nu}\right]^{\frac{1}{1-\nu}}.
 \]
 
 Then
 \[
-U_{C,t}=X_t^{-\sigma}\cdot \frac{1}{1-\nu}\cdot X_t^{\nu}\cdot (1-\theta)(1-\nu)C_t^{-\nu}
+U_{C,t}=X_t^{-\sigma}\cdot \frac{1}{1-\nu}\cdot X_t^{\nu}\cdot \left(1-\theta\right)\left(1-\nu\right)C_t^{-\nu}
 \]
 so
 \[
-U_{C,t}=(1-\theta)X_t^{\,\nu-\sigma}C_t^{-\nu}.
+U_{C,t}=\left(1-\theta\right)X_t^{\,\nu-\sigma}C_t^{-\nu}.
 \]
 
 Similarly,
 \[
 U_{\mathbb{M},t}
 =
-X_t^{-\sigma}\cdot \frac{1}{1-\nu}\cdot X_t^{\nu}\cdot \theta(1-\nu)\mathbb{M}_t^{-\nu}
+X_t^{-\sigma}\cdot \frac{1}{1-\nu}\cdot X_t^{\nu}\cdot \theta\left(1-\nu\right)\mathbb{M}_t^{-\nu}
 \]
 so
 \[
@@ -837,7 +837,7 @@ U_{N,t}=-N_t^{\varphi}.
 
 Define
 \[
-X_C=(1-\theta)X^\nu C^{-\nu},
+X_C=\left(1-\theta\right)X^\nu C^{-\nu},
 \qquad
 X_ \mathbb{M}=\theta X^\nu \mathbb{M}^{-\nu}.
 \]
@@ -856,7 +856,7 @@ Hence
 \[
 \varepsilon
 =
-\frac{d\ln(\mathbb{M}/C)}{d\ln MRS_{C,\mathbb{M}}}
+\frac{d\ln\left(\mathbb{M}/C\right)}{d\ln MRS_{C,\mathbb{M}}}
 =
 \frac{1}{\nu}.
 \]
@@ -944,13 +944,13 @@ When $\nu \neq \sigma$, we have the general (non-separable) case.
 \text{Log linearize:}\qquad
 \mathbb{M}_t
 =
-C_t(1-e^{-i_t})^{-1/{\nu}}
+C_t\left(1-e^{-i_t}\right)^{-1/{\nu}}
 \left(\frac{\theta}{1-\theta}\right)^{1/{\nu}}
 \;\Rightarrow\;
 \hat{m}_t-\hat{p}_t
 =
 \hat{c}_t-\eta \hat{i}_t
-\qquad \cdots\; (*)
+\qquad \cdots\; \left(*\right)
 \]
 
 \[
@@ -961,19 +961,19 @@ N_t^{\varphi}X_t^{\sigma-\nu}C_t^{\nu}
 \;\Rightarrow\;
 \hat{w}_t-\hat{p}_t
 =
-\sigma\hat{c}_t+\varphi \hat{n}_t+(\nu-\sigma)(\hat{c}_t-\hat{x}_t)
-\qquad \cdots\; (**)
+\sigma\hat{c}_t+\varphi \hat{n}_t+\left(\nu-\sigma\right)\left(\hat{c}_t-\hat{x}_t\right)
+\qquad \cdots\; \left(**\right)
 \]
 \[
 X_t^{1-\nu}
 =
-(1-\theta)C_t^{1-\nu}
+\left(1-\theta\right)C_t^{1-\nu}
 +
 \theta \mathbb{M}^{1-\nu}
 \]
 \[
 \textcolor{red}{\text{S.S.:}\quad
-(1-\theta)\bar{C}^{\,1-\nu}
+\left(1-\theta\right)\bar{C}^{\,1-\nu}
 =
 \bar{X}^{\,1-\nu}
 -
@@ -983,14 +983,14 @@ X_t^{1-\nu}
 \Rightarrow\quad
 \bar X^{1-\nu}\hat x_t
 =
-(1-\theta)\bar C^{1-\nu}\hat c_t
+\left(1-\theta\right)\bar C^{1-\nu}\hat c_t
 +
-\theta \bar{\mathbb{M}}^{1-\nu}(\hat m_t-\hat p_t).
+\theta \bar{\mathbb{M}}^{1-\nu}\left(\hat m_t-\hat p_t\right).
 \]
 
 \[
-\text{Using } 
-(1-\theta)\bar C^{1-\nu}
+\text{Using }
+\left(1-\theta\right)\bar C^{1-\nu}
 =
 \bar X^{1-\nu}
 -
@@ -1005,16 +1005,16 @@ X_t^{1-\nu}
 \theta\bar{\mathbb{M}}^{1-\nu}
 \right]\hat c_t
 +
-\theta\bar{\mathbb{M}}^{1-\nu}(\hat m_t-\hat p_t).
+\theta\bar{\mathbb{M}}^{1-\nu}\left(\hat m_t-\hat p_t\right).
 \]
 
 \[
 \Rightarrow
-\bar X^{1-\nu}(\hat c_t-\hat x_t)
+\bar X^{1-\nu}\left(\hat c_t-\hat x_t\right)
 =
 \theta\bar{\mathbb{M}}^{1-\nu}
 \left[
-\hat c_t-(\hat m_t-\hat p_t)
+\hat c_t-\left(\hat m_t-\hat p_t\right)
 \right].
 \]
 
@@ -1029,7 +1029,7 @@ X_t^{1-\nu}
 \right)^{1-\nu}
 }_{\chi}
 \left[
-\hat c_t-(\hat m_t-\hat p_t)
+\hat c_t-\left(\hat m_t-\hat p_t\right)
 \right].
 \tag{***}
 \]
@@ -1037,7 +1037,7 @@ X_t^{1-\nu}
 
 \[
 \text{Define}\qquad
-\left(\frac{\bar{M}}{\bar{P}}\right)\Big/\bar{C}
+\left(\frac{\bar{M}}{\bar{P}}\right)/\bar{C}
 =
 k_m
 \]
@@ -1055,12 +1055,12 @@ k_m
 =
 \theta
 \frac{\left(\frac{\bar{M}}{\bar{P}}\right)^{1-\nu}}
-{(1-\theta)\bar{C}^{\,1-\nu}+\theta\left(\frac{\bar{M}}{\bar{P}}\right)^{1-\nu}}
+{\left(1-\theta\right)\bar{C}^{\,1-\nu}+\theta\left(\frac{\bar{M}}{\bar{P}}\right)^{1-\nu}}
 =
 \frac{
-\theta\left(\left(\frac{\bar{M}}{\bar{P}}\right)\big/\bar{C}\right)^{1-\nu}
+\theta\left(\left(\frac{\bar{M}}{\bar{P}}\right)/\bar{C}\right)^{1-\nu}
 }{
-1-\theta+\theta\left(\left(\frac{\bar{M}}{\bar{P}}\right)\big/\bar{C}\right)^{1-\nu}
+1-\theta+\theta\left(\left(\frac{\bar{M}}{\bar{P}}\right)/\bar{C}\right)^{1-\nu}
 }
 \]
 
@@ -1076,12 +1076,12 @@ k_m
 \[
 \mathbb{M}_t
 =
-C_t(1-e^{-i_t})^{-1/{\nu}}
+C_t\left(1-e^{-i_t}\right)^{-1/{\nu}}
 \left(\frac{\theta}{1-\theta}\right)^{1/{\nu}}
 \;\Rightarrow\;
-\left(\frac{\bar{M}}{\bar{P}}\right)\Big/\bar{C}
+\left(\frac{\bar{M}}{\bar{P}}\right)/\bar{C}
 =
-(1-\beta)^{-1/{\nu}}
+\left(1-\beta\right)^{-1/{\nu}}
 \left(\frac{\theta}{1-\theta}\right)^{1/{\nu}}
 \]
 
@@ -1090,7 +1090,7 @@ C_t(1-e^{-i_t})^{-1/{\nu}}
 k_m
 =
 \left[
-\frac{\theta}{(1-\beta)(1-\theta)}
+\frac{\theta}{\left(1-\beta\right)\left(1-\theta\right)}
 \right]^{1/{\nu}}
 \]
 
@@ -1099,7 +1099,7 @@ k_m
 \]
 
 \[
-\text{Plug } (***) \text{ into } (**), \text{ we have}
+\text{Plug } \left(***\right) \text{ into } \left(**\right), \text{ we have}
 \]
 
 \[
@@ -1107,12 +1107,12 @@ k_m
 =
 \sigma\hat{c}_t+\varphi \hat{n}_t
 +
-(\nu-\sigma)\chi
-\Bigl[\hat{c}_t-(\hat{m}_t-\hat{p}_t)\Bigr]
+\left(\nu-\sigma\right)\chi
+\left[\hat{c}_t-\left(\hat{m}_t-\hat{p}_t\right)\right]
 \]
 
 \[
-\text{Plug } (*) \text{ into the above equation:}
+\text{Plug } \left(*\right) \text{ into the above equation:}
 \]
 
 \[
@@ -1120,8 +1120,8 @@ k_m
 =
 \sigma\hat{c}_t+\varphi \hat{n}_t
 +
-(\nu-\sigma)\chi
-\Bigl[\hat{c}_t-\hat{y}_t+\eta \hat{i}_t\Bigr]
+\left(\nu-\sigma\right)\chi
+\left[\hat{c}_t-\hat{y}_t+\eta \hat{i}_t\right]
 \]
 
 \[
@@ -1133,7 +1133,7 @@ k_m
 
 \[
 \text{where}\qquad
-\omega=(\nu-\sigma)\chi\eta
+\omega=\left(\nu-\sigma\right)\chi\eta
 \]
 
 \[
@@ -1142,35 +1142,35 @@ k_m
 \[
 \chi
 =
-\frac{\theta^{1/\nu}(1-\beta)^{1-\frac{1}\nu}}
-{(1-\theta)^{1/\nu}+\theta^{1/\nu}(1-\beta)^{1-\frac{1}\nu}}
+\frac{\theta^{1/\nu}\left(1-\beta\right)^{1-\frac{1}\nu}}
+{\left(1-\theta\right)^{1/\nu}+\theta^{1/\nu}\left(1-\beta\right)^{1-\frac{1}\nu}}
 =
-\frac{\left(\frac{\theta}{1-\theta}\right)^{1/\nu}(1-\beta)^{1-\frac{1}\nu}}
-{1+\left(\frac{\theta}{1-\theta}\right)^{1/\nu}(1-\beta)^{1-\frac{1}\nu}}
+\frac{\left(\frac{\theta}{1-\theta}\right)^{1/\nu}\left(1-\beta\right)^{1-\frac{1}\nu}}
+{1+\left(\frac{\theta}{1-\theta}\right)^{1/\nu}\left(1-\beta\right)^{1-\frac{1}\nu}}
 \]
 
 \[
 \Rightarrow\quad
-\chi=\frac{k_m(1-\beta)}{1+k_m(1-\beta)}
+\chi=\frac{k_m\left(1-\beta\right)}{1+k_m\left(1-\beta\right)}
 \]
 
 \[
-k_m(1-\beta)
+k_m\left(1-\beta\right)
 =
-\left(\frac{\theta}{1-\theta}\right)^{1/\nu}(1-\beta)^{1-\frac{1}{\nu}}
+\left(\frac{\theta}{1-\theta}\right)^{1/\nu}\left(1-\beta\right)^{1-\frac{1}{\nu}}
 \]
 
 \[
 \Rightarrow\quad
 \omega
 =
-\chi \eta (\nu-\sigma)
+\chi \eta \left(\nu-\sigma\right)
 =
-\frac{k_m(1-\beta)}{1+k_m(1-\beta)}
+\frac{k_m\left(1-\beta\right)}{1+k_m\left(1-\beta\right)}
 \cdot
-\frac{1}{\nu\bigl(e^{\bar{i}}-1\bigr)}
+\frac{1}{\nu\left(e^{\bar{i}}-1\right)}
 \cdot
-(\nu-\sigma)
+\left(\nu-\sigma\right)
 \]
 
 \[
@@ -1184,10 +1184,10 @@ e^{\bar{i}}-1=\frac{1-\beta}{\beta}
 \omega
 =
 \frac{k_m\beta\left(\nu-\sigma\right)}
-{\nu\left[1+k_m(1-\beta)\right]}
+{\nu\left[1+k_m\left(1-\beta\right)\right]}
 \]
 \[
-\operatorname{sign}(\omega)=\operatorname{sign}\!\left(1-\frac{\sigma}{\nu}\right)
+\operatorname{sign}\left(\omega\right)=\operatorname{sign}\!\left(1-\frac{\sigma}{\nu}\right)
 \qquad\Rightarrow\qquad
 \omega>0
 \iff
@@ -1195,7 +1195,7 @@ e^{\bar{i}}-1=\frac{1-\beta}{\beta}
 \]
 
 \[
-\eta=\frac{1}{\nu\bigl(e^{\bar{i}}-1\bigr)}
+\eta=\frac{1}{\nu\left(e^{\bar{i}}-1\right)}
 \]
 
 \[
@@ -1224,7 +1224,7 @@ e^{\bar{i}}-1\approx \bar{i}
 \qquad
 \hat{c}_t-\hat{x}_t
 =
-\chi\bigl[\hat{c}_t-(\hat{m}_t-\hat{p}_t)\bigr]
+\chi\left[\hat{c}_t-\left(\hat{m}_t-\hat{p}_t\right)\right]
 \]
 
 \[
@@ -1292,8 +1292,8 @@ e^{-i_t}
 e^{-\rho}
 E_t\!\left[
 e^{
--\nu(\log C_{t+1}-\log C_t)
-+(\nu-\sigma)(\log X_{t+1}-\log X_t)
+-\nu\left(\log C_{t+1}-\log C_t\right)
++\left(\nu-\sigma\right)\left(\log X_{t+1}-\log X_t\right)
 -\pi_{t+1}
 }
 \right]
@@ -1308,8 +1308,8 @@ e^{
 -\rho
 +
 E_t\!\left[
--\nu(\log C_{t+1}-\log C_t)
-+(\nu-\sigma)(\log X_{t+1}-\log X_t)
+-\nu\left(\log C_{t+1}-\log C_t\right)
++\left(\nu-\sigma\right)\left(\log X_{t+1}-\log X_t\right)
 -\pi_{t+1}
 \right],\\[4pt]
 -\bar{i}
@@ -1317,8 +1317,8 @@ E_t\!\left[
 -\rho
 +
 E_t\!\left[
--\nu(\log \bar{C}-\log \bar{C})
-+(\nu-\sigma)(\log \bar{X}-\log \bar{X})
+-\nu\left(\log \bar{C}-\log \bar{C}\right)
++\left(\nu-\sigma\right)\left(\log \bar{X}-\log \bar{X}\right)
 -\bar{\pi}
 \right]
 \end{aligned}
@@ -1336,8 +1336,8 @@ E_t\!\left[
 i_t-\bar{i}
 =
 E_t\!\left[
-\nu(\hat{c}_{t+1}-\hat{c}_t)
--(\nu-\sigma)(\hat{x}_{t+1}-\hat{x}_t)
+\nu\left(\hat{c}_{t+1}-\hat{c}_t\right)
+-\left(\nu-\sigma\right)\left(\hat{x}_{t+1}-\hat{x}_t\right)
 +\pi_{t+1}
 \right]
 \]
@@ -1346,15 +1346,15 @@ E_t\!\left[
 \Rightarrow\quad
 \hat{i}_t-E_t\pi_{t+1}
 =
-\nu E_t(\hat{c}_{t+1}-\hat{c}_t)
--(\nu-\sigma)E_t(\hat{x}_{t+1}-\hat{x}_t)
+\nu E_t\left(\hat{c}_{t+1}-\hat{c}_t\right)
+-\left(\nu-\sigma\right)E_t\left(\hat{x}_{t+1}-\hat{x}_t\right)
 \]
 
 \[
 \text{since}\qquad
 \hat{c}_t-\hat{x}_t
 =
-\chi\bigl[\hat{c}_t-(\hat{m}_t-\hat{p}_t)\bigr]
+\chi\left[\hat{c}_t-\left(\hat{m}_t-\hat{p}_t\right)\right]
 \]
 
 \[
@@ -1376,9 +1376,9 @@ E_t\!\left[
 \hat{i}_t-E_t\pi_{t+1}
 =
 \nu E_t\Delta \hat{c}_{t+1}
--(\nu-\sigma)E_t\Delta \hat{c}_{t+1}
+-\left(\nu-\sigma\right)E_t\Delta \hat{c}_{t+1}
 +
-\textcolor{red}{(\nu-\sigma)\chi\eta}\,E_t\Delta \hat{i}_{t+1}
+\textcolor{red}{\left(\nu-\sigma\right)\chi\eta}\,E_t\Delta \hat{i}_{t+1}
 \]
 
 \[
@@ -1416,22 +1416,22 @@ E_t\hat{c}_{t+1}
 \hat{i}_t-E_t\pi_{t+1}
 -\omega E_t\Delta \hat{i}_{t+1}
 \right]
-\qquad \cdots\; (*)
+\qquad \cdots\; \left(*\right)
 \]
 
 \[
 \text{where}\qquad
-\omega=(\nu-\sigma)\chi\eta,
+\omega=\left(\nu-\sigma\right)\chi\eta,
 \qquad
-\chi=\frac{k_m(1-\beta)}{1+k_m(1-\beta)},
+\chi=\frac{k_m\left(1-\beta\right)}{1+k_m\left(1-\beta\right)},
 \qquad
 k_m=\frac{\bar{M}/\bar{P}}{\bar{C}},
 \qquad
-\eta=\frac{1}{\nu(e^{\bar{i}}-1)}.
+\eta=\frac{1}{\nu\left(e^{\bar{i}}-1\right)}.
 \]
 
 \[
-\textcolor{red}{\text{In }(*)\text{ we apply market clearing }\hat{c}_t=\hat{y}_t}
+\textcolor{red}{\text{In }\left(*\right)\text{ we apply market clearing }\hat{c}_t=\hat{y}_t}
 \]
 
 \[
@@ -1476,7 +1476,7 @@ E_t\hat{y}_{t+1}
 \[
 \frac{W_t}{P_t}
 =
-(1-\alpha)A_tN_t^{-\alpha},
+\left(1-\alpha\right)A_tN_t^{-\alpha},
 \qquad
 Y_t=A_tN_t^{1-\alpha}
 \]
@@ -1484,12 +1484,12 @@ Y_t=A_tN_t^{1-\alpha}
 \[
 \hat{w}_t-\hat{p}_t=\hat{a}_t-\alpha \hat{n}_t,
 \qquad
-\hat{y}_t=\hat{a}_t+(1-\alpha)\hat{n}_t
+\hat{y}_t=\hat{a}_t+\left(1-\alpha\right)\hat{n}_t
 \]
 
 \[
 \Rightarrow\quad
-\hat{n}_t=\frac{1}{1-\alpha}(\hat{y}_t-\hat{a}_t)
+\hat{n}_t=\frac{1}{1-\alpha}\left(\hat{y}_t-\hat{a}_t\right)
 \]
 
 \[
@@ -1509,7 +1509,7 @@ Y_t=A_tN_t^{1-\alpha}
 
 \[
 \Rightarrow\quad
-(1-\sigma)\hat{y}_t-(1+\varphi)\hat{n}_t
+\left(1-\sigma\right)\hat{y}_t-\left(1+\varphi\right)\hat{n}_t
 =
 \omega \hat{i}_t
 \]
@@ -1526,7 +1526,7 @@ Y_t=A_tN_t^{1-\alpha}
 \[
 \hat{y}_t
 =
-\hat{a}_t+(1-\alpha)\hat{n}_t
+\hat{a}_t+\left(1-\alpha\right)\hat{n}_t
 \]
 
 \[
@@ -1535,7 +1535,7 @@ Y_t=A_tN_t^{1-\alpha}
 =
 \hat{a}_t
 +
-(1-\alpha)
+\left(1-\alpha\right)
 \left[
 \frac{1-\sigma}{1+\varphi}\hat{y}_t
 -
@@ -1547,10 +1547,10 @@ Y_t=A_tN_t^{1-\alpha}
 \Rightarrow\quad
 \hat{y}_t
 =
-\frac{1+\varphi}{\alpha(1-\sigma)+\sigma+\varphi}\hat{a}_t
+\frac{1+\varphi}{\alpha\left(1-\sigma\right)+\sigma+\varphi}\hat{a}_t
 -
-\frac{(1-\alpha)\omega}{\alpha(1-\sigma)+\sigma+\varphi}\hat{i}_t
-\qquad (1)
+\frac{\left(1-\alpha\right)\omega}{\alpha\left(1-\sigma\right)+\sigma+\varphi}\hat{i}_t
+\qquad \left(1\right)
 \]
 \[
 \Rightarrow\quad
@@ -1561,7 +1561,7 @@ Y_t=A_tN_t^{1-\alpha}
 
 \[
 \Rightarrow\quad
-(1-\sigma)\hat{y}_t-(1+\varphi)\hat{n}_t=\omega \hat{i}_t
+\left(1-\sigma\right)\hat{y}_t-\left(1+\varphi\right)\hat{n}_t=\omega \hat{i}_t
 \]
 
 \[
@@ -1574,14 +1574,14 @@ Y_t=A_tN_t^{1-\alpha}
 \]
 
 \[
-\hat{y}_t=\hat{a}_t+(1-\alpha)\hat{n}_t
+\hat{y}_t=\hat{a}_t+\left(1-\alpha\right)\hat{n}_t
 \]
 
 \[
 \Rightarrow\quad
 \hat{y}_t
 =
-\hat{a}_t+(1-\alpha)
+\hat{a}_t+\left(1-\alpha\right)
 \left[
 \frac{1-\sigma}{1+\varphi}\hat{y}_t
 -
@@ -1593,10 +1593,10 @@ Y_t=A_tN_t^{1-\alpha}
 \Rightarrow\quad
 \hat{y}_t
 =
-\frac{1+\varphi}{\alpha(1-\sigma)+\sigma+\varphi}\hat{a}_t
+\frac{1+\varphi}{\alpha\left(1-\sigma\right)+\sigma+\varphi}\hat{a}_t
 -
-\frac{(1-\alpha)\omega}{\alpha(1-\sigma)+\sigma+\varphi}\hat{i}_t
-\qquad (1)
+\frac{\left(1-\alpha\right)\omega}{\alpha\left(1-\sigma\right)+\sigma+\varphi}\hat{i}_t
+\qquad \left(1\right)
 \]
 
 \[
@@ -1612,7 +1612,7 @@ Y_t=A_tN_t^{1-\alpha}
 \[
 \text{Money is non-neutral}
 \qquad
-\textcolor{red}{(\text{interest rate / monetary policy affects real output})}
+\textcolor{red}{\left(\text{interest rate / monetary policy affects real output}\right)}
 \]
 
 \[
@@ -1621,7 +1621,7 @@ Y_t=A_tN_t^{1-\alpha}
 
 \[
 \text{Write the system of equations in terms of }
-(\hat{y}_t,\pi_t,\hat{i}_t).
+\left(\hat{y}_t,\pi_t,\hat{i}_t\right).
 \]
 
 \[
@@ -1634,7 +1634,7 @@ E_t\hat{y}_{t+1}
 \hat{i}_t-E_t\pi_{t+1}
 -\omega E_t\Delta \hat{i}_{t+1}
 \right]
-\qquad (2)
+\qquad \left(2\right)
 \]
 
 \[
@@ -1644,18 +1644,18 @@ E_t\hat{y}_{t+1}
 \[
 \text{Monetary policy rule:}\qquad
 \hat{i}_t=\phi_\pi \pi_t+v_t
-\qquad (3)
+\qquad \left(3\right)
 \]
 
 \[
 \text{where}\qquad
 v_t=\rho_v v_{t-1}+\varepsilon_t^v
-\qquad (4)
+\qquad \left(4\right)
 \]
 
 \[
 \hat{a}_t=\rho_a \hat{a}_{t-1}+\varepsilon_t^a
-\qquad (5)
+\qquad \left(5\right)
 \]
 
 \[
@@ -1675,28 +1675,28 @@ v_t=\rho_v v_{t-1}+\varepsilon_t^v
 \begin{aligned}
 {\pi}_t
 &=
--\frac{\sigma(1-\rho_a)\psi_{ya}}
-{\phi_{\pi}(1+\omega\psi)(1-\theta\rho_a)}\,\hat{a}_t
--\frac{1+(1-\rho_v)\omega\psi}
-{\phi_{\pi}(1+\omega\psi)(1-\theta\rho_v)}\,v_t,
+-\frac{\sigma\left(1-\rho_a\right)\psi_{ya}}
+{\phi_{\pi}\left(1+\omega\psi\right)\left(1-\theta\rho_a\right)}\,\hat{a}_t
+-\frac{1+\left(1-\rho_v\right)\omega\psi}
+{\phi_{\pi}\left(1+\omega\psi\right)\left(1-\theta\rho_v\right)}\,v_t,
 \\[8pt]
 \hat{i}_t
 &=
--\frac{\sigma(1-\rho_a)\psi_{ya}}
-{(1+\omega\psi)(1-\theta\rho_a)}\,\hat{a}_t
+-\frac{\sigma\left(1-\rho_a\right)\psi_{ya}}
+{\left(1+\omega\psi\right)\left(1-\theta\rho_a\right)}\,\hat{a}_t
 -\frac{\rho_v}
-{\phi_n(1+\omega\psi)(1-\theta\rho_v)}\,v_t,
+{\phi_n\left(1+\omega\psi\right)\left(1-\theta\rho_v\right)}\,v_t,
 \\[8pt]
 \hat{y}_t
 &=
 \psi_{ya}\left(
 1+
-\frac{\sigma(1-\rho_a)\psi_{yi}}
-{(1+\omega\psi)(1-\theta\rho_a)}
+\frac{\sigma\left(1-\rho_a\right)\psi_{yi}}
+{\left(1+\omega\psi\right)\left(1-\theta\rho_a\right)}
 \right)\hat{a}_t
 +
 \frac{\rho_v\psi_{yi}}
-{\phi_{\pi}(1+\omega\psi)(1-\theta\rho_v)}\,v_t.
+{\phi_{\pi}\left(1+\omega\psi\right)\left(1-\theta\rho_v\right)}\,v_t.
 \end{aligned}
 \right.
 \]
@@ -1705,11 +1705,11 @@ v_t=\rho_v v_{t-1}+\varepsilon_t^v
 \theta
 =
 \frac{1+\omega\varphi\phi_{\pi}}
-{(1+\omega\varphi)\phi_{\pi}},
+{\left(1+\omega\varphi\right)\phi_{\pi}},
 \qquad
 \psi
 =
-\frac{\alpha+\varphi}{\sigma(1-\alpha)+\alpha+\varphi}.
+\frac{\alpha+\varphi}{\sigma\left(1-\alpha\right)+\alpha+\varphi}.
 \]
 
 \[
@@ -1753,7 +1753,7 @@ When $\omega\neq 0$, $\theta$ changes because expected changes in it enter the I
 \omega
 =
 \frac{k_m\beta\left(1-\frac{\sigma}{\nu}\right)}
-{1+k_m(1-\beta)}
+{1+k_m\left(1-\beta\right)}
 \approx
 k_m
 \qquad
@@ -1782,7 +1782,7 @@ $k_m \approx 0.3 \;\Longrightarrow\; \psi_{yi} \approx 0.1$.
 \noindent
 If $i_t$ increases by 1\% annually (0.25\% quarterly), $y_t$ decreases by 0.025\% quarterly.
 
-\bigskip
+\par\vspace{12pt plus 4pt minus 4pt}
 
 \noindent
 Using M2, the money with highest liquidity + 2nd highest liquidity: \quad
@@ -1804,16 +1804,16 @@ If $i_t$ increases by 1\% annually, $y_t$ decreases by 1\% annually.
 =
 \frac{d\pi_t/d\nu_t}{d\hat{i}_t/d\nu_t}
 =
-\bigl(1+(1-\rho_{\nu})\omega\psi\bigr)\rho_{\nu}^{-1}
+\left(1+\left(1-\rho_{\nu}\right)\omega\psi\right)\rho_{\nu}^{-1}
 >0,
 \]
 \[
 \frac{d\hat{r}_t}{d\hat{i}_t}
 =
 1-
-\frac{dE_t(\pi_{t+1})/d\nu_t}{d\hat{i}_t/d\nu_t}
+\frac{dE_t\left(\pi_{t+1}\right)/d\nu_t}{d\hat{i}_t/d\nu_t}
 =
--(1-\rho_{\nu})\omega\psi
+-\left(1-\rho_{\nu}\right)\omega\psi
 <0.
 \]
 
@@ -1826,7 +1826,7 @@ A monetary policy shock that raises the nominal interest rate and lowers output 
 \noindent
 (ii) the real interest rate tending to decrease
 \[
-\bigl({r}_t={i}_t-E_t\pi_{t+1}\bigr).
+\left({r}_t={i}_t-E_t\pi_{t+1}\right).
 \]
 
 \noindent
@@ -1845,9 +1845,9 @@ The question is: what must monetary policy do to ensure that inflation $\pi_t$
 \noindent
 The Fisher relation is
 \[
-\hat{i}_t = E_t[\pi_{t+1}] + \hat{r}_t,
+\hat{i}_t = E_t\left[\pi_{t+1}\right] + \hat{r}_t,
 \qquad\Rightarrow\qquad
-E_t[\pi_{t+1}] = \hat{i}_t - \hat{r}_t.
+E_t\left[\pi_{t+1}\right] = \hat{i}_t - \hat{r}_t.
 \]
 
 \noindent
@@ -1861,11 +1861,11 @@ it must provide a rule that anchors the nominal system and uniquely determines i
 
 \[
 \Rightarrow\qquad
-E_t[\pi_{t+1}]=-\hat{r}_t
+E_t\left[\pi_{t+1}\right]=-\hat{r}_t
 \qquad\Rightarrow\qquad
 \pi_{t+1}=-\hat{r}_t+\zeta_{t+1},
 \qquad
-E_t[\zeta_{t+1}]=0.
+E_t\left[\zeta_{t+1}\right]=0.
 \]
 
 \[
@@ -1902,7 +1902,7 @@ E_t[\zeta_{t+1}]=0.
 \qquad\Rightarrow\qquad
 \hat{m}_t\text{ indetermined}
 \qquad
-(\text{nominal money})
+\left(\text{nominal money}\right)
 \]
 
 \[
@@ -1910,7 +1910,7 @@ E_t[\zeta_{t+1}]=0.
 \qquad\Rightarrow\qquad
 \hat{W}_t\text{ indetermined}
 \qquad
-(\text{nominal wage})
+\left(\text{nominal wage}\right)
 \]
 
 \noindent
@@ -1938,11 +1938,11 @@ A simple inflation-based interest rate rule (Taylor style) is
 
 \noindent
 \[
-\hat{i}_t=E_t[\pi_{t+1}] + \hat{r}_t,
+\hat{i}_t=E_t\left[\pi_{t+1}\right] + \hat{r}_t,
 \]
 we obtain
 \[
-\phi_{\pi}\pi_t = E_t[\pi_{t+1}] + \hat{r}_t.
+\phi_{\pi}\pi_t = E_t\left[\pi_{t+1}\right] + \hat{r}_t.
 \tag{*}
 \]
 
@@ -1955,9 +1955,9 @@ This is a forward-looking difference equation in inflation.
 \noindent
 Iterate forward:
 \[
-\pi_t=\frac{1}{\phi_{\pi}}E_t[\pi_{t+1}]+\frac{1}{\phi_{\pi}}\hat r_t
+\pi_t=\frac{1}{\phi_{\pi}}E_t\left[\pi_{t+1}\right]+\frac{1}{\phi_{\pi}}\hat r_t
 \quad\Rightarrow\quad
-\pi_t=\sum_{k=0}^{\infty}\phi_{\pi}^{-(k+1)}E_t[\hat r_{t+k}],
+\pi_t=\sum_{k=0}^{\infty}\phi_{\pi}^{-\left(k+1\right)}E_t\left[\hat r_{t+k}\right],
 \]
 where the forward sum converges and yields a unique bounded solution.
 
@@ -1966,9 +1966,9 @@ where the forward sum converges and yields a unique bounded solution.
 \noindent
 Bond Euler:
 \[
-\hat i_t-E_t[\pi_{t+1}]=\sigma E_t\Delta \hat c_{t+1},
+\hat i_t-E_t\left[\pi_{t+1}\right]=\sigma E_t\Delta \hat c_{t+1},
 \qquad
-\hat i_t-E_t[\pi_{t+1}]=\hat r_t,
+\hat i_t-E_t\left[\pi_{t+1}\right]=\hat r_t,
 \]
 so
 \[
@@ -1998,19 +1998,19 @@ If productivity follows
 \]
 then
 \[
-E_t[\hat a_{t+1}]=\rho_a\hat a_t,
+E_t\left[\hat a_{t+1}\right]=\rho_a\hat a_t,
 \qquad
-E_t[\Delta \hat a_{t+1}]
+E_t\left[\Delta \hat a_{t+1}\right]
 =
-E_t[\hat a_{t+1}-\hat a_t]
+E_t\left[\hat a_{t+1}-\hat a_t\right]
 =
-(\rho_a-1)\hat a_t.
+\left(\rho_a-1\right)\hat a_t.
 \]
 
 \noindent
 Hence,
 \[
-\hat r_t=\sigma\psi_{ya}(\rho_a-1)\hat a_t.
+\hat r_t=\sigma\psi_{ya}\left(\rho_a-1\right)\hat a_t.
 \]
 \smallskip
 
@@ -2028,19 +2028,19 @@ Substituting into
 gives
 \[
 \phi_{\pi}K\hat a_t=K\rho_a\hat a_t+\hat r_t
-=K\rho_a\hat a_t-\sigma\psi_{ya}(1-\rho_a)\hat a_t,
+=K\rho_a\hat a_t-\sigma\psi_{ya}\left(1-\rho_a\right)\hat a_t,
 \]
 so
 \[
-\phi_{\pi}K-K\rho_a=-\sigma\psi_{ya}(1-\rho_a),
+\phi_{\pi}K-K\rho_a=-\sigma\psi_{ya}\left(1-\rho_a\right),
 \]
 and therefore
 \[
-K=-\frac{\sigma\psi_{ya}(1-\rho_a)}{\phi_{\pi}-\rho_a}.
+K=-\frac{\sigma\psi_{ya}\left(1-\rho_a\right)}{\phi_{\pi}-\rho_a}.
 \]
 Thus,
 \[
-\pi_t=-\frac{\sigma\psi_{ya}(1-\rho_a)}{\phi_{\pi}-\rho_a}\hat a_t.
+\pi_t=-\frac{\sigma\psi_{ya}\left(1-\rho_a\right)}{\phi_{\pi}-\rho_a}\hat a_t.
 \]
 
 \smallskip
@@ -2051,7 +2051,7 @@ Central bank raises it more when inflation rises.
 Any shock that pushes up $\pi_t$ implies a larger rise in $i_t$; through the Fisher equation,
 expectations are forced to be consistent only with the saddle path.
 
-\bigskip
+\par\vspace{12pt plus 4pt minus 4pt}
 
 \textbf{Case 2:}\quad $\phi_{\pi}\le 1$
 
@@ -2063,13 +2063,13 @@ Forward iteration breaks. Since $\phi_{\pi}^{-1}\ge 1$, boundedness no longer pi
 \noindent
 To satisfy the Fisher equation,
 \[
-\phi_{\pi}\pi_t=E_t[\pi_{t+1}]+\hat r_t.
+\phi_{\pi}\pi_t=E_t\left[\pi_{t+1}\right]+\hat r_t.
 \]
 The stable solution is
 \[
 \pi_{t+1}=\phi_{\pi}\pi_t-\hat r_t+\xi_{t+1},
 \qquad
-E_t[\xi_{t+1}]=0,
+E_t\left[\xi_{t+1}\right]=0,
 \]
 with sunspot shocks. Inflation and the price level are indetermined.
 
@@ -2106,7 +2106,7 @@ the eigenvalue is $\phi_{\pi}$. If $\phi_{\pi}>1$, there is an unstable root, so
 If $\phi_{\pi}\le 1$, there is no unstable root to discipline the jump variable, and we get many bounded paths:
 sunspot indeterminacy.
 
-\bigskip
+\par\vspace{12pt plus 4pt minus 4pt}
 
 \paragraph{Optimal Monetary Policy}
 
@@ -2133,7 +2133,7 @@ The Lagrangian is
 \mathcal{L}
 =
 U\!\left(C_t,\frac{M_t}{P_t},N_t\right)
-+\lambda_t\bigl(A_tN_t^{1-\alpha}-C_t\bigr).
++\lambda_t\left(A_tN_t^{1-\alpha}-C_t\right).
 \]
 
 \smallskip
@@ -2143,7 +2143,7 @@ F.O.C.:
 \[
 -\frac{U_{N,t}}{U_{C,t}}
 =
-(1-\alpha)A_tN_t^{-\alpha}
+\left(1-\alpha\right)A_tN_t^{-\alpha}
 =
 W_t
 =
@@ -2186,7 +2186,7 @@ or equivalently,
 \[
 \pi_{t+1}=-r_t+\xi_{t+1},
 \qquad
-E_t[\xi_{t+1}]=0,
+E_t\left[\xi_{t+1}\right]=0,
 \]
 so any sunspot shock can be added.
 
@@ -2204,7 +2204,7 @@ Thus indeterminacy does not have welfare consequences.
 \noindent
 To avoid indeterminacy, let
 \[
-i_t=\phi\,(r_{t-1}+\pi_t),
+i_t=\phi\,\left(r_{t-1}+\pi_t\right),
 \qquad \phi>1.
 \]
 Then
@@ -2212,7 +2212,7 @@ Then
 i_t=E_t\pi_{t+1}+r_t
 \]
 \[
-E_t[i_{t+s}] = \phi^s i_t.
+E_t\left[i_{t+s}\right] = \phi^s i_t.
 \]
 Since \(\phi>1\), as \(s\to\infty\), \(i_t\) has to approach \(0\).
 \[
@@ -2220,7 +2220,7 @@ Since \(\phi>1\), as \(s\to\infty\), \(i_t\) has to approach \(0\).
 \]
 Any policy setting that guarantees that current inflation moves inversely, and one-for-one, with \(r_{t-1}\) will imply \(i_t=0\) and an efficient amount of real balances.
 
-\bigskip
+\par\vspace{12pt plus 4pt minus 4pt}
 
 \paragraph{Supplementary: IS equation under the separable case in the MIU model}
 
@@ -2230,7 +2230,7 @@ U\!\left(C_t,\mathbb{M}_t,N_t\right)
 =
 \frac{C_t^{1-\sigma}}{1-\sigma}
 +
-\frac{(\mathbb{M}_t)^{1-\nu}}{1-\nu}
+\frac{\left(\mathbb{M}_t\right)^{1-\nu}}{1-\nu}
 -
 \frac{N_t^{1+\varphi}}{1+\varphi}.
 \]
@@ -2267,7 +2267,7 @@ Then
 =
 -\rho
 +
-E_t\!\left[-\sigma(\log C_{t+1}-\log C_t)-\pi_{t+1}\right].
+E_t\!\left[-\sigma\left(\log C_{t+1}-\log C_t\right)-\pi_{t+1}\right].
 \]
 
 \smallskip
@@ -2279,7 +2279,7 @@ At steady state,
 =
 -\rho
 +
-E_t\!\left[-\sigma(\log\bar C-\log\bar C)-\bar\pi\right],
+E_t\!\left[-\sigma\left(\log\bar C-\log\bar C\right)-\bar\pi\right],
 \]
 with
 \[
@@ -2295,7 +2295,7 @@ Hence
 \noindent
 Subtracting the steady state and using hats,
 \[
-\sigma E_t(\hat c_{t+1}-\hat c_t)=\hat i_t-E_t\pi_{t+1}.
+\sigma E_t\left(\hat c_{t+1}-\hat c_t\right)=\hat i_t-E_t\pi_{t+1}.
 \]
 Thus
 \[
@@ -2303,7 +2303,7 @@ Thus
 =
 E_t\hat c_{t+1}
 -
-\frac{1}{\sigma}\bigl[\hat i_t-E_t\pi_{t+1}\bigr].
+\frac{1}{\sigma}\left[\hat i_t-E_t\pi_{t+1}\right].
 \]
 Since
 \[
@@ -2315,7 +2315,7 @@ we get
 =
 E_t\hat y_{t+1}
 -
-\frac{1}{\sigma}\bigl[\hat i_t-E_t\pi_{t+1}\bigr].
+\frac{1}{\sigma}\left[\hat i_t-E_t\pi_{t+1}\right].
 \]
 Compare to the classical monetary model: the same.
 
@@ -2323,7 +2323,7 @@ Compare to the inseparable case: \(\nu=\sigma\), and the term \(-\omega E_t\Delt
 \smallskip
 
 
-\bigskip
+\par\vspace{12pt plus 4pt minus 4pt}
 \noindent\textbf{Supplement: Interpret}
 \[
 \hat{y}_t
@@ -2361,7 +2361,7 @@ If you save to tomorrow and then buy goods, you get
 \]
 units of goods. Therefore,
 \[
-E_t\!\left[\frac{(1+i_t)/P_{t+1}}{1/P_t}\right]
+E_t\!\left[\frac{\left(1+i_t\right)/P_{t+1}}{1/P_t}\right]
 =
 E_t\!\left[\frac{1+i_t}{P_{t+1}/P_t}\right]
 =
@@ -2426,7 +2426,7 @@ makes future consumption less valuable and induces households to consume more to
 \noindent
 In particular,
 \[
-U_{C,t}=(1-\theta)X_t^{\nu-\sigma}C_t^{-\nu},
+U_{C,t}=\left(1-\theta\right)X_t^{\nu-\sigma}C_t^{-\nu},
 \qquad
 X_t \propto \mathbb{M}_t
 \quad\Rightarrow\quad
@@ -2438,7 +2438,7 @@ U_{C\mathbb{M}}>0.
 \noindent
 Consumption is more enjoyable with more liquidity.
 
-\bigskip
+\par\vspace{12pt plus 4pt minus 4pt}
 
 \paragraph{Supplement for computation:Log-linearized bond Euler equation}
 \noindent
@@ -2452,7 +2452,7 @@ i_t=-\log Q_t \;\Rightarrow\; e^{-i_t}=Q_t,
 \]
 and
 \[
-r_t=i_t-E_t[\pi_{t+1}].
+r_t=i_t-E_t\left[\pi_{t+1}\right].
 \]
 
 \noindent
@@ -2466,20 +2466,20 @@ Define hats as level deviations:
 \]
 Also,
 \[
-r_t-\bar r=i_t-\bar i-E_t[\pi_{t+1}-\bar\pi]
+r_t-\bar r=i_t-\bar i-E_t\left[\pi_{t+1}-\bar\pi\right]
 \;\Rightarrow\;
-\hat r_t=\hat i_t-E_t[\hat\pi_{t+1}].
+\hat r_t=\hat i_t-E_t\left[\hat\pi_{t+1}\right].
 \]
 
 \noindent
 From the bond Euler equation,
 \[
 Q_t=\beta E_t\!\left[\left(\frac{C_{t+1}}{C_t}\right)^{-\sigma}\frac{P_t}{P_{t+1}}\right]
-=\beta E_t\!\left[e^{-\sigma(\log C_{t+1}-\log C_t)-\pi_{t+1}}\right],
+=\beta E_t\!\left[e^{-\sigma\left(\log C_{t+1}-\log C_t\right)-\pi_{t+1}}\right],
 \]
 so
 \[
-e^{-i_t}=e^{-\rho}E_t\!\left[e^{-\sigma(\log C_{t+1}-\log C_t)-\pi_{t+1}}\right].
+e^{-i_t}=e^{-\rho}E_t\!\left[e^{-\sigma\left(\log C_{t+1}-\log C_t\right)-\pi_{t+1}}\right].
 \]
 
 \noindent
@@ -2493,57 +2493,57 @@ Let
 \]
 Then
 \[
-e^{-i_t}=e^{-\rho}E_t\!\left[e^{-\sigma(\hat c_{t+1}-\hat c_t)-\pi_{t+1}}\right].
+e^{-i_t}=e^{-\rho}E_t\!\left[e^{-\sigma\left(\hat c_{t+1}-\hat c_t\right)-\pi_{t+1}}\right].
 \]
 
 \noindent
 Taking logs,
 \[
--i_t=-\rho+E_t\!\left[-\sigma(\hat c_{t+1}-\hat c_t)-\pi_{t+1}\right].
+-i_t=-\rho+E_t\!\left[-\sigma\left(\hat c_{t+1}-\hat c_t\right)-\pi_{t+1}\right].
 \]
 At steady state,
 \[
--\bar i=-\rho+E_t[0-0] \;\Rightarrow\; \bar i=\rho.
+-\bar i=-\rho+E_t\left[0-0\right] \;\Rightarrow\; \bar i=\rho.
 \]
 Hence
 \[
--(i_t-\bar i)=E_t\!\left[-\sigma(\hat c_{t+1}-\hat c_t)\right]-E_t[\pi_{t+1}-\bar\pi],
+-\left(i_t-\bar i\right)=E_t\!\left[-\sigma\left(\hat c_{t+1}-\hat c_t\right)\right]-E_t\left[\pi_{t+1}-\bar\pi\right],
 \]
 or equivalently,
 \[
-\hat i_t=\sigma E_t[\Delta \hat c_{t+1}]+E_t[\hat\pi_{t+1}],
+\hat i_t=\sigma E_t\left[\Delta \hat c_{t+1}\right]+E_t\left[\hat\pi_{t+1}\right],
 \qquad
 \Delta \hat c_{t+1}=\hat c_{t+1}-\hat c_t.
 \]
 Therefore,
 \[
-\sigma E_t[\Delta \hat c_{t+1}]
-=\hat i_t-E_t[\hat\pi_{t+1}]
+\sigma E_t\left[\Delta \hat c_{t+1}\right]
+=\hat i_t-E_t\left[\hat\pi_{t+1}\right]
 =\hat r_t.
 \]
 Using \(\hat c_t=\hat y_t\), we obtain
 \[
-\sigma E_t[\Delta \hat y_{t+1}]=\hat r_t.
+\sigma E_t\left[\Delta \hat y_{t+1}\right]=\hat r_t.
 \]
 
 \noindent
 Since
 \[
-E_t[\Delta \hat y_{t+1}]=E_t\hat y_{t+1}-\hat y_t,
+E_t\left[\Delta \hat y_{t+1}\right]=E_t\hat y_{t+1}-\hat y_t,
 \qquad
 \hat y_t=\psi_{ya}\hat a_t
 \;\Rightarrow\;
-E_t[\Delta \hat y_{t+1}]=\psi_{ya}E_t[\Delta \hat a_{t+1}],
+E_t\left[\Delta \hat y_{t+1}\right]=\psi_{ya}E_t\left[\Delta \hat a_{t+1}\right],
 \]
 it follows that
 \[
-\hat r_t=\sigma\psi_{ya}E_t[\Delta \hat a_{t+1}].
+\hat r_t=\sigma\psi_{ya}E_t\left[\Delta \hat a_{t+1}\right].
 \]
 
 \noindent
 Let
 \[
-\log A_{t+1}=(1-\psi)\log\bar A+\varphi\log A_t+\varepsilon_{t+1},
+\log A_{t+1}=\left(1-\psi\right)\log\bar A+\varphi\log A_t+\varepsilon_{t+1},
 \qquad
 \bar A=1.
 \]
@@ -2555,33 +2555,33 @@ Then
 \]
 Taking expectations,
 \[
-E_t[\hat a_{t+1}]
-=\psi\hat a_t+E_t[\varepsilon_{t+1}],
+E_t\left[\hat a_{t+1}\right]
+=\psi\hat a_t+E_t\left[\varepsilon_{t+1}\right],
 \qquad
-\varepsilon_t\sim \text{i.i.d. }N(0,\sigma^2)
+\varepsilon_t\sim \text{i.i.d. }N\left(0,\sigma^2\right)
 \;\Rightarrow\;
-E_t[\varepsilon_{t+1}]=0,
+E_t\left[\varepsilon_{t+1}\right]=0,
 \]
 so
 \[
-E_t[\hat a_{t+1}]=\psi\hat a_t,
+E_t\left[\hat a_{t+1}\right]=\psi\hat a_t,
 \qquad
-E_t[\hat a_{t+1}-\hat a_t]=(\psi-1)\hat a_t.
+E_t\left[\hat a_{t+1}-\hat a_t\right]=\left(\psi-1\right)\hat a_t.
 \]
 Let
 \[
 \Delta \hat a_{t+1}=\hat a_{t+1}-\hat a_t
 \;\Rightarrow\;
-E_t[\Delta \hat a_{t+1}]=(\psi-1)\hat a_t.
+E_t\left[\Delta \hat a_{t+1}\right]=\left(\psi-1\right)\hat a_t.
 \]
 
 \noindent
-Plugging this into \(\hat r_t=\sigma\psi_{ya}E_t[\Delta \hat a_{t+1}]\), we get
+Plugging this into \(\hat r_t=\sigma\psi_{ya}E_t\left[\Delta \hat a_{t+1}\right]\), we get
 \[
 \hat r_t
-=\sigma\psi_{ya}E_t[\Delta \hat a_{t+1}]
-=\sigma\psi_{ya}(\psi-1)\hat a_t.
+=\sigma\psi_{ya}E_t\left[\Delta \hat a_{t+1}\right]
+=\sigma\psi_{ya}\left(\psi-1\right)\hat a_t.
 \]
-Since \(\psi\in(0,1)\) and \(\psi_{ya}>0\), the coefficient on \(\hat a_t\) is negative.
+Since \(\psi\in\left(0,1\right)\) and \(\psi_{ya}>0\), the coefficient on \(\hat a_t\) is negative.
 
 \ThisNoteEnd

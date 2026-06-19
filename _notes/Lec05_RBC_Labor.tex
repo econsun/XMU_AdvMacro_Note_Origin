@@ -22,16 +22,16 @@ HP filter: decompose economic series into trend and cyclical component
 y_t = y_t^c + y_t^T
 \]
 \[
-\min_{\{y_t^T\}_{t=1}^N}
+\min_{\left\{y_t^T\right\}_{t=1}^N}
 \mathcal L
 =
-\underbrace{\sum_{t=1}^N (y_t-y_t^T)^2}_{\textstyle (1)}
+\underbrace{\sum_{t=1}^N \left(y_t-y_t^T\right)^2}_{\textstyle \left(1\right)}
 +
 \lambda\,
 \underbrace{\sum_{t=2}^{N-1}
-\Big[
-(y_{t+1}^T-y_t^T)-(y_t^T-y_{t-1}^T)
-\Big]^2}_{\textstyle (2)}
+\left[
+\left(y_{t+1}^T-y_t^T\right)-\left(y_t^T-y_{t-1}^T\right)
+\right]^2}_{\textstyle \left(2\right)}
 \]
 
 Notes:
@@ -56,9 +56,9 @@ y_{t+1}^T - 2y_t^T + y_{t-1}^T
 \[
 \frac{\partial \mathcal L}{\partial y_t^T}=0
 \quad\Rightarrow\quad
-\frac{\partial (1)}{\partial y_t^T}
+\frac{\partial \left(1\right)}{\partial y_t^T}
 =
-2(y_t^T-y_t)
+2\left(y_t^T-y_t\right)
 \]
 
 Since
@@ -77,7 +77,7 @@ Since
 
 \[
 \frac{\partial}{\partial y_t^T}
-\sum_{s=2}^{N-1} (\Delta^2 y_s^T)^2
+\sum_{s=2}^{N-1} \left(\Delta^2 y_s^T\right)^2
 =
 2\Delta^2 y_{t-1}^T \frac{\partial \Delta^2 y_{t-1}^T}{\partial y_t^T}
 +
@@ -87,9 +87,9 @@ Since
 \]
 \[
 =
-2\big(
+2\left(
 \Delta^2 y_{t-1}^T - 2\Delta^2 y_t^T + \Delta^2 y_{t+1}^T
-\big)
+\right)
 \]
 
 Since
@@ -99,7 +99,7 @@ Since
 \[
 -2\Delta^2 y_t^T
 =
--2(y_{t+1}^T - 2y_t^T + y_{t-1}^T)
+-2\left(y_{t+1}^T - 2y_t^T + y_{t-1}^T\right)
 =
 -2y_{t+1}^T + 4y_t^T - 2y_{t-1}^T,
 \]
@@ -112,16 +112,16 @@ we get
 \[
 \frac{\partial \mathcal L}{\partial y_t^T}
 =
-\frac{\partial (1)}{\partial y_t^T}
+\frac{\partial \left(1\right)}{\partial y_t^T}
 +
 \lambda
 \frac{\partial}{\partial y_t^T}
-\sum_{s=2}^{N-1}(\Delta^2 y_s^T)^2
+\sum_{s=2}^{N-1}\left(\Delta^2 y_s^T\right)^2
 =0.
 \]
 \[
 \Rightarrow\quad
-(1+6\lambda)y_t^T
+\left(1+6\lambda\right)y_t^T
 -4\lambda y_{t-1}^T
 -4\lambda y_{t+1}^T
 +\lambda y_{t-2}^T
@@ -134,15 +134,15 @@ y_t,
 
 At $t=1$ (only $\Delta^2 y_2^T$ exists),
 \[
-(1+\lambda)y_1^T - 2\lambda y_2^T + \lambda y_3^T = y_1.
+\left(1+\lambda\right)y_1^T - 2\lambda y_2^T + \lambda y_3^T = y_1.
 \]
 
 At $t=2$ (only $\Delta^2 y_2^T$ and $\Delta^2 y_3^T$ exist),
 \[
--2\lambda y_1^T + (1+5\lambda)y_2^T -4\lambda y_3^T + \lambda y_4^T = y_2.
+-2\lambda y_1^T + \left(1+5\lambda\right)y_2^T -4\lambda y_3^T + \lambda y_4^T = y_2.
 \]
 
-Symmetrically for $t=N$ and $t=N-1$, collect $\{y_t\}$ into the $N\times 1$ vector $y$ and $\{y_t^T\}$ into $y^T$, then we have
+Symmetrically for $t=N$ and $t=N-1$, collect $\left\{y_t\right\}$ into the $N\times 1$ vector $y$ and $\left\{y_t^T\right\}$ into $y^T$, then we have
 \[
 A y^T = y
 \quad\Rightarrow\quad
@@ -166,25 +166,25 @@ A=
 \end{pmatrix}.
 \]
 
-Let $D$ be the $(N-2)\times N$ second-difference matrix, whose $t$-th row ($t=2,\dots,N-1$) looks like
+Let $D$ be the $\left(N-2\right)\times N$ second-difference matrix, whose $t$-th row ($t=2,\dots,N-1$) looks like
 \[
-[\,0\ \cdots\ 1\ -2\ 1\ \cdots\ 0\,]
+\left[\,0\ \cdots\ 1\ -2\ 1\ \cdots\ 0\,\right]
 \]
 so that
 \[
-(Dy^T)_{t-1}=\Delta^2 y_t^T.
+\left(Dy^T\right)_{t-1}=\Delta^2 y_t^T.
 \]
 
 The HP objective becomes
 \[
-\min_{y^T}\ (y-y^T)'(y-y^T)+\lambda (Dy^T)'(Dy^T).
+\min_{y^T}\ \left(y-y^T\right)'\left(y-y^T\right)+\lambda \left(Dy^T\right)'\left(Dy^T\right).
 \]
 
 F.O.C.
 \[
--2(y-y^T)+2\lambda D'Dy^T=0
+-2\left(y-y^T\right)+2\lambda D'Dy^T=0
 \quad\Rightarrow\quad
-(I+\lambda D'D)y^T=y.
+\left(I+\lambda D'D\right)y^T=y.
 \]
 
 Hence
@@ -194,7 +194,7 @@ A=I+\lambda D'D.
 
 As a 5-diagonal pattern:
 \[
-\text{interior diagonal: } [\,0\ \cdots\ 1\ -2\ 1\ \cdots\ 0\,]
+\text{interior diagonal: } \left[\,0\ \cdots\ 1\ -2\ 1\ \cdots\ 0\,\right]
 \begin{bmatrix}
 0\\
 \vdots\\
@@ -208,7 +208,7 @@ As a 5-diagonal pattern:
 \]
 
 \[
-\text{first-off diagonal: } [\,0\ \cdots\ 1\ -2\ 1\ 0\ \cdots\ 0\,]
+\text{first-off diagonal: } \left[\,0\ \cdots\ 1\ -2\ 1\ 0\ \cdots\ 0\,\right]
 \begin{bmatrix}
 0\\
 \vdots\\
@@ -224,7 +224,7 @@ As a 5-diagonal pattern:
 \]
 
 \[
-\text{second-off diagonal: } [\,0\ \cdots\ 1\ -2\ 1\ 0\ 0\ \cdots\ 0\,]
+\text{second-off diagonal: } \left[\,0\ \cdots\ 1\ -2\ 1\ 0\ 0\ \cdots\ 0\,\right]
 \begin{bmatrix}
 0\\
 \vdots\\
@@ -266,7 +266,7 @@ Why $\lambda=1600$ is the quarterly standard?
 
 Rule of thumb:
 \[
-\lambda = 100\times (\text{periods per year})^2.
+\lambda = 100\times \left(\text{periods per year}\right)^2.
 \]
 Hence
 \[
@@ -282,12 +282,12 @@ Hence
 
 Social planner's Problem Setup:
 \[
-U=\max_{\{C_t,L_t,K_t\}}
+U=\max_{\left\{C_t,L_t,K_t\right\}}
 E_0\left\{
 \sum_{t=0}^{\infty}\beta^t
-\big[
-\theta \ln C_t + (1-\theta)\ln L_t
-\big]
+\left[
+\theta \ln C_t + \left(1-\theta\right)\ln L_t
+\right]
 \right\}
 \]
 
@@ -316,16 +316,16 @@ N_t + L_t = 1
 
 where
 \[
-\log Z_t = (1-\psi)\log \bar Z + \psi \log Z_{t-1} + \varepsilon_t,
+\log Z_t = \left(1-\psi\right)\log \bar Z + \psi \log Z_{t-1} + \varepsilon_t,
 \qquad
-\varepsilon_t \overset{i.i.d.}{\sim} N(0,\sigma^2),
+\varepsilon_t \overset{i.i.d.}{\sim} N\left(0,\sigma^2\right),
 \qquad
 \psi<1.
 \]
 
 Note: capital completely turns over,
 \[
-(1-\delta)K_{t-1}=0
+\left(1-\delta\right)K_{t-1}=0
 \qquad \delta=1.
 \]
 
@@ -334,11 +334,11 @@ Lagrangian:
 \mathcal L
 =
 E_0\sum_{t=0}^{\infty}\beta^t
-\Big[
-\theta \ln C_t + (1-\theta)\ln(1-N_t)
+\left[
+\theta \ln C_t + \left(1-\theta\right)\ln\left(1-N_t\right)
 +
-\lambda_t\big(Z_t K_{t-1}^{\alpha}N_t^{1-\alpha}-C_t-K_t\big)
-\Big].
+\lambda_t\left(Z_t K_{t-1}^{\alpha}N_t^{1-\alpha}-C_t-K_t\right)
+\right].
 \]
 
 \[
@@ -352,14 +352,14 @@ E_0\sum_{t=0}^{\infty}\beta^t
 \qquad \Rightarrow \qquad
 -\underbrace{\frac{1-\theta}{1-N_t}}_{\text{utility loss}}
 +\underbrace{\lambda_t}_{\text{MUC}_t}
-\underbrace{(1-\alpha)Z_tK_{t-1}^{\alpha}N_t^{-\alpha}}_{\text{MPN}_t}
+\underbrace{\left(1-\alpha\right)Z_tK_{t-1}^{\alpha}N_t^{-\alpha}}_{\text{MPN}_t}
 =0
 \]
 \[
 \Rightarrow\quad
 \frac{1-\theta}{1-N_t}
 =
-(1-\alpha)\lambda_t Z_t K_{t-1}^{\alpha} N_t^{-\alpha}
+\left(1-\alpha\right)\lambda_t Z_t K_{t-1}^{\alpha} N_t^{-\alpha}
 \tag{2}
 \]
 \textcolor{red}{\qquad \text{labor-leisure condition (intratemporal)}}
@@ -373,9 +373,9 @@ E_0\sum_{t=0}^{\infty}\beta^t
 \left[
 \lambda_{t+1}
 \frac{\partial}{\partial K_t}
-\big(
+\left(
 Z_{t+1}K_t^{\alpha}N_{t+1}^{1-\alpha}
-\big)
+\right)
 \right]
 =0
 \]
@@ -383,16 +383,16 @@ Z_{t+1}K_t^{\alpha}N_{t+1}^{1-\alpha}
 \Rightarrow\quad
 \lambda_t
 =
-\beta E_t\big(
+\beta E_t\left(
 \lambda_{t+1}\alpha Z_{t+1}K_t^{\alpha-1}N_{t+1}^{1-\alpha}
-\big)
+\right)
 \tag{3}
 \]
 \textcolor{red}{\qquad \text{Euler equation (intertemporal)}}
 
 TVC:
 \[
-\lim_{T\to\infty}\beta^T U_C(C,L)K_{T+1}=0.
+\lim_{T\to\infty}\beta^T U_C\left(C,L\right)K_{T+1}=0.
 \tag{4}
 \]
 
@@ -439,7 +439,7 @@ Using (1):
 
 Guess and verify:
 \[
-C_t=(1-s)Y_t,
+C_t=\left(1-s\right)Y_t,
 \qquad
 s \text{ is the savings rate},
 \qquad
@@ -453,7 +453,7 @@ Then
 \]
 Plug into (5):
 \[
-\frac{1}{(1-s)Y_t}
+\frac{1}{\left(1-s\right)Y_t}
 =
 \alpha\beta
 \frac{1}{1-s}
@@ -466,7 +466,7 @@ s=\alpha\beta.
 
 Hence
 \[
-C_t=(1-\alpha\beta)Y_t,
+C_t=\left(1-\alpha\beta\right)Y_t,
 \qquad
 K_t=\alpha\beta\,Y_t.
 \]
@@ -490,22 +490,22 @@ Plug into (2):
 \[
 \frac{1-\theta}{1-N_t}
 =
-(1-\alpha)\frac{\theta}{C_t}\frac{Y_t}{N_t}
+\left(1-\alpha\right)\frac{\theta}{C_t}\frac{Y_t}{N_t}
 =
-(1-\alpha)\frac{\theta}{(1-\alpha\beta)Y_t}\frac{Y_t}{N_t}
+\left(1-\alpha\right)\frac{\theta}{\left(1-\alpha\beta\right)Y_t}\frac{Y_t}{N_t}
 \]
 \[
 \Rightarrow\quad
-(1-\theta)(1-\alpha\beta)N_t
+\left(1-\theta\right)\left(1-\alpha\beta\right)N_t
 =
-(1-\alpha)\theta(1-N_t)
+\left(1-\alpha\right)\theta\left(1-N_t\right)
 \]
 \[
 \Rightarrow\quad
 N_t=\bar N
 =
-\frac{\theta(1-\alpha)}
-{\theta(1-\alpha)+(1-\theta)(1-\alpha\beta)}.
+\frac{\theta\left(1-\alpha\right)}
+{\theta\left(1-\alpha\right)+\left(1-\theta\right)\left(1-\alpha\beta\right)}.
 \]
 
 \newpage
@@ -518,7 +518,7 @@ Also
 \[
 K_t=\alpha\beta\,Y_t,
 \qquad
-C_t=(1-\alpha\beta)Y_t
+C_t=\left(1-\alpha\beta\right)Y_t
 \]
 so
 \[
@@ -529,7 +529,7 @@ Since
 \[
 \hat y_t
 =
-\hat z_t+\alpha\hat k_{t-1}+(1-\alpha)\hat n_t
+\hat z_t+\alpha\hat k_{t-1}+\left(1-\alpha\right)\hat n_t
 =
 \hat z_t+\alpha\hat k_{t-1},
 \]
@@ -559,9 +559,9 @@ Consumption is usually smoother than output; capital is usually more volatile.
 \qquad \text{while in data,}
 \]
 \[
-\sigma(Y/N)\ll \sigma(Y),
+\sigma\left(Y/N\right)\ll \sigma\left(Y\right),
 \qquad
-\text{and } \mathrm{Corr}(Y/N,Y)=0.55.
+\text{and } \mathrm{Corr}\left(Y/N,Y\right)=0.55.
 \]
 
 \item Prices (MRS, MRT, MPL, MPK) too-tight with output \& TFP, hard to generate weak wage cyclicality \& interest rate counter-cyclicality.
@@ -585,8 +585,8 @@ Firm's problem:
 
 Hence
 \[
-W_t 
-= Z_t \frac{Y_t}{N_t}(1-\alpha).
+W_t
+= Z_t \frac{Y_t}{N_t}\left(1-\alpha\right).
 \]
 
 From household labor supply:
@@ -599,12 +599,12 @@ Equivalently,
 W_t
 =
 \frac{1-\theta}{\theta}
-\frac{(1-\alpha\beta) Z_t K_{t-1}^{\alpha}N_t^{1-\alpha}}
+\frac{\left(1-\alpha\beta\right) Z_t K_{t-1}^{\alpha}N_t^{1-\alpha}}
 {1-N_t}.
 \]
 From firm labor demand:
 \[
-W_t=(1-\alpha)Z_tK_{t-1}^{\alpha}N_t^{-\alpha}.
+W_t=\left(1-\alpha\right)Z_tK_{t-1}^{\alpha}N_t^{-\alpha}.
 \]
 
 
@@ -617,7 +617,7 @@ Hence labor supply's wealth effect is exactly offset by labor demand increase.
 So when \(Z_t\) rises, the real wage increases. This generates a substitution effect toward more labor, but also an income effect toward more leisure.
 
 \[
-W_t=(1-\alpha)Z_tK_{t-1}^{\alpha}N_t^{-\alpha}
+W_t=\left(1-\alpha\right)Z_tK_{t-1}^{\alpha}N_t^{-\alpha}
 \]
 
 \[
@@ -635,7 +635,7 @@ Z_t\uparrow
 \;\Rightarrow\;
 Y_t\uparrow
 \;\Rightarrow\;
-C_t=(1-\alpha\beta)Y_t\uparrow
+C_t=\left(1-\alpha\beta\right)Y_t\uparrow
 \;\Rightarrow\;
 MU_{C,t}\downarrow
 \;\Rightarrow\;
@@ -652,12 +652,12 @@ N_t\downarrow
 =
 \underbrace{MU_{C,t}W_t}_{\text{intra-temporal optimality}}
 =
-\frac{\theta}{C_t}(1-\alpha)\frac{Y_t}{N_t}
+\frac{\theta}{C_t}\left(1-\alpha\right)\frac{Y_t}{N_t}
 \\[8pt]
 &=
-\frac{\theta(1-\alpha)}{N_t}\left(\frac{Y_t}{C_t}\right)
+\frac{\theta\left(1-\alpha\right)}{N_t}\left(\frac{Y_t}{C_t}\right)
 =
-\frac{\theta(1-\alpha)}{1-\alpha\beta}\frac{1}{N_t}.
+\frac{\theta\left(1-\alpha\right)}{1-\alpha\beta}\frac{1}{N_t}.
 \end{aligned}
 \]
 \newpage
@@ -666,10 +666,10 @@ Expand log preference to make labor respond to shocks.
 
 Household's problem:
 \[
-\max_{\{C_t,L_t,N_t\}}
-E_0\sum_{t=0}^{\infty}\beta^t u(C_t,L_t)
+\max_{\left\{C_t,L_t,N_t\right\}}
+E_0\sum_{t=0}^{\infty}\beta^t u\left(C_t,L_t\right)
 =
-E_0\sum_{t=0}^{\infty}\beta^t u(C_t,1-N_t)
+E_0\sum_{t=0}^{\infty}\beta^t u\left(C_t,1-N_t\right)
 \]
 
 \[
@@ -680,13 +680,13 @@ N_t+L_t=1
 \[
 C_t+K_t
 =
-W_tN_t+R_tK_{t-1}+(1-\delta)K_{t-1}
+W_tN_t+R_tK_{t-1}+\left(1-\delta\right)K_{t-1}
 \qquad
 \text{(budget constraint not resource constraint)}
 \]
 
 \[
-K_t-(1-\delta)K_{t-1}=I_t
+K_t-\left(1-\delta\right)K_{t-1}=I_t
 \qquad
 \textcolor{red}{\text{investment}}
 \]
@@ -695,13 +695,13 @@ K_t-(1-\delta)K_{t-1}=I_t
 \mathcal{L}
 =
 E_0\sum_{t=0}^{\infty}\beta^t
-\Big[
-u(C_t,1-N_t)
+\left[
+u\left(C_t,1-N_t\right)
 +
-\lambda_t\big(
-W_tN_t+R_tK_{t-1}+(1-\delta)K_{t-1}-C_t-K_t
-\big)
-\Big]
+\lambda_t\left(
+W_tN_t+R_tK_{t-1}+\left(1-\delta\right)K_{t-1}-C_t-K_t
+\right)
+\right]
 \]
 
 \[
@@ -734,7 +734,7 @@ U_{N,t}+\lambda_tW_t=0
 \beta^{t+1}E_t\!\left[
 \lambda_{t+1}R_{t+1}
 +
-\lambda_{t+1}(1-\delta)
+\lambda_{t+1}\left(1-\delta\right)
 \right]
 =0
 \]
@@ -744,7 +744,7 @@ U_{N,t}+\lambda_tW_t=0
 U_{C,t}
 =
 \beta E_t\!\left[
-U_{C,t+1}(R_{t+1}+1-\delta)
+U_{C,t+1}\left(R_{t+1}+1-\delta\right)
 \right]
 \]
 
@@ -756,7 +756,7 @@ s.t.
 \[
 Y_t=Z_tK_{t-1}^{\alpha}N_t^{1-\alpha},
 \qquad
-\log Z_t=(1-\psi)\log \bar Z+\psi\log Z_{t-1}+\varepsilon_t.
+\log Z_t=\left(1-\psi\right)\log \bar Z+\psi\log Z_{t-1}+\varepsilon_t.
 \]
 
 FOCs:
@@ -771,14 +771,14 @@ FOCs:
 \[
 \frac{\partial \Pi_t}{\partial N_t}=0
 \quad\Rightarrow\quad
-(1-\alpha)Z_tK_{t-1}^{\alpha}N_t^{-\alpha}=W_t
+\left(1-\alpha\right)Z_tK_{t-1}^{\alpha}N_t^{-\alpha}=W_t
 \quad\Rightarrow\quad
-(1-\alpha)\frac{Y_t}{N_t}=W_t.
+\left(1-\alpha\right)\frac{Y_t}{N_t}=W_t.
 \]
 
 Let utility function follow
 \[
-U(C_t,1-N_t)=\ln C_t + A\ln(1-N_t).
+U\left(C_t,1-N_t\right)=\ln C_t + A\ln\left(1-N_t\right).
 \]
 Then
 \[
@@ -790,30 +790,30 @@ U_{N,t}=-\frac{A}{1-N_t}.
 Hence equilibrium conditions are
 \[
 \begin{cases}
-1=\beta E_t\left[\dfrac{C_t}{C_{t+1}}(R_{t+1}+1-\delta)\right],\\[0.8em]
+1=\beta E_t\left[\dfrac{C_t}{C_{t+1}}\left(R_{t+1}+1-\delta\right)\right],\\[0.8em]
 \dfrac{A}{1-N_t}=\dfrac{1}{C_t}W_t,\\[0.8em]
-W_t=(1-\alpha)Z_tK_{t-1}^{\alpha}N_t^{-\alpha},\\[0.8em]
+W_t=\left(1-\alpha\right)Z_tK_{t-1}^{\alpha}N_t^{-\alpha},\\[0.8em]
 R_t=\alpha Z_tK_{t-1}^{\alpha-1}N_t^{1-\alpha},\\[0.8em]
 \Pi_t=Z_tK_{t-1}^{\alpha}N_t^{1-\alpha}-W_tN_t-R_tK_{t-1}=0,\\[0.8em]
-C_t+K_t=W_tN_t+R_tK_{t-1}+(1-\delta)K_{t-1},\\[0.8em]
-\log Z_t=(1-\psi)\log \bar Z+\psi\log Z_{t-1}+\varepsilon_t.
+C_t+K_t=W_tN_t+R_tK_{t-1}+\left(1-\delta\right)K_{t-1},\\[0.8em]
+\log Z_t=\left(1-\psi\right)\log \bar Z+\psi\log Z_{t-1}+\varepsilon_t.
 \end{cases}
 \]
 
-Do not substitute out $R_t,W_t$, to make a system of equations of $(C_t,N_t,K_t,Z_t)$.
+Do not substitute out $R_t,W_t$, to make a system of equations of $\left(C_t,N_t,K_t,Z_t\right)$.
 
 Substituting yields
 \[
 \begin{cases}
 1=\beta E_t\left[
 \dfrac{C_t}{C_{t+1}}
-\big(
+\left(
 \alpha Z_{t+1}K_t^{\alpha-1}N_{t+1}^{1-\alpha}+1-\delta
-\big)
+\right)
 \right],\\[0.8em]
-AC_t=(1-N_t)(1-\alpha)Z_tK_{t-1}^{\alpha}N_t^{-\alpha},\\[0.8em]
-K_t=Z_tK_{t-1}^{\alpha}N_t^{1-\alpha}+(1-\delta)K_{t-1}-C_t,\\[0.8em]
-\log Z_t=(1-\psi)\log \bar Z+\psi\log Z_{t-1}+\varepsilon_t.
+AC_t=\left(1-N_t\right)\left(1-\alpha\right)Z_tK_{t-1}^{\alpha}N_t^{-\alpha},\\[0.8em]
+K_t=Z_tK_{t-1}^{\alpha}N_t^{1-\alpha}+\left(1-\delta\right)K_{t-1}-C_t,\\[0.8em]
+\log Z_t=\left(1-\psi\right)\log \bar Z+\psi\log Z_{t-1}+\varepsilon_t.
 \end{cases}
 \]
 \[
@@ -836,7 +836,7 @@ N_t=N_{t+1}=\bar N.
 \]
 
 \[
-\bar K = \bar Z \bar K^\alpha \bar N^{1-\alpha} + (1-\delta)\bar K - \bar C
+\bar K = \bar Z \bar K^\alpha \bar N^{1-\alpha} + \left(1-\delta\right)\bar K - \bar C
 \quad\Rightarrow\quad
 \bar C=\bar Z\bar K^\alpha \bar N^{1-\alpha}-\delta\bar K.
 \tag{1}
@@ -847,12 +847,12 @@ N_t=N_{t+1}=\bar N.
 =
 \alpha\beta \bar Z \bar K^{\alpha-1}\bar N^{1-\alpha}
 +
-(1-\delta)\beta.
+\left(1-\delta\right)\beta.
 \tag{2}
 \]
 
 \[
-A\bar C=(1-\bar N)(1-\alpha)\bar Z\bar K^\alpha \bar N^{-\alpha}.
+A\bar C=\left(1-\bar N\right)\left(1-\alpha\right)\bar Z\bar K^\alpha \bar N^{-\alpha}.
 \tag{3}
 \]
 
@@ -860,8 +860,8 @@ A\bar C=(1-\bar N)(1-\alpha)\bar Z\bar K^\alpha \bar N^{-\alpha}.
 \Rightarrow\quad
 \bar Z\,\bar K^\alpha \bar N^{1-\alpha}-\delta \bar K
 =
-\frac{1}{A}\Big((1-\alpha)\bar Z\,\bar K^\alpha \bar N^{-\alpha}
-- (1-\alpha)\bar Z\,\bar K^\alpha \bar N^{1-\alpha}\Big)
+\frac{1}{A}\left(\left(1-\alpha\right)\bar Z\,\bar K^\alpha \bar N^{-\alpha}
+- \left(1-\alpha\right)\bar Z\,\bar K^\alpha \bar N^{1-\alpha}\right)
 \]
 
 \[
@@ -892,7 +892,7 @@ Using (2), after simplification one gets
 \left\{
 1+\frac{A}{1-\alpha}
 \left[
-1-\frac{\alpha\beta\delta}{1-\beta(1-\delta)}
+1-\frac{\alpha\beta\delta}{1-\beta\left(1-\delta\right)}
 \right]
 \right\}^{-1}.
 \]
@@ -902,13 +902,13 @@ Then
 \bar K
 =
 \left[
-\frac{1-\beta(1-\delta)}{\bar Z\alpha\beta}
+\frac{1-\beta\left(1-\delta\right)}{\bar Z\alpha\beta}
 \bar N^{\alpha-1}
 \right]^{\frac{1}{\alpha-1}}
 =
 \bar N
 \left[
-\frac{\bar Z\alpha}{\beta^{-1}-(1-\delta)}
+\frac{\bar Z\alpha}{\beta^{-1}-\left(1-\delta\right)}
 \right]^{\frac{1}{1-\alpha}}.
 \]
 
@@ -921,7 +921,7 @@ And
 =
 \bar N^{\alpha} \cdot
 \left[
-\frac{\bar Z \alpha}{\beta^{-1}-(1-\delta)}
+\frac{\bar Z \alpha}{\beta^{-1}-\left(1-\delta\right)}
 \right]^{\frac{\alpha}{1-\alpha}}
 \bar N^{1-\alpha}\bar Z
 -\delta \bar K
@@ -932,11 +932,11 @@ And
 \bar Z^{\frac{1}{1-\alpha}}
 \bar N
 \left[
-\frac{\alpha}{\beta^{-1}-(1-\delta)}
+\frac{\alpha}{\beta^{-1}-\left(1-\delta\right)}
 \right]^{\frac{\alpha}{1-\alpha}}
 -\delta \bar N\,\bar Z^{\frac{1}{1-\alpha}}
 \left[
-\frac{\alpha}{\beta^{-1}-(1-\delta)}
+\frac{\alpha}{\beta^{-1}-\left(1-\delta\right)}
 \right]^{\frac{1}{1-\alpha}}
 \]
 
@@ -945,18 +945,18 @@ And
 \bar N\,\bar Z^{\frac{1}{1-\alpha}}
 \left[
 \left(
-\frac{\alpha}{\beta^{-1}-(1-\delta)}
+\frac{\alpha}{\beta^{-1}-\left(1-\delta\right)}
 \right)^{\frac{\alpha}{1-\alpha}}
 -\delta
 \left(
-\frac{\alpha}{\beta^{-1}-(1-\delta)}
+\frac{\alpha}{\beta^{-1}-\left(1-\delta\right)}
 \right)^{\frac{1}{1-\alpha}}
 \right]
 \]
 \paragraph{Derive the log-linearized system}\mbox{}\\
 (i) TFP process:
 \[
-\log Z_t=(1-\psi)\log \bar Z+\psi \log Z_{t-1}+\varepsilon_t
+\log Z_t=\left(1-\psi\right)\log \bar Z+\psi \log Z_{t-1}+\varepsilon_t
 \]
 Let
 \[
@@ -966,7 +966,7 @@ Then
 \[
 \hat z_t + \log \bar Z
 =
-(1-\psi)\log \bar Z + \psi \log \bar Z + \psi \hat z_{t-1} + \varepsilon_t
+\left(1-\psi\right)\log \bar Z + \psi \log \bar Z + \psi \hat z_{t-1} + \varepsilon_t
 \]
 \[
 \Rightarrow\quad
@@ -975,28 +975,28 @@ Then
 
 (ii)
 \[
-K_t=Z_tK_{t-1}^{\alpha}N_t^{1-\alpha}+(1-\delta)K_{t-1}-C_t.
+K_t=Z_tK_{t-1}^{\alpha}N_t^{1-\alpha}+\left(1-\delta\right)K_{t-1}-C_t.
 \]
 
 Substitute
 \[
-K_t=\bar K(1+\hat k_t),
+K_t=\bar K\left(1+\hat k_t\right),
 \quad
-Z_t=\bar Z(1+\hat z_t),
+Z_t=\bar Z\left(1+\hat z_t\right),
 \quad
-K_{t-1}=\bar K(1+\hat k_{t-1}),
+K_{t-1}=\bar K\left(1+\hat k_{t-1}\right),
 \quad
-N_t=\bar N(1+\hat n_t),
+N_t=\bar N\left(1+\hat n_t\right),
 \quad
-C_t=\bar C(1+\hat c_t),
+C_t=\bar C\left(1+\hat c_t\right),
 \]
 and keep only first-order terms:
 \[
 \bar K+\bar K\hat k_t
 =
 \bar Z\bar K^\alpha \bar N^{1-\alpha}
-(1+\hat z_t)(1+\alpha \hat k_{t-1})(1+(1-\alpha)\hat n_t)
-+(1-\delta)\bar K+(1-\delta)\bar K\hat k_{t-1}
+\left(1+\hat z_t\right)\left(1+\alpha \hat k_{t-1}\right)\left(1+\left(1-\alpha\right)\hat n_t\right)
++\left(1-\delta\right)\bar K+\left(1-\delta\right)\bar K\hat k_{t-1}
 -\bar C-\bar C\hat c_t.
 \]
 
@@ -1008,9 +1008,9 @@ Using the steady state condition and dropping higher-order terms:
 +
 \bar Y \hat z_t
 +
-(1-\alpha)\bar Y \hat n_t
+\left(1-\alpha\right)\bar Y \hat n_t
 +
-(1-\delta)\bar K \hat k_{t-1}
+\left(1-\delta\right)\bar K \hat k_{t-1}
 -
 \bar C \hat c_t,
 \]
@@ -1025,7 +1025,7 @@ Hence
 =
 \left(\alpha\frac{\bar Y}{\bar K}+1-\delta\right)\hat k_{t-1}
 +
-(1-\alpha)\frac{\bar Y}{\bar K}\hat n_t
+\left(1-\alpha\right)\frac{\bar Y}{\bar K}\hat n_t
 +
 \frac{\bar Y}{\bar K}\hat z_t
 -
@@ -1034,7 +1034,7 @@ Hence
 
 (iii)
 \[
-AC_t=(1-N_t)(1-\alpha)Z_tK_{t-1}^{\alpha}N_t^{-\alpha}.
+AC_t=\left(1-N_t\right)\left(1-\alpha\right)Z_tK_{t-1}^{\alpha}N_t^{-\alpha}.
 \]
 
 Log-linearizing gives
@@ -1042,18 +1042,18 @@ Log-linearizing gives
 \hat n_t
 =
 \left(\alpha+\frac{\bar N}{1-\bar N}\right)^{-1}
-\big(
+\left(
 \hat z_t+\alpha \hat k_{t-1}-\hat c_t
-\big).
+\right).
 \]
 
 (iv) Euler equation:
 \[
 1=\beta E_t\left[
 \frac{C_t}{C_{t+1}}
-\big(
+\left(
 \alpha Z_{t+1}K_t^{\alpha-1}N_{t+1}^{1-\alpha}+1-\delta
-\big)
+\right)
 \right].
 \]
 
@@ -1068,7 +1068,7 @@ Then
 \[
 \hat m_{t+1}
 =
-\hat z_{t+1}+(\alpha-1)\hat k_t+(1-\alpha)\hat n_{t+1}.
+\hat z_{t+1}+\left(\alpha-1\right)\hat k_t+\left(1-\alpha\right)\hat n_{t+1}.
 \]
 
 Define
@@ -1079,7 +1079,7 @@ Since
 \[
 \bar G=\beta^{-1},
 \qquad
-\bar G=\bar M+(1-\delta),
+\bar G=\bar M+\left(1-\delta\right),
 \]
 we have
 \[
@@ -1089,12 +1089,12 @@ we have
 =
 1-\frac{1-\delta}{\bar G}
 =
-1-\beta(1-\delta).
+1-\beta\left(1-\delta\right).
 \]
 
 Thus
 \[
-G_{t+1}\approx \bar G(1+\tilde\delta \hat m_{t+1}).
+G_{t+1}\approx \bar G\left(1+\tilde\delta \hat m_{t+1}\right).
 \]
 
 Also
@@ -1112,9 +1112,9 @@ So Euler equation becomes
 \[
 1
 =
-\beta E_t\Big[
-\bar G (1+\hat c_t-\hat c_{t+1}+\tilde\delta \hat m_{t+1})
-\Big]
+\beta E_t\left[
+\bar G \left(1+\hat c_t-\hat c_{t+1}+\tilde\delta \hat m_{t+1}\right)
+\right]
 \]
 Since
 \[
@@ -1122,9 +1122,9 @@ Since
 \]
 we obtain
 \[
-E_t\big[
+E_t\left[
 \hat c_t-\hat c_{t+1}+\tilde\delta \hat m_{t+1}
-\big]=0.
+\right]=0.
 \]
 
 Hence
@@ -1133,9 +1133,9 @@ Hence
 =
 E_t\hat c_{t+1}
 -
-\tilde\delta E_t\big[
-\hat z_{t+1}-(1-\alpha)\hat k_t+(1-\alpha)\hat n_{t+1}
-\big].
+\tilde\delta E_t\left[
+\hat z_{t+1}-\left(1-\alpha\right)\hat k_t+\left(1-\alpha\right)\hat n_{t+1}
+\right].
 \]
 
 If you have CRRA,
@@ -1157,18 +1157,18 @@ Thus we have a system of equations:
 =
 E_t\hat c_{t+1}
 -
-\tilde\delta E_t\big[
-\hat z_{t+1}-(1-\alpha)\hat k_t+(1-\alpha)\hat n_{t+1}
-\big],\\[0.5em]
+\tilde\delta E_t\left[
+\hat z_{t+1}-\left(1-\alpha\right)\hat k_t+\left(1-\alpha\right)\hat n_{t+1}
+\right],\\[0.5em]
 \hat n_t
 =
 \left(\alpha+\dfrac{\bar N}{1-\bar N}\right)^{-1}
-(\hat z_t+\alpha\hat k_{t-1}-\hat c_t),\\[1em]
+\left(\hat z_t+\alpha\hat k_{t-1}-\hat c_t\right),\\[1em]
 \hat k_t
 =
 \left(\alpha\frac{\bar Y}{\bar K}+1-\delta\right)\hat k_{t-1}
 +
-(1-\alpha)\frac{\bar Y}{\bar K}\hat n_t
+\left(1-\alpha\right)\frac{\bar Y}{\bar K}\hat n_t
 +
 \frac{\bar Y}{\bar K}\hat z_t
 -
@@ -1178,7 +1178,7 @@ E_t\hat c_{t+1}
 
 Four equations, four variables:
 \[
-(\hat k_{t-1},\hat c_t,\hat n_t,\hat z_t).
+\left(\hat k_{t-1},\hat c_t,\hat n_t,\hat z_t\right).
 \]
 
 \[
@@ -1187,7 +1187,7 @@ Four equations, four variables:
 \hat z_t \text{ follows a stable AR(1) process,}
 \]
 \[
-(\hat c_t,\hat n_t) \text{ are jump variables.}
+\left(\hat c_t,\hat n_t\right) \text{ are jump variables.}
 \]
 
 Use undetermined coefficient method; guess
@@ -1211,7 +1211,7 @@ V_{kk}^{\,j}\psi^{\,i-j}\varepsilon_{t-i},
 \]
 and since
 \[
-\hat y_t=\alpha\hat k_{t-1}+(1-\alpha)\hat n_t+\hat z_t,
+\hat y_t=\alpha\hat k_{t-1}+\left(1-\alpha\right)\hat n_t+\hat z_t,
 \]
 we can write
 \[
@@ -1228,7 +1228,7 @@ V_{yk}V_{kz}\sum_{j=0}^{i}V_{kk}^{\,j}\psi^{\,i-j}
 
 Therefore,
 \[
-\mathrm{Var}(\hat y_t)
+\mathrm{Var}\left(\hat y_t\right)
 =
 \left(
 V_{yz}^2
@@ -1239,7 +1239,7 @@ V_{yk}V_{kz}\sum_{j=0}^{i}V_{kk}^{\,j}\psi^{\,i-j}
 +
 V_{yz}\psi^{i+1}
 \right]^2
-\right)\mathrm{Var}(\varepsilon_t).
+\right)\mathrm{Var}\left(\varepsilon_t\right).
 \]
 
 Given parameters' value, we can back out the explicit numerical solution.
@@ -1271,7 +1271,7 @@ Key mechanism:
 \begin{enumerate}[label=\arabic*)]
 \item Each individual's labor is a corner-choice:
 \[
-\tilde n_t \in \{0,n^*\}.
+\tilde n_t \in \left\{0,n^*\right\}.
 \]
 Either work a fixed shift or no work.
 \item Lottery over jobs: assigned a job with probability $\pi_t$.
@@ -1293,34 +1293,34 @@ n_t=\frac{H_t}{\bar L}=\pi_t n^*.
 
 Representative-agent utility: individual utility is
 \[
-U(C_t)+v(\tilde n_t).
+U\left(C_t\right)+v\left(\tilde n_t\right).
 \]
 
 Given lottery,
 \[
-E[U(C_t)+v(\tilde n_t)]
+E\left[U\left(C_t\right)+v\left(\tilde n_t\right)\right]
 =
-U(C_t)+\pi_t v(n^*)+(1-\pi_t)v(0).
+U\left(C_t\right)+\pi_t v\left(n^*\right)+\left(1-\pi_t\right)v\left(0\right).
 \]
 
 Let
 \[
-v(0)=0,
+v\left(0\right)=0,
 \qquad
-\frac{v(n^*)}{n^*}=-A<0.
+\frac{v\left(n^*\right)}{n^*}=-A<0.
 \]
 Then
 \[
-E[U(C_t)+v(\tilde n_t)]
+E\left[U\left(C_t\right)+v\left(\tilde n_t\right)\right]
 =
-U(C_t)+\pi_t(-An^*)
+U\left(C_t\right)+\pi_t\left(-An^*\right)
 =
-U(C_t)-An_t.
+U\left(C_t\right)-An_t.
 \]
 
 Suppose
 \[
-U(C_t)=\ln C_t
+U\left(C_t\right)=\ln C_t
 \quad\Rightarrow\quad
 U_t=\ln C_t - A n_t.
 \]
@@ -1342,13 +1342,13 @@ Thus, we can define the equilibrium conditions for this model:
 \[
 \begin{cases}
 1=\beta E_t\left[\dfrac{C_t}{C_{t+1}}\left(\alpha Z_{t+1}K_t^{\alpha-1}N_{t+1}^{1-\alpha}+1-\delta\right)\right],\\[1em]
-K_t=Z_tK_{t-1}^{\alpha}N_t^{1-\alpha}+(1-\delta)K_{t-1}-C_t,\\[0.8em]
-AC_t=(1-\alpha)Z_tK_{t-1}^{\alpha}N_t^{-\alpha},
+K_t=Z_tK_{t-1}^{\alpha}N_t^{1-\alpha}+\left(1-\delta\right)K_{t-1}-C_t,\\[0.8em]
+AC_t=\left(1-\alpha\right)Z_tK_{t-1}^{\alpha}N_t^{-\alpha},
 \qquad
 \textcolor{red}{\text{key difference}}
 \qquad
 -U_{N,t}=U_{C,t}W_t=U_{C,t}MPL_t,\\[0.8em]
-\log Z_t=(1-\psi)\log \bar Z+\psi\log Z_{t-1}+\varepsilon_t.
+\log Z_t=\left(1-\psi\right)\log \bar Z+\psi\log Z_{t-1}+\varepsilon_t.
 \end{cases}
 \]
 
@@ -1370,7 +1370,7 @@ N_t\uparrow
 \]
 
 \[
-\ln(1-N_t)
+\ln\left(1-N_t\right)
 \text{ becomes steeper}
 \Rightarrow
 \text{the cost of giving up a marginal hour of leisure rises}
@@ -1390,7 +1390,7 @@ N_t\uparrow
 
 \[
 n_t=\frac{H_t}{\bar L}=\frac{H_t}{L_t}\cdot \frac{L_t}{\bar L}
-\approx n^*(1-u_t)=n^*\pi_t,
+\approx n^*\left(1-u_t\right)=n^*\pi_t,
 \]
 where $u_t$ is the unemployment rate.
 
@@ -1407,7 +1407,7 @@ where $u_t$ is the unemployment rate.
 \begin{enumerate}[label=\arabic*.]
 \item CRRA utility (King and Rebelo, 1999):
 \[
-U(C_t,L_t)=\ln C_t + A\frac{(1-N_t)^{1-\chi}-1}{1-\chi}.
+U\left(C_t,L_t\right)=\ln C_t + A\frac{\left(1-N_t\right)^{1-\chi}-1}{1-\chi}.
 \]
 
 Investment volatility $\uparrow\uparrow$ (almost correct), but underpredicts persistence, over-predicts comovement; consumption \& labor are less volatile in model than data.
@@ -1416,7 +1416,7 @@ Investment volatility $\uparrow\uparrow$ (almost correct), but underpredicts per
 
 \item KPR utility (King, Plosser and Rebelo, 1988):
 \[
-U(C_t,L_t)=\frac{[C_t\,v(L_t)]^{1-\sigma}-1}{1-\sigma}.
+U\left(C_t,L_t\right)=\frac{\left[C_t\,v\left(L_t\right)\right]^{1-\sigma}-1}{1-\sigma}.
 \]
 
 Non-separable preference between $C$ and $N$.
@@ -1425,7 +1425,7 @@ Relax the too-tight linkages $\Rightarrow$ improve comovement patterns.
 
 \item GHH utility (Greenwood--Hercowitz--Huffman, 1988, AER)
 \[
-U(C_t,N_t)
+U\left(C_t,N_t\right)
 =
 \frac{1}{1-\sigma}
 \left[
@@ -1447,12 +1447,12 @@ AN_t^\psi=W_t.
 
 \item Capital utilization:
 \[
-Y_t = Z_t (u_t K_{t-1})^{\alpha}N_t^{1-\alpha},
+Y_t = Z_t \left(u_t K_{t-1}\right)^{\alpha}N_t^{1-\alpha},
 \]
 \[
-K_t = I_t + [1-\delta(u_t)]K_{t-1},
+K_t = I_t + \left[1-\delta\left(u_t\right)\right]K_{t-1},
 \qquad
-\delta(u)>0
+\delta\left(u\right)>0
 \]
 
 Extra intensive margin for capital $\Rightarrow$ higher investment volatility, higher output volatility.

@@ -31,7 +31,7 @@
 \[
 \sigma E_t \hat{c}_{t+1}
 +
-\tilde{\delta}(1-\alpha)\hat{k}_t
+\tilde{\delta}\left(1-\alpha\right)\hat{k}_t
 -
 \tilde{\delta} E_t \hat{z}_{t+1}
 =
@@ -57,7 +57,7 @@ LOM
 \hat c_t = V_{ck}\hat k_{t-1}+V_{cz}\hat z_t,
 \end{cases}
 \]
-and solve for $(V_{kk},V_{kz},V_{ck},V_{cz})$ by the method of undetermined coefficients.
+and solve for $\left(V_{kk},V_{kz},V_{ck},V_{cz}\right)$ by the method of undetermined coefficients.
 
 \begin{enumerate}[label=\arabic*)]
 \item
@@ -67,9 +67,9 @@ and solve for $(V_{kk},V_{kz},V_{ck},V_{cz})$ by the method of undetermined coef
 E_t\hat z_{t+1}=\psi \hat z_t.
 \]
 
-Since $E_t(\varepsilon_t)=0$, and $\varepsilon_t\sim iid\,N(0,\sigma^2)$,
+Since $E_t\left(\varepsilon_t\right)=0$, and $\varepsilon_t\sim iid\,N\left(0,\sigma^2\right)$,
 \[
-E_t(\hat z_t)=\hat z_t,
+E_t\left(\hat z_t\right)=\hat z_t,
 \]
 because $Z_t$ is already realized in period $t$, hence belongs to period-$t$'s information set.
 
@@ -101,9 +101,9 @@ V_{kk}\hat{k}_{t-1}+V_{kz}\hat{z}_t
 \left(
 \frac{\tilde{\delta}}{\alpha\beta}-\delta
 \right)
-\bigl(
+\left(
 V_{ck}\hat{k}_{t-1}+V_{cz}\hat{z}_t
-\bigr)
+\right)
 +
 \frac{\tilde{\delta}}{\alpha\beta}\hat{z}_t.
 \]
@@ -164,7 +164,7 @@ From
 \[
 \sigma E_t \hat{c}_{t+1}
 +
-\tilde{\delta}(1-\alpha)\hat{k}_t
+\tilde{\delta}\left(1-\alpha\right)\hat{k}_t
 -
 \tilde{\delta} E_t \hat{z}_{t+1}
 =
@@ -183,7 +183,7 @@ Then
 \[
 \sigma E_t\!\left[V_{ck}\hat{k}_t+V_{cz}\hat{z}_{t+1}\right]
 +
-\tilde{\delta}(1-\alpha)\hat{k}_t
+\tilde{\delta}\left(1-\alpha\right)\hat{k}_t
 -
 \tilde{\delta}\psi \hat{z}_t
 =
@@ -198,7 +198,7 @@ V_{ck}\left(V_{kk}\hat{k}_{t-1}+V_{kz}\hat{z}_t\right)
 V_{cz}\hat{z}_{t+1}
 \right]
 +
-\tilde{\delta}(1-\alpha)\left(V_{kk}\hat{k}_{t-1}+V_{kz}\hat{z}_t\right)
+\tilde{\delta}\left(1-\alpha\right)\left(V_{kk}\hat{k}_{t-1}+V_{kz}\hat{z}_t\right)
 -
 \tilde{\delta}\psi \hat{z}_t
 =
@@ -209,41 +209,41 @@ V_{cz}\hat{z}_{t+1}
 
 Collecting coefficients:
 \[
-\Bigl[
+\left[
 \sigma V_{ck}V_{kk}
 +
-\tilde{\delta}(1-\alpha)V_{kk}
+\tilde{\delta}\left(1-\alpha\right)V_{kk}
 -
 \sigma V_{ck}
-\Bigr]\hat{k}_{t-1}
+\right]\hat{k}_{t-1}
 +
-\Bigl[
-\sigma (V_{ck}V_{kz}+V_{cz}\psi)
+\left[
+\sigma \left(V_{ck}V_{kz}+V_{cz}\psi\right)
 +
-\tilde{\delta}(1-\alpha)V_{kz}
+\tilde{\delta}\left(1-\alpha\right)V_{kz}
 -
 \tilde{\delta}\psi
 -
 \sigma V_{cz}
-\Bigr]\hat{z}_t
+\right]\hat{z}_t
 =0.
 \]
 
 Hence
 \[
 \boxed{
-\sigma V_{ck}(1-V_{kk})
+\sigma V_{ck}\left(1-V_{kk}\right)
 =
-\tilde{\delta}(1-\alpha)V_{kk}
+\tilde{\delta}\left(1-\alpha\right)V_{kk}
 }
 \tag{3}
 \]
 and
 \[
 \boxed{
-\sigma V_{cz}(1-\psi)
+\sigma V_{cz}\left(1-\psi\right)
 =
-\bigl[\sigma V_{ck}+\tilde{\delta}(1-\alpha)\bigr]V_{kz}
+\left[\sigma V_{ck}+\tilde{\delta}\left(1-\alpha\right)\right]V_{kz}
 -
 \tilde{\delta}\psi
 }
@@ -257,7 +257,7 @@ Collect the four equations and solve for the four unknowns.
 
 \begin{enumerate}[label=(\roman*)]
 \item
-(1) and (3) are two equations in $(V_{kk},V_{ck})$. Eliminate $V_{ck}$.
+(1) and (3) are two equations in $\left(V_{kk},V_{ck}\right)$. Eliminate $V_{ck}$.
 
 From (1),
 \[
@@ -268,9 +268,9 @@ V_{ck}
 
 Substitute into (3):
 \[
-\sigma\left(\frac{\frac{1}{\beta}-V_{kk}}{\frac{\tilde\delta}{\alpha\beta}-\delta}\right)(1-V_{kk})
+\sigma\left(\frac{\frac{1}{\beta}-V_{kk}}{\frac{\tilde\delta}{\alpha\beta}-\delta}\right)\left(1-V_{kk}\right)
 =
-\tilde\delta(1-\alpha)V_{kk}.
+\tilde\delta\left(1-\alpha\right)V_{kk}.
 \]
 
 So
@@ -280,7 +280,7 @@ So
 -\sigma V_{kk}
 +\sigma V_{kk}^2
 =
-\tilde\delta(1-\alpha)\left(\frac{\tilde\delta}{\alpha\beta}-\delta\right)V_{kk}.
+\tilde\delta\left(1-\alpha\right)\left(\frac{\tilde\delta}{\alpha\beta}-\delta\right)V_{kk}.
 \]
 
 Equivalently,
@@ -290,7 +290,7 @@ V_{kk}^2
 \left[
 1+\frac{1}{\beta}
 +
-\frac{\tilde\delta(1-\alpha)}{\sigma}
+\frac{\tilde\delta\left(1-\alpha\right)}{\sigma}
 \left(\frac{\tilde\delta}{\alpha\beta}-\delta\right)
 \right]V_{kk}
 +
@@ -304,7 +304,7 @@ Let
 =
 1+\frac{1}{\beta}
 +
-\frac{\tilde\delta(1-\alpha)}{\sigma}
+\frac{\tilde\delta\left(1-\alpha\right)}{\sigma}
 \left(\frac{\tilde\delta}{\alpha\beta}-\delta\right).
 \]
 
@@ -338,16 +338,16 @@ Since
 =
 1+\frac{1}{\beta}
 +
-\frac{\tilde\delta(1-\alpha)}{\sigma}
+\frac{\tilde\delta\left(1-\alpha\right)}{\sigma}
 \left(\frac{\tilde\delta}{\alpha\beta}-\delta\right)
 >
 1+\frac{1}{\beta},
 \]
 we have
 \[
-(1-V_{kk,1})(1-V_{kk,2})
+\left(1-V_{kk,1}\right)\left(1-V_{kk,2}\right)
 =
-1+V_{kk,1}V_{kk,2}-(V_{kk,1}+V_{kk,2})
+1+V_{kk,1}V_{kk,2}-\left(V_{kk,1}+V_{kk,2}\right)
 =
 1+\frac{1}{\beta}-\gamma
 <0.
@@ -366,12 +366,12 @@ To see this, consider the shutdown-shock case $\hat z_t=0$:
 \]
 Then $V_{kk}$ is the speed of convergence:
 \[
-|V_{kk}|<1
+\left|V_{kk}\right|<1
 \;\Rightarrow\;
 \text{deviation in capital shrinks over time, economy returns to S.S.},
 \]
 \[
-|V_{kk}|>1
+\left|V_{kk}\right|>1
 \;\Rightarrow\;
 \text{deviation in capital grows over time, economy explodes and violates TVC}.
 \]
@@ -406,15 +406,15 @@ V_{ck}
 \]
 
 \item
-(2) and (4) are two equations in $(V_{kz}, V_{cz})$. Solve for $V_{cz}$ by substituting $V_{kz}$ out.
+(2) and (4) are two equations in $\left(V_{kz}, V_{cz}\right)$. Solve for $V_{cz}$ by substituting $V_{kz}$ out.
 \end{enumerate}
 
 
 Starting from
 \[
-\sigma V_{cz}(1-\psi)
+\sigma V_{cz}\left(1-\psi\right)
 =
-\bigl[\sigma V_{ck}+\tilde\delta(1-\alpha)\bigr]V_{kz}
+\left[\sigma V_{ck}+\tilde\delta\left(1-\alpha\right)\right]V_{kz}
 -
 \tilde\delta\psi,
 \]
@@ -429,7 +429,7 @@ V_{kz}
 
 substitute the second into the first:
 \[
-\sigma V_{cz}(1-\psi)
+\sigma V_{cz}\left(1-\psi\right)
 =
 \left[
 \sigma
@@ -442,7 +442,7 @@ substitute the second into the first:
 \sqrt{\left(\frac{\gamma}{2}\right)^2-\frac{1}{\beta}}
 \right)
 +
-\tilde{\delta}(1-\alpha)
+\tilde{\delta}\left(1-\alpha\right)
 \right]
 \left[
 \frac{\tilde{\delta}}{\alpha\beta}
@@ -470,11 +470,11 @@ V_{cz}
 \sqrt{\left(\frac{\gamma}{2}\right)^2-\frac{1}{\beta}}
 \right)
 +
-\tilde{\delta}(1-\alpha)
+\tilde{\delta}\left(1-\alpha\right)
 -
 \alpha\beta\psi
 }{
-\sigma(1-\psi)
+\sigma\left(1-\psi\right)
 +
 \left[
 \sigma
@@ -487,7 +487,7 @@ V_{cz}
 \sqrt{\left(\frac{\gamma}{2}\right)^2-\frac{1}{\beta}}
 \right)
 +
-\tilde{\delta}(1-\alpha)
+\tilde{\delta}\left(1-\alpha\right)
 \right]
 \left(
 \frac{\tilde{\delta}}{\alpha\beta}-\delta
@@ -519,11 +519,11 @@ V_{kz}
 \sqrt{\left(\frac{\gamma}{2}\right)^2-\frac{1}{\beta}}
 \right)
 +
-\tilde{\delta}(1-\alpha)
+\tilde{\delta}\left(1-\alpha\right)
 -
 \alpha\beta\psi
 }{
-\sigma(1-\psi)
+\sigma\left(1-\psi\right)
 +
 \left[
 \sigma
@@ -536,7 +536,7 @@ V_{kz}
 \sqrt{\left(\frac{\gamma}{2}\right)^2-\frac{1}{\beta}}
 \right)
 +
-\tilde{\delta}(1-\alpha)
+\tilde{\delta}\left(1-\alpha\right)
 \right]
 \left(
 \frac{\tilde{\delta}}{\alpha\beta}-\delta
@@ -573,9 +573,9 @@ V_{ck}
 V_{cz}
 =
 \frac{
-\sigma V_{ck}+\tilde{\delta}(1-\alpha)-\alpha\beta\psi
+\sigma V_{ck}+\tilde{\delta}\left(1-\alpha\right)-\alpha\beta\psi
 }{
-\sigma(1-\psi)+\left[\sigma V_{ck}+\tilde{\delta}(1-\alpha)\right]\dfrac{\bar{C}}{\bar{K}}
+\sigma\left(1-\psi\right)+\left[\sigma V_{ck}+\tilde{\delta}\left(1-\alpha\right)\right]\dfrac{\bar{C}}{\bar{K}}
 }
 \times
 \frac{\tilde{\delta}}{\alpha\beta},
@@ -592,7 +592,7 @@ V_{kz}
 \noindent\makebox[7em][l]{$\beta = 0.99$}%
 matches a 4.1\% annual rate:
 $r_q=\frac{1}{\beta}-1\approx 1.01\%$, \quad
-$r_a\approx (1+r_q)^4-1\approx 4.1\%$.
+$r_a\approx \left(1+r_q\right)^4-1\approx 4.1\%$.
 
 \medskip
 
@@ -619,7 +619,7 @@ steady-state technology level is normalized.
 \noindent\makebox[7em][l]{$\psi = 0.95$}%
 persistence of the productivity shock, i.e.\ how long $\varepsilon_t$ lasts.
 \end{flushleft}
-Then we can compute $(V_{kk},V_{cz},V_{kz},V_{ck})$.
+Then we can compute $\left(V_{kk},V_{cz},V_{kz},V_{ck}\right)$.
 
 \paragraph{Impulse response function (IRF)}
 Shock $\varepsilon_t$ and trace how variables respond.
@@ -649,7 +649,7 @@ and in general
 \hat z_t=\psi^{\,t-1}\varepsilon_1.
 \]
 
-When $|\psi|<1$, the shock dies out as $t\to\infty$.
+When $\left|\psi\right|<1$, the shock dies out as $t\to\infty$.
 
 For capital,
 \[
@@ -665,7 +665,7 @@ V_{kk}\hat k_1+V_{kz}\hat z_2
 =
 V_{kk}V_{kz}\varepsilon_1+V_{kz}\psi\varepsilon_1
 =
-(V_{kk}+\psi)V_{kz}\varepsilon_1.
+\left(V_{kk}+\psi\right)V_{kz}\varepsilon_1.
 \]
 
 In general,
@@ -694,27 +694,27 @@ The half-life is defined by
 V_{kk}^{\,h_{1/2}}=\frac{1}{2}
 \quad\Rightarrow\quad
 \boxed{
-h_{1/2}^{(k)}=\frac{\ln(1/2)}{\ln(V_{kk})}
+h_{1/2}^{\left(k\right)}=\frac{\ln\left(1/2\right)}{\ln\left(V_{kk}\right)}
 }
-\qquad (0<V_{kk}<1).
+\qquad \left(0<V_{kk}<1\right).
 \]
 
 For the TFP shock,
 \[
 \boxed{
-h_{1/2}^{(z)}=\frac{\ln(1/2)}{\ln(\psi)}.
+h_{1/2}^{\left(z\right)}=\frac{\ln\left(1/2\right)}{\ln\left(\psi\right)}.
 }
 \]
 
 Examples:
 if $V_{kk}=0.95$,
 \[
-h_{1/2}^{(k)}\approx 13.5\ \text{quarters}\approx 3.4\ \text{years}.
+h_{1/2}^{\left(k\right)}\approx 13.5\ \text{quarters}\approx 3.4\ \text{years}.
 \]
 
 If $V_{kk}=0.9$,
 \[
-h_{1/2}^{(k)}\approx 6.6\ \text{quarters}\approx 1.6\ \text{years}.
+h_{1/2}^{\left(k\right)}\approx 6.6\ \text{quarters}\approx 1.6\ \text{years}.
 \]
 \begin{center}
     \includegraphics[width=\linewidth]{impulse_response_function.png}
@@ -748,7 +748,7 @@ Hence
 \[
 \frac{\hat k_{t+1}}{\hat k_t}
 =
-\frac{(t+1)\psi^t}{t\psi^{t-1}}
+\frac{\left(t+1\right)\psi^t}{t\psi^{t-1}}
 =
 \psi\left(1+\frac{1}{t}\right).
 \]
@@ -788,7 +788,7 @@ It peaks when $\hat k_{t+1}=\hat k_t$, i.e.
 \]
 so
 \[
-\psi^t(1-\psi)=V_{kk}^t(1-V_{kk}),
+\psi^t\left(1-\psi\right)=V_{kk}^t\left(1-V_{kk}\right),
 \]
 hence
 \[
@@ -825,7 +825,7 @@ V_{kk}\uparrow\to 1
 \]
 Capital becomes more persistent and convergence is slower.
 
-Households dislike shifting consumption across time more, i.e.\ lower IES. 
+Households dislike shifting consumption across time more, i.e.\ lower IES.
 
 \item
 \[
@@ -863,10 +863,10 @@ After a TFP shock, consumption is more reluctant to jump, so more resources show
 \end{enumerate}
 \paragraph{Recall the steady state of the system}
 \[
-\bar C=\bar Z\bar K^\alpha +(1-\delta)\bar K-\bar K,
+\bar C=\bar Z\bar K^\alpha +\left(1-\delta\right)\bar K-\bar K,
 \]
 \[
-1=\beta\bigl[\alpha \bar Z \bar K^{\alpha-1}+(1-\delta)\bigr].
+1=\beta\left[\alpha \bar Z \bar K^{\alpha-1}+\left(1-\delta\right)\right].
 \]
 
 Thus
@@ -890,7 +890,7 @@ and
 =
 \bar Z\bar K^{\alpha-1}-\delta
 =
-\frac{\frac{1}{\beta}-1+(1-\alpha)\delta}{\alpha}.
+\frac{\frac{1}{\beta}-1+\left(1-\alpha\right)\delta}{\alpha}.
 \]
 
 \paragraph{The effect of $\delta$ (depreciation)}
@@ -977,7 +977,7 @@ Also, from
 \[
 \sigma E_t\hat c_{t+1}
 +
-\tilde\delta(1-\alpha)\hat k_t
+\tilde\delta\left(1-\alpha\right)\hat k_t
 -
 \tilde\delta E_t\hat z_{t+1}
 =
@@ -985,9 +985,9 @@ Also, from
 \]
 letting $\hat z_t=0$ gives
 \[
-\sigma(\hat c_t-\hat c_{t+1})
+\sigma\left(\hat c_t-\hat c_{t+1}\right)
 -
-\bigl[1-\beta(1-\delta)\bigr](1-\alpha)\hat k_t
+\left[1-\beta\left(1-\delta\right)\right]\left(1-\alpha\right)\hat k_t
 =0
 \]
 Rearrange:
@@ -1002,7 +1002,7 @@ Rearrange:
 \hat c_{t+1}-\hat c_t
 =
 \frac{1}{\sigma}
-\bigl[1-\beta(1-\delta)\bigr](1-\alpha)
+\left[1-\beta\left(1-\delta\right)\right]\left(1-\alpha\right)
 \left(
 \underbrace{
 \frac{\bar C}{\bar K}\hat c_t-\frac{1}{\beta}\hat k_{t+1}
@@ -1104,7 +1104,7 @@ Hence, from
 \hat c_{t+1}-\hat c_t
 =
 \frac{1}{\sigma}
-\bigl[1-\beta(1-\delta)\bigr](1-\alpha)
+\left[1-\beta\left(1-\delta\right)\right]\left(1-\alpha\right)
 \left(
 \frac{\bar C}{\bar K}\hat c_t-\frac{1}{\beta}\hat k_{t+1}
 \right),
@@ -1134,11 +1134,11 @@ Nature gives $\hat k_{t-1}$, and households choose $\hat c_t$ so as to land exac
 
 Set $Z_t=\bar Z$:
 \[
-C_t=\bar Z\,K_{t-1}^{\alpha}+(1-\delta)K_{t-1}-K_t,
+C_t=\bar Z\,K_{t-1}^{\alpha}+\left(1-\delta\right)K_{t-1}-K_t,
 \]
 \[
 1=\beta E_t\left(\frac{C_{t+1}}{C_t}\right)^{-\sigma}
-\bigl(\alpha \bar Z\,K_t^{\alpha-1}+1-\delta\bigr).
+\left(\alpha \bar Z\,K_t^{\alpha-1}+1-\delta\right).
 \]
 
 So
@@ -1154,7 +1154,7 @@ E_t\frac{C_{t+1}}{C_t}
 \left\{
 \beta\left[
 \alpha \bar Z
-\bigl(\bar Z\,K_{t-1}^{\alpha}+(1-\delta)K_{t-1}-C_t\bigr)^{\alpha-1}
+\left(\bar Z\,K_{t-1}^{\alpha}+\left(1-\delta\right)K_{t-1}-C_t\right)^{\alpha-1}
 +1-\delta
 \right]
 \right\}^{1/\sigma}
@@ -1182,7 +1182,7 @@ At steady state, $\Delta C_t=0$, so
 \left\{
 \beta\left[
 \alpha \bar Z
-\bigl(\bar Z\,K_{t+1}^{\alpha}+(1-\delta)K_{t+1}-C_t\bigr)^{\alpha-1}
+\left(\bar Z\,K_{t+1}^{\alpha}+\left(1-\delta\right)K_{t+1}-C_t\right)^{\alpha-1}
 +1-\delta
 \right]
 \right\}^{1/\sigma},
@@ -1191,25 +1191,25 @@ which implies
 \[
 C_t
 =
-\bar Z\,K_{t-1}^{\alpha} +(1-\delta)K_{t-1}-\bar K.
+\bar Z\,K_{t-1}^{\alpha} +\left(1-\delta\right)K_{t-1}-\bar K.
 \tag{2}
 \]
 
 Then:
 \[
-\text{if } C_t>-\bar K+\bar Z\,K_{t-1}^{\alpha} +(1-\delta)K_{t-1},
+\text{if } C_t>-\bar K+\bar Z\,K_{t-1}^{\alpha} +\left(1-\delta\right)K_{t-1},
 \quad C_{t+1}>C_t,
 \]
 \[
-\text{if } C_t<-\bar K+\bar Z\,K_{t-1}^{\alpha} +(1-\delta)K_{t-1},
+\text{if } C_t<-\bar K+\bar Z\,K_{t-1}^{\alpha} +\left(1-\delta\right)K_{t-1},
 \quad C_{t+1}<C_t.
 \]
 
 \paragraph{Steady-state equations in levels}
 \[
 \begin{cases}
-C_t=\bar Z\,K_{t-1}^{\alpha}-\delta K_{t-1}, \qquad (1)\\[0.5em]
-C_t=\bar Z\,K_{t-1}^{\alpha} +(1-\delta)K_{t-1}-\bar K. \qquad (2)
+C_t=\bar Z\,K_{t-1}^{\alpha}-\delta K_{t-1}, \qquad \left(1\right)\\[0.5em]
+C_t=\bar Z\,K_{t-1}^{\alpha} +\left(1-\delta\right)K_{t-1}-\bar K. \qquad \left(2\right)
 \end{cases}
 \]
 

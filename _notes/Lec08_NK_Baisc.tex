@@ -145,33 +145,33 @@ AS: New Keynesian Phillips Curve (relates price and output):
   \item Policy rule:
 \end{enumerate}
 \[
-\hat i_t=f(\Omega_t)+v_t,\qquad \red{\Omega_t:\text{ information set / state vector.}}
+\hat i_t=f\left(\Omega_t\right)+v_t,\qquad \red{\Omega_t:\text{ information set / state vector.}}
 \tag{3}
 \]
 Four markets: goods, labor, bonds, money (cashless).\\
 \par\smallskip
-Differentiated goods: continuum of varieties $i\in[0,1]$.\\
+Differentiated goods: continuum of varieties $i\in\left[0,1\right]$.\\
 \par\smallskip
 Perfect competition in labor market, no wage rigidities.\\
 \par\smallskip
 Monopolistic competition on goods market: goods prices set by firms that produce them (profit $\neq 0$).\\
 \par\smallskip
-Nominal prices are sticky: a fraction $(1-\theta)$ of firms can reset their prices each period (Calvo pricing).\\
+Nominal prices are sticky: a fraction $\left(1-\theta\right)$ of firms can reset their prices each period (Calvo pricing).\\
 \par\smallskip
 A continuum of infinitely-lived households.\\
 \par\smallskip
-A continuum of firms represented by $[0,1]$ goods $\Rightarrow$ \red{1 firm produces 1 differentiated good and sets price.}
+A continuum of firms represented by $\left[0,1\right]$ goods $\Rightarrow$ \red{1 firm produces 1 differentiated good and sets price.}
 
 \section{Household's problem}
 \[
-\max_{C_t,N_t,B_t}\;\E_t\sum_{t=0}^{\infty}\beta^tU(C_t,N_t),
+\max_{C_t,N_t,B_t}\;\E_t\sum_{t=0}^{\infty}\beta^tU\left(C_t,N_t\right),
 \]
 \[
 \text{s.t.}\quad \boxit{P_t}C_t+Q_tB_t=B_{t-1}+W_tN_t+T_t.
 \]
-\blue{$P_t$: aggregate price index of the consumption bundle, $P_t C_t=\int_0^1P_t(i)C_t(i)\dd i$.}
+\blue{$P_t$: aggregate price index of the consumption bundle, $P_t C_t=\int_0^1P_t\left(i\right)C_t\left(i\right)\dd i$.}
 \[
-C_t=\left(\int_0^1 C_t(i)^{\frac{\varepsilon-1}{\varepsilon}}\dd i\right)^{\frac{\varepsilon}{\varepsilon-1}},
+C_t=\left(\int_0^1 C_t\left(i\right)^{\frac{\varepsilon-1}{\varepsilon}}\dd i\right)^{\frac{\varepsilon}{\varepsilon-1}},
 \]
 \red{$C_t$: A composite bundle of goods; continuum of varieties produced by continuum of firms.}
 \[
@@ -186,12 +186,12 @@ i &:\ \text{variety (differentiated goods) index},\\
 \par\smallskip
 \red{1. Static optimal expenditure allocation (how to allocate across varieties?)}
 \[
-E=\min_{C_t(i)}\int_0^1P_t(i)C_t(i)\dd i=\text{total expenditure}
+E=\min_{C_t\left(i\right)}\int_0^1P_t\left(i\right)C_t\left(i\right)\dd i=\text{total expenditure}
 \quad \text{s.t.}\quad
-C_t=\left(\int_0^1 C_t(i)^{\frac{\varepsilon-1}{\varepsilon}}\dd i\right)^{\frac{\varepsilon}{\varepsilon-1}}.
+C_t=\left(\int_0^1 C_t\left(i\right)^{\frac{\varepsilon-1}{\varepsilon}}\dd i\right)^{\frac{\varepsilon}{\varepsilon-1}}.
 \]
 \[
-\mathcal L=\int_0^1P_t(i)C_t(i)\dd i-P_t\left[\left(\int_0^1 C_t(i)^{\frac{\varepsilon-1}{\varepsilon}}\dd i\right)^{\frac{\varepsilon}{\varepsilon-1}}-C_t\right].
+\mathcal L=\int_0^1P_t\left(i\right)C_t\left(i\right)\dd i-P_t\left[\left(\int_0^1 C_t\left(i\right)^{\frac{\varepsilon-1}{\varepsilon}}\dd i\right)^{\frac{\varepsilon}{\varepsilon-1}}-C_t\right].
 \]
 \begin{tightalign}
 \frac{\partial\mathcal L}{\partial C_t(i)}=0
@@ -207,49 +207,49 @@ C_t(i)^{-\frac{1}{\varepsilon}}
 =0
 \\[0.6em]
 &\Rightarrow
-P_t(i)-P_tC_t^{1/\varepsilon}C_t(i)^{-1/\varepsilon}=0
+P_t\left(i\right)-P_tC_t^{1/\varepsilon}C_t\left(i\right)^{-1/\varepsilon}=0
 \\[0.6em]
 &\Rightarrow
-C_t(i)=
-\left(\frac{P_t(i)}{P_t}\right)^{-\varepsilon}C_t.
+C_t\left(i\right)=
+\left(\frac{P_t\left(i\right)}{P_t}\right)^{-\varepsilon}C_t.
 \end{tightalign}
 \begin{tightalign}
-C_t(i)^{\frac{\varepsilon-1}{\varepsilon}}
-&=\left(\frac{P_t(i)}{P_t}\right)^{1-\varepsilon}C_t^{\frac{\varepsilon-1}{\varepsilon}},\\
-\int_0^1C_t(i)^{\frac{\varepsilon-1}{\varepsilon}}\dd i
-&=C_t^{\frac{\varepsilon-1}{\varepsilon}}\int_0^1\left(\frac{P_t(i)}{P_t}\right)^{1-\varepsilon}\dd i,\\
+C_t\left(i\right)^{\frac{\varepsilon-1}{\varepsilon}}
+&=\left(\frac{P_t\left(i\right)}{P_t}\right)^{1-\varepsilon}C_t^{\frac{\varepsilon-1}{\varepsilon}},\\
+\int_0^1C_t\left(i\right)^{\frac{\varepsilon-1}{\varepsilon}}\dd i
+&=C_t^{\frac{\varepsilon-1}{\varepsilon}}\int_0^1\left(\frac{P_t\left(i\right)}{P_t}\right)^{1-\varepsilon}\dd i,\\
 C_t^{\frac{\varepsilon-1}{\varepsilon}}
-&=C_t^{\frac{\varepsilon-1}{\varepsilon}}\int_0^1\left(\frac{P_t(i)}{P_t}\right)^{1-\varepsilon}\dd i,\\
-P_t^{1-\varepsilon}&=\int_0^1P_t(i)^{1-\varepsilon}\dd i,
+&=C_t^{\frac{\varepsilon-1}{\varepsilon}}\int_0^1\left(\frac{P_t\left(i\right)}{P_t}\right)^{1-\varepsilon}\dd i,\\
+P_t^{1-\varepsilon}&=\int_0^1P_t\left(i\right)^{1-\varepsilon}\dd i,
 \qquad
-P_t=\left(\int_0^1P_t(i)^{1-\varepsilon}\dd i\right)^{\frac{1}{1-\varepsilon}}.
+P_t=\left(\int_0^1P_t\left(i\right)^{1-\varepsilon}\dd i\right)^{\frac{1}{1-\varepsilon}}.
 \end{tightalign}
 \blue{Why $\varepsilon$ is the elasticity of substitution across varieties?}
 \[
-C_t(i)=\left(\frac{P_t(i)}{P_t}\right)^{-\varepsilon}C_t,
+C_t\left(i\right)=\left(\frac{P_t\left(i\right)}{P_t}\right)^{-\varepsilon}C_t,
 \qquad
-C_t(j)=\left(\frac{P_t(j)}{P_t}\right)^{-\varepsilon}C_t
+C_t\left(j\right)=\left(\frac{P_t\left(j\right)}{P_t}\right)^{-\varepsilon}C_t
 \Rightarrow
-\frac{C_t(i)}{C_t(j)}=\left(\frac{P_t(i)}{P_t(j)}\right)^{-\varepsilon}.
+\frac{C_t\left(i\right)}{C_t\left(j\right)}=\left(\frac{P_t\left(i\right)}{P_t\left(j\right)}\right)^{-\varepsilon}.
 \]
 \[
-\log\frac{C_t(i)}{C_t(j)}=-\varepsilon\log\frac{P_t(i)}{P_t(j)},
+\log\frac{C_t\left(i\right)}{C_t\left(j\right)}=-\varepsilon\log\frac{P_t\left(i\right)}{P_t\left(j\right)},
 \qquad
-\frac{\dd\log\{C_t(i)/C_t(j)\}}{\dd\log\{P_t(i)/P_t(j)\}}=-\varepsilon.
+\frac{\dd\log\left\{C_t\left(i\right)/C_t\left(j\right)\right\}}{\dd\log\left\{P_t\left(i\right)/P_t\left(j\right)\right\}}=-\varepsilon.
 \]
 \[
-\sigma_{ij}=-\frac{\dd\log\{C_t(i)/C_t(j)\}}{\dd\log\{P_t(i)/P_t(j)\}}=\varepsilon,
+\sigma_{ij}=-\frac{\dd\log\left\{C_t\left(i\right)/C_t\left(j\right)\right\}}{\dd\log\left\{P_t\left(i\right)/P_t\left(j\right)\right\}}=\varepsilon,
 \quad \text{elasticity of substitution between two varieties.}
 \]
 \par\smallskip
 \red{2. Intertemporal problem}
 \[
-\max_{C_t,N_t,B_t}\E_t\sum_{t=0}^{\infty}\beta^tU(C_t,N_t)
+\max_{C_t,N_t,B_t}\E_t\sum_{t=0}^{\infty}\beta^tU\left(C_t,N_t\right)
 \quad\text{s.t.}\quad P_tC_t+Q_tB_t=B_{t-1}+W_tN_t+T_t.
 \]
 
 \[
-\mathcal L=\E_t\sum_{t=0}^{\infty}\beta^t\left\{U(C_t,N_t)+\lambda_t(B_{t-1}+W_tN_t+T_t-P_tC_t-Q_tB_t)\right\}.
+\mathcal L=\E_t\sum_{t=0}^{\infty}\beta^t\left\{U\left(C_t,N_t\right)+\lambda_t\left(B_{t-1}+W_tN_t+T_t-P_tC_t-Q_tB_t\right)\right\}.
 \]
 \begin{tightalign}
 \frac{\partial\mathcal L}{\partial C_t}=0&\Rightarrow U_{C,t}=P_t\lambda_t \quad (1),\\
@@ -257,9 +257,9 @@ C_t(j)=\left(\frac{P_t(j)}{P_t}\right)^{-\varepsilon}C_t
 \frac{\partial\mathcal L}{\partial B_t}=0&\Rightarrow \beta^{t+1}\E_t\lambda_{t+1}-\beta^t\lambda_tQ_t=0
 \Rightarrow \E_t\beta\lambda_{t+1}=\lambda_tQ_t \quad (3).
 \end{tightalign}
-\[(1)\&(2)\Rightarrow -\frac{U_{N,t}}{U_{C,t}}=\frac{W_t}{P_t}\quad\text{Labor--leisure condition (intratemporal).}
+\[\left(1\right)\&\left(2\right)\Rightarrow -\frac{U_{N,t}}{U_{C,t}}=\frac{W_t}{P_t}\quad\text{Labor--leisure condition (intratemporal).}
 \]
-\[(1)\&(3)\Rightarrow Q_t=\beta\E_t\left\{\frac{U_{C,t+1}}{U_{C,t}}\frac{P_t}{P_{t+1}}\right\}
+\[\left(1\right)\&\left(3\right)\Rightarrow Q_t=\beta\E_t\left\{\frac{U_{C,t+1}}{U_{C,t}}\frac{P_t}{P_{t+1}}\right\}
 =\beta\E_t\left\{\frac{U_{C,t+1}}{U_{C,t}}\frac{1}{\Pi_{t+1}}\right\},
 \quad \Pi_{t+1}=\frac{P_{t+1}}{P_t}\text{ inflation}.
 \]
@@ -267,7 +267,7 @@ C_t(j)=\left(\frac{P_t(j)}{P_t}\right)^{-\varepsilon}C_t
 \par\smallskip
 Suppose we have a separable utility function
 \[
-U(C_t,N_t)=\frac{C_t^{1-\sigma}}{1-\sigma}-\frac{N_t^{1+\varphi}}{1+\varphi},
+U\left(C_t,N_t\right)=\frac{C_t^{1-\sigma}}{1-\sigma}-\frac{N_t^{1+\varphi}}{1+\varphi},
 \qquad U_{C,t}=C_t^{-\sigma},\quad U_{N,t}=-N_t^\varphi.
 \]
 \[
@@ -279,7 +279,7 @@ Log-linearize:
 \[
 \hat w_t-\hat p_t=\sigma\hat c_t+\varphi\hat n_t,
 \qquad
-\hat c_t=\E_t\hat c_{t+1}-\frac{1}{\sigma}(\hat i_t-\hat\Pi_{t+1}).
+\hat c_t=\E_t\hat c_{t+1}-\frac{1}{\sigma}\left(\hat i_t-\hat\Pi_{t+1}\right).
 \]
 \[
 Q_t=e^{-i_t},
@@ -289,15 +289,15 @@ Q_t=e^{-i_t},
 \section{Firm's problem: two simultaneous problems (isomorphic)}
 \red{1. Cost minimization for each producer in the continuum}
 \[
-\min_{N_t(i)} W_tN_t(i)
-\quad\text{s.t.}\quad Y_t(i)=A_tN_t(i)^{1-\alpha}.
+\min_{N_t\left(i\right)} W_tN_t\left(i\right)
+\quad\text{s.t.}\quad Y_t\left(i\right)=A_tN_t\left(i\right)^{1-\alpha}.
 \]
 \[
-\mathcal L=W_tN_t(i)+\mu_t\left[Y_t(i)-A_tN_t(i)^{1-\alpha}\right].
+\mathcal L=W_tN_t\left(i\right)+\mu_t\left[Y_t\left(i\right)-A_tN_t\left(i\right)^{1-\alpha}\right].
 \]
 \[
-\frac{\partial\mathcal L}{\partial N_t(i)}=W_t-\mu_t(1-\alpha)A_tN_t(i)^{-\alpha}=0
-\Rightarrow W_t=\mu_t(1-\alpha)A_tN_t(i)^{-\alpha}.
+\frac{\partial\mathcal L}{\partial N_t\left(i\right)}=W_t-\mu_t\left(1-\alpha\right)A_tN_t\left(i\right)^{-\alpha}=0
+\Rightarrow W_t=\mu_t\left(1-\alpha\right)A_tN_t\left(i\right)^{-\alpha}.
 \]
 \[
 \mu_t\text{ is the Lagrangian multiplier: shadow value of relaxing the production requirement by one unit.}
@@ -305,47 +305,47 @@ Q_t=e^{-i_t},
 \[
 \Rightarrow \mu_t \text{ is the nominal marginal cost: } \mu_t=MC_t,
 \qquad
-\mu_t=MC_t=\frac{W_t}{MPL_t(i)}.
+\mu_t=MC_t=\frac{W_t}{MPL_t\left(i\right)}.
 \]
 
 \noindent
 $W_t$: 1 labor's cost; \quad
-$MPL_t(i)$: 1 labor's output; \quad
-$\frac{W_t}{MPL_t(i)}$: cost per unit of output.
+$MPL_t\left(i\right)$: 1 labor's output; \quad
+$\frac{W_t}{MPL_t\left(i\right)}$: cost per unit of output.
 
 \par\smallskip
 \par\smallskip
 \red{2. Profit maximization by choosing price.}
 \[
-\max_{P_t(i)}
+\max_{P_t\left(i\right)}
 \;
-P_t(i)Y_t(i)-W_tN_t(i)
+P_t\left(i\right)Y_t\left(i\right)-W_tN_t\left(i\right)
 =
-\max_{P_t(i)}
+\max_{P_t\left(i\right)}
 \;
-P_t(i)Y_t(i)
+P_t\left(i\right)Y_t\left(i\right)
 -
 W_t
 \left(
-\frac{Y_t(i)}{A_t}
+\frac{Y_t\left(i\right)}{A_t}
 \right)^{\frac{1}{1-\alpha}}
 \qquad
 \red{\text{production function}}
 \]
 
 \[
-\frac{\partial Profit}{\partial P_t(i)}
+\frac{\partial Profit}{\partial P_t\left(i\right)}
 =
-Y_t(i)
+Y_t\left(i\right)
 +
-P_t(i)\frac{\partial Y_t(i)}{\partial P_t(i)}
+P_t\left(i\right)\frac{\partial Y_t\left(i\right)}{\partial P_t\left(i\right)}
 -
 W_t
 \frac{1}{1-\alpha}
 \left(
-\frac{Y_t(i)}{A_t}
+\frac{Y_t\left(i\right)}{A_t}
 \right)^{\frac{\alpha}{1-\alpha}}
-\frac{\partial Y_t(i)}{\partial P_t(i)}
+\frac{\partial Y_t\left(i\right)}{\partial P_t\left(i\right)}
 \frac{1}{A_t}
 =0.
 \tag{*}
@@ -353,57 +353,57 @@ W_t
 \[
 MC_t
 =
-\frac{\partial}{\partial Y_t(i)}
+\frac{\partial}{\partial Y_t\left(i\right)}
 \left[
 W_t
 \left(
-\frac{Y_t(i)}{A_t}
+\frac{Y_t\left(i\right)}{A_t}
 \right)^{\frac{1}{1-\alpha}}
 \right]=W_t
 \frac{1}{1-\alpha}
 \left(
-\frac{Y_t(i)}{A_t}
+\frac{Y_t\left(i\right)}{A_t}
 \right)^{\frac{\alpha}{1-\alpha}}
 \frac{1}{A_t}
 \]
 \[
-Y_t(i)
+Y_t\left(i\right)
 +
 \left[
-P_t(i)-MC_t
+P_t\left(i\right)-MC_t
 \right]
-\frac{\partial Y_t(i)}{\partial P_t(i)}
+\frac{\partial Y_t\left(i\right)}{\partial P_t\left(i\right)}
 =0.
 \]
 Plug in:
 \[
-Y_t(i)
+Y_t\left(i\right)
 -
 \varepsilon
 \left[
-P_t(i)-MC_t
+P_t\left(i\right)-MC_t
 \right]
-\frac{Y_t(i)}{P_t(i)}
+\frac{Y_t\left(i\right)}{P_t\left(i\right)}
 =0.
 \]
 
-Divide both sides by \(Y_t(i)\):
+Divide both sides by \(Y_t\left(i\right)\):
 \[
 1
 -
 \varepsilon
-\frac{P_t(i)-MC_t}{P_t(i)}
+\frac{P_t\left(i\right)-MC_t}{P_t\left(i\right)}
 =0.
 \]
 
 \[
-1-\varepsilon+\varepsilon\frac{MC_t}{P_t(i)}
+1-\varepsilon+\varepsilon\frac{MC_t}{P_t\left(i\right)}
 =0.
 \]
 
 Therefore,
 \[
-P_t(i)
+P_t\left(i\right)
 =
 \frac{\varepsilon}{\varepsilon-1}MC_t.
 \]
@@ -420,9 +420,9 @@ P_t(i)
 \]
 
 \par\smallskip
-\blue{When $\varepsilon\to\infty\Rightarrow \mu\to1$, perfect competition, $P_t(i)=MC_t$.}
+\blue{When $\varepsilon\to\infty\Rightarrow \mu\to1$, perfect competition, $P_t\left(i\right)=MC_t$.}
 
-\blue{In general $\varepsilon$ is finite, $\mu>1$, $P_t(i)>MC_t\Rightarrow$ inefficiency, low employment and output.}
+\blue{In general $\varepsilon$ is finite, $\mu>1$, $P_t\left(i\right)>MC_t\Rightarrow$ inefficiency, low employment and output.}
 \par\smallskip
 \par\smallskip
 \red{Cost minimization 1 and profit maximization 2 are dual problems:}
@@ -432,21 +432,21 @@ P_t(i)
 \end{enumerate}
 \red{Nesting the two:}
 \[
-C(Y_t(i))=\min_{N_t(i)}W_tN_t(i)
-\quad\text{s.t.}\quad Y_t(i)=A_tN_t(i)^{1-\alpha}.
+C\left(Y_t\left(i\right)\right)=\min_{N_t\left(i\right)}W_tN_t\left(i\right)
+\quad\text{s.t.}\quad Y_t\left(i\right)=A_tN_t\left(i\right)^{1-\alpha}.
 \]
 Then solve
 \[
-\max_{P_t(i)}\{P_t(i)Y_t(i)-C(Y_t(i))\}
+\max_{P_t\left(i\right)}\left\{P_t\left(i\right)Y_t\left(i\right)-C\left(Y_t\left(i\right)\right)\right\}
 \quad\text{s.t.}\quad
-Y_t(i)=\left(\frac{P_t(i)}{P_t}\right)^{-\varepsilon}C_t.
+Y_t\left(i\right)=\left(\frac{P_t\left(i\right)}{P_t}\right)^{-\varepsilon}C_t.
 \]
 When $\alpha=0$, marginal cost connects the two problems:
 \[
-MC_t=\frac{\partial C(Y_t(i))}{\partial Y_t(i)}.
+MC_t=\frac{\partial C\left(Y_t\left(i\right)\right)}{\partial Y_t\left(i\right)}.
 \]
 \section{Sticky-price equilibrium}
-Calvo (1983) pricing: Each period a measure $(1-\theta)$ fraction of the continuum of firms reset their prices, the other $\theta$ keeps price unchanged.
+Calvo (1983) pricing: Each period a measure $\left(1-\theta\right)$ fraction of the continuum of firms reset their prices, the other $\theta$ keeps price unchanged.
 \[
 \Rightarrow \text{Average duration of a price is }\frac{1}{1-\theta}.
 \]
@@ -455,7 +455,7 @@ Calvo (1983) pricing: Each period a measure $(1-\theta)$ fraction of the continu
 \]
 Thus
 \[
-P_t=\left[\theta P_{t-1}^{1-\varepsilon}+(1-\theta)(P_t^*)^{1-\varepsilon}\right]^{\frac{1}{1-\varepsilon}}.
+P_t=\left[\theta P_{t-1}^{1-\varepsilon}+\left(1-\theta\right)\left(P_t^*\right)^{1-\varepsilon}\right]^{\frac{1}{1-\varepsilon}}.
 \]
 
 Log-linearize:
@@ -475,8 +475,8 @@ P_t^{1-\varepsilon}&=\theta P_{t-1}^{1-\varepsilon}+(1-\theta)(P_t^*)^{1-\vareps
 &=\hat p_t-\hat p_{t-1}.
 \end{tightalign}
 \[
-\Rightarrow \hat\pi_t=(1-\theta)(\hat p_t^*-
-\hat p_{t-1}).
+\Rightarrow \hat\pi_t=\left(1-\theta\right)\left(\hat p_t^*-
+\hat p_{t-1}\right).
 \]
 
 \par\smallskip
@@ -494,9 +494,9 @@ V_t(i)&=P_t(i)Y_t(i)-cost_t(i)+\theta\E_t\{Q_{t,t+1}[P_t(i)Y_{t+1}(i)-cost_{t+1}
 
 \par\smallskip
 \red{Optimal pricing under sticky price:}
-Choose $P_t^*$ to maximize the expected PV of profits while this price remains effective, $P_t^*=P_t^*(i)$.
+Choose $P_t^*$ to maximize the expected PV of profits while this price remains effective, $P_t^*=P_t^*\left(i\right)$.
 \[
-V_t(i)=\max_{P_t^*}\sum_{k=0}^{\infty}\theta^k\E_t\left[Q_{t,t+k}(P_t^*Y_{t+k|t}-\psi_{t+k}(Y_{t+k|t}))\right]
+V_t\left(i\right)=\max_{P_t^*}\sum_{k=0}^{\infty}\theta^k\E_t\left[Q_{t,t+k}\left(P_t^*Y_{t+k|t}-\psi_{t+k}\left(Y_{t+k|t}\right)\right)\right]
 \quad\purple{\text{conditional on the firm can reset at }t}.
 \]
 \[
@@ -513,7 +513,7 @@ Q_{t,t+k}
 \]
 
 \noindent
-$\psi_{t+k}(\cdot)$ is the cost function.
+$\psi_{t+k}\left(\cdot\right)$ is the cost function.
 
 \noindent
 $Y_{t+k|t}$ is output in period $t+k$ for a firm that last reset price at $t$.
@@ -570,7 +570,7 @@ When $\theta\to0$, $P_t^*\to\frac{\varepsilon}{\varepsilon-1}\varphi_t$.\\
   \item \blue{$Y_{t+k|t}\uparrow$: firms expect to sell more in that period.}
 \end{enumerate}
 
-\red{Why } 
+\red{Why }
 $Q_{t,t+k}
 =
 \beta^k
@@ -627,20 +627,20 @@ Q_{t,t+k}=\beta^k\widetilde Q_{t,t+k},
 \widetilde Q_{t,t+k}=\left(\frac{C_{t+k}}{C_t}\right)^{-\sigma}\left(\frac{P_t}{P_{t+k}}\right).
 \]
 \[
-Y_{t+k|t}=\left(\frac{P_t^*}{P_{t+k}}\right)^{-\varepsilon}C_{t+k}=(P_t^*)^{-\varepsilon}P_{t+k}^{\varepsilon}Y_{t+k},\quad (Y_t=C_t,\forall t).
+Y_{t+k|t}=\left(\frac{P_t^*}{P_{t+k}}\right)^{-\varepsilon}C_{t+k}=\left(P_t^*\right)^{-\varepsilon}P_{t+k}^{\varepsilon}Y_{t+k},\quad \left(Y_t=C_t,\forall t\right).
 \]
-\[(*)\Rightarrow
-P_t^*=\mu\frac{\E_t\sum_{k=0}^{\infty}(\beta\theta)^k\widetilde Q_{t,t+k}P_{t+k}^{\varepsilon}Y_{t+k}\varphi_{t+k|t}}{\E_t\sum_{k=0}^{\infty}(\beta\theta)^k\widetilde Q_{t,t+k}P_{t+k}^{\varepsilon}Y_{t+k}}.
+\[\left(*\right)\Rightarrow
+P_t^*=\mu\frac{\E_t\sum_{k=0}^{\infty}\left(\beta\theta\right)^k\widetilde Q_{t,t+k}P_{t+k}^{\varepsilon}Y_{t+k}\varphi_{t+k|t}}{\E_t\sum_{k=0}^{\infty}\left(\beta\theta\right)^k\widetilde Q_{t,t+k}P_{t+k}^{\varepsilon}Y_{t+k}}.
 \]
 \[
-P_t^*\E_t\sum_{k=0}^{\infty}(\beta\theta)^k\widetilde Q_{t,t+k}P_{t+k}^{\varepsilon}Y_{t+k}
-=\mu\E_t\sum_{k=0}^{\infty}(\beta\theta)^k\widetilde Q_{t,t+k}P_{t+k}^{\varepsilon}Y_{t+k}\varphi_{t+k|t}.
+P_t^*\E_t\sum_{k=0}^{\infty}\left(\beta\theta\right)^k\widetilde Q_{t,t+k}P_{t+k}^{\varepsilon}Y_{t+k}
+=\mu\E_t\sum_{k=0}^{\infty}\left(\beta\theta\right)^k\widetilde Q_{t,t+k}P_{t+k}^{\varepsilon}Y_{t+k}\varphi_{t+k|t}.
 \]
 Let
 \[
-A_t\equiv\sum_{k=0}^{\infty}(\beta\theta)^k\widetilde Q_{t,t+k}P_{t+k}^{\varepsilon}Y_{t+k},
+A_t\equiv\sum_{k=0}^{\infty}\left(\beta\theta\right)^k\widetilde Q_{t,t+k}P_{t+k}^{\varepsilon}Y_{t+k},
 \qquad
-a_{t+k}\equiv(\beta\theta)^k\widetilde Q_{t,t+k}P_{t+k}^{\varepsilon}Y_{t+k}.
+a_{t+k}\equiv\left(\beta\theta\right)^k\widetilde Q_{t,t+k}P_{t+k}^{\varepsilon}Y_{t+k}.
 \]
 \[
 \widehat{LHS}=\hat p_t^*+\E_t\hat A_t.
@@ -656,10 +656,10 @@ a_{t+k}\equiv(\beta\theta)^k\widetilde Q_{t,t+k}P_{t+k}^{\varepsilon}Y_{t+k}.
 
 \par\smallskip
 \[
-\widehat{LHS}=\hat p_t^*+(1-\beta\theta)\E_t\sum_{k=0}^{\infty}(\beta\theta)^k(\hat{\widetilde q}_{t,t+k}+\varepsilon\hat p_{t+k}+\hat y_{t+k}).
+\widehat{LHS}=\hat p_t^*+\left(1-\beta\theta\right)\E_t\sum_{k=0}^{\infty}\left(\beta\theta\right)^k\left(\hat{\widetilde q}_{t,t+k}+\varepsilon\hat p_{t+k}+\hat y_{t+k}\right).
 \]
 \[
-B_t\equiv\E_t\sum_{k=0}^{\infty}(\beta\theta)^k\widetilde Q_{t,t+k}P_{t+k}^{\varepsilon}Y_{t+k}\varphi_{t+k|t},
+B_t\equiv\E_t\sum_{k=0}^{\infty}\left(\beta\theta\right)^k\widetilde Q_{t,t+k}P_{t+k}^{\varepsilon}Y_{t+k}\varphi_{t+k|t},
 \qquad
 \widehat{RHS}=\E_t\hat B_t.
 \]
@@ -670,7 +670,7 @@ B_t\equiv\E_t\sum_{k=0}^{\infty}(\beta\theta)^k\widetilde Q_{t,t+k}P_{t+k}^{\var
 \hat b_{t+k}&=\hat{\widetilde q}_{t,t+k}+\varepsilon\hat p_{t+k}+\hat y_{t+k}+\hat\varphi_{t+k|t}.
 \end{tightalign}
 \[
-\widehat{RHS}=(1-\beta\theta)\E_t\sum_{k=0}^{\infty}(\beta\theta)^k(\hat{\widetilde q}_{t,t+k}+\varepsilon\hat p_{t+k}+\hat y_{t+k}+\hat\varphi_{t+k|t}).
+\widehat{RHS}=\left(1-\beta\theta\right)\E_t\sum_{k=0}^{\infty}\left(\beta\theta\right)^k\left(\hat{\widetilde q}_{t,t+k}+\varepsilon\hat p_{t+k}+\hat y_{t+k}+\hat\varphi_{t+k|t}\right).
 \]
 Combine $\widehat{LHS}=\widehat{RHS}$:
 \begin{tightalign}
@@ -684,7 +684,7 @@ Combine $\widehat{LHS}=\widehat{RHS}$:
 \]
 
 \par\smallskip
-\blue{1. Weights $\sum_{k=0}^{\infty}(1-\beta\theta)(\beta\theta)^k=1$: weighted average over expected future nominal marginal cost.}
+\blue{1. Weights $\sum_{k=0}^{\infty}\left(1-\beta\theta\right)\left(\beta\theta\right)^k=1$: weighted average over expected future nominal marginal cost.}
 
 \par\smallskip
 \blue{2. Aggregate price level denotes willingness to maintain (in expectation) the relative price unchanged.}
@@ -697,10 +697,10 @@ Combine $\widehat{LHS}=\widehat{RHS}$:
 \[
 \hat p_t^*
 =
-(1-\beta\theta)
+\left(1-\beta\theta\right)
 \E_t
 \sum_{k=0}^{\infty}
-(\beta\theta)^k
+\left(\beta\theta\right)^k
 \hat p_{t+k}.
 \]
 \blue{* Reset price rises when expected future aggregate prices rise.}\
@@ -721,22 +721,22 @@ Combine $\widehat{LHS}=\widehat{RHS}$:
 \section{Equilibrium}
 \textbf{1. Goods market clearing:}
 \[
-Y_t(i)=C_t(i),\quad \forall i\in[0,1].
+Y_t\left(i\right)=C_t\left(i\right),\quad \forall i\in\left[0,1\right].
 \]
 Define
 \[
-Y_t=\left(\int_0^1Y_t(i)^{\frac{\varepsilon-1}{\varepsilon}}\dd i\right)^{\frac{\varepsilon}{\varepsilon-1}}.
+Y_t=\left(\int_0^1Y_t\left(i\right)^{\frac{\varepsilon-1}{\varepsilon}}\dd i\right)^{\frac{\varepsilon}{\varepsilon-1}}.
 \]
 Get $Y_t=C_t$. Log-linearize: $\hat y_t=\hat c_t$. Since
 \[
-\hat c_t=\E_t\hat c_{t+1}-\frac{1}{\sigma}(\hat i_t-\E_t\hat\pi_{t+1}),
+\hat c_t=\E_t\hat c_{t+1}-\frac{1}{\sigma}\left(\hat i_t-\E_t\hat\pi_{t+1}\right),
 \]
 \[
-\Rightarrow \hat y_t=\E_t\hat y_{t+1}-\frac{1}{\sigma}(\hat i_t-\E_t\hat\pi_{t+1}).
+\Rightarrow \hat y_t=\E_t\hat y_{t+1}-\frac{1}{\sigma}\left(\hat i_t-\E_t\hat\pi_{t+1}\right).
 \]
 \textbf{2. Labor market clearing:}
 \[
-N_t=\int_0^1N_t(i)\dd i.
+N_t=\int_0^1N_t\left(i\right)\dd i.
 \]
 \begin{tightalign}
 Y_t(i)=A_tN_t(i)^{1-\alpha}
@@ -754,11 +754,11 @@ D_t
 =
 \left[
 \int_0^1
-\left(\frac{P_t(i)}{P_t}\right)^{-\frac{\varepsilon}{1-\alpha}}
+\left(\frac{P_t\left(i\right)}{P_t}\right)^{-\frac{\varepsilon}{1-\alpha}}
 \dd i
 \right]^{1-\alpha}
 =
-\exp(d_t).
+\exp\left(d_t\right).
 \]
 
 \[
@@ -771,7 +771,7 @@ A_tN_t^{1-\alpha}D_t^{-1},
 
 \[
 \blue{\text{When all firms charge the same price:}}\quad
-\frac{P_t(i)}{P_t}=1,\ \forall i
+\frac{P_t\left(i\right)}{P_t}=1,\ \forall i
 \Rightarrow
 D_t=1
 \Rightarrow
@@ -786,34 +786,34 @@ d_t=0.
 \par\smallskip
 \blue{But under Calvo pricing, some firms use old price, some firms use new price $\Rightarrow D_t>1$.}
 \[
-Y_t(i)=\left(\frac{P_t(i)}{P_t}\right)^{-\varepsilon}Y_t.
+Y_t\left(i\right)=\left(\frac{P_t\left(i\right)}{P_t}\right)^{-\varepsilon}Y_t.
 \]
 
 \noindent
 \blue{Firms with low relative prices sell too much; firms with high relative prices sell too little.}
 \[
-d_t=(1-\alpha)\log\left[\int_0^1\left(\frac{P_t(i)}{P_t}\right)^{-\frac{\varepsilon}{1-\alpha}}\dd i\right].
+d_t=\left(1-\alpha\right)\log\left[\int_0^1\left(\frac{P_t\left(i\right)}{P_t}\right)^{-\frac{\varepsilon}{1-\alpha}}\dd i\right].
 \]
-Define $p_t(i)=\log P_t(i)$, $p_t=\log P_t$, $P_t(i)/P_t=e^{p_t(i)-p_t}$. Let $\chi_i=p_t(i)-p_t$.
+Define $p_t\left(i\right)=\log P_t\left(i\right)$, $p_t=\log P_t$, $P_t\left(i\right)/P_t=e^{p_t\left(i\right)-p_t}$. Let $\chi_i=p_t\left(i\right)-p_t$.
 \[
-\Rightarrow d_t=(1-\alpha)\log\left[\int_0^1\exp\left(-\frac{\varepsilon}{1-\alpha}\chi_i\right)\dd i\right].
+\Rightarrow d_t=\left(1-\alpha\right)\log\left[\int_0^1\exp\left(-\frac{\varepsilon}{1-\alpha}\chi_i\right)\dd i\right].
 \]
 
 \par\smallskip
 Second-order Taylor expansion around zero-inflation / zero-dispersion steady state.\\
-\red{Why zero inflation $\bar\Pi=1\Leftrightarrow$ zero dispersion $P_t(i)/P_t=1\Leftrightarrow \bar d=0$?}
+\red{Why zero inflation $\bar\Pi=1\Leftrightarrow$ zero dispersion $P_t\left(i\right)/P_t=1\Leftrightarrow \bar d=0$?}
 \[
-P_t=\left[\theta P_{t-1}^{1-\varepsilon}+(1-\theta)(P_t^*)^{1-\varepsilon}\right]^{\frac{1}{1-\varepsilon}},
+P_t=\left[\theta P_{t-1}^{1-\varepsilon}+\left(1-\theta\right)\left(P_t^*\right)^{1-\varepsilon}\right]^{\frac{1}{1-\varepsilon}},
 \quad \red{\text{to have }P_t=P_{t-1}=\bar P,\text{ need }P_t^*=\bar P.}
 \]
 \red{The firms that reset price set the same price as others.}
 \[
-\text{Since } 
+\text{Since }
 e^z
 =
-e^0+\frac{(e^z)|_{z=0}}{1!}(z-0)
-+\frac{(e^z)|_{z=0}}{2!}(z-0)^2
-+o(z^2).
+e^0+\frac{\left.\left(e^z\right)\right|_{z=0}}{1!}\left(z-0\right)
++\frac{\left.\left(e^z\right)\right|_{z=0}}{2!}\left(z-0\right)^2
++o\left(z^2\right).
 \]
 
 \[
@@ -857,7 +857,7 @@ p_t-p_t=0,\\
 \[
 \int_0^1\chi_i^2\dd i
 \approx
-\operatorname{Var}_i\{p_t(i)-p_t\}
+\operatorname{Var}_i\left\{p_t\left(i\right)-p_t\right\}
 \quad
 \text{cross-sectional second moment.}
 \]
@@ -879,17 +879,17 @@ Thus
 Y_t=A_tN_t^{1-\alpha}D_t^{-1}\quad\text{log linearization}
 \]
 \[
-\hat y_t=\hat a_t+(1-\alpha)\hat n_t-\hat d_t
+\hat y_t=\hat a_t+\left(1-\alpha\right)\hat n_t-\hat d_t
 \Rightarrow
-\hat y_t=\hat a_t+(1-\alpha)\hat n_t,
+\hat y_t=\hat a_t+\left(1-\alpha\right)\hat n_t,
 \qquad
-\hat n_t=\frac{1}{1-\alpha}(\hat y_t-\hat a_t).
+\hat n_t=\frac{1}{1-\alpha}\left(\hat y_t-\hat a_t\right).
 \]
 \newpage
 \section{Average real marginal cost}
 \red{Average firm:}
 \[
-MC_t^r=\frac{W_t}{P_t}\frac{1}{MPN_t}=\frac{W_t}{P_t}\frac{1}{(1-\alpha)A_tN_t^{-\alpha}}.
+MC_t^r=\frac{W_t}{P_t}\frac{1}{MPN_t}=\frac{W_t}{P_t}\frac{1}{\left(1-\alpha\right)A_tN_t^{-\alpha}}.
 \]
 \begin{tightalign}
 \widehat{mc}_t^r
@@ -951,12 +951,12 @@ MC_t^r=\frac{W_t}{P_t}\frac{1}{MPN_t}=\frac{W_t}{P_t}\frac{1}{(1-\alpha)A_tN_t^{
 Since
 \[
 Y_{t+k|t}=\left(\frac{P_t^*}{P_{t+k}}\right)^{-\varepsilon}Y_{t+k}
-\Rightarrow \hat y_{t+k}-\hat y_{t+k|t}=\varepsilon(\hat p_t^*-
-\hat p_{t+k}).
+\Rightarrow \hat y_{t+k}-\hat y_{t+k|t}=\varepsilon\left(\hat p_t^*-
+\hat p_{t+k}\right).
 \]
 \[
-\Rightarrow\widehat{mc}_{t+k|t}^r=\widehat{mc}_{t+k}^r-\frac{\alpha\varepsilon}{1-\alpha}(\hat p_t^*-
-\hat p_{t+k}).
+\Rightarrow\widehat{mc}_{t+k|t}^r=\widehat{mc}_{t+k}^r-\frac{\alpha\varepsilon}{1-\alpha}\left(\hat p_t^*-
+\hat p_{t+k}\right).
 \]
 \par\smallskip
 \blue{With CRS: $\alpha=0\Rightarrow\widehat{mc}_{t+k|t}^r=\widehat{mc}_{t+k}^r$. The real marginal cost is common across firms regardless whether they can reset price at $t$.}
@@ -968,15 +968,15 @@ Since
 \widehat{mc}^{\,r}_{t+k}
 -
 \frac{\alpha\varepsilon}{1-\alpha}
-(\hat p_t^*-\hat p_{t+k}),
+\left(\hat p_t^*-\hat p_{t+k}\right),
 \]
 we have
 \[
 \hat p_t^*
 =
-(1-\beta\theta)E_t
+\left(1-\beta\theta\right)E_t
 \sum_{k=0}^{\infty}
-(\beta\theta)^k
+\left(\beta\theta\right)^k
 \left[
 \Theta \widehat{mc}^{\,r}_{t+k}
 +
@@ -1004,13 +1004,13 @@ Derivation:
 \end{tightalign}
 Let $k'=k+1$, $\forall k$:
 \[
-\beta\theta\hat p_{t+1}^*=(1-\beta\theta)\E_t\left\{\sum_{k'=1}^{\infty}(\beta\theta)^{k'}[\Theta\widehat{mc}_{t+k'}^r+\hat p_{t+k'}]\right\}.
+\beta\theta\hat p_{t+1}^*=\left(1-\beta\theta\right)\E_t\left\{\sum_{k'=1}^{\infty}\left(\beta\theta\right)^{k'}\left[\Theta\widehat{mc}_{t+k'}^r+\hat p_{t+k'}\right]\right\}.
 \]
 \blue{$k'$ is any index; we can use $k$.}\
 \blue{(*) just take out the term of $k=0$.}
 Combine (*) with log-linearized price index:
 \[
-\hat p_t=\theta\hat p_{t-1}+(1-\theta)\hat p_t^*.
+\hat p_t=\theta\hat p_{t-1}+\left(1-\theta\right)\hat p_t^*.
 \]
 \begin{tightalign}
 \hat p_t&=\theta\hat p_{t-1}+(1-\theta)(1-\beta\theta)(\Theta\widehat{mc}_t^r+
@@ -1066,7 +1066,7 @@ which adjust their prices in light of current and anticipated cost conditions.}
 \par\smallskip
 Under flexible price:
 \[
-P_t(i)=\frac{\varepsilon}{\varepsilon-1}\frac{W_t}{A_tF_N,t(N_t(i))}=\mu MC_t=P_t,
+P_t\left(i\right)=\frac{\varepsilon}{\varepsilon-1}\frac{W_t}{A_tF_N,t\left(N_t\left(i\right)\right)}=\mu MC_t=P_t,
 \]
 \[
 MC_t^r=\frac{MC_t}{P_t}=\frac{1}{\mu}\Rightarrow \widehat{mc}_t^r=0,
@@ -1089,12 +1089,12 @@ Define the output under flexible price as natural output (long-run output) $Y_t^
 \end{tightalign}
 NKPC:
 \[
-\hat\pi_t=\beta\E_t\hat\pi_{t+1}+\lambda\widehat{mc}_t^r\quad(\hat\pi_{t+1}=\pi_{t+1})
+\hat\pi_t=\beta\E_t\hat\pi_{t+1}+\lambda\widehat{mc}_t^r\quad\left(\hat\pi_{t+1}=\pi_{t+1}\right)
 \]
 \[
 \Rightarrow \hat\pi_t=\beta\E_t\hat\pi_{t+1}+\kappa\tilde y_t,
 \quad \kappa=\lambda\left(\sigma+\frac{\varphi+\alpha}{1-\alpha}\right),
-\quad \lambda=\frac{(1-\theta)(1-\beta\theta)}{\theta}\Theta,
+\quad \lambda=\frac{\left(1-\theta\right)\left(1-\beta\theta\right)}{\theta}\Theta,
 \quad \Theta=\frac{1-\alpha}{1-\alpha+\alpha\varepsilon}.
 \]
 \par\smallskip
@@ -1131,32 +1131,32 @@ NKPC:
 \end{tightalign}
 Define natural interest rate as:
 \[
-\hat r_t^n=\sigma\E_t\{\hat y_{t+1}^n-\hat y_t^n\}
-=\frac{\sigma(1+\varphi)}{\varphi+\alpha+\sigma(1-\alpha)}\E_t\{\Delta\hat a_{t+1}\}
-=\sigma\psi_{ya}^n\E_t\{\Delta\hat a_{t+1}\}.
+\hat r_t^n=\sigma\E_t\left\{\hat y_{t+1}^n-\hat y_t^n\right\}
+=\frac{\sigma\left(1+\varphi\right)}{\varphi+\alpha+\sigma\left(1-\alpha\right)}\E_t\left\{\Delta\hat a_{t+1}\right\}
+=\sigma\psi_{ya}^n\E_t\left\{\Delta\hat a_{t+1}\right\}.
 \]
 \[
-\Rightarrow \tilde y_t=-\frac{1}{\sigma}(\hat i_t-\E_t\{\hat\pi_{t+1}\}-\hat r_t^n)+\E_t\{\tilde y_{t+1}\}.
+\Rightarrow \tilde y_t=-\frac{1}{\sigma}\left(\hat i_t-\E_t\left\{\hat\pi_{t+1}\right\}-\hat r_t^n\right)+\E_t\left\{\tilde y_{t+1}\right\}.
 \]
 Define
 \[
-\hat r_t=\hat i_t-\E_t\{\hat\pi_{t+1}\}.
+\hat r_t=\hat i_t-\E_t\left\{\hat\pi_{t+1}\right\}.
 \]
 \[
-\Rightarrow \tilde y_t=-\frac{1}{\sigma}(\hat r_t-\hat r_t^n)+\E_t\{\tilde y_{t+1}\}.
+\Rightarrow \tilde y_t=-\frac{1}{\sigma}\left(\hat r_t-\hat r_t^n\right)+\E_t\left\{\tilde y_{t+1}\right\}.
 \]
-Assume $\lim_{T\to\infty}\E_t\{\tilde y_{t+T}\}=0$ and iterate forward:
+Assume $\lim_{T\to\infty}\E_t\left\{\tilde y_{t+T}\right\}=0$ and iterate forward:
 \[
-\Rightarrow \tilde y_t=-\frac{1}{\sigma}\E_t\left\{\sum_{k=0}^{\infty}(\hat r_{t+k}-\hat r_{t+k}^n)\right\}.
+\Rightarrow \tilde y_t=-\frac{1}{\sigma}\E_t\left\{\sum_{k=0}^{\infty}\left(\hat r_{t+k}-\hat r_{t+k}^n\right)\right\}.
 \]
 \blue{Output gap is proportional to the sum of current and anticipated deviations between the real interest rate and natural real interest rate.}
 \par\smallskip
 NKPC:
 \[
-\hat\pi_t=\beta\E_t\{\hat\pi_{t+1}\}+\kappa\tilde y_t\quad\text{iterate forward}
+\hat\pi_t=\beta\E_t\left\{\hat\pi_{t+1}\right\}+\kappa\tilde y_t\quad\text{iterate forward}
 \]
 \[
-\Rightarrow\hat\pi_t=\kappa\sum_{k=0}^{\infty}\beta^k\E_t\{\tilde y_{t+k}\},
+\Rightarrow\hat\pi_t=\kappa\sum_{k=0}^{\infty}\beta^k\E_t\left\{\tilde y_{t+k}\right\},
 \quad \text{where }\kappa=\lambda\left(\sigma+\frac{\varphi+\alpha}{1-\alpha}\right).
 \]
 \[
@@ -1167,8 +1167,8 @@ Basic New Keynesian non-policy block:
 \[
 \left\{
 \begin{array}{ll}
-\hat\pi_t=\kappa\sum_{k=0}^{\infty}\beta^k\E_t\{\tilde y_{t+k}\}, & \text{NKPC: determines inflation given output gap path},\\[3pt]
-\tilde y_t=-\frac{1}{\sigma}\E_t\left\{\sum_{k=0}^{\infty}(\hat r_{t+k}-\hat r_{t+k}^n)\right\}, & \text{DIS: determines output gap given real interest rate gap path.}
+\hat\pi_t=\kappa\sum_{k=0}^{\infty}\beta^k\E_t\left\{\tilde y_{t+k}\right\}, & \text{NKPC: determines inflation given output gap path},\\[3pt]
+\tilde y_t=-\frac{1}{\sigma}\E_t\left\{\sum_{k=0}^{\infty}\left(\hat r_{t+k}-\hat r_{t+k}^n\right)\right\}, & \text{DIS: determines output gap given real interest rate gap path.}
 \end{array}
 \right.
 \]
@@ -1182,14 +1182,14 @@ To close, we need more equations to pin down how nominal interest rate $i$ / $\h
 &=
 -\frac{1}{\sigma}
 \left(
-\hat i_t-\mathbb E_t\{\hat\pi_{t+1}\}-\hat r_t^n
+\hat i_t-\mathbb E_t\left\{\hat\pi_{t+1}\right\}-\hat r_t^n
 \right)
-+\mathbb E_t\{\tilde y_{t+1}\}
++\mathbb E_t\left\{\tilde y_{t+1}\right\}
 \qquad \dashrightarrow \quad \text{DIS (Demand)}
 \\[0.6em]
 \hat\pi_t
 &=
-\beta \mathbb E_t\{\hat\pi_{t+1}\}
+\beta \mathbb E_t\left\{\hat\pi_{t+1}\right\}
 +\kappa \tilde y_t
 \qquad \dashrightarrow \quad \text{NKPC (Supply)}
 \end{aligned}
@@ -1207,40 +1207,40 @@ To close, we need more equations to pin down how nominal interest rate $i$ / $\h
 \]
 DIS:
 \[
-\tilde y_t=-\frac{1}{\sigma}[\phi_\pi\hat\pi_t+\phi_y\tilde y_t-
-\E_t\{\hat\pi_{t+1}\}-(\hat r_t^n-v_t)]+\E_t\{\tilde y_{t+1}\}\quad (***)
+\tilde y_t=-\frac{1}{\sigma}\left[\phi_\pi\hat\pi_t+\phi_y\tilde y_t-
+\E_t\left\{\hat\pi_{t+1}\right\}-\left(\hat r_t^n-v_t\right)\right]+\E_t\left\{\tilde y_{t+1}\right\}\quad \left(***\right)
 \]
 \[
 \Rightarrow \left(1+\frac{\phi_y}{\sigma}\right)\tilde y_t+\frac{\phi_\pi}{\sigma}\hat\pi_t
-=\E_t\{\tilde y_{t+1}\}+\frac{1}{\sigma}\E_t\{\hat\pi_{t+1}\}+\frac{1}{\sigma}(\hat r_t^n-v_t).
+=\E_t\left\{\tilde y_{t+1}\right\}+\frac{1}{\sigma}\E_t\left\{\hat\pi_{t+1}\right\}+\frac{1}{\sigma}\left(\hat r_t^n-v_t\right).
 \]
 \[
--\kappa\tilde y_t+\hat\pi_t=\beta\E_t\{\hat\pi_{t+1}\}.
+-\kappa\tilde y_t+\hat\pi_t=\beta\E_t\left\{\hat\pi_{t+1}\right\}.
 \]
 \par\smallskip
-Write in matrix form in system of $[\tilde y_t,\hat\pi_t]'$:
+Write in matrix form in system of $\left[\tilde y_t,\hat\pi_t\right]'$:
 \[
 \underbrace{\begin{bmatrix}1+\phi_y/\sigma&\phi_\pi/\sigma\\-\kappa&1\end{bmatrix}}_{M}
 \begin{bmatrix}\tilde y_t\\\hat\pi_t\end{bmatrix}
 =\begin{bmatrix}1&1/\sigma\\0&\beta\end{bmatrix}
-\begin{bmatrix}\E_t\{\tilde y_{t+1}\}\\\E_t\{\hat\pi_{t+1}\}\end{bmatrix}
-+\begin{bmatrix}1/\sigma\\0\end{bmatrix}(\hat r_t^n-v_t).
+\begin{bmatrix}\E_t\left\{\tilde y_{t+1}\right\}\\\E_t\left\{\hat\pi_{t+1}\right\}\end{bmatrix}
++\begin{bmatrix}1/\sigma\\0\end{bmatrix}\left(\hat r_t^n-v_t\right).
 \]
 \[
 \begin{bmatrix}\tilde y_t\\\hat\pi_t\end{bmatrix}
 =M^{-1}\begin{bmatrix}1&1/\sigma\\0&\beta\end{bmatrix}
-\begin{bmatrix}\E_t\{\tilde y_{t+1}\}\\\E_t\{\hat\pi_{t+1}\}\end{bmatrix}
-+M^{-1}\begin{bmatrix}1/\sigma\\0\end{bmatrix}(\hat r_t^n-v_t).
+\begin{bmatrix}\E_t\left\{\tilde y_{t+1}\right\}\\\E_t\left\{\hat\pi_{t+1}\right\}\end{bmatrix}
++M^{-1}\begin{bmatrix}1/\sigma\\0\end{bmatrix}\left(\hat r_t^n-v_t\right).
 \]
 \[
-M^{-1}=\frac{1}{|M|}\begin{bmatrix}1&-\phi_\pi/\sigma\\ \kappa&1+\phi_y/\sigma\end{bmatrix}
+M^{-1}=\frac{1}{\left|M\right|}\begin{bmatrix}1&-\phi_\pi/\sigma\\ \kappa&1+\phi_y/\sigma\end{bmatrix}
 =\Omega\begin{bmatrix}\sigma&-\phi_\pi\\ \kappa\sigma&\sigma+\phi_y\end{bmatrix},
 \quad \Omega=\frac{1}{\sigma+\phi_y+\kappa\phi_\pi}.
 \]
 \[
 A_T=\Omega\begin{bmatrix}\sigma&-\phi_\pi\\\kappa\sigma&\sigma+\phi_y\end{bmatrix}
 \begin{bmatrix}1&1/\sigma\\0&\beta\end{bmatrix}
-=\begin{bmatrix}\sigma&1-\beta\phi_\pi\\ \kappa\sigma&\kappa+\beta(\sigma+\phi_y)\end{bmatrix}\Omega,
+=\begin{bmatrix}\sigma&1-\beta\phi_\pi\\ \kappa\sigma&\kappa+\beta\left(\sigma+\phi_y\right)\end{bmatrix}\Omega,
 \]
 \[
 B_T=\Omega\begin{bmatrix}\sigma&-\phi_\pi\\\kappa\sigma&\sigma+\phi_y\end{bmatrix}
@@ -1251,8 +1251,8 @@ B_T=\Omega\begin{bmatrix}\sigma&-\phi_\pi\\\kappa\sigma&\sigma+\phi_y\end{bmatri
 \[
 \Rightarrow
 \begin{bmatrix}\tilde y_t\\\hat\pi_t\end{bmatrix}
-=A_T\begin{bmatrix}\E_t\{\tilde y_{t+1}\}\\\E_t\{\hat\pi_{t+1}\}\end{bmatrix}
-+B_T(\hat r_t^n-v_t).
+=A_T\begin{bmatrix}\E_t\left\{\tilde y_{t+1}\right\}\\\E_t\left\{\hat\pi_{t+1}\right\}\end{bmatrix}
++B_T\left(\hat r_t^n-v_t\right).
 \]
 \par\smallskip
 \[
@@ -1262,9 +1262,9 @@ For a $2\times2$ matrix $A_T$, both eigenvalues lie inside unit circle iff Jury/
 \[
 \left\{
 \begin{array}{l}
-1-\det(A_T)>0\quad (D<1),\\
-1-\operatorname{tr}(A_T)+\det(A_T)>0\quad (p(1)>0),\\
-1+\operatorname{tr}(A_T)+\det(A_T)>0\quad (p(-1)>0).
+1-\det\left(A_T\right)>0\quad \left(D<1\right),\\
+1-\operatorname{tr}\left(A_T\right)+\det\left(A_T\right)>0\quad \left(p\left(1\right)>0\right),\\
+1+\operatorname{tr}\left(A_T\right)+\det\left(A_T\right)>0\quad \left(p\left(-1\right)>0\right).
 \end{array}
 \right.
 \]
@@ -1278,8 +1278,8 @@ For a $2\times2$ matrix $A_T$, both eigenvalues lie inside unit circle iff Jury/
 \[
 1^\circ\quad
 1-
-\det(A_T)=1-\frac{\beta\sigma}{\sigma+\phi_y+\kappa\phi_\pi}
-=\frac{(1-\beta)\sigma+\phi_y+\kappa\phi_\pi}{\sigma+\phi_y+\kappa\phi_\pi}>0\quad \blue{\text{satisfy}},
+\det\left(A_T\right)=1-\frac{\beta\sigma}{\sigma+\phi_y+\kappa\phi_\pi}
+=\frac{\left(1-\beta\right)\sigma+\phi_y+\kappa\phi_\pi}{\sigma+\phi_y+\kappa\phi_\pi}>0\quad \blue{\text{satisfy}},
 \]
 $\beta<1,\sigma>0,\phi_y>0,\kappa>0,\phi_\pi>0.$
 \begin{tightalign}
@@ -1288,16 +1288,16 @@ $\beta<1,\sigma>0,\phi_y>0,\kappa>0,\phi_\pi>0.$
 &=\frac{\kappa(\phi_\pi-1)+(1-\beta)\phi_y}{\sigma+\phi_y+\kappa\phi_\pi}>0
 \end{tightalign}
 \[
-\Rightarrow \kappa(\phi_\pi-1)+(1-\beta)\phi_y>0\quad \blue{\text{satisfy if}}.
+\Rightarrow \kappa\left(\phi_\pi-1\right)+\left(1-\beta\right)\phi_y>0\quad \blue{\text{satisfy if}}.
 \]
 \[
 3^\circ\quad
-1+\operatorname{tr}(A_T)+\det(A_T)
-=\frac{(\sigma+\phi_y+\kappa\phi_\pi)+(\sigma+\kappa+\beta(\sigma+\phi_y))+\beta\sigma}{\sigma+\phi_y+\kappa\phi_\pi}>0
+1+\operatorname{tr}\left(A_T\right)+\det\left(A_T\right)
+=\frac{\left(\sigma+\phi_y+\kappa\phi_\pi\right)+\left(\sigma+\kappa+\beta\left(\sigma+\phi_y\right)\right)+\beta\sigma}{\sigma+\phi_y+\kappa\phi_\pi}>0
 \quad \blue{\text{satisfy}}.
 \]
 \[
-\red{\text{The system is stable iff: }}\quad \kappa(\phi_\pi-1)+(1-\beta)\phi_y>0.
+\red{\text{The system is stable iff: }}\quad \kappa\left(\phi_\pi-1\right)+\left(1-\beta\right)\phi_y>0.
 \]
 \noindent
 \par\smallskip
@@ -1322,7 +1322,7 @@ r_t\uparrow
 Assume $v_t$ follows AR(1):
 \[
 v_t=\rho_vv_{t-1}+\varepsilon_t^v,
-\qquad \rho_v\in[0,1].
+\qquad \rho_v\in\left[0,1\right].
 \]
 
 \[
@@ -1355,7 +1355,7 @@ From NKPC:
 \end{tightalign}
 Plug (2) into (1):
 \[
-\psi_{\pi v}=-\frac{\kappa}{(1-\beta\rho_v)[\sigma(1-\rho_v)+\phi_y]+\kappa(\phi_\pi-\rho_v)}.
+\psi_{\pi v}=-\frac{\kappa}{\left(1-\beta\rho_v\right)\left[\sigma\left(1-\rho_v\right)+\phi_y\right]+\kappa\left(\phi_\pi-\rho_v\right)}.
 \]
 \[
 \hat\pi_t
@@ -1364,7 +1364,7 @@ Plug (2) into (1):
 v_t
 \]
 \[
-\Lambda_v=\frac{1}{(1-\beta\rho_v)[\sigma(1-\rho_v)+\phi_y]+\kappa(\phi_\pi-\rho_v)}>0.
+\Lambda_v=\frac{1}{\left(1-\beta\rho_v\right)\left[\sigma\left(1-\rho_v\right)+\phi_y\right]+\kappa\left(\phi_\pi-\rho_v\right)}>0.
 \]
 where
 \[
@@ -1373,14 +1373,14 @@ where
 \left(\sigma+\frac{\varphi+\alpha}{1-\alpha}\right)\lambda
 =
 \left(\sigma+\frac{\varphi+\alpha}{1-\alpha}\right)
-\frac{(1-\theta)(1-\beta\theta)}{\theta}
+\frac{\left(1-\theta\right)\left(1-\beta\theta\right)}{\theta}
 \frac{1-\alpha}{1-\alpha+\alpha\varepsilon}
 >0.
 \]
 \[
 \tilde y_t
 =
-\underbrace{-(1-\beta\rho_v)\Lambda_v}_{<0}
+\underbrace{-\left(1-\beta\rho_v\right)\Lambda_v}_{<0}
 v_t
 \]
 \begin{tightalign}
@@ -1403,7 +1403,7 @@ v_t.
 \[
 \hat i_t
 =
-\underbrace{\left[\sigma(1-\rho_v)(1-\beta\rho_v)-\kappa\rho_v\right]\Lambda_v}_{\text{coefficient on }v_t}
+\underbrace{\left[\sigma\left(1-\rho_v\right)\left(1-\beta\rho_v\right)-\kappa\rho_v\right]\Lambda_v}_{\text{coefficient on }v_t}
 v_t.
 \]
 \[
@@ -1415,11 +1415,11 @@ v_t.
 \left\{
 \begin{aligned}
 v_t &= \rho_v v_{t-1}+\varepsilon_t^v,
-\qquad \rho_v\in[0,1],\\
+\qquad \rho_v\in\left[0,1\right],\\
 \hat\pi_t &= -\kappa\Lambda_v v_t,\\
-\tilde y_t &= -(1-\beta\rho_v)\Lambda_v v_t,\\
-\hat r_t &= \sigma(1-\rho_v)(1-\beta\rho_v)\Lambda_v v_t,\\
-\hat i_t &= \left[\sigma(1-\rho_v)(1-\beta\rho_v)-\kappa\rho_v\right]\Lambda_v v_t.
+\tilde y_t &= -\left(1-\beta\rho_v\right)\Lambda_v v_t,\\
+\hat r_t &= \sigma\left(1-\rho_v\right)\left(1-\beta\rho_v\right)\Lambda_v v_t,\\
+\hat i_t &= \left[\sigma\left(1-\rho_v\right)\left(1-\beta\rho_v\right)-\kappa\rho_v\right]\Lambda_v v_t.
 \end{aligned}
 \right.
 \]
@@ -1429,17 +1429,17 @@ v_t &= \rho_v v_{t-1}+\varepsilon_t^v,
 \blue{Calibration: $\beta=0.99$ (quarterly data), $\sigma=1$ (log utility), $\varphi=1$, $\alpha=1/3$, $\varepsilon=6$, $\theta=2/3$, $\bar y=4$.}
 
 \noindent
-\blue{With $\phi_\pi=1.5$, $\phi_y=0.5$, $\rho_v=0.5$, and shock $\varepsilon_t^v=25$bp: 
+\blue{With $\phi_\pi=1.5$, $\phi_y=0.5$, $\rho_v=0.5$, and shock $\varepsilon_t^v=25$bp:
 $\hat\pi_t<0$, $\tilde y_t<0$, $\hat y_t<0$, $\hat i_t>0$, $\hat m_t<0$.}
 \section{Technology shock}
 Assume an AR(1) process of $\hat a_t$:
 \[
 \hat a_t=\rho_a\hat a_{t-1}+\varepsilon_t^a,
-\qquad \rho_a\in[0,1].
+\qquad \rho_a\in\left[0,1\right].
 \]
 \[
-\hat r_t^n=\sigma\E_t\{\hat y_{t+1}^n-\hat y_t^n\}=\sigma\psi_{ya}^n\E_t\{\Delta\hat a_{t+1}\}
-=-\sigma\psi_{ya}^n(1-\rho_a)\hat a_t.
+\hat r_t^n=\sigma\E_t\left\{\hat y_{t+1}^n-\hat y_t^n\right\}=\sigma\psi_{ya}^n\E_t\left\{\Delta\hat a_{t+1}\right\}
+=-\sigma\psi_{ya}^n\left(1-\rho_a\right)\hat a_t.
 \]
 Setting $v_t=0,\forall t$. Assume:
 \[
@@ -1448,8 +1448,8 @@ Setting $v_t=0,\forall t$. Assume:
 \]
 \[
 \begin{bmatrix}\tilde y_t\\\hat\pi_t\end{bmatrix}
-=A_T\begin{bmatrix}\E_t\{\tilde y_{t+1}\}\\\E_t\{\hat\pi_{t+1}\}\end{bmatrix}
-+B_T(\hat r_t^n-v_t).
+=A_T\begin{bmatrix}\E_t\left\{\tilde y_{t+1}\right\}\\\E_t\left\{\hat\pi_{t+1}\right\}\end{bmatrix}
++B_T\left(\hat r_t^n-v_t\right).
 \]
 Opposite sign to $v_t$:
 \[
@@ -1462,7 +1462,7 @@ Opposite sign to $v_t$:
 \end{tightalign}
 where
 \[
-\Lambda_a=\frac{1}{(1-\beta\rho_a)[\sigma(1-\rho_a)+\phi_y]+\kappa(\phi_\pi-\rho_a)}>0.
+\Lambda_a=\frac{1}{\left(1-\beta\rho_a\right)\left[\sigma\left(1-\rho_a\right)+\phi_y\right]+\kappa\left(\phi_\pi-\rho_a\right)}>0.
 \]
 
 \[
@@ -1473,59 +1473,59 @@ where
 =
 \psi_{ya}^n\hat a_t
 -
-\sigma\psi_{ya}^n(1-\rho_a)(1-\beta\rho_a)\Lambda_a\hat a_t
+\sigma\psi_{ya}^n\left(1-\rho_a\right)\left(1-\beta\rho_a\right)\Lambda_a\hat a_t
 \\
 &=
 \psi_{ya}^n
 \left[
 1-
-\underbrace{\sigma(1-\rho_a)(1-\beta\rho_a)\Lambda_a}_{(*)}
+\underbrace{\sigma\left(1-\rho_a\right)\left(1-\beta\rho_a\right)\Lambda_a}_{\left(*\right)}
 \right]\hat a_t.
 \end{aligned}
 \]
 
 \[
 \begin{aligned}
-1-(*) 
+1-\left(*\right)
 &=
 1-
-\sigma(1-\rho_a)(1-\beta\rho_a)
+\sigma\left(1-\rho_a\right)\left(1-\beta\rho_a\right)
 \frac{1}{
-\sigma(1-\rho_a)(1-\beta\rho_a)
+\sigma\left(1-\rho_a\right)\left(1-\beta\rho_a\right)
 +
-\phi_y(1-\beta\rho_a)
+\phi_y\left(1-\beta\rho_a\right)
 +
-\kappa(\phi_\pi-\rho_a)
+\kappa\left(\phi_\pi-\rho_a\right)
 }
 \\
 &=
 \frac{
-\sigma(1-\rho_a)(1-\beta\rho_a)
+\sigma\left(1-\rho_a\right)\left(1-\beta\rho_a\right)
 +
-\phi_y(1-\beta\rho_a)
+\phi_y\left(1-\beta\rho_a\right)
 +
-\kappa(\phi_\pi-\rho_a)
+\kappa\left(\phi_\pi-\rho_a\right)
 -
-\sigma(1-\rho_a)(1-\beta\rho_a)
+\sigma\left(1-\rho_a\right)\left(1-\beta\rho_a\right)
 }{
-\sigma(1-\rho_a)(1-\beta\rho_a)
+\sigma\left(1-\rho_a\right)\left(1-\beta\rho_a\right)
 +
-\phi_y(1-\beta\rho_a)
+\phi_y\left(1-\beta\rho_a\right)
 +
-\kappa(\phi_\pi-\rho_a)
+\kappa\left(\phi_\pi-\rho_a\right)
 }
 \\
 &=
 \frac{
-\phi_y(1-\beta\rho_a)
+\phi_y\left(1-\beta\rho_a\right)
 +
-\kappa(\phi_\pi-\rho_a)
+\kappa\left(\phi_\pi-\rho_a\right)
 }{
-\sigma(1-\rho_a)(1-\beta\rho_a)
+\sigma\left(1-\rho_a\right)\left(1-\beta\rho_a\right)
 +
-\phi_y(1-\beta\rho_a)
+\phi_y\left(1-\beta\rho_a\right)
 +
-\kappa(\phi_\pi-\rho_a)
+\kappa\left(\phi_\pi-\rho_a\right)
 }.
 \end{aligned}
 \]
@@ -1535,15 +1535,15 @@ where
 \hat y_t
 =
 \frac{
-\phi_y(1-\beta\rho_a)
+\phi_y\left(1-\beta\rho_a\right)
 +
-\kappa(\phi_\pi-\rho_a)
+\kappa\left(\phi_\pi-\rho_a\right)
 }{
-\sigma(1-\rho_a)(1-\beta\rho_a)
+\sigma\left(1-\rho_a\right)\left(1-\beta\rho_a\right)
 +
-\phi_y(1-\beta\rho_a)
+\phi_y\left(1-\beta\rho_a\right)
 +
-\kappa(\phi_\pi-\rho_a)
+\kappa\left(\phi_\pi-\rho_a\right)
 }
 \psi_{ya}^n\hat a_t.
 \]
@@ -1551,11 +1551,11 @@ where
 
 \[
 \begin{aligned}
-\phi_y(1-\beta\rho_a)+\kappa(\phi_\pi-\rho_a)
+\phi_y\left(1-\beta\rho_a\right)+\kappa\left(\phi_\pi-\rho_a\right)
 &=
-\kappa(\phi_\pi-1)
+\kappa\left(\phi_\pi-1\right)
 +
-(1-\beta)\phi_y
+\left(1-\beta\right)\phi_y
 +
 \kappa
 -
@@ -1566,28 +1566,28 @@ where
 \beta\rho_a\phi_y
 \\
 &=
-\underbrace{\kappa(\phi_\pi-1)+(1-\beta)\phi_y}_{\text{stable condition}}
+\underbrace{\kappa\left(\phi_\pi-1\right)+\left(1-\beta\right)\phi_y}_{\text{stable condition}}
 +
-\underbrace{(1-\rho_a)\kappa}_{0\le \rho_a<1}
+\underbrace{\left(1-\rho_a\right)\kappa}_{0\le \rho_a<1}
 +
-\underbrace{(1-\rho_a)\beta\phi_y}_{0\le \rho_a<1}
+\underbrace{\left(1-\rho_a\right)\beta\phi_y}_{0\le \rho_a<1}
 >0.
 \end{aligned}
 \]
 
 \blue{$y_t$ moves positively with $a_t$.}
 \[
-(1-\alpha)\hat n_t=\hat y_t-
+\left(1-\alpha\right)\hat n_t=\hat y_t-
 \hat a_t
-=\left[(\psi_{ya}^n-1)-\sigma\psi_{ya}^n(1-\rho_a)(1-\beta\rho_a)\Lambda_a\right]\hat a_t.
+=\left[\left(\psi_{ya}^n-1\right)-\sigma\psi_{ya}^n\left(1-\rho_a\right)\left(1-\beta\rho_a\right)\Lambda_a\right]\hat a_t.
 \]
-In calibration: $\sigma=1\Rightarrow \psi_{ya}^n=\frac{1+\varphi}{\varphi+\alpha+\sigma(1-\alpha)}=1\Rightarrow n_t$ declines when $a_t$ increases.
+In calibration: $\sigma=1\Rightarrow \psi_{ya}^n=\frac{1+\varphi}{\varphi+\alpha+\sigma\left(1-\alpha\right)}=1\Rightarrow n_t$ declines when $a_t$ increases.
 
 
 \par\smallskip
 \section{\texorpdfstring{Equilibrium with exogenous money supply: $\Delta \hat m_t$}{Equilibrium with exogenous money supply: Delta mhat t}}
 \[
-\frac{M_t}{P_t}=L(i_t,Y_t).
+\frac{M_t}{P_t}=L\left(i_t,Y_t\right).
 \]
 \red{Close the model with money demand equation instead of Taylor rule.}
 Define log real money balance:
@@ -1630,13 +1630,13 @@ i\downarrow.}
 \[
 DIS
 \Rightarrow
-(1+\sigma\eta)\tilde y_t
+\left(1+\sigma\eta\right)\tilde y_t
 =
-\sigma\eta\E_t\{\tilde y_{t+1}\}
+\sigma\eta\E_t\left\{\tilde y_{t+1}\right\}
 +
 \widehat{\mathbb{M}}_t
 +
-\eta\E_t\{\hat\pi_{t+1}\}
+\eta\E_t\left\{\hat\pi_{t+1}\right\}
 +
 \eta\hat r_t^n
 -
@@ -1666,8 +1666,8 @@ A_{M,0}
 =
 A_{M,1}
 \begin{bmatrix}
-\E_t\{\tilde y_{t+1}\}\\
-\E_t\{\hat\pi_{t+1}\}\\
+\E_t\left\{\tilde y_{t+1}\right\}\\
+\E_t\left\{\hat\pi_{t+1}\right\}\\
 \widehat{\mathbb{M}}_t
 \end{bmatrix}
 +
@@ -1685,7 +1685,7 @@ A_M=A_{M,0}^{-1}A_{M,1}\text{ has two eigenvalues inside the unit circle.}
 Assume the monetary policy shock follows AR(1):
 \[
 \Delta\hat m_t=\rho_m\Delta\hat m_{t-1}+\varepsilon_t^m,
-\qquad \rho_m\in[0,1].
+\qquad \rho_m\in\left[0,1\right].
 \]
 Let
 \[
@@ -1698,7 +1698,7 @@ Let
 An expansionary monetary policy shock:
 \[
 \Delta\hat m_t\uparrow\Rightarrow \tilde y_t\uparrow,\ \hat\pi_t\uparrow,\ \widehat{\mathbb{M}}_t\uparrow,
-\qquad \hat i_t\uparrow:\text{ no liquidity effect }(\sigma=1),
+\qquad \hat i_t\uparrow:\text{ no liquidity effect }\left(\sigma=1\right),
 \qquad \hat r_t\downarrow.
 \]
 \[
@@ -1722,14 +1722,14 @@ An expansionary monetary policy shock:
 \]
 \red{DIS:}
 \[
-\tilde y_t=-\frac{1}{\sigma}(\hat i_t-
-\E_t\hat\pi_{t+1})+
+\tilde y_t=-\frac{1}{\sigma}\left(\hat i_t-
+\E_t\hat\pi_{t+1}\right)+
 \E_t\tilde y_{t+1}.
 \]
 Set $\hat y_t^n=0$:
 \[
-\hat i_t=\frac{1}{\eta}(\tilde y_t-
-\widehat{\mathbb{M}}_t).
+\hat i_t=\frac{1}{\eta}\left(\tilde y_t-
+\widehat{\mathbb{M}}_t\right).
 \]
 \red{Liquidity effect: $\Delta\hat m_t>0$, $\hat i_t<0$, requires $\widehat{\mathbb{M}}_t>\tilde y_t$.}
 \red{Real balance must rise by more than the output gap.}
@@ -1744,7 +1744,7 @@ DIS \Rightarrow \hat i_t
 }
 \]
 \[
-\hat i_t<0\Leftrightarrow \sigma(\tilde y_t-\E_t\tilde y_{t+1})>\E_t\hat\pi_{t+1}.
+\hat i_t<0\Leftrightarrow \sigma\left(\tilde y_t-\E_t\tilde y_{t+1}\right)>\E_t\hat\pi_{t+1}.
 \]
 
 \par\smallskip

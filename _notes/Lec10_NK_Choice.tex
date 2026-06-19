@@ -40,7 +40,7 @@ Under flexible price:
 \[
 y_t^{\,n}\neq y_t^{\,e}
 \qquad
-(\text{natural output} \neq \text{efficient output})
+\left(\text{natural output} \neq \text{efficient output}\right)
 \Rightarrow
 \text{short-run tradeoff between quantity and prices.}
 \]
@@ -65,7 +65,7 @@ Define welfare relevant output gap as
 \begin{align*}
 \hat x_t
 &=\hat y_t-\hat y_t^{\,e}
-=\log y_t-\log\bar y-\bigl(\log y_t^{\,e}-\log\bar y^{\,e}\bigr)
+=\log y_t-\log\bar y-\left(\log y_t^{\,e}-\log\bar y^{\,e}\right)
 =\log y_t-\log y_t^{\,e},\\
 \hat\pi_t&=\log P_t-\log P_{t-1},
 \qquad
@@ -77,34 +77,34 @@ Define welfare relevant output gap as
 \begin{aligned}
 \tilde y_t
 &=\hat y_t-\hat y_t^{\,n}
-=\hat x_t+(\hat y_t^{\,e}-\hat y_t^{\,n}),\\
+=\hat x_t+\left(\hat y_t^{\,e}-\hat y_t^{\,n}\right),\\
 \hat\pi_t
-&=\beta E_t\{\hat\pi_{t+1}\}+\kappa\tilde y_t
+&=\beta E_t\left\{\hat\pi_{t+1}\right\}+\kappa\tilde y_t
 \end{aligned}
 \right\}
 \Rightarrow
 \hat\pi_t
-=\beta E_t\{\hat\pi_{t+1}\}+\kappa\hat x_t+u_t,
+=\beta E_t\left\{\hat\pi_{t+1}\right\}+\kappa\hat x_t+u_t,
 \]
 where
 \[
-v_t=\beta E_t\{\hat\pi_{t+1}\}+u_t.
+v_t=\beta E_t\left\{\hat\pi_{t+1}\right\}+u_t.
 \]
 \par\vspace{0.3em}
 \noindent
 \begin{itemize}
-    \item $E_t\{\hat\pi_{t+1}\}$: taken as given when choosing current-period policy.
+    \item $E_t\left\{\hat\pi_{t+1}\right\}$: taken as given when choosing current-period policy.
     \item $u_t$: exogenous cost-push shock.
 \end{itemize}
 
 \noindent
-A nonzero $u_t$ makes it impossible to attain simultaneously zero inflation and an efficient level of output. 
+A nonzero $u_t$ makes it impossible to attain simultaneously zero inflation and an efficient level of output.
 For example, $u_t$ may come from exogenous changes in desired wage markups, price markups, labor income taxes, minimum wages, etc.
 
 Assume $u_t$ follows:
 \[
 u_t=\rho_u u_{t-1}+\varepsilon_t^{u},
-\qquad \rho_u\in[0,1).
+\qquad \rho_u\in\left[0,1\right).
 \]
 \[
 \begin{array}{ll}
@@ -112,7 +112,7 @@ u_t=\rho_u u_{t-1}+\varepsilon_t^{u},
 &
 \hat\pi_t
 =
-\beta E_t\{\hat\pi_{t+1}\}
+\beta E_t\left\{\hat\pi_{t+1}\right\}
 +\kappa\hat x_t
 +u_t,
 \\[0.7em]
@@ -124,12 +124,12 @@ u_t=\rho_u u_{t-1}+\varepsilon_t^{u},
 \left(
 \hat i_t
 -
-E_t\{\hat\pi_{t+1}\}
+E_t\left\{\hat\pi_{t+1}\right\}
 -
 \hat r_t^{\,e}
 \right)
 +
-E_t\{\hat x_{t+1}\}.
+E_t\left\{\hat x_{t+1}\right\}.
 \end{array}
 \]
 
@@ -148,17 +148,17 @@ E_t\{\hat x_{t+1}\}.
 \]
 where
 \[
-v_t=\beta E_t\{\hat\pi_{t+1}\}+u_t.
+v_t=\beta E_t\left\{\hat\pi_{t+1}\right\}+u_t.
 \]
 
 \noindent
-$E_t\{\hat\pi_{t+1}\}$: independent of current policy; \quad
+$E_t\left\{\hat\pi_{t+1}\right\}$: independent of current policy; \quad
 $u_t$: exogenous.
 
 \[
 \mathcal L
 =\hat\pi_t^2+\alpha_x\hat x_t^2
--\lambda(\hat\pi_t-\kappa\hat x_t-v_t).
+-\lambda\left(\hat\pi_t-\kappa\hat x_t-v_t\right).
 \]
 \begin{align*}
 \frac{\partial\mathcal L}{\partial \hat\pi_t}=0
@@ -185,11 +185,11 @@ To dampen the rise in inflation due to cost-push shock,
 Plug into NKPC:
 \begin{align*}
 \hat\pi_t
-&=\beta E_t\{\hat\pi_{t+1}\}+\kappa\hat x_t+u_t
-=\beta E_t\{\hat\pi_{t+1}\}-\frac{\kappa^2}{\alpha_x}\hat\pi_t+u_t,\\
+&=\beta E_t\left\{\hat\pi_{t+1}\right\}+\kappa\hat x_t+u_t
+=\beta E_t\left\{\hat\pi_{t+1}\right\}-\frac{\kappa^2}{\alpha_x}\hat\pi_t+u_t,\\
 \Rightarrow\quad
 \hat\pi_t
-&=\frac{\alpha_x\beta}{\alpha_x+\kappa^2}E_t\{\hat\pi_{t+1}\}
+&=\frac{\alpha_x\beta}{\alpha_x+\kappa^2}E_t\left\{\hat\pi_{t+1}\right\}
 +\frac{\alpha_x}{\alpha_x+\kappa^2}u_t.
 \end{align*}
 
@@ -202,7 +202,7 @@ Iterate forward:
 \end{aligned}
 \right.
 \qquad
-\psi=\frac{1}{\kappa^2+\alpha_x(1-\beta\rho_u)}.
+\psi=\frac{1}{\kappa^2+\alpha_x\left(1-\beta\rho_u\right)}.
 \]
 
 Central bank lets output gap and inflation deviate from targets in proportion to the current value of the cost-push shock:
@@ -228,7 +228,7 @@ Central bank lets output gap and inflation deviate from targets in proportion to
 
 Without any policy response, $\kappa=0$:
 \[
-\hat\pi_t=\beta E_t\{\hat\pi_{t+1}\}+u_t.
+\hat\pi_t=\beta E_t\left\{\hat\pi_{t+1}\right\}+u_t.
 \]
 Guess $\hat\pi_t=Au_t$ and $E_tu_{t+1}=\rho_u u_t$:
 \[
@@ -240,7 +240,7 @@ Without output gap response:
 \[
 \hat\pi_t=\frac{1}{1-\beta\rho_u}u_t
 >
-\frac{\alpha_x}{\kappa^2+\alpha_x({1-\beta\rho_u})}u_t.
+\frac{\alpha_x}{\kappa^2+\alpha_x\left({1-\beta\rho_u}\right)}u_t.
 \]
 \[
 \begin{aligned}
@@ -271,7 +271,7 @@ u_t.
 \noindent
 Using
 \[
-E_t\{\hat\pi_{t+1}\}=\alpha_x\psi\rho_u u_t,
+E_t\left\{\hat\pi_{t+1}\right\}=\alpha_x\psi\rho_u u_t,
 \]
 \[
 \hat\pi_t
@@ -314,7 +314,7 @@ E_t\{\hat\pi_{t+1}\}=\alpha_x\psi\rho_u u_t,
 \tag{Target rule}
 \]
 \[
-\hat x_t=-\frac{1}{\sigma}\left(\hat i_t-E_t\{\hat\pi_{t+1}\}-\hat r_t^{\,e}\right)+E_t\{\hat x_{t+1}\}.
+\hat x_t=-\frac{1}{\sigma}\left(\hat i_t-E_t\left\{\hat\pi_{t+1}\right\}-\hat r_t^{\,e}\right)+E_t\left\{\hat x_{t+1}\right\}.
 \]
 Plug in:
 \begin{align*}
@@ -330,9 +330,9 @@ Plug in:
 +
 \underbrace{\psi_i u_t}_{\text{response from cost-push shock}},
 \qquad
-\psi_i=\psi\left[\kappa\sigma(1-\rho_u)+\alpha_x\rho_u\right].
+\psi_i=\psi\left[\kappa\sigma\left(1-\rho_u\right)+\alpha_x\rho_u\right].
 \end{align*}
-\purple{$\kappa\sigma(1-\rho_u)$: need to affect current output gap through IS curve.}\
+\purple{$\kappa\sigma\left(1-\rho_u\right)$: need to affect current output gap through IS curve.}\
 \purple{$\alpha_x\rho_u$: forward-looking part.}
 
 \red{$u_t\uparrow$ cost-push shock $\Rightarrow$ inflation $\hat\pi_t\uparrow$ $\Rightarrow$ cool demand through $\hat i_t\uparrow>\hat r_t^{\,e}$ $\Rightarrow$ $\hat x_t\downarrow$ $\Rightarrow$ $\hat\pi_t\downarrow$.}\qquad
@@ -347,32 +347,32 @@ But output losses are costly $\Rightarrow$ only fights $\hat\pi_t\uparrow$ parti
 \left(
 \hat i_t
 -
-E_t\{\hat\pi_{t+1}\}
+E_t\left\{\hat\pi_{t+1}\right\}
 -
 \hat r_t^{\,e}
 \right)
 +
-E_t\{\hat x_{t+1}\}.
+E_t\left\{\hat x_{t+1}\right\}.
 \]
 Calculation:
 \[
 C_t^{-\sigma}
 =
-\beta(1+i_t)E_t
+\beta\left(1+i_t\right)E_t
 \left[
 \frac{C_{t+1}^{-\sigma}}{1+\pi_{t+1}}
 \right].
 \]
 
-At steady state, $\beta(1+\bar i)=1$ and $\bar\pi=0$:
+At steady state, $\beta\left(1+\bar i\right)=1$ and $\bar\pi=0$:
 
 \[
-1=\beta(1+\bar r),
+1=\beta\left(1+\bar r\right),
 \qquad
 1+\bar r=\frac{1}{\beta},
 \qquad
 \rho=-\log\beta
-\qquad 
+\qquad
 {\color{red!50!black}
 \rho:\ \text{steady-state real rate.}
 }
@@ -383,13 +383,13 @@ Log-linearization:
 \[
 \hat c_t
 =
-E_t\{\hat c_{t+1}\}
+E_t\left\{\hat c_{t+1}\right\}
 -
 \frac{1}{\sigma}
 \left[
 \hat i_t
 -
-E_t\{\hat\pi_{t+1}\}
+E_t\left\{\hat\pi_{t+1}\right\}
 \right],
 \]
 
@@ -400,10 +400,10 @@ E_t\{\hat\pi_{t+1}\}
 \left[
 \hat i_t
 -
-E_t\{\hat\pi_{t+1}\}
+E_t\left\{\hat\pi_{t+1}\right\}
 \right]
 +
-E_t\{\hat y_{t+1}\}.
+E_t\left\{\hat y_{t+1}\right\}.
 \]
 
 
@@ -414,12 +414,12 @@ E_t\{\hat y_{t+1}\}.
 \left[
 \hat i_t
 -
-E_t\{\hat\pi_{t+1}\}
+E_t\left\{\hat\pi_{t+1}\right\}
 \right]
 +
-E_t\{\hat x_{t+1}\}
+E_t\left\{\hat x_{t+1}\right\}
 +
-E_t\{\hat y_{t+1}^{\,e}\},
+E_t\left\{\hat y_{t+1}^{\,e}\right\},
 \]
 
 \[
@@ -429,12 +429,12 @@ E_t\{\hat y_{t+1}^{\,e}\},
 \left[
 \hat i_t
 -
-E_t\{\hat\pi_{t+1}\}
+E_t\left\{\hat\pi_{t+1}\right\}
 -
-\sigma E_t\{\Delta\hat y_{t+1}^{\,e}\}
+\sigma E_t\left\{\Delta\hat y_{t+1}^{\,e}\right\}
 \right]
 +
-E_t\{\hat x_{t+1}\},
+E_t\left\{\hat x_{t+1}\right\},
 \]
 
 \[
@@ -444,17 +444,17 @@ E_t\{\hat x_{t+1}\},
 \left[
 \hat i_t
 -
-E_t\{\hat\pi_{t+1}\}
+E_t\left\{\hat\pi_{t+1}\right\}
 -
 \hat r_t^{\,e}
 \right]
 +
-E_t\{\hat x_{t+1}\}
+E_t\left\{\hat x_{t+1}\right\}
 \qquad
 \text{where }
 \hat r_t^{\,e}
 =
-\sigma E_t\{\Delta\hat y_{t+1}^{\,e}\}.
+\sigma E_t\left\{\Delta\hat y_{t+1}^{\,e}\right\}.
 \]
 
 
@@ -462,7 +462,7 @@ Consider an inflation targeting rule:
 \[
 \hat i_t=\hat r_t^{\,e}+\phi_\pi\hat\pi_t,
 \qquad
-\phi_\pi=(1-\rho_u)\frac{\kappa\sigma}{\alpha_x}+\rho_u.
+\phi_\pi=\left(1-\rho_u\right)\frac{\kappa\sigma}{\alpha_x}+\rho_u.
 \]
 \[
 \begin{array}{@{}l@{\qquad}l@{}}
@@ -483,8 +483,8 @@ u_t=\dfrac{\hat\pi_t}{\alpha_x\psi}
 \]
 \[
 \frac{\psi_i}{\alpha_x\psi}
-=\frac{\kappa\sigma(1-\rho_u)+\alpha_x\rho_u}{\alpha_x}
-=(1-\rho_u)\frac{\kappa\sigma}{\alpha_x}+\rho_u
+=\frac{\kappa\sigma\left(1-\rho_u\right)+\alpha_x\rho_u}{\alpha_x}
+=\left(1-\rho_u\right)\frac{\kappa\sigma}{\alpha_x}+\rho_u
 =\phi_\pi.
 \]
 
@@ -499,13 +499,13 @@ Since a determinate equilibrium exists iff $\phi_\pi>1$:
 A rule that decentralizes the desired discretionary equilibrium:
 \begin{align*}
 \hat i_t
-&=\hat r_t^{\,e}+\psi_i u_t+\phi_\pi(\hat\pi_t-\alpha_x\psi u_t)\\
+&=\hat r_t^{\,e}+\psi_i u_t+\phi_\pi\left(\hat\pi_t-\alpha_x\psi u_t\right)\\
 \tag{Instrument rule}
 &=\hat r_t^{\,e}+\Theta_i u_t+\phi_\pi\hat\pi_t,
 \end{align*}
 where
 \[
-\Theta_i=\psi\left[\kappa\sigma(1-\rho_u)-\alpha_x(\phi_\pi-\rho_u)\right].
+\Theta_i=\psi\left[\kappa\sigma\left(1-\rho_u\right)-\alpha_x\left(\phi_\pi-\rho_u\right)\right].
 \]
 Now we have a unique equilibrium, and it is the desired discretionary equilibrium.
 
@@ -549,13 +549,13 @@ Now we have a unique equilibrium, and it is the desired discretionary equilibriu
 
 Central bank able to commit with full credibility to a policy plan.
 \[
-\min_{\{\hat x_t,\hat\pi_t\}_{t=0}^{\infty}}
+\min_{\left\{\hat x_t,\hat\pi_t\right\}_{t=0}^{\infty}}
 \frac12 E_0\sum_{t=0}^{\infty}\beta^t
 \left(\hat\pi_t^2+\alpha_x\hat x_t^2\right)
 \]
 \[
 \text{s.t.}\quad
-\hat\pi_t=\beta E_t\{\hat\pi_{t+1}\}+\kappa\hat x_t+u_t,
+\hat\pi_t=\beta E_t\left\{\hat\pi_{t+1}\right\}+\kappa\hat x_t+u_t,
 \qquad
 u_t=\rho_u u_{t-1}+\varepsilon_t^u.
 \]
@@ -563,8 +563,8 @@ u_t=\rho_u u_{t-1}+\varepsilon_t^u.
 \[
 \mathcal L
 =E_0\sum_{t=0}^{\infty}\beta^t
-\left[\frac12(\hat\pi_t^2+\alpha_x\hat x_t^2)
-+\gamma_t(\hat\pi_t-\kappa\hat x_t-\beta E_t\{\hat\pi_{t+1}\}-u_t)
+\left[\frac12\left(\hat\pi_t^2+\alpha_x\hat x_t^2\right)
++\gamma_t\left(\hat\pi_t-\kappa\hat x_t-\beta E_t\left\{\hat\pi_{t+1}\right\}-u_t\right)
 \right].
 \]
 
@@ -598,7 +598,7 @@ F.O.C.:
 \end{aligned}
 \right.
 \qquad
-\purple{(*)}
+\purple{\left(*\right)}
 \Rightarrow
 \hat x_t
 =
@@ -671,19 +671,19 @@ Now today's policy depends on past policy through $\hat x_{t-1}$: history depend
 
 Then
 \begin{align*}
-\hat\pi_t&=\beta E_t\{\hat\pi_{t+1}\}+\kappa\hat x_t+u_t,\\
+\hat\pi_t&=\beta E_t\left\{\hat\pi_{t+1}\right\}+\kappa\hat x_t+u_t,\\
 \check p_t-\check p_{t-1}
-&=\beta E_t\{\check p_{t+1}-\check p_t\}-\frac{\kappa^2}{\alpha_x}\check p_t+u_t,\\
+&=\beta E_t\left\{\check p_{t+1}-\check p_t\right\}-\frac{\kappa^2}{\alpha_x}\check p_t+u_t,\\
 \left(1+\beta+\frac{\kappa^2}{\alpha_x}\right)\check p_t
-&=\beta E_t\{\check p_{t+1}\}+\check p_{t-1}+u_t.
+&=\beta E_t\left\{\check p_{t+1}\right\}+\check p_{t-1}+u_t.
 \end{align*}
 Let
 \[
-a=\frac{\alpha_x}{(1+\beta)\alpha_x+\kappa^2}.
+a=\frac{\alpha_x}{\left(1+\beta\right)\alpha_x+\kappa^2}.
 \]
 Then
 \[
-\check p_t=a\check p_{t-1}+a\beta E_t\{\check p_{t+1}\}+au_t.
+\check p_t=a\check p_{t-1}+a\beta E_t\left\{\check p_{t+1}\right\}+au_t.
 \qquad \forall t
 \]
 Assume
@@ -692,7 +692,7 @@ Assume
 &=\delta\check p_{t-1}+\eta u_t,
 \qquad \text{undetermined coefficients.}\\
 \check p_t
-&=\frac{a}{\delta}(\check p_t-\eta u_t)
+&=\frac{a}{\delta}\left(\check p_t-\eta u_t\right)
 +a\beta\delta\check p_t
 +a\beta\eta\rho_u u_t
 +a u_t,\\
@@ -711,7 +711,7 @@ Assume
 \Rightarrow
 \left\{
 \begin{aligned}
-\delta&=\frac{1-\sqrt{1-4\beta a^2}}{2\beta a}\in(0,1),\\
+\delta&=\frac{1-\sqrt{1-4\beta a^2}}{2\beta a}\in\left(0,1\right),\\
 \eta&=\frac{\delta}{1-\delta\beta\rho_u}.
 \end{aligned}
 \right.
@@ -722,12 +722,12 @@ Thus
 \]
 where
 \[
-\delta=\frac{1-\sqrt{1-4\beta a^2}}{2\beta a}\in(0,1).
+\delta=\frac{1-\sqrt{1-4\beta a^2}}{2\beta a}\in\left(0,1\right).
 \]
 \[
 \hat x_t=-\frac{\kappa}{\alpha_x}\check p_t
 \Rightarrow
-\hat x_t=\delta\hat x_{t-1}-\frac{\kappa\delta}{\alpha_x(1-\delta\beta\rho_u)}u_t.
+\hat x_t=\delta\hat x_{t-1}-\frac{\kappa\delta}{\alpha_x\left(1-\delta\beta\rho_u\right)}u_t.
 \tag{**}
 \]
 
@@ -735,59 +735,59 @@ where
 \[
 \hat x_0
 =
--\frac{\kappa\delta}{\alpha_x(1-\delta\beta\rho_u)}u_0.
+-\frac{\kappa\delta}{\alpha_x\left(1-\delta\beta\rho_u\right)}u_0.
 \]
 \[
-\hat\pi_t=\kappa\hat x_t+\kappa\sum_{k=1}^{\infty}\beta^{k-1}E_t\{\hat x_{t+k}\}+u_t.
+\hat\pi_t=\kappa\hat x_t+\kappa\sum_{k=1}^{\infty}\beta^{k-1}E_t\left\{\hat x_{t+k}\right\}+u_t.
 \]
 \purple{In response to $u_t$, central bank may lower future output gap with credible promises. Given $\hat x_t$, current $\hat\pi_t$ may decline less.}\
 \purple{Since cost function is convex, damping of deviations in period of shock improves welfare.}
 \\[1em]
-Assume transitory shock $(\rho_u=0)$:
+Assume transitory shock $\left(\rho_u=0\right)$:
 \begin{align*}
 DIS:\hat x_t
 &=
 -\frac{1}{\sigma}
 \left(
-\hat i_t-E_t\{\hat\pi_{t+1}\}-\hat r_t^{\,e}
+\hat i_t-E_t\left\{\hat\pi_{t+1}\right\}-\hat r_t^{\,e}
 \right)
 +
-E_t\{\hat x_{t+1}\}
+E_t\left\{\hat x_{t+1}\right\}
 \\
 \Rightarrow\quad
 \hat i_t
 &=
 \hat r_t^{\,e}
 +
-E_t\{\hat\pi_{t+1}\}
+E_t\left\{\hat\pi_{t+1}\right\}
 +
 \sigma\left[
-E_t\{\hat x_{t+1}\}-\hat x_t
+E_t\left\{\hat x_{t+1}\right\}-\hat x_t
 \right],
 \\[0.35em]
 \hat x_t
 &=
 -\frac{\kappa}{\alpha_x}\check p_t,
 \\
-E_t\{\hat x_{t+1}\}-\hat x_t
+E_t\left\{\hat x_{t+1}\right\}-\hat x_t
 &=
 -\frac{\kappa}{\alpha_x}
 \left(
-E_t\{\check p_{t+1}\}-\check p_t
+E_t\left\{\check p_{t+1}\right\}-\check p_t
 \right),
 \\
-E_t\{\hat\pi_{t+1}\}
+E_t\left\{\hat\pi_{t+1}\right\}
 &=
-E_t\{\check p_{t+1}-\check p_t\},
+E_t\left\{\check p_{t+1}-\check p_t\right\},
 \\[0.35em]
 \Rightarrow\quad
 \hat i_t
 &=
 \hat r_t^{\,e}
 +
-E_t\{\hat\pi_{t+1}\}
+E_t\left\{\hat\pi_{t+1}\right\}
 -
-\sigma\frac{\kappa}{\alpha_x}E_t\{\hat\pi_{t+1}\},
+\sigma\frac{\kappa}{\alpha_x}E_t\left\{\hat\pi_{t+1}\right\},
 \\
 \Rightarrow\quad
 \hat i_t
@@ -797,18 +797,18 @@ E_t\{\hat\pi_{t+1}\}
 \left(
 1-\frac{\sigma\kappa}{\alpha_x}
 \right)
-E_t\{\hat\pi_{t+1}\}.
+E_t\left\{\hat\pi_{t+1}\right\}.
 \tag{1}
 \end{align*}
 Since $\check p_t=\delta\check p_{t-1}+\delta u_t$ when $\rho_u=0$,
 \[
-E_t\{\check p_{t+1}\}=\delta\check p_t,
+E_t\left\{\check p_{t+1}\right\}=\delta\check p_t,
 \qquad
-E_t\{\hat\pi_{t+1}\}=\delta\check p_t-\check p_t=-(1-\delta)\check p_t.
+E_t\left\{\hat\pi_{t+1}\right\}=\delta\check p_t-\check p_t=-\left(1-\delta\right)\check p_t.
 \]
 Thus
 \[
-\hat i_t=\hat r_t^{\,e}-(1-\delta)\left(1-\frac{\sigma\kappa}{\alpha_x}\right)\check p_t
+\hat i_t=\hat r_t^{\,e}-\left(1-\delta\right)\left(1-\frac{\sigma\kappa}{\alpha_x}\right)\check p_t
 \]
 Iterate backward:
 \[
@@ -823,7 +823,7 @@ Iterate backward:
 &=
 \hat r_t^{\,e}
 -
-(1-\delta)
+\left(1-\delta\right)
 \left(
 1-\frac{\sigma\kappa}{\alpha_x}
 \right)
@@ -846,7 +846,7 @@ To make an implementable rule that makes the allocation unique:
 \left[
 \phi_p
 +
-(1-\delta)
+\left(1-\delta\right)
 \left(
 1-\frac{\sigma\kappa}{\alpha_x}
 \right)
@@ -864,16 +864,16 @@ To make an implementable rule that makes the allocation unique:
 =
 \hat r_t^{\,e}
 -
-(\phi_p+A)\check p_t
+\left(\phi_p+A\right)\check p_t
 +
 \phi_p\check p_t,
 \qquad
-A=(1-\delta)\left(1-\frac{\sigma\kappa}{\alpha_x}\right).
+A=\left(1-\delta\right)\left(1-\frac{\sigma\kappa}{\alpha_x}\right).
 \]
 
 Along the intended equilibrium, the rule collapses back to
 \[
-\hat i_t^*=\hat r_t^{\,e^*}-(1-\delta)\left(1-\frac{\sigma\kappa}{\alpha_x}\right)\check p_t^*.
+\hat i_t^*=\hat r_t^{\,e^*}-\left(1-\delta\right)\left(1-\frac{\sigma\kappa}{\alpha_x}\right)\check p_t^*.
 \]
 Without a term with $\check p_t$, the rule does not actively push back against the deviation.
 
@@ -927,14 +927,14 @@ E_t\tilde\pi_{t+1}
 \begin{alignedat}{2}
 \tilde x_t
 &=
-\frac{1+\phi_p-\lambda}{\sigma(\lambda-1)}
+\frac{1+\phi_p-\lambda}{\sigma\left(\lambda-1\right)}
 \tilde p_t,
 &\qquad& \\[0.5em]
 \tilde x_t
 &=
 \frac{1}{\kappa}
 \left[
-(1+\beta)
+\left(1+\beta\right)
 -
 \frac{1}{\lambda}
 -
@@ -944,17 +944,17 @@ E_t\tilde\pi_{t+1}
 \tilde\pi_t
 &=
 \left(1-\frac{1}{\lambda}\right)\tilde p_t,E_t\tilde{\pi}_{t+1}
-=(\lambda-1)\tilde p_t
+=\left(\lambda-1\right)\tilde p_t
 &\qquad
 E_t\tilde\pi_{t+1}
 &=
-(\lambda-1)\tilde p_t,
+\left(\lambda-1\right)\tilde p_t,
 \\[0.5em]
 E_t\tilde x_{t+1}
 &=
 \frac{1}{\kappa}
 \left[
-(1+\beta)
+\left(1+\beta\right)
 -
 \frac{1}{\lambda}
 -
@@ -965,7 +965,7 @@ E_t\tilde p_{t+1}
 &=
 \frac{1}{\kappa}
 \left[
-(1+\beta)
+\left(1+\beta\right)
 -
 \frac{1}{\lambda}
 -
@@ -984,11 +984,11 @@ E_t\tilde p_{t+1}
 \begin{flushleft}
 Equating the two expressions for $\tilde x_t$:
 \[
-\frac{1+\phi_p-\lambda}{\sigma(\lambda-1)}
+\frac{1+\phi_p-\lambda}{\sigma\left(\lambda-1\right)}
 =
 \frac{1}{\kappa}
 \left[
-(1+\beta)
+\left(1+\beta\right)
 -
 \frac{1}{\lambda}
 -
@@ -997,11 +997,11 @@ Equating the two expressions for $\tilde x_t$:
 \]
 
 \[
-H(\lambda)
+H\left(\lambda\right)
 \equiv
-\sigma(\lambda-1)^2(1-\beta\lambda)
+\sigma\left(\lambda-1\right)^2\left(1-\beta\lambda\right)
 -
-\kappa\lambda(1+\phi_p-\lambda)
+\kappa\lambda\left(1+\phi_p-\lambda\right)
 =
 0.
 \]
@@ -1014,7 +1014,7 @@ H(\lambda)
 \noindent
 When $\phi_p=0$:
 \[
-H(1)=0
+H\left(1\right)=0
 \rightarrow
 \tilde p_t=\tilde p_{t-1}
 \rightarrow
@@ -1025,11 +1025,11 @@ H(1)=0
 When $\phi_p>0$:
 \[
 \begin{aligned}
-H(1)
+H\left(1\right)
 &=
-\sigma(1-1)^2(1-\beta)
+\sigma\left(1-1\right)^2\left(1-\beta\right)
 -
-\kappa(1+\phi_p-1)=
+\kappa\left(1+\phi_p-1\right)=
 -\kappa\phi_p
 <0
 \end{aligned}
@@ -1046,38 +1046,38 @@ H(1)
 Proof that there are 1 stable root and 2 unstable roots which is what we want:
 \begin{enumerate}
 \item[(i)]
-For $\lambda\in(0,1)$,
+For $\lambda\in\left(0,1\right)$,
 \[
-H(\lambda)=0
+H\left(\lambda\right)=0
 \Longleftrightarrow
 \frac{\kappa}{\sigma}
-\frac{\lambda(1+\phi_p-\lambda)}
-{(1-\lambda)^2(1-\beta\lambda)}
+\frac{\lambda\left(1+\phi_p-\lambda\right)}
+{\left(1-\lambda\right)^2\left(1-\beta\lambda\right)}
 =
 1.
 \]
 Then
 \[
-LHS(0)=0,
+LHS\left(0\right)=0,
 \qquad
-LHS(1)=+\infty
+LHS\left(1\right)=+\infty
 \quad
 \Longrightarrow
 \quad
-\exists\ \lambda_1\in(0,1).
+\exists\ \lambda_1\in\left(0,1\right).
 \]
 
 \item[(ii)]
-For $\lambda\in(-\infty,0]$,
+For $\lambda\in\left(-\infty,0\right]$,
 \[
-(\lambda-1)^2>0,
+\left(\lambda-1\right)^2>0,
 \qquad
 1-\beta\lambda>0,
 \qquad
--\kappa\lambda(1+\phi_p-\lambda)\geq 0.
+-\kappa\lambda\left(1+\phi_p-\lambda\right)\geq 0.
 \]
 \[
-H(\lambda)
+H\left(\lambda\right)
 >0
 \quad
 \Longrightarrow
@@ -1097,7 +1097,7 @@ Therefore, there are either two positive real roots or conjugate complex roots.
 >
 1
 \qquad
-\lambda_1\in(0,1)
+\lambda_1\in\left(0,1\right)
 \Rightarrow
 \lambda_2\lambda_3
 =
@@ -1109,7 +1109,7 @@ Therefore, there are either two positive real roots or conjugate complex roots.
 Thus the remaining roots are unstable:
 \[
 \begin{cases}
-|\lambda_2|=|\lambda_3|>1,
+\left|\lambda_2\right|=\left|\lambda_3\right|>1,
 & \text{if they are complex conjugate roots},
 \\[0.4em]
 \lambda_2>1,\ \lambda_3>1,
@@ -1152,7 +1152,7 @@ Permanent supply-side distortion:
 \]
 Real imperfections generate a permanent gap between natural and efficient levels of output:
 \[
--\frac{U_N}{U_C}=MPN(1-\phi),
+-\frac{U_N}{U_C}=MPN\left(1-\phi\right),
 \qquad
 \phi=1-\frac{1}{\mu}.
 \]
@@ -1161,7 +1161,7 @@ Output is inefficiently low.\\[2em]
 The welfare losses:
 \[
 E_0\sum_{t=0}^{\infty}\beta^t
-\left[\frac12(\hat\pi_t^2+\alpha_x\hat x_t^2)-\Lambda\hat x_t\right],
+\left[\frac12\left(\hat\pi_t^2+\alpha_x\hat x_t^2\right)-\Lambda\hat x_t\right],
 \qquad
 \text{where }\Lambda=\phi\frac{\lambda}{\varepsilon}>0.
 \]
@@ -1171,13 +1171,13 @@ Deviation of the welfare-relevant output gap:
 =
 \log X_t-\log \bar X
 =
-(\log Y_t-\log Y_t^{e})
+\left(\log Y_t-\log Y_t^{e}\right)
 -
-(\log \bar Y-\log \bar Y^{e})
+\left(\log \bar Y-\log \bar Y^{e}\right)
 =
-(\log Y_t-\log Y^{e})
+\left(\log Y_t-\log Y^{e}\right)
 -
-(\log \bar Y^{n}-\log \bar Y^{e}).
+\left(\log \bar Y^{n}-\log \bar Y^{e}\right).
 \]
 \[
 \log \bar X
@@ -1189,9 +1189,9 @@ Deviation of the welfare-relevant output gap:
 \]
 NKPC constraint:
 \[
-\hat\pi_t=\beta E_t\{\hat\pi_{t+1}\}+\kappa\hat x_t+u_t,
+\hat\pi_t=\beta E_t\left\{\hat\pi_{t+1}\right\}+\kappa\hat x_t+u_t,
 \qquad
-\text{where }u_t=\kappa(\hat y_t^{\,e}-\hat y_t^{\,n})
+\text{where }u_t=\kappa\left(\hat y_t^{\,e}-\hat y_t^{\,n}\right)
 \text{ is cost-push shock.}
 \]
 
@@ -1199,11 +1199,11 @@ NKPC constraint:
 
 \[
 \min_{\hat x_t,\hat\pi_t}
-\frac12(\hat\pi_t^2+\alpha_x\hat x_t^2)-\Lambda\hat x_t
+\frac12\left(\hat\pi_t^2+\alpha_x\hat x_t^2\right)-\Lambda\hat x_t
 \qquad
 \text{s.t.}\quad
 \hat\pi_t=\kappa\hat x_t+v_t,
-\quad v_t=\beta E_t\{\hat\pi_{t+1}\}+u_t.
+\quad v_t=\beta E_t\left\{\hat\pi_{t+1}\right\}+u_t.
 \]
 F.O.C.:
 \[
@@ -1221,7 +1221,7 @@ F.O.C.:
 \purple{Plug into the constraint.}
 \[
 \hat\pi_t
-=\frac{\alpha_x\beta}{\alpha_x+\kappa^2}E_t\{\hat\pi_{t+1}\}
+=\frac{\alpha_x\beta}{\alpha_x+\kappa^2}E_t\left\{\hat\pi_{t+1}\right\}
 +\frac{\kappa\Lambda}{\alpha_x+\kappa^2}
 +\frac{\alpha_x}{\alpha_x+\kappa^2}u_t.
 \]
@@ -1238,24 +1238,24 @@ A+B u_t
 \frac{\alpha_x}{\alpha_x+\kappa^2}u_t.
 \]
 \[
-A=\frac{\kappa\Lambda}{\kappa^2+\alpha_x(1-\beta)},
+A=\frac{\kappa\Lambda}{\kappa^2+\alpha_x\left(1-\beta\right)},
 \qquad
 B=\alpha_x\psi,
 \qquad
-\psi=\frac{1}{\kappa^2+\alpha_x(1-\beta\rho_u)}.
+\psi=\frac{1}{\kappa^2+\alpha_x\left(1-\beta\rho_u\right)}.
 \]
 Thus
 \[
 \Rightarrow
 \hat\pi_t^*
 =
-\frac{\Lambda\kappa}{\kappa^2+\alpha_x(1-\beta)}
+\frac{\Lambda\kappa}{\kappa^2+\alpha_x\left(1-\beta\right)}
 +
 \alpha_x\psi u_t.
 \]
 
 \noindent
-\purple{$\dfrac{\Lambda\kappa}{\kappa^2+\alpha_x(1-\beta)}$: constant $>0$; inflation bias from distorted S.S.}
+\purple{$\dfrac{\Lambda\kappa}{\kappa^2+\alpha_x\left(1-\beta\right)}$: constant $>0$; inflation bias from distorted S.S.}
 
 \noindent
 \purple{$\alpha_x\psi u_t$: usual response.}
@@ -1279,9 +1279,9 @@ Inefficient low natural level of output $\Rightarrow$
 \[
 \mathcal L
 =E_t\sum_{t=0}^{\infty}\beta^t
-\left[\frac12(\hat\pi_t^2+\alpha_x\hat x_t^2)-\Lambda\hat x_t
-+\gamma_t(\hat\pi_t-
-\kappa\hat x_t-\beta E_t\{\hat\pi_{t+1}\}-u_t)
+\left[\frac12\left(\hat\pi_t^2+\alpha_x\hat x_t^2\right)-\Lambda\hat x_t
++\gamma_t\left(\hat\pi_t-
+\kappa\hat x_t-\beta E_t\left\{\hat\pi_{t+1}\right\}-u_t\right)
 \right].
 \]
 F.O.C.:
@@ -1299,7 +1299,7 @@ F.O.C.:
 \gamma_{-1}=0\qquad
 \]
 \[
-(1)\Rightarrow
+\left(1\right)\Rightarrow
 \gamma_t
 =
 \frac{\alpha_x\hat x_t-\Lambda}{\kappa},
@@ -1308,7 +1308,7 @@ F.O.C.:
 =
 \frac{\alpha_x\hat x_{t-1}-\Lambda}{\kappa},
 \quad
-\text{plug into }(2)
+\text{plug into }\left(2\right)
 \Rightarrow
 \hat x_t
 =
@@ -1322,7 +1322,7 @@ Since $\hat\pi_t=\check p_t-\check p_{t-1}$, by iterating forward:
 \left.
 \begin{aligned}
 \hat x_t&=-\frac{\kappa}{\alpha_x}\check p_t+\text{constant}\\
-(1)\Rightarrow\hat x_t&=\frac{\Lambda}{\alpha_x}-\frac{\kappa}{\alpha_x}\check p_t
+\left(1\right)\Rightarrow\hat x_t&=\frac{\Lambda}{\alpha_x}-\frac{\kappa}{\alpha_x}\check p_t
 \end{aligned}
 \right\}
 \Rightarrow
@@ -1335,7 +1335,7 @@ Since $\hat\pi_t=\check p_t-\check p_{t-1}$, by iterating forward:
 \begin{aligned}
 \hat\pi_t
 &=
-\beta E_t\{\hat\pi_{t+1}\}
+\beta E_t\left\{\hat\pi_{t+1}\right\}
 +
 \kappa\hat x_t
 +
@@ -1353,7 +1353,7 @@ u_t,\\
 =
 a\check p_{t-1}
 +
-a\beta E_t\{\check p_{t+1}\}
+a\beta E_t\left\{\check p_{t+1}\right\}
 +
 \frac{a\kappa\Lambda}{\alpha_x}
 +
@@ -1363,7 +1363,7 @@ a u_t.
 \text{where }
 a
 =
-\frac{\alpha_x}{\kappa^2+\alpha_x(1+\beta)}.
+\frac{\alpha_x}{\kappa^2+\alpha_x\left(1+\beta\right)}.
 \]
 \noindent
 Solve with undetermined coefficients:
@@ -1371,11 +1371,11 @@ Solve with undetermined coefficients:
 \check p_t=A\check p_{t-1}+Bu_t+\textcolor{red}C.
 \]
 \[
-A=\delta=\frac{1-\sqrt{1-4\beta a^2}}{2\beta a}\in(0,1),
+A=\delta=\frac{1-\sqrt{1-4\beta a^2}}{2\beta a}\in\left(0,1\right),
 \qquad
 B=\frac{\delta}{1-\delta\beta\rho_u},
 \qquad
-C=\frac{\delta\kappa\Lambda}{(1-\delta\beta)\alpha_x}.
+C=\frac{\delta\kappa\Lambda}{\left(1-\delta\beta\right)\alpha_x}.
 \]
 Thus
 \[
@@ -1385,7 +1385,7 @@ Thus
 +
 \frac{\delta}{1-\delta\beta\rho_u}u_t
 +
-\frac{\delta\kappa\Lambda}{(1-\delta\beta)\alpha_x}.
+\frac{\delta\kappa\Lambda}{\left(1-\delta\beta\right)\alpha_x}.
 \tag{3}
 \]
 
@@ -1400,7 +1400,7 @@ $\Rightarrow$ price level converges to a constant and average inflation is $0$.
 
 \[
 \lim_{T\to\infty}P_T
-=P_{-1}+\frac{\delta\kappa\Lambda}{(1-\delta\beta)(1-\delta)\alpha_x}.
+=P_{-1}+\frac{\delta\kappa\Lambda}{\left(1-\delta\beta\right)\left(1-\delta\right)\alpha_x}.
 \]
 \purple{Zero average inflation, but positive upward bias above $P_{-1}$.}
 
@@ -1412,10 +1412,10 @@ Plug in (3):
 \hat x_t
 =\underbrace{\delta\hat x_{t-1}}_{\text{history dependence}}
 -
-\underbrace{\frac{\kappa\delta}{\alpha_x(1-\delta\beta\rho_u)}u_t}_{\text{same shock response}}
+\underbrace{\frac{\kappa\delta}{\alpha_x\left(1-\delta\beta\rho_u\right)}u_t}_{\text{same shock response}}
 +
 \underbrace{\frac{\Lambda}{\alpha_x}
-\left[1-\delta\left(1+\frac{\kappa^2}{(1-\delta\beta)\alpha_x}\right)\right]}_{\text{constant S.S. deviation}}.
+\left[1-\delta\left(1+\frac{\kappa^2}{\left(1-\delta\beta\right)\alpha_x}\right)\right]}_{\text{constant S.S. deviation}}.
 \]
 
 Commitment leads to:

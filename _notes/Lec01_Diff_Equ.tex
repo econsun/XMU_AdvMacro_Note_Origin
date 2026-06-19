@@ -24,10 +24,10 @@
 \[
 \text{2-nd order difference:}\qquad
 \Delta^2 y_t
-= \Delta(\Delta y_t)
-= \Delta(y_t-y_{t-1})
+= \Delta\left(\Delta y_t\right)
+= \Delta\left(y_t-y_{t-1}\right)
 = \Delta y_t - \Delta y_{t-1}
-= (y_t-y_{t-1})-(y_{t-1}-y_{t-2})
+= \left(y_t-y_{t-1}\right)-\left(y_{t-1}-y_{t-2}\right)
 \]
 \[
 = y_t - 2y_{t-1} + y_{t-2}.
@@ -42,7 +42,7 @@ Period: an interval of time $\Rightarrow y_t$ is the $y$ for $t^{\text{th}}$ int
 \[
 \Delta y_t = y_t - y_{t-1}
 \]
-is the change from $(t-1)^{\text{th}}$ time interval to $t^{\text{th}}$ interval, not a derivative at a point of time $t$.
+is the change from $\left(t-1\right)^{\text{th}}$ time interval to $t^{\text{th}}$ interval, not a derivative at a point of time $t$.
 
 \textcolor{red}{* $\Delta y_t$ is a change, not a derivative or growth rate at time $t$.}
 
@@ -101,33 +101,33 @@ y_t = -a^3 y_{t-3} + a^2 C - aC + C - \cdots
 
 and in general,
 \[
-y_t = (-a)^t y_0 + C \sum_{j=0}^{t-1} (-a)^j.
+y_t = \left(-a\right)^t y_0 + C \sum_{j=0}^{t-1} \left(-a\right)^j.
 \]
 
 If $a\neq -1$,
 \[
-\sum_{j=0}^{t-1} (-a)^j
+\sum_{j=0}^{t-1} \left(-a\right)^j
 =
-\frac{1-(-a)^t}{1+a}.
+\frac{1-\left(-a\right)^t}{1+a}.
 \]
 
 So
 \[
 y_t
 =
-(-a)^t\left(y_0-\frac{C}{1+a}\right)+\frac{C}{1+a},
+\left(-a\right)^t\left(y_0-\frac{C}{1+a}\right)+\frac{C}{1+a},
 \qquad a\neq -1.
 \]
 
 Equivalently,
 \[
-y_t = A(-a)^t + \frac{C}{1+a},
+y_t = A\left(-a\right)^t + \frac{C}{1+a},
 \qquad a\neq -1.
 \]
 
 If $a=-1$,
 \[
-\sum_{j=0}^{t-1}(-a)^j = \sum_{j=0}^{t-1}1=t
+\sum_{j=0}^{t-1}\left(-a\right)^j = \sum_{j=0}^{t-1}1=t
 \qquad\Rightarrow\qquad
 y_t = y_0 + Ct.
 \]
@@ -136,7 +136,7 @@ Thus
 \[
 y_t=
 \begin{cases}
-A(-a)^t + \dfrac{C}{1+a}, & a\neq -1,\\[0.8em]
+A\left(-a\right)^t + \dfrac{C}{1+a}, & a\neq -1,\\[0.8em]
 Ct+y_0, & a=-1,
 \end{cases}
 \qquad
@@ -157,29 +157,29 @@ Since the system is \textit{linear}, we can separate:
 
 Define linear operator
 \[
-L(\cdot)= (\cdot)_t + a(\cdot)_{t-1}.
+L\left(\cdot\right)= \left(\cdot\right)_t + a\left(\cdot\right)_{t-1}.
 \]
 
 Then
 \[
 y_t + ay_{t-1} = C
 \qquad\Rightarrow\qquad
-L(y)=C.
+L\left(y\right)=C.
 \]
 
 If $y^p$ is any particular solution such that
 \[
-L(y^p)=C,
+L\left(y^p\right)=C,
 \]
 and if $y^c$ is any solution of the homogeneous equation
 \[
-L(y^c)=0
+L\left(y^c\right)=0
 \qquad
 \text{(complementary solution)},
 \]
 then by linearity,
 \[
-L(y^p+y^c)=L(y^p)+L(y^c)=C+0=C.
+L\left(y^p+y^c\right)=L\left(y^p\right)+L\left(y^c\right)=C+0=C.
 \]
 
 Therefore,
@@ -214,7 +214,7 @@ b=-a.
 
 Hence
 \[
-y_t^c = A(-a)^t.
+y_t^c = A\left(-a\right)^t.
 \]
 
 \subsubsection{Particular solution}
@@ -243,7 +243,7 @@ Therefore,
 y_t = y_t^c+y_t^p
 =
 \begin{cases}
-A(-a)^t+\dfrac{C}{1+a}, & a\neq -1,\\[0.8em]
+A\left(-a\right)^t+\dfrac{C}{1+a}, & a\neq -1,\\[0.8em]
 A+Ct, & a=-1.
 \end{cases}
 \]
@@ -252,7 +252,7 @@ Using the initial condition:
 
 If $a\neq -1$,
 \[
-y_0=A(-a)^0+\frac{C}{1+a}
+y_0=A\left(-a\right)^0+\frac{C}{1+a}
 =
 A+\frac{C}{1+a}
 \quad\Rightarrow\quad
@@ -282,12 +282,12 @@ so
 \bar y + a\bar y = C
 \quad\Rightarrow\quad
 \bar y=\frac{C}{1+a}
-\qquad (a\neq -1).
+\qquad \left(a\neq -1\right).
 \]
 
 Subtract steady state from the original equation:
 \[
-y_t-\bar y + a(y_{t-1}-\bar y)
+y_t-\bar y + a\left(y_{t-1}-\bar y\right)
 =
 C-\bar y-a\bar y.
 \]
@@ -301,7 +301,7 @@ Then
 \[
 \tilde y_t + a\tilde y_{t-1}=0
 \quad\Rightarrow\quad
-\tilde y_t = (-a)\tilde y_{t-1}.
+\tilde y_t = \left(-a\right)\tilde y_{t-1}.
 \]
 
 Let
@@ -319,8 +319,8 @@ Then
 
 \[
 \begin{cases}
-|b|<1 \Rightarrow b^t\to 0,\; \tilde y_t\to 0,\; y_t\to \bar y \quad \text{(convergence)},\\
-|b|>1 \Rightarrow b^t\to \infty,\; \tilde y_t\to \infty \quad \text{(divergence)}.
+\left|b\right|<1 \Rightarrow b^t\to 0,\; \tilde y_t\to 0,\; y_t\to \bar y \quad \text{(convergence)},\\
+\left|b\right|>1 \Rightarrow b^t\to \infty,\; \tilde y_t\to \infty \quad \text{(divergence)}.
 \end{cases}
 \]
 
@@ -376,7 +376,7 @@ A=y_0-\bar y
 
 Scale effect:
 \[
-|A| \uparrow \Rightarrow \text{start farther from equilibrium} \Rightarrow \text{bigger movements along path.}
+\left|A\right| \uparrow \Rightarrow \text{start farther from equilibrium} \Rightarrow \text{bigger movements along path.}
 \]
 
 Mirror effect:
@@ -406,7 +406,7 @@ Q_{s,t}=-\gamma+\delta p_t \qquad \text{supply}
 
 \[
 \textcolor{red}{
-p_{t+1}=p_t-\sigma\,(Q_{s,t}-Q_{d,t})
+p_{t+1}=p_t-\sigma\,\left(Q_{s,t}-Q_{d,t}\right)
 }
 \]
 
@@ -422,16 +422,16 @@ Then
 \[
 Q_{s,t}-Q_{d,t}
 =
--(\alpha+\gamma)+(\beta+\delta)p_t.
+-\left(\alpha+\gamma\right)+\left(\beta+\delta\right)p_t.
 \]
 
 Plug in:
 \[
 p_{t+1}
 =
-\bigl[1-\sigma(\beta+\delta)\bigr]p_t
+\left[1-\sigma\left(\beta+\delta\right)\right]p_t
 +
-\sigma(\alpha+\gamma).
+\sigma\left(\alpha+\gamma\right).
 \]
 
 At steady state,
@@ -445,22 +445,22 @@ Thus, the deviation dynamics is
 \[
 p_t-\bar p
 =
-\bigl[1-\sigma(\beta+\delta)\bigr](p_{t-1}-\bar p).
+\left[1-\sigma\left(\beta+\delta\right)\right]\left(p_{t-1}-\bar p\right).
 \]
 
 Stability condition tells us:
 \[
-\left|1-\sigma(\beta+\delta)\right|<1
+\left|1-\sigma\left(\beta+\delta\right)\right|<1
 \quad\Rightarrow\quad
-0<\sigma(\beta+\delta)<2,
+0<\sigma\left(\beta+\delta\right)<2,
 \]
 system converges.
 
 Oscillation condition tells us:
 \[
-1-\sigma(\beta+\delta)<0
+1-\sigma\left(\beta+\delta\right)<0
 \quad\Rightarrow\quad
-\sigma(\beta+\delta)>1
+\sigma\left(\beta+\delta\right)>1
 \]
 creates oscillation.
 
@@ -491,7 +491,7 @@ Try a constant:
 \[
 y^p=k
 \quad\Rightarrow\quad
-k(1+a_1+a_2)=C
+k\left(1+a_1+a_2\right)=C
 \quad\Rightarrow\quad
 k=\frac{C}{1+a_1+a_2},
 \qquad 1+a_1+a_2\neq 0.
@@ -504,11 +504,11 @@ y^p=kt.
 
 Then
 \[
-k(t+2)+a_1k(t+1)+a_2kt = C
+k\left(t+2\right)+a_1k\left(t+1\right)+a_2kt = C
 \]
 \[
 \Rightarrow\quad
-k\bigl[(1+a_1+a_2)t+(2+a_1)\bigr]=C.
+k\left[\left(1+a_1+a_2\right)t+\left(2+a_1\right)\right]=C.
 \]
 
 Impose
@@ -528,7 +528,7 @@ y^p=kt^2.
 
 Then
 \[
-k(t+2)^2 + a_1 k(t+1)^2 + a_2 kt^2 = C.
+k\left(t+2\right)^2 + a_1 k\left(t+1\right)^2 + a_2 kt^2 = C.
 \]
 
 The notes impose
@@ -546,7 +546,7 @@ a_2=1.
 
 Substituting:
 \[
-k(t^2+4t+4)-2k(t^2+2t+1)+kt^2=C
+k\left(t^2+4t+4\right)-2k\left(t^2+2t+1\right)+kt^2=C
 \]
 \[
 \Rightarrow\quad 2k=C
@@ -627,12 +627,12 @@ v=\frac{\sqrt{4a_2-a_1^2}}{2}.
 
 So
 \[
-y^c=A_5(h+vi)^t+A_6(h-vi)^t.
+y^c=A_5\left(h+vi\right)^t+A_6\left(h-vi\right)^t.
 \]
 
 Using De Moivre's Theorem:
 \[
-(h\pm vi)^t = R^t\bigl(\cos(\theta t)\pm i\sin(\theta t)\bigr)
+\left(h\pm vi\right)^t = R^t\left(\cos\left(\theta t\right)\pm i\sin\left(\theta t\right)\right)
 \]
 where
 \[
@@ -645,7 +645,7 @@ R=\sqrt{h^2+v^2}=\sqrt{a_2},
 
 Hence
 \[
-y^c = R^t\bigl(A_5\cos \theta t + A_6\sin \theta t\bigr),
+y^c = R^t\left(A_5\cos \theta t + A_6\sin \theta t\right),
 \]
 where
 \[
@@ -661,15 +661,15 @@ R=\sqrt{a_2},
 \section{Convergence under higher-order difference equation}
 
 \begin{enumerate}[label=\arabic*$^\circ$]
-    \item Distinct root: $b_{\mathrm{dom}}$ is the root with highest absolute value.  
+    \item Distinct root: $b_{\mathrm{dom}}$ is the root with highest absolute value.
     Convergence requires
     \[
-    |b_{\mathrm{dom}}|<1.
+    \left|b_{\mathrm{dom}}\right|<1.
     \]
 
     \item Repeated root:
     \[
-    |b|<1 \Rightarrow \text{converges}.
+    \left|b\right|<1 \Rightarrow \text{converges}.
     \]
 
     \item Complex root:
@@ -723,12 +723,12 @@ X_{t+1}=AX_t+B
 \]
 where
 \[
-X_t=(x_{1t},x_{2t},\dots,x_{nt})
+X_t=\left(x_{1t},x_{2t},\dots,x_{nt}\right)
 \]
 is state space.
 
 \[
-A \text{ is a constant matrix with } a_{ij} \text{ as elements } (i,j=1,\dots,n),
+A \text{ is a constant matrix with } a_{ij} \text{ as elements } \left(i,j=1,\dots,n\right),
 \]
 \[
 B \text{ is an array with } B_i,\ i=1,\dots,n \text{ as elements.}
@@ -769,7 +769,7 @@ X_t = vb^t.
 
 Plug in:
 \[
-vb^{t+1}=A(vb^t)
+vb^{t+1}=A\left(vb^t\right)
 \quad\Rightarrow\quad
 bv=Av.
 \]
@@ -778,23 +778,23 @@ Here $b$ is an eigenvalue of $A$, with eigenvector $v$.
 
 A nonzero $v$ exists iff
 \[
-\det(A-bI)=0.
+\det\left(A-bI\right)=0.
 \]
 
 \section{Characteristic equation}
 
 Characteristic equation:
 \[
-p(b)=|A-bI|=0.
+p\left(b\right)=\left|A-bI\right|=0.
 \]
 
 For a $2\times 2$ matrix:
 \[
-p(b)=b^2-Tb+D=0,
+p\left(b\right)=b^2-Tb+D=0,
 \]
 where
 \[
-T=\mathrm{trace}(A),\qquad D=\det(A).
+T=\mathrm{trace}\left(A\right),\qquad D=\det\left(A\right).
 \]
 
 Also,
@@ -803,7 +803,7 @@ T=b_1+b_2,\qquad D=b_1b_2,
 \]
 so
 \[
-p(b)=b^2-(b_1+b_2)b+b_1b_2=(b-b_1)(b-b_2).
+p\left(b\right)=b^2-\left(b_1+b_2\right)b+b_1b_2=\left(b-b_1\right)\left(b-b_2\right).
 \]
 
 Eigenvalues are the solution of the characteristic equation: $b_1,b_2$.
@@ -818,9 +818,9 @@ A=
 \]
 we have
 \[
-T=\mathrm{tr}(A)=-a_1,
+T=\mathrm{tr}\left(A\right)=-a_1,
 \qquad
-D=\det(A)=a_2.
+D=\det\left(A\right)=a_2.
 \]
 
 Thus characteristic equation:
@@ -834,7 +834,7 @@ Eigenvalues:
 \qquad \text{if } a_1^2>4a_2.
 \]
 
-\section{\texorpdfstring{Stability triangle on the $(T,D)$ plane}{Stability triangle on the (T,D) plane}}
+\section{\texorpdfstring{Stability triangle on the $\left(T,D\right)$ plane}{Stability triangle on the (T,D) plane}}
 
 \begin{enumerate}[label=\arabic*$^\circ$]
     \item
@@ -850,25 +850,25 @@ Eigenvalues:
 
     \item
     \[
-    p(1)=0,\quad p(-1)=0
+    p\left(1\right)=0,\quad p\left(-1\right)=0
     \]
     are the black curves.
 
     \[
-    p(1)=1-T+D,
+    p\left(1\right)=1-T+D,
     \qquad
-    \text{right to } p(1)=0 \Rightarrow p(1)<0.
+    \text{right to } p\left(1\right)=0 \Rightarrow p\left(1\right)<0.
     \]
 
     \[
-    p(-1)=1+T+D,
+    p\left(-1\right)=1+T+D,
     \qquad
-    \text{left to } p(-1)=0 \Rightarrow p(-1)<0.
+    \text{left to } p\left(-1\right)=0 \Rightarrow p\left(-1\right)<0.
     \]
 
     \item
     \[
-    D=1 \text{ and } |b|=1 \text{ for complex roots}
+    D=1 \text{ and } \left|b\right|=1 \text{ for complex roots}
     \]
     is the green curve.
 \end{enumerate}
@@ -879,7 +879,7 @@ Eigenvalues:
         \fbox{\texttt{missing figure: T-D plane.png}}%
     }
 \end{center}
-Why $D$ controls $|b|$ in complex case?
+Why $D$ controls $\left|b\right|$ in complex case?
 
 If roots are complex conjugates
 \[
@@ -895,7 +895,7 @@ Stable ($r<1$) implies
 D<1.
 \]
 
-Thus, above green curve $|b|>1$, below green curve $|b|<1$.
+Thus, above green curve $\left|b\right|>1$, below green curve $\left|b\right|<1$.
 
 \textcolor{red}{
 * Conditions for two stable roots (both inside unit circle)
@@ -904,9 +904,9 @@ Thus, above green curve $|b|>1$, below green curve $|b|<1$.
 \[
 D<1
 \quad\text{and}\quad
-p(1)>0
+p\left(1\right)>0
 \quad\text{and}\quad
-p(-1)>0
+p\left(-1\right)>0
 \]
 \[
 \Rightarrow\quad
@@ -918,13 +918,13 @@ D<1,\quad
 \Rightarrow\quad
 D<1
 \quad\text{and}\quad
-|T|<1+D.
+\left|T\right|<1+D.
 \]
 
 \[
 \begin{cases}
-\text{complex roots with modulus }<1, & \text{if }\Delta<0 \ (T^2<4D),\\
-\text{real roots both between }-1\text{ and }1, & \text{if }\Delta>0 \ (T^2>4D).
+\text{complex roots with modulus }<1, & \text{if }\Delta<0 \ \left(T^2<4D\right),\\
+\text{real roots both between }-1\text{ and }1, & \text{if }\Delta>0 \ \left(T^2>4D\right).
 \end{cases}
 \]
 
@@ -933,9 +933,9 @@ D<1
 }
 
 \[
-p(1)<0 \ \&\ p(-1)>0
+p\left(1\right)<0 \ \&\ p\left(-1\right)>0
 \qquad \text{or} \qquad
-p(1)>0 \ \&\ p(-1)<0.
+p\left(1\right)>0 \ \&\ p\left(-1\right)<0.
 \]
 
 That is,
@@ -953,25 +953,25 @@ That is,
 
 Thus,
 \[
-|T|>|1+D|.
+\left|T\right|>\left|1+D\right|.
 \]
 
 \[
-p(1)\ \&\ p(-1)
+p\left(1\right)\ \&\ p\left(-1\right)
 \text{ has opposite signs }
 \Rightarrow
-\text{There is a root in the interval }(-1,1).
+\text{There is a root in the interval }\left(-1,1\right).
 \]
 
 Since
 \[
-p(1)<0,\ p(b)\to +\infty \text{ as } b\to +\infty
+p\left(1\right)<0,\ p\left(b\right)\to +\infty \text{ as } b\to +\infty
 \]
 or
 \[
-p(-1)<0,\ p(b)\to +\infty \text{ as } b\to -\infty,
+p\left(-1\right)<0,\ p\left(b\right)\to +\infty \text{ as } b\to -\infty,
 \]
-there is another root outside the interval $[-1,1]$.
+there is another root outside the interval $\left[-1,1\right]$.
 
 \textcolor{red}{
 * Conditions for explosive and unstable roots (both roots outside unit circle or complex with modulus $>1$)
@@ -979,10 +979,10 @@ there is another root outside the interval $[-1,1]$.
 
 Four cases:
 \begin{enumerate}[label=\arabic*$^\circ$]
-    \item $p(1)<0,\ p(-1)<0,\ D<0,\ |T|>1$
-    \item $p(1)>0,\ p(-1)>0,\ D>1,\ T<-2$
+    \item $p\left(1\right)<0,\ p\left(-1\right)<0,\ D<0,\ \left|T\right|>1$
+    \item $p\left(1\right)>0,\ p\left(-1\right)>0,\ D>1,\ T<-2$
     \item $\Delta<0$ and $D>1$
-    \item $p(1)>0,\ p(-1)>0,\ D>1,\ T>2$
+    \item $p\left(1\right)>0,\ p\left(-1\right)>0,\ D>1,\ T>2$
 \end{enumerate}
 
 \section{Region-by-region summary}
@@ -992,42 +992,42 @@ Four cases:
 \hline
 \text{Region} & \text{Conditions} & \text{Roots} \\
 \hline
-1 & p(1)<0 \ \&\ p(-1)>0 &
+1 & p\left(1\right)<0 \ \&\ p\left(-1\right)>0 &
 \text{saddle: }
 \begin{cases}
-1 \text{ stable root in }(-1,1),\\
-1 \text{ unstable root in }(1,+\infty)
+1 \text{ stable root in }\left(-1,1\right),\\
+1 \text{ unstable root in }\left(1,+\infty\right)
 \end{cases}
 \\
 \hline
-2 & p(1)<0 \ \&\ p(-1)<0 &
+2 & p\left(1\right)<0 \ \&\ p\left(-1\right)<0 &
 \text{explosive: }
 \begin{cases}
-1 \text{ unstable root in }(1,+\infty),\\
-1 \text{ unstable root in }(-\infty,-1)
+1 \text{ unstable root in }\left(1,+\infty\right),\\
+1 \text{ unstable root in }\left(-\infty,-1\right)
 \end{cases}
 \\
 \hline
-3 & p(1)>0 \ \&\ p(-1)<0 &
+3 & p\left(1\right)>0 \ \&\ p\left(-1\right)<0 &
 \text{saddle: }
 \begin{cases}
-1 \text{ stable root in }(-1,1),\\
-1 \text{ unstable root in }(-\infty,-1)
+1 \text{ stable root in }\left(-1,1\right),\\
+1 \text{ unstable root in }\left(-\infty,-1\right)
 \end{cases}
 \\
 \hline
 4 &
 \begin{array}{c}
-p(1)>0 \ \&\ p(-1)>0 \ \& \\
-\Delta>0 \ \&\ D>1 \ (T<-2)
+p\left(1\right)>0 \ \&\ p\left(-1\right)>0 \ \& \\
+\Delta>0 \ \&\ D>1 \ \left(T<-2\right)
 \end{array}
 &
-\text{explosive: 2 real unstable roots in }(-\infty,-1)
+\text{explosive: 2 real unstable roots in }\left(-\infty,-1\right)
 \\
 \hline
 5 &
 \begin{array}{c}
-p(1)>0 \ \&\ p(-1)>0 \ \& \\
+p\left(1\right)>0 \ \&\ p\left(-1\right)>0 \ \& \\
 \Delta<0 \ \&\ D>1
 \end{array}
 &
@@ -1039,8 +1039,8 @@ p(1)>0 \ \&\ p(-1)>0 \ \& \\
 \hline
 6 &
 \begin{array}{c}
-p(1)>0 \ \&\ p(-1)>0 \ \& \\
-\Delta<0 \ \&\ D<1 \ (-2<T<2)
+p\left(1\right)>0 \ \&\ p\left(-1\right)>0 \ \& \\
+\Delta<0 \ \&\ D<1 \ \left(-2<T<2\right)
 \end{array}
 &
 \begin{array}{c}
@@ -1051,11 +1051,11 @@ p(1)>0 \ \&\ p(-1)>0 \ \& \\
 \hline
 7 &
 \begin{array}{c}
-\Delta>0 \ \&\ D<1 \ \&\ p(1)>0 \ \&\ p(-1)>0
+\Delta>0 \ \&\ D<1 \ \&\ p\left(1\right)>0 \ \&\ p\left(-1\right)>0
 \end{array}
 &
 \begin{array}{c}
-\text{stable: 2 real roots } |b_1|<1,\ |b_2|<1
+\text{stable: 2 real roots } \left|b_1\right|<1,\ \left|b_2\right|<1
 \end{array}
 \\
 \hline
@@ -1089,7 +1089,7 @@ D>0 \ \&\ T>0 &
 8 &
 \begin{array}{c}
 \Delta>0,\ D>1,\ T>2 \\
-p(1)>0,\ p(-1)>0
+p\left(1\right)>0,\ p\left(-1\right)>0
 \end{array}
 &
 \begin{array}{c}
@@ -1132,40 +1132,40 @@ Linearize around steady state, we write deviations as a first-order system:
 X_{t+1}=AX_t.
 \]
 
-If $A$ has eigenpairs $(b_i,v_i)$, the general solution can be written as sum of modes:
+If $A$ has eigenpairs $\left(b_i,v_i\right)$, the general solution can be written as sum of modes:
 \[
 X_t=\sum_i \alpha_i b_i^t v_i.
 \]
 
 If
 \[
-|b_i|<1,
+\left|b_i\right|<1,
 \]
 mode dies out $\Rightarrow$ stable.
 
 If
 \[
-|b_i|>1,
+\left|b_i\right|>1,
 \]
 mode blows up $\Rightarrow$ unstable / explosive.
 
 \[
 \text{A convergent equilibrium path must impose: }
 \alpha_i=0
-\quad\text{for every } |b_i|>1,
+\quad\text{for every } \left|b_i\right|>1,
 \]
 which is a set of restrictions, one restriction per unstable root.
 
 Now partition variables into
 \[
-\{\text{predetermined states } s_t \ (\text{given } s_0)\ \text{with dimension } n_s,
+\left\{\text{predetermined states } s_t \ \left(\text{given } s_0\right)\ \text{with dimension } n_s,\right.
 \]
 \[
-\text{jump variables } j_t \ (\text{free } j_0)\ \text{with dimension } n_j\}.
+\left.\text{jump variables } j_t \ \left(\text{free } j_0\right)\ \text{with dimension } n_j\right\}.
 \]
 
 \[
-X_t=(s_t,j_t).
+X_t=\left(s_t,j_t\right).
 \]
 
 Initial conditions pin down $s_0$, but can choose $j_0$.
@@ -1190,19 +1190,19 @@ n_\ell=n_s.
 
 \subsection{Determinacy}
 \[
-n_\ell=n_s \quad (n_u=n_j):
+n_\ell=n_s \quad \left(n_u=n_j\right):
 \]
 jump variables jump to land on saddle path.
 
 \subsection{No convergent equilibrium}
 \[
-n_\ell<n_s \quad (n_u>n_j):
+n_\ell<n_s \quad \left(n_u>n_j\right):
 \]
 too many unstable modes to eliminate, but too few jump variables to adjust.
 
 \subsection{Indeterminacy}
 \[
-n_\ell>n_s \quad (n_u<n_j):
+n_\ell>n_s \quad \left(n_u<n_j\right):
 \]
 more jump freedom needed to kill unstable modes (multiple equilibria)
 

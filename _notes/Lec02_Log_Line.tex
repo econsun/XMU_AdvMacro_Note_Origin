@@ -25,12 +25,12 @@ Taylor expansion of order $k$ of function $f$ around $a$ is to derive the best a
 
 Suppose $f$ is $n+1$ times differentiable in an interval \textcolor{red}{around $a$}
 \[
-x\in(a-\varepsilon,\,a+\varepsilon),
+x\in\left(a-\varepsilon,\,a+\varepsilon\right),
 \]
 then
 \[
-f(x)=f(a)+\sum_{i=1}^{n}\frac{f^{(i)}(a)}{i!}(x-a)^i
-+\underbrace{o\bigl((x-a)^n\bigr)}_{\text{Peano remainder terms.}}.
+f\left(x\right)=f\left(a\right)+\sum_{i=1}^{n}\frac{f^{\left(i\right)}\left(a\right)}{i!}\left(x-a\right)^i
++\underbrace{o\left(\left(x-a\right)^n\right)}_{\text{Peano remainder terms.}}.
 \]
 
 
@@ -38,47 +38,47 @@ eg:
 
 \[
 \text{1st order:}\qquad
-f(x)\approx f(a)+\frac{f'(a)}{1!}(x-a)^1
-= f(a)+f'(a)(x-a)
+f\left(x\right)\approx f\left(a\right)+\frac{f'\left(a\right)}{1!}\left(x-a\right)^1
+= f\left(a\right)+f'\left(a\right)\left(x-a\right)
 \]
 
 \[
 \text{2nd order:}\qquad
-f(x)\approx f(a)+\frac{f'(a)}{1!}(x-a)^1+\frac{f''(a)}{2!}(x-a)^2
-= f(a)+f'(a)(x-a)+\frac{f''(a)}{2}(x-a)^2
+f\left(x\right)\approx f\left(a\right)+\frac{f'\left(a\right)}{1!}\left(x-a\right)^1+\frac{f''\left(a\right)}{2!}\left(x-a\right)^2
+= f\left(a\right)+f'\left(a\right)\left(x-a\right)+\frac{f''\left(a\right)}{2}\left(x-a\right)^2
 \]
 
 \section{Taylor expansion on two dimensions}
 
-Suppose $f$ is second-order continuous $(C^2)$ in a circle around $(x_0,y_0)$ that contains $(x_0+h,y_0+k)$.
+Suppose $f$ is second-order continuous $\left(C^2\right)$ in a circle around $\left(x_0,y_0\right)$ that contains $\left(x_0+h,y_0+k\right)$.
 
-\textcolor{red}{For a small move $(h,k)$ around $(x_0,y_0)$, how to approximate changes in $f$.}
+\textcolor{red}{For a small move $\left(h,k\right)$ around $\left(x_0,y_0\right)$, how to approximate changes in $f$.}
 
 \[
-f(x_0+h,y_0+k)
+f\left(x_0+h,y_0+k\right)
 =
-f(x_0,y_0)
+f\left(x_0,y_0\right)
 +
-\textcolor{red}{\Bigl[f_1(x_0,y_0)h+f_2(x_0,y_0)k\Bigr]}
+\textcolor{red}{\left[f_1\left(x_0,y_0\right)h+f_2\left(x_0,y_0\right)k\right]}
 +
 \frac{1}{2}
-\textcolor{red}{\Bigl[f_{11}(x,y)h^2+2f_{12}(x,y)hk+f_{22}(x,y)k^2\Bigr]}
+\textcolor{red}{\left[f_{11}\left(x,y\right)h^2+2f_{12}\left(x,y\right)hk+f_{22}\left(x,y\right)k^2\right]}
 \]
 
 where
 \[
-(x,y)=(x_0+ch,y_0+ck)\qquad \text{for some } c\in(0,1).
+\left(x,y\right)=\left(x_0+ch,y_0+ck\right)\qquad \text{for some } c\in\left(0,1\right).
 \]
 
 \textcolor{red}{A vector format:}
 \[
 \textcolor{red}{
-f(z_0+\Delta)=f(z_0)+\nabla f(z_0)^T\Delta+\frac{1}{2}\Delta^T H_f(z_0+c\Delta)\Delta
+f\left(z_0+\Delta\right)=f\left(z_0\right)+\nabla f\left(z_0\right)^T\Delta+\frac{1}{2}\Delta^T H_f\left(z_0+c\Delta\right)\Delta
 }
 \]
 \[
 \textcolor{red}{
-\text{where } z_0=(x_0,y_0),\qquad \Delta=(h,k)
+\text{where } z_0=\left(x_0,y_0\right),\qquad \Delta=\left(h,k\right)
 }
 \]
 
@@ -94,9 +94,9 @@ f(z_0+\Delta)=f(z_0)+\nabla f(z_0)^T\Delta+\frac{1}{2}\Delta^T H_f(z_0+c\Delta)\
 
 Since $\ Y_t \to 0$ when $\ Y_t$ is sufficiently small, we have
 \[
-e^{\ Y_t}=e^0+e^0(\ Y_t-0)=1+\ Y_t
+e^{\ Y_t}=e^0+e^0\left(\ Y_t-0\right)=1+\ Y_t
 \qquad \Rightarrow \qquad
-\ Y_t\approx \log(1+\ Y_t).
+\ Y_t\approx \log\left(1+\ Y_t\right).
 \]
 
 \[
@@ -114,18 +114,18 @@ e^{\ Y_t}=e^0+e^0(\ Y_t-0)=1+\ Y_t
 \newpage
 
 \[
-X_t=\bar X\left(\frac{X_t}{\bar X}\right)=\bar X e^{\log(X_t/\bar X)}=\bar X e^{\hat x_t}
+X_t=\bar X\left(\frac{X_t}{\bar X}\right)=\bar X e^{\log\left(X_t/\bar X\right)}=\bar X e^{\hat x_t}
 \]
 
 Taking first-order Taylor approximation:
 \[
 \bar X e^{\hat x_t}
 \approx
-\bar X e^0+\bar X e^0(\hat x_t-0)
+\bar X e^0+\bar X e^0\left(\hat x_t-0\right)
 =
 \bar X+\bar X\hat x_t
 =
-(1+\hat x_t)\bar X
+\left(1+\hat x_t\right)\bar X
 \]
 
 \[
@@ -144,9 +144,9 @@ Y_t=aX_t
 \]
 
 \[
-X_t\approx \bar X(1+\hat x_t)
+X_t\approx \bar X\left(1+\hat x_t\right)
 \qquad \Rightarrow \qquad
-Y_t\approx a\bar X(1+\hat x_t)=a\bar X+a\bar X\hat x_t
+Y_t\approx a\bar X\left(1+\hat x_t\right)=a\bar X+a\bar X\hat x_t
 \]
 
 Since
@@ -172,19 +172,19 @@ Z_t=X_tY_t
 \]
 
 \[
-X_t\approx \bar X(1+\hat x_t), \qquad Y_t\approx \bar Y(1+\hat y_t)
+X_t\approx \bar X\left(1+\hat x_t\right), \qquad Y_t\approx \bar Y\left(1+\hat y_t\right)
 \]
 
 \[
 \Rightarrow\quad
-Z_t\approx \bar X\bar Y(1+\hat x_t)(1+\hat y_t)
+Z_t\approx \bar X\bar Y\left(1+\hat x_t\right)\left(1+\hat y_t\right)
 =
-\bar X\bar Y\Bigl(1+\hat x_t+\hat y_t+\underbrace{\textcolor{red}{\hat x_t\hat y_t}}_{\textcolor{red}{\approx 0}}\Bigr)
+\bar X\bar Y\left(1+\hat x_t+\hat y_t+\underbrace{\textcolor{red}{\hat x_t\hat y_t}}_{\textcolor{red}{\approx 0}}\right)
 \]
 
 So
 \[
-Z_t\approx \bar X\bar Y(1+\hat x_t+\hat y_t).
+Z_t\approx \bar X\bar Y\left(1+\hat x_t+\hat y_t\right).
 \]
 
 Since
@@ -195,7 +195,7 @@ Z_t=X_tY_t,\ \forall t
 \]
 we get
 \[
-Z_t\approx \bar Z+\bar Z(\hat x_t+\hat y_t)
+Z_t\approx \bar Z+\bar Z\left(\hat x_t+\hat y_t\right)
 \qquad \Rightarrow \qquad
 Z_t\approx \bar Z+\bar Z\hat z_t
 \]
@@ -214,9 +214,9 @@ X_tY_t=C
 
 By (2),
 \[
-X_tY_t\approx \bar X\bar Y(1+\hat x_t+\hat y_t)
+X_tY_t\approx \bar X\bar Y\left(1+\hat x_t+\hat y_t\right)
 \qquad \Rightarrow \qquad
-C\approx C(1+\hat x_t+\hat y_t)
+C\approx C\left(1+\hat x_t+\hat y_t\right)
 \]
 so
 \[
@@ -233,29 +233,29 @@ so
 \[
 \frac{X_t}{Y_t}
 \approx
-\frac{\bar X(1+\hat x_t)}{\bar Y(1+\hat y_t)}
+\frac{\bar X\left(1+\hat x_t\right)}{\bar Y\left(1+\hat y_t\right)}
 \]
 
 Use
 \[
-(1+\hat y_t)(1-\hat y_t)=1+\hat y_t-\hat y_t-\hat y_t\hat y_t
+\left(1+\hat y_t\right)\left(1-\hat y_t\right)=1+\hat y_t-\hat y_t-\hat y_t\hat y_t
 \qquad \Rightarrow \qquad
-\frac{1}{1+\hat y_t}\approx (1-\hat y_t).
+\frac{1}{1+\hat y_t}\approx \left(1-\hat y_t\right).
 \]
 
 Therefore
 \[
 \frac{X_t}{Y_t}
 =
-\frac{\bar X}{\bar Y}(1+\hat x_t)(1-\hat y_t)
+\frac{\bar X}{\bar Y}\left(1+\hat x_t\right)\left(1-\hat y_t\right)
 \approx
-\frac{\bar X}{\bar Y}\bigl(1+\hat x_t-\hat y_t-\textcolor{red}{\hat x_t\hat y_t}\bigr)
+\frac{\bar X}{\bar Y}\left(1+\hat x_t-\hat y_t-\textcolor{red}{\hat x_t\hat y_t}\right)
 \]
 
 
 So
 \[
-\frac{X_t}{Y_t}\approx \frac{\bar X}{\bar Y}(1+\hat x_t-\hat y_t).
+\frac{X_t}{Y_t}\approx \frac{\bar X}{\bar Y}\left(1+\hat x_t-\hat y_t\right).
 \]
 
 Since
@@ -264,7 +264,7 @@ Since
 \]
 we have
 \[
-C=C(1+\hat x_t-\hat y_t)
+C=C\left(1+\hat x_t-\hat y_t\right)
 \qquad \Rightarrow \qquad
 \hat x_t-\hat y_t=0.
 \]
@@ -277,7 +277,7 @@ X_t+Y_t=C
 \]
 
 \[
-X_t+Y_t\approx \bar X(1+\hat x_t)+\bar Y(1+\hat y_t)
+X_t+Y_t\approx \bar X\left(1+\hat x_t\right)+\bar Y\left(1+\hat y_t\right)
 =\bar X+\bar Y+\bar X\hat x_t+\bar Y\hat y_t
 \]
 hence
@@ -287,41 +287,41 @@ hence
 
 \subsection{Budget constraint}
 \[
-C_t+K_t=Y_t+(1-\delta)K_{t-1}
+C_t+K_t=Y_t+\left(1-\delta\right)K_{t-1}
 \qquad \Rightarrow \qquad
-\bar C+\bar K=\bar Y+(1-\delta)\bar K
+\bar C+\bar K=\bar Y+\left(1-\delta\right)\bar K
 \]
 
 \[
-C_t\approx \bar C(1+\hat c_t),\qquad
-K_t\approx \bar K(1+\hat k_t),\qquad
-Y_t\approx \bar Y(1+\hat y_t),\qquad
-K_{t-1}\approx \bar K(1+\hat k_{t-1})
+C_t\approx \bar C\left(1+\hat c_t\right),\qquad
+K_t\approx \bar K\left(1+\hat k_t\right),\qquad
+Y_t\approx \bar Y\left(1+\hat y_t\right),\qquad
+K_{t-1}\approx \bar K\left(1+\hat k_{t-1}\right)
 \]
 
 \[
 \Rightarrow\quad
-\bar C(1+\hat c_t)+\bar K(1+\hat k_t)
+\bar C\left(1+\hat c_t\right)+\bar K\left(1+\hat k_t\right)
 =
-\bar Y(1+\hat y_t)+(1-\delta)\bar K(1+\hat k_{t-1})
+\bar Y\left(1+\hat y_t\right)+\left(1-\delta\right)\bar K\left(1+\hat k_{t-1}\right)
 \]
 
 \[
 \Rightarrow\quad
 \bar C+\bar C\hat c_t+\bar K+\bar K\hat k_t
 =
-\bar Y+\bar Y\hat y_t+(1-\delta)\bar K+(1-\delta)\bar K\hat k_{t-1}
+\bar Y+\bar Y\hat y_t+\left(1-\delta\right)\bar K+\left(1-\delta\right)\bar K\hat k_{t-1}
 \]
 
 Using
 \[
-\bar C+\bar K=\bar Y+(1-\delta)\bar K,
+\bar C+\bar K=\bar Y+\left(1-\delta\right)\bar K,
 \]
 we obtain
 \[
 \bar C\hat c_t+\bar K\hat k_t
 =
-\bar Y\hat y_t+(1-\delta)\bar K\hat k_{t-1}.
+\bar Y\hat y_t+\left(1-\delta\right)\bar K\hat k_{t-1}.
 \]
 
 \subsection{Utility FOC}
@@ -371,23 +371,23 @@ Y_t=A_t K_t^\alpha N_t^{1-\alpha}
 \]
 
 \[
-\log Y_t=\log A_t+\alpha \log K_t+(1-\alpha)\log N_t
+\log Y_t=\log A_t+\alpha \log K_t+\left(1-\alpha\right)\log N_t
 \]
 \[
-\log \bar Y=\log \bar A+\alpha \log \bar K+(1-\alpha)\log \bar N
+\log \bar Y=\log \bar A+\alpha \log \bar K+\left(1-\alpha\right)\log \bar N
 \]
 
 Subtract:
 \[
 \log Y_t-\log \bar Y
 =
-(\log A_t-\log \bar A)
-+\alpha(\log K_t-\log \bar K)
-+(1-\alpha)(\log N_t-\log \bar N)
+\left(\log A_t-\log \bar A\right)
++\alpha\left(\log K_t-\log \bar K\right)
++\left(1-\alpha\right)\left(\log N_t-\log \bar N\right)
 \]
 hence
 \[
-\hat y_t=\hat a_t+\alpha \hat k_t+(1-\alpha)\hat n_t.
+\hat y_t=\hat a_t+\alpha \hat k_t+\left(1-\alpha\right)\hat n_t.
 \]
 
 
@@ -415,69 +415,69 @@ s_c\hat c_t+s_i\hat i_t+s_g\hat g_t.
 
 \subsection{Capital law of motion}
 \[
-K_{t+1}=(1-\delta)K_t+I_t
+K_{t+1}=\left(1-\delta\right)K_t+I_t
 \qquad \Rightarrow \qquad
-\bar K=(1-\delta)\bar K+\bar I
+\bar K=\left(1-\delta\right)\bar K+\bar I
 \]
 
 \[
 \Rightarrow\quad
-\bar K(1+\hat k_{t+1})
+\bar K\left(1+\hat k_{t+1}\right)
 =
-(1-\delta)\bar K(1+\hat k_t)+\bar I(1+\hat i_t)
+\left(1-\delta\right)\bar K\left(1+\hat k_t\right)+\bar I\left(1+\hat i_t\right)
 \]
 
 \[
 \Rightarrow\quad
 \bar K+\bar K\hat k_{t+1}
 =
-(1-\delta)\bar K+(1-\delta)\bar K\hat k_t+\bar I+\bar I\hat i_t
+\left(1-\delta\right)\bar K+\left(1-\delta\right)\bar K\hat k_t+\bar I+\bar I\hat i_t
 \]
 
 Using
 \[
-\bar K=(1-\delta)\bar K+\bar I,
+\bar K=\left(1-\delta\right)\bar K+\bar I,
 \]
 we get
 \[
-\bar K\hat k_{t+1}=(1-\delta)\bar K\hat k_t+\bar I\hat i_t.
+\bar K\hat k_{t+1}=\left(1-\delta\right)\bar K\hat k_t+\bar I\hat i_t.
 \]
 
 Thus
 \[
 \hat k_{t+1}
 =
-(1-\delta)\hat k_t+\frac{\bar I}{\bar K}\hat i_t.
+\left(1-\delta\right)\hat k_t+\frac{\bar I}{\bar K}\hat i_t.
 \]
 
 Since
 \[
-\bar K=(1-\delta)\bar K+\bar I
+\bar K=\left(1-\delta\right)\bar K+\bar I
 \qquad \Rightarrow \qquad
 \frac{\bar I}{\bar K}=\delta,
 \]
 we obtain
 \[
-\hat k_{t+1}=(1-\delta)\hat k_t+\delta \hat i_t.
+\hat k_{t+1}=\left(1-\delta\right)\hat k_t+\delta \hat i_t.
 \]
 
 \subsection{Euler equation}
 \[
-U'(C_t)=\beta E_t\bigl[U'(C_{t+1})R_{t+1}\bigr]
+U'\left(C_t\right)=\beta E_t\left[U'\left(C_{t+1}\right)R_{t+1}\right]
 \]
 
 use CRRA utility:
 \[
-U(C_t)=\frac{C_t^{1-\sigma}}{1-\sigma}
+U\left(C_t\right)=\frac{C_t^{1-\sigma}}{1-\sigma}
 \qquad \Rightarrow \qquad
-U'(C_t)=C_t^{-\sigma}
+U'\left(C_t\right)=C_t^{-\sigma}
 \]
 
 So
 \[
 C_t^{-\sigma}
 =
-\beta E_t\bigl[C_{t+1}^{-\sigma}R_{t+1}\bigr].
+\beta E_t\left[C_{t+1}^{-\sigma}R_{t+1}\right].
 \]
 
 At steady state:
@@ -507,64 +507,64 @@ Then
 
 First-order approximation:
 $$
-\bar C^{-\sigma}(1-\sigma \hat c_t)
+\bar C^{-\sigma}\left(1-\sigma \hat c_t\right)
 =
-\beta E_t\left[\bar C^{-\sigma}\bar R (1-\sigma \hat c_{t+1})(1+\hat r_{t+1})\right]
+\beta E_t\left[\bar C^{-\sigma}\bar R \left(1-\sigma \hat c_{t+1}\right)\left(1+\hat r_{t+1}\right)\right]
 $$
 
 $$
 =
 \beta E_t\left[\bar C^{-\sigma}\bar R
-\Bigl(1+\hat r_{t+1}-\sigma \hat c_{t+1}
+\left(1+\hat r_{t+1}-\sigma \hat c_{t+1}
 -\underbrace{\textcolor{red}{\sigma \hat c_{t+1}\hat r_{t+1}}}_{\color{red}\approx 0}
-\Bigr)\right]
+\right)\right]
 $$
 
 Using $1=\beta \bar R$:
 \[
 1-\sigma \hat c_t
 =
-1+E_t(-\sigma \hat c_{t+1}+\hat r_{t+1}).
+1+E_t\left(-\sigma \hat c_{t+1}+\hat r_{t+1}\right).
 \]
 
 Hence
 \[
 -\sigma \hat c_t
 =
-E_t(-\sigma \hat c_{t+1}+\hat r_{t+1})
+E_t\left(-\sigma \hat c_{t+1}+\hat r_{t+1}\right)
 \]
 so
 \[
 \hat c_t
 =
-E_t(\hat c_{t+1})
--\frac{1}{\sigma}E_t(\hat r_{t+1}).
+E_t\left(\hat c_{t+1}\right)
+-\frac{1}{\sigma}E_t\left(\hat r_{t+1}\right).
 \]
 
 \section{Log linearization cheat sheet for economics}
 \[
 \renewcommand{\arraystretch}{1.8}
 \begin{array}{ll}
-\textcolor{red}{(1)\ XY:\quad \hat x+\hat y}
+\textcolor{red}{\left(1\right)\ XY:\quad \hat x+\hat y}
 &
-\textcolor{red}{(2)\ X/Y:\quad \hat x-\hat y}
+\textcolor{red}{\left(2\right)\ X/Y:\quad \hat x-\hat y}
 \\
-\textcolor{red}{(3)\ X^\alpha:\quad \alpha \hat x}
+\textcolor{red}{\left(3\right)\ X^\alpha:\quad \alpha \hat x}
 &
-\textcolor{red}{(4)\ \prod_i X_i^{\alpha_i}:\quad \sum_i \alpha_i \hat x_i}
+\textcolor{red}{\left(4\right)\ \prod_i X_i^{\alpha_i}:\quad \sum_i \alpha_i \hat x_i}
 \\
-\textcolor{red}{(5)\ \sum_i X_i:\quad \sum_i \dfrac{\bar X_i}{\sum_j \bar X_j}\hat x_i}
+\textcolor{red}{\left(5\right)\ \sum_i X_i:\quad \sum_i \dfrac{\bar X_i}{\sum_j \bar X_j}\hat x_i}
 &
-\textcolor{red}{(6)\ K'=(1-\delta)K+I:\quad \hat k'=(1-\delta)\hat k+\delta \hat i}
+\textcolor{red}{\left(6\right)\ K'=\left(1-\delta\right)K+I:\quad \hat k'=\left(1-\delta\right)\hat k+\delta \hat i}
 \\
-\textcolor{red}{(7)\ \pi_t=\dfrac{P_t}{P_{t-1}}:\quad \hat \pi_t=\hat p_t-\hat p_{t-1}}
+\textcolor{red}{\left(7\right)\ \pi_t=\dfrac{P_t}{P_{t-1}}:\quad \hat \pi_t=\hat p_t-\hat p_{t-1}}
 &
-\textcolor{red}{(8)\ \text{CRRA MU}:\quad \widehat{u'(c)}=-\sigma \hat c}
+\textcolor{red}{\left(8\right)\ \text{CRRA MU}:\quad \widehat{u'\left(c\right)}=-\sigma \hat c}
 \end{array}
 \]
 
 \[
-\textcolor{red}{(9)\ \text{CES index } X=\left[\sum_i w_i X_i^\rho\right]^{1/\rho}:\quad \hat x=\sum_i s_i \hat x_i}
+\textcolor{red}{\left(9\right)\ \text{CES index } X=\left[\sum_i w_i X_i^\rho\right]^{1/\rho}:\quad \hat x=\sum_i s_i \hat x_i}
 \]
 
 \[
